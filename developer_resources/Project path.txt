@@ -1,0 +1,30 @@
+I. Scope:
+ - to make the task of managing patients simpler
+     - a way of storing relevant information of the patient (notes written inside the app, photos of the patient etc.)
+     - a place to photograph and store the patient's file for easier online access
+
+ - to have a lit of tasks to be done so nothing is forgot
+     - task can be noted in the order of importance
+     - tasks can have due dates
+    
+     - we can store information alongside any task (written notes, photos, small videos)
+
+
+
+II. Programming & functionality features
+    - simply frictionless (verifies log in automatically, when creating something, all the options have defaults, so you can easily create it if, f.e., you wan a simple to do entry)
+    - Panoramic/all-encompassing viewing (all encompasing view depending obn what you open; for example, if you open a patient to see it's files/photos, you also see the to do list associated with that patient)
+
+    - Memory: If you were doing anythnig and closed the app, it stores its view and what you were doing and when you re-open it, it re-opens that view and completes your to do, for example    
+    - A lot of settings;
+    
+
+III. Map of the application:
+
+    - the index page logs you in (it verifies if you have already logged in; if not, it requests you to log in)
+    - 
+
+
+IV. Account settings
+    - default view (patient view or to do list)
+    - 
