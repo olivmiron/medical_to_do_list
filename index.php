@@ -19,6 +19,7 @@
 
         <?php if(!$_SESSION["logged_in"]) { ?>
             <script src="https://apis.google.com/js/platform.js" async defer></script>
+            <meta name="google-signin-client_id" content="64629051096-v5i6qsdt1mccdd8qimne5v1496o839tj.apps.googleusercontent.com">
         <?php } ?>
     </head>
     <body>
@@ -26,5 +27,8 @@
         Mironescu Olivier
         <br/>
         <?php echo var_export($_SESSION["logged_in"]); ?>
+        <?php if($_SESSION["logged_in"]) { ?>
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <?php } ?>
     </body>
 </html>
