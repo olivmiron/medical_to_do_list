@@ -1,5 +1,5 @@
 <?php if(!$_SESSION["logged_in"]) { ?>
-    <div id="sign_in_square">
+    <div id="sign_in_square" class="floating_box">
         <script src="https://accounts.google.com/gsi/client" async defer></script>
         <span>You are not signed in</span>
         
