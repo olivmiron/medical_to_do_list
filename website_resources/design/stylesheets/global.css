@@ -43,6 +43,7 @@
 
 
     --z_index_absolute_top: 1000;
+    --z_index_overlay_screens: 500; /* draggable screens that come from the top or bottom of the screen */
     --z_index_top: 100;
 
 
