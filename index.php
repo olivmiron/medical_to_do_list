@@ -25,6 +25,6 @@
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/initial_state_checker.php" ; ?>
         Mironescu Olivier
         <br/>
-        <?php echo (string)$_SESSION["logged_in"]; ?>
+        <?php echo strval($_SESSION["logged_in"]); ?>
     </body>
 </html>
