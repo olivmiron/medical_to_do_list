@@ -30,6 +30,11 @@
     --border_radius_medium: 8px;
     --border_radius_large: 12px;
     --border_infinite_radius: 1000px;
+
+
+    --transition_fast: 0.2s;
+    --transition_medium: 0.4s;
+    --transition_slow: 0.6s;
 }
 
 @font-face {
@@ -49,7 +54,7 @@
 .spacer_xxl {height: var(--spacing_xxl);}
 
 
-.floating_box {border: 1px solid var(--color_light_gray);border-radius: var(--border_radius_medium);padding: var(--spacing_xl);box-shadow: 0px 2px 15px -7px var(--color_dark_gray);position: absolute;left: 50%;top: 51%;transform: translate(-50%, -50%);display: inline-block;text-align: center;}
+.floating_box {border: 1px solid var(--color_light_gray);border-radius: var(--border_radius_medium);padding: var(--spacing_xl);box-shadow: 0px 2px 15px -7px var(--color_dark_gray);position: absolute;left: 50%;top: 51%;transform: translate(-50%, -50%);display: inline-block;text-align: center;transition: var(--transition_fast);}
 .floating_box:hover {box-shadow: 0px 2px 18px -7px var(--color_dark_gray);}
 
 
