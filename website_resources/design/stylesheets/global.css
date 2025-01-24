@@ -1,19 +1,22 @@
 /* root */
 
 :root {
-    --color-primary: #1c80cb;
+    --color_primary: #1c80cb;
 
 
-    --color-success: #33a728;
-    --color-info: #17a2b8;
-    --color-warning: #ffc107;
-    --color-danger: #dc3545;
+    --color_success: #33a728;
+    --color_info: #17a2b8;
+    --color_warning: #ffc107;
+    --color_danger: #dc3545;
     
     
-    --color-light: #f8f9fa;
-    --color-gray: #6c757d;
+    --color_light: #d4d4d4;
+
+    --color_light_gray: #c1c1c1;
+    --color_gray: #6c757d;
+    --color_dark_gray: #4a4c4f;
     
-    --color-dark: #343a40;
+    --color_dark: #343a40;
 
     --nunito_font: 'Nunito', Arial, "Noto Sans";
 
@@ -58,5 +61,5 @@ br {height: 20px;}
 
 
 
-#sign_in_square {display: inline-block;border: 1px solid var(--color-light);border-radius: var(--border_radius_medium);padding: var(--spacing_xl);text-align: center;position: absolute;left: 50%;top: 60%;transform: translate(-50%, -50%);}
+#sign_in_square {display: inline-block;border: 1px solid var(--color_light_gray);border-radius: var(--border_radius_medium);padding: var(--spacing_xl);text-align: center;box-shadow: 0px 2px 15px -7px var(--color_dark_gray);position: absolute;left: 50%;top: 60%;transform: translate(-50%, -50%);}
 #sign_in_square span {font-size: 14px;font-weight: bold;}
