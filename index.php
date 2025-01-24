@@ -25,5 +25,8 @@
         Mironescu Olivier
         <br/>
         <?php echo var_export($_SESSION["logged_in"]); ?>
+
+        
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/components/bottom_bar.php"; ?>
     </body>
 </html>

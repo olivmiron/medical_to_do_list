@@ -49,7 +49,7 @@
     /* element specific */
 
 
-    --top_bar_half_size: 70px;
+    --top_bottom_bar_size: 54px;
 
 
 }
@@ -77,7 +77,7 @@
 
 /* general rules */
 
-body {margin: 0;font-family: var(--nunito_font);}
+body {margin: 0;font-family: var(--nunito_font);margin: var(--top_bottom_bar_size) 0;}
 
 br {height: 20px;}
 
@@ -89,8 +89,33 @@ br {height: 20px;}
 /* top bar */
 
 
-#top_bar {color: white;box-shadow: 10px 0px 15px -10px var(--color_dark_gray);position: fixed;top: 0;left: 0;width: 100%;z-index: var(--z_index_top);border-bottom: 1px solid var(--color_light_gray);padding: var(--spacing_medium);display: flex;justify-content: space-between;align-items: center;height: var(--top_bar_half_size);box-sizing: border-box;}
+.top_bottom_bar {
+    background-color: white;
+    box-shadow: 0px 0px 10px 0px var(--color_light_gray);
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: var(--z_index_top);
 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--top_bottom_bar_size);
+    box-sizing: border-box;
+}
+
+
+#top_bar {  
+    top: 0;  
+    border-bottom: 1px solid var(--color_light_gray);
+    padding: var(--spacing_medium);
+}
+
+#bottom_bar {
+    bottom: 0;
+    border-top: 1px solid var(--color_light_gray);
+}
 
 
 /* sign in square */
