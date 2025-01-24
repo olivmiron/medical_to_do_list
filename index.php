@@ -17,7 +17,7 @@
         <script src="/website_resources/logic/front_end/global.js"></script>
         <script src="/website_resources/logic/front_end/index.js"></script>
 
-        <?php if($_SESSION["logged_in"]) { ?>
+        <?php if(!$_SESSION["logged_in"]) { ?>
             <script src="https://apis.google.com/js/platform.js" async defer></script>
         <?php } ?>
     </head>
