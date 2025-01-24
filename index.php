@@ -27,7 +27,7 @@
             <div id="g_id_onload"
                 data-client_id="64629051096-v5i6qsdt1mccdd8qimne5v1496o839tj.apps.googleusercontent.com"
                 data-ux_mode="redirect"
-                data-login_uri="<?php echo $_SERVER['DOCUMENT_ROOT'];?>">
+                data-login_uri="<?php echo $_SERVER['SERVER_NAME'];?>">
             </div>
             <div class="g_id_signin" data-type="standard"></div>
         <?php } ?>
