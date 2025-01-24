@@ -88,9 +88,8 @@ br {height: 20px;}
 
 /* top bar */
 
-#top_bar {background-color: var(--color_primary);color: white;padding: var(--spacing_medium);display: flex;justify-content: space-between;align-items: center; box-shadow: 10px 0px 15px -10px var(--color_dark_gray);position: fixed;top: 0;left: 0;width: 100%;z-index: var(--z_index_top);border-bottom: 1px solid var(--color_light_gray);}
-#top_bar_top {background-color: var(--color_primary);color: white;padding: var(--spacing_medium);display: flex;justify-content: space-between;align-items: center; height: var(--top_bar_half_size);}
-#top_bar_bottom {background-color: var(--color_primary);color: white;padding: var(--spacing_medium);display: flex;justify-content: space-between;align-items: center; var(--top_bar_half_size);}
+
+#top_bar {color: white;box-shadow: 10px 0px 15px -10px var(--color_dark_gray);position: fixed;top: 0;left: 0;width: 100%;z-index: var(--z_index_top);border-bottom: 1px solid var(--color_light_gray);padding: var(--spacing_medium);display: flex;justify-content: space-between;align-items: center;height: var(--top_bar_half_size);box-sizing: border-box;}
 
 
 
