@@ -16,9 +16,15 @@
         <!-- logic -->
         <script src="/website_resources/logic/front_end/global.js"></script>
         <script src="/website_resources/logic/front_end/index.js"></script>
+
+        <?php if($_SESSION["logged_in"]) { ?>
+            <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <?php } ?>
     </head>
     <body>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/initial_state_checker.php" ; ?>
         Mironescu Olivier
+        <br/>
+        <?php echo $_SESSION["logged_in"]; ?>
     </body>
 </html>
