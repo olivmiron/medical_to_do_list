@@ -1,6 +1,10 @@
 /* root */
 
 :root {
+
+    /* general */
+
+
     --color_primary: #1c80cb;
 
 
@@ -35,6 +39,19 @@
     --transition_fast: 0.2s;
     --transition_medium: 0.4s;
     --transition_slow: 0.6s;
+
+
+
+    --z_index_absolute_top: 1000;
+    --z_index_top: 100;
+
+
+    /* element specific */
+
+
+    --top_bar_half_size: 70px;
+
+
 }
 
 @font-face {
@@ -54,7 +71,7 @@
 .spacer_xxl {height: var(--spacing_xxl);}
 
 
-.floating_box {border: 1px solid var(--color_light_gray);border-radius: var(--border_radius_medium);padding: var(--spacing_xl);box-shadow: 0px 2px 15px -7px var(--color_dark_gray);position: absolute;left: 50%;top: 51%;transform: translate(-50%, -50%);display: inline-block;text-align: center;transition: var(--transition_fast);}
+.floating_box {border: 1px solid var(--color_light_gray);border-radius: var(--border_radius_medium);padding: var(--spacing_xl);box-shadow: 0px 2px 15px -7px var(--color_dark_gray);position: absolute;left: 50%;top: 51%;transform: translate(-50%, -50%);display: inline-block;text-align: center;transition: var(--transition_fast);z-index: var(--z_index_absolute_top);}
 .floating_box:hover {box-shadow: 0px 2px 18px -7px var(--color_dark_gray);}
 
 
@@ -70,6 +87,10 @@ br {height: 20px;}
 
 
 /* top bar */
+
+#top_bar {background-color: var(--color_primary);color: white;padding: var(--spacing_medium);display: flex;justify-content: space-between;align-items: center; box-shadow: 10px 0px 15px -10px var(--color_dark_gray);position: fixed;top: 0;left: 0;width: 100%;z-index: var(--z_index_top);}
+#top_bar_top {background-color: var(--color_primary);color: white;padding: var(--spacing_medium);display: flex;justify-content: space-between;align-items: center; height: var(--top_bar_half_size);}
+#top_bar_bottom {background-color: var(--color_primary);color: white;padding: var(--spacing_medium);display: flex;justify-content: space-between;align-items: center; var(--top_bar_half_size);}
 
 
 
