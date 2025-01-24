@@ -27,7 +27,7 @@
         Mironescu Olivier
         <br/>
         <?php echo var_export($_SESSION["logged_in"]); ?>
-        <?php if($_SESSION["logged_in"]) { ?>
+        <?php if(!$_SESSION["logged_in"]) { ?>
             <div class="g-signin2" data-onsuccess="onSignIn"></div>
         <?php } ?>
     </body>
