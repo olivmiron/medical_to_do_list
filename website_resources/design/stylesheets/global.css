@@ -87,7 +87,17 @@ br {height: 20px;}
 
 
 
-/* top bar */
+
+
+
+/* sign in square */
+
+#sign_in_square {}
+#sign_in_square span {font-size: 14px;font-weight: bold;}
+
+
+
+/* top and bottom bars */
 
 
 .top_bottom_bar {
@@ -119,7 +129,21 @@ br {height: 20px;}
 }
 
 
-/* sign in square */
 
-#sign_in_square {}
-#sign_in_square span {font-size: 14px;font-weight: bold;}
+
+/* app view screen */
+
+#app_view_screen {
+    position: fixed;
+    top: var(--top_bottom_bar_size);
+    left: 0;
+    right: 0;
+    bottom: var(--top_bottom_bar_size);
+    background-color: white;
+    z-index: 0;
+    overflow-y: auto;
+    padding: var(--spacing_large);
+    box-sizing: border-box;
+}
+
+/* pages */
