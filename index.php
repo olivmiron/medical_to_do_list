@@ -8,7 +8,10 @@
         <link rel="/website_resources/design/stylehseets/global.css"></link>
         <link rel="/website_resources/design/stylehseets/index.css"></link>
 
+        <!-- favicon -->
         <link rel="icon" href="website_resources/design/media/favicon.ico">
+        <!-- mobile friendly resize -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- logic -->
         <script src="/website_resources/logic/front_end/global.js"></script>
