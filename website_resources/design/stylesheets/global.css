@@ -15,6 +15,8 @@
     --spacing_small: 4px;
     --spacing_medium: 8px;
     --spacing_large: 12px;
+    --spacing_xl: 16px;
+    --spacing_xxl: 20px;
 
     --border_radius_small: 4px;
     --border_radius_medium: 8px;
@@ -31,6 +33,15 @@
 
 
 
+
+.spacer_small {height: var(--spacing_small);}
+.spacer_medium {height: var(--spacing_medium);}
+.spacer_large {height: var(--spacing_large);}
+.spacer_xl {height: var(--spacing_xl);}
+.spacer_xxl {height: var(--spacing_xxl);}
+
+
+
 /* general rules */
 
 body {margin: 0;font-family: var(--nunito_font);}
@@ -42,6 +53,5 @@ br {height: 20px;}
 
 
 
-#sign_in_square {border: 1px solid var(--color-secondary);border-radius: var(--border_radius_medium);padding: var(--spacing_small);text-align: center;}
+#sign_in_square {border: 1px solid var(--color-secondary);border-radius: var(--border_radius_medium);padding: var(--spacing_xl);text-align: center;}
 #sign_in_square span {font-size: 14px;font-weight: bold;}
-#sign_in_square br {}
