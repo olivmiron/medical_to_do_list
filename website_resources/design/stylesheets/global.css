@@ -1,6 +1,24 @@
 /* root */
 
+:root {
+    --color-primary: #1c80cb;
+    --color-secondary: #6c757d;
+    --color-success: #33a728;
+    --color-info: #17a2b8;
+    --color-warning: #ffc107;
+    --color-danger: #dc3545;
+    --color-light: #f8f9fa;
+    --color-dark: #343a40;
 
+    --nunito_font: 'Nunito', Arial, "Noto Sans";
+
+    --border_infinite_radius: 1000px;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url("/website_resources/design/media/fonts/Nunito_variable.ttf");
+}
 
 /* design elements */
 
@@ -8,7 +26,7 @@
 
 /* general rules */
 
-
+body {margin: 0;font-family: var(--nunito_font);}
 
 
 /* other big rules */
