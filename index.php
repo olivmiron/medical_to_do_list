@@ -22,13 +22,6 @@
         Mironescu Olivier
         <br/>
         <?php echo var_export($_SESSION["logged_in"]); ?>
-        <?php if(!$_SESSION["logged_in"]) { ?>
-            <script src="https://accounts.google.com/gsi/client" async defer></script>
-            <div id="g_id_onload"
-                data-client_id="64629051096-v5i6qsdt1mccdd8qimne5v1496o839tj.apps.googleusercontent.com"
-                data-callback="handleCredentialResponse">
-            </div>
-            <div class="g_id_signin" data-type="standard"></div>
-        <?php } ?>
+        <?php include $_SERVER["DOCUMENT_ROOT"] . "/website_resources/logic/back_end/core/sign_in_square.php"; ?>
     </body>
 </html>

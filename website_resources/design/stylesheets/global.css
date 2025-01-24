@@ -12,6 +12,13 @@
 
     --nunito_font: 'Nunito', Arial, "Noto Sans";
 
+    --spacing_small: 4px;
+    --spacing_medium: 8px;
+    --spacing_large: 12px;
+
+    --border_radius_small: 4px;
+    --border_radius_medium: 8px;
+    --border_radius_large: 12px;
     --border_infinite_radius: 1000px;
 }
 
@@ -28,9 +35,13 @@
 
 body {margin: 0;font-family: var(--nunito_font);}
 
+br {height: 20px;}
+
 
 /* other big rules */
 
 
 
-
+#sign_in_square {border: 1px solid var(--color-secondary);border-radius: var(--border_radius_medium);padding: var(--spacing_small);text-align: center;}
+#sign_in_square span {font-size: 14px;font-weight: bold;}
+#sign_in_square br {}
