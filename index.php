@@ -5,8 +5,8 @@
     <head>
 
         <!-- design -->
-        <link rel="stylesheet" type="text/css" href="website_resources/design/stylehseets/global.css"></link>
-        <link rel="stylesheet" type="text/css" href="website_resources/design/stylehseets/index.css"></link>
+        <link rel="stylesheet" href="/website_resources/design/stylesheets/global.css"></link>
+        <link rel="stylesheet" href="/website_resources/design/stylesheets/index.css"></link>
 
         <!-- favicon -->
         <link rel="icon" href="website_resources/design/media/favicon.ico">
