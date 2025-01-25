@@ -1,5 +1,4 @@
-<?php if(isset($_SESSION)) {session_start();} ?>
-<?php include $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/initial_state_checker.php"; ?>
+<?php $initial_load = true; require $_SERVER["DOCUMENT_ROOT"] . "/website_resources/logic/back_end/core/global_requirements.php"; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,6 +15,9 @@
         <!-- logic -->
         <script src="/website_resources/logic/front_end/global.js"></script>
         <script src="/website_resources/logic/front_end/index.js"></script>
+        <script>
+            const pages_array = <?php echo $pages_array_for_js; ?>;
+        </script>
     </head>
     <body>        
         <?php include $_SERVER["DOCUMENT_ROOT"] . "/website_resources/logic/back_end/core/sign_in_square.php"; ?>

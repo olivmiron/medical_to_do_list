@@ -1,4 +1,3 @@
-<?php if(isset($_SESSION)) {session_start();} ?>
 <?php
 
     // $_SESSION:   logged_in, user_id, user_email, user_name
