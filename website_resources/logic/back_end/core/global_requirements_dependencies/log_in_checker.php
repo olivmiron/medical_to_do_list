@@ -9,10 +9,14 @@
 
 
 
-    $logged_in = false;
+    // $logged_in = false;
+
+    if(!isset($_SESSION["logged_in"])) {
+        $_SESSION["logged_in"] = false;
+    }
 
 
 
-    if($logged_in) {$_SESSION["logged_in"] = true;}
-    else {$_SESSION["logged_in"] = false;}
+    // if($logged_in) {$_SESSION["logged_in"] = true;}
+    // else {$_SESSION["logged_in"] = false;}
 ?>
