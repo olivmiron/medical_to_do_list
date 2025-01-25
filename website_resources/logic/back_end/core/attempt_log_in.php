@@ -1,5 +1,5 @@
 <?php
-  require_once $_SERVER['DOCUMENT_ROOT'] . "/Composer/vendor/autoload.php";
+  require_once $_SERVER['DOCUMENT_ROOT'] . "../../Composer/vendor/autoload.php";
 
 $client = new Google_Client(['client_id' => 'YOUR_GOOGLE_CLIENT_ID']);
 $id_token = json_decode(file_get_contents('php://input'), true)['id_token'];
