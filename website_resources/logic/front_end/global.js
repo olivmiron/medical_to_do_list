@@ -26,7 +26,7 @@ function handleCredentialResponse(response) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            window.location.reload();
+            // window.location.reload();
         } else {
             console.error('Login failed:', data.message);
         }
