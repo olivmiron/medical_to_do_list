@@ -14,6 +14,30 @@ function update_url_page_param(utl_param, value) {
 
 
 
+function handleCredentialResponse(response) {
+    const data = { id_token: response.credential };
+    fetch('/website_resources/logic/back_end/core/attempt_log_in.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            window.location.reload();
+        } else {
+            console.error('Login failed:', data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+
+
 // top_bar functions
 
 

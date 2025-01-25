@@ -11,4 +11,6 @@
         </div>
         <div class="g_id_signin" data-type="standard"></div>
     </div>
+    <script>
+    </script>
 <?php } ?>
