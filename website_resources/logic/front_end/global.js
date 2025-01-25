@@ -27,6 +27,8 @@ function handleCredentialResponse(response) {
     .then(data => {
         if (data.success) {
             // window.location.reload();
+
+            document.getElementById("sign_in_square").innerHTML = "<span>Successfully logged in</span><div class=\"spacer_xl\"></div><span>" + data.user_name + "</span>";
         } else {
             console.error('Login failed:', data.message);
         }
