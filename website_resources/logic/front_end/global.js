@@ -25,7 +25,7 @@ function handleCredentialResponse(response) {
     })
     .then(response => response.json())
     .then(data => {
-        if (data.success) {
+        if (data.status == "success") {
             // window.location.reload();
 
             document.getElementById("sign_in_square").innerHTML = "<span>Successfully logged in</span><div class=\"spacer_xl\"></div><span>" + data.user_name + "</span>";
