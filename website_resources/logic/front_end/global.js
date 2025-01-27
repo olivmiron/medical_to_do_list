@@ -148,9 +148,9 @@ function drag(e) {
     
     const currentY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
     const diff = currentY - startY;
-    const newTop = startTop - diff;
+    const newHeight = startHeight - diff;
     
-    sheet.style.top = `${newTop}px`;
+    sheet.style.height = `${newHeight}px`;
 }
 
 function stopDragging() {
