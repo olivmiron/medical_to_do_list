@@ -98,5 +98,13 @@ function open_bottom_sheet() {
     var bottom_sheet = document.getElementById("bottom_drag_sheet_container");
     bottom_sheet.classList.add("bottom_drag_sheet_active");
 
-    console.log(window.getComputedStyle(bottom_sheet.querySelector("#bottom_drag_sheet_underlay")).getPropertyValue('transition-duration'));
+    console.log(
+        parseFloat(
+            window.getComputedStyle(
+                bottom_sheet.querySelector("#bottom_drag_sheet_underlay")
+            ).getPropertyValue('transition-duration').replace('s','')
+        )
+        * 1000
+        * 1.1
+    );
 }
