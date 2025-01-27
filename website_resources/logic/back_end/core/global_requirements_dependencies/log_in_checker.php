@@ -11,6 +11,7 @@
         $log_in_cookie = unserialize($_COOKIE["log_in_cookie"]);
         $user_id = $log_in_cookie["user_id"];
         $user_token = $log_in_cookie["user_token"];
+        echo "user_id: " . $user_id . " user_token: " . $user_token;
 
         $stmt_verify = $conn->prepare("SELECT * FROM accounts WHERE id = ?");
         $stmt_verify->bind_param("i", $user_id);
