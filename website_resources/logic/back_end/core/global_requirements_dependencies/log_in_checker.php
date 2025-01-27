@@ -18,6 +18,8 @@
         $stmt_verify->execute();
         $result = $stmt_verify->get_result();
         $sql_row = $result->fetch_assoc();
+        // this stmt doesn't work, please get me the error message
+        echo "error message: " . $conn->error;
         
         var_dump($sql_row);
 
