@@ -13,7 +13,7 @@
         $user_token = $log_in_cookie["user_token"];
 
         $stmt_verify = $conn->prepare("SELECT * FROM accounts WHERE id = ?");
-        $stmt_verify->bind_param("is", $user_id, $user_token);
+        $stmt_verify->bind_param("i", $user_id);
         $stmt_verify->execute();
         $result = $stmt_verify->get_result();
         $sql_row = $result->fetch_assoc();
