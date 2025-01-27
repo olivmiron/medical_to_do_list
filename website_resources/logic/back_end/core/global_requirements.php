@@ -17,23 +17,13 @@ $pages_uris = [
 
 if($initial_load) {
     require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/global_requirements_dependencies/log_in_checker.php";
-}
 
-// initial page view
-if($initial_load) {$get_initial_page = true;}
+    $get_initial_page = true;
+}
 else {$get_initial_page = false;}
 
-// if(isset($initial_load)){
-//     if($initial_load == true) {
-//         $get_initial_page = true;
-//     }
-//     else {
-//         $get_initial_page = false;
-//     }
-// }
-// else {
-//     $get_initial_page = false;
-// }
+// initial page view
+
 
 if($get_initial_page) {
 
