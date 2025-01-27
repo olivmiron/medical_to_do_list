@@ -4,10 +4,10 @@
 
     
     <div class="bottom_sheet_title"><span>Title</span></div>
-    <input id="add_to_do_title" type="text"></input>
+    <input id="add_to_do_sub_title" type="text"></input>
     
     <div class="spacer_medium"></div>
     
-    <div class="bottom_sheet_title"><span>Description / details</span></div>
+    <div class="bottom_sheet_sub_title"><span>Description / details</span></div>
     <textarea id="add_to_do_description"></textarea>
 </div>
