@@ -59,6 +59,9 @@ if(mysqli_num_rows($result) < 1) {
 else {
     // check last_updated_date
     // if later than one week, change name and re-download picture
+
+    $update_last_updated = false;
+
     if (strtotime($sql_row["date_updated"]) < strtotime('-1 week')) {
 
     // change name and last updated date
@@ -72,14 +75,15 @@ else {
     $imageData = file_get_contents($google_client_user["picture_url"]);
     file_put_contents($_SERVER['DOCUMENT_ROOT'] . "/content_resources/user_pictures/" . $sql_row["id"] . ".png", $imageData);
 
+        $update_last_updated = true;
+
+    }
 
     // update random token
 
-    $stmt_verify = $conn->prepare("UPDATE accounts SET user_tokens = CONCAT(user_tokens, ', ', ?) AND last_updated = NOW() WHERE email = ?");
+    $stmt_verify = $conn->prepare("UPDATE accounts SET user_tokens = CONCAT(user_tokens, ', ', ?) " . ($update_last_updated ? "AND last_updated = NOW()" : "") . " WHERE email = ?");
     $stmt_verify->bind_param("ss", $new_token, $google_client_user["user_email"]);
     $stmt_verify->execute();
-
-    }
 
 }
 
