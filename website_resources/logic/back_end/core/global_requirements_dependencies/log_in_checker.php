@@ -32,9 +32,8 @@
 
         $new_token = (string) bin2hex(random_bytes(20));
 
-        $old_token = $user_token;
         $tokens_array = explode(",", $sql_row["user_tokens"]);
-        $tokens_array[array_search($old_token, $tokens_array)] = $new_token;
+        $tokens_array[array_search($user_token, $tokens_array)] = $new_token;
         $updated_tokens = implode(",", $tokens_array);
 
         $stmt_update = $conn->prepare("UPDATE accounts SET user_tokens = ? WHERE id = ?");

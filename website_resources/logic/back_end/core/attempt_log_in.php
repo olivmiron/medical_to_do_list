@@ -45,7 +45,6 @@ $sql_row = $result->fetch_assoc();
 if(mysqli_num_rows($result) < 1) {
     // account not found
     $stmt_create = $conn->prepare("INSERT INTO accounts (name, email, user_tokens, date_created, date_updated) VALUES (?, ?, ?, NOW(), NOW())");
-    $empty_tokens = "";
     $stmt_create->bind_param("sss", $google_client_user["user_name"], $google_client_user["user_email"], $new_token);
     $stmt_create->execute();
 
@@ -66,7 +65,7 @@ else {
 
     // change name and last updated date
     
-    $stmt_verify = $conn->prepare("UPDATE accounts SET name = ? AND last_updated = NOW() WHERE email = ?");
+    $stmt_verify = $conn->prepare("UPDATE accounts SET name = ?, date_updated = NOW() WHERE email = ?");
     $stmt_verify->bind_param("ss", $google_client_user["user_name"], $google_client_user["user_email"]);
     $stmt_verify->execute();
 
@@ -81,7 +80,7 @@ else {
 
     // update random token
 
-    $stmt_verify = $conn->prepare("UPDATE accounts SET user_tokens = CONCAT(user_tokens, ', ', ?) " . ($update_last_updated ? "AND last_updated = NOW()" : "") . " WHERE email = ?");
+    $stmt_verify = $conn->prepare("UPDATE accounts SET user_tokens = CONCAT(user_tokens, ',', ?) " . ($update_last_updated ? ", date_updated = NOW()" : "") . " WHERE email = ?");
     $stmt_verify->bind_param("ss", $new_token, $google_client_user["user_email"]);
     $stmt_verify->execute();
 
