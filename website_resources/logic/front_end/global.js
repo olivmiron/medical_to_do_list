@@ -148,7 +148,7 @@ function drag(e) {
     
     const currentY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
     const diff = currentY - startY;
-    const newTop = Math.max(100, Math.min(window.innerHeight - 100, startTop - diff));
+    const newTop = startTop - diff;
     
     sheet.style.top = `${newTop}px`;
 }
