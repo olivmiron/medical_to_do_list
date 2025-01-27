@@ -97,7 +97,8 @@ function change_page(page_name) {
 function open_bottom_sheet() {
     var bottom_sheet = document.getElementById("bottom_drag_sheet_container");
     bottom_sheet.style.display = "block";
-    bottom_sheet.classList.add("bottom_drag_sheet_active");
+    setTimeout(() => {bottom_sheet.classList.add("bottom_drag_sheet_active");}, 10);
+    
 
 }
 
