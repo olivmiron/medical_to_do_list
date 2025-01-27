@@ -88,3 +88,15 @@ function change_page(page_name) {
 
     update_url_page_param("page", page_name)
 }
+
+
+
+
+// bottom sheet_functions
+
+function open_bottom_sheet() {
+    var bottom_sheet = document.getElementById("bottom_drag_sheet_container");
+    bottom_sheet.classList.add("bottom_drag_sheet_active");
+
+    console.log(window.getComputedStyle(bottom_sheet).getPropertyValue('transition-duration'));
+}
