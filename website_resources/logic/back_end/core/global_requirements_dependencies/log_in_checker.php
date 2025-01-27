@@ -19,6 +19,8 @@
         $sql_row = $result->fetch_assoc();
         // this stmt doesn't work, please get me the error message
         echo "error message: " . $conn->error;
+        // this doen't work either
+        echo "error message: " . $stmt_verify->error;
         
         var_dump($sql_row);
 
