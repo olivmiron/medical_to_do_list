@@ -269,7 +269,7 @@ br {height: 20px;}
 #bottom_drag_sheet_action_handle{position: absolute; top: -5px; height: 30px;left: var(--spacing_medium);right: var(--spacing_medium);} /* used for moving the bottom_sheet */
 #bottom_drag_sheet_styling_handle { /* just a styling element */
     position: absolute;
-    top: var(--spacing_large);
+    top: var(--spacing_xl);
     left: 50%;
     height: 4px;
     width: 40px;
@@ -278,6 +278,8 @@ br {height: 20px;}
     z-index: 1;
     background-color: var(--color_light_gray);
     box-shadow: 0px 0px 10px -8px var(--color_gray) inset;
+
+    cursor: grabbing;
 }
 #bottom_drag_sheet_content {
     position: absolute;

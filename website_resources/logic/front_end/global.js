@@ -116,3 +116,41 @@ function close_bottom_sheet() {
 
     setTimeout(() => {bottom_sheet.style.display = "none";}, timeout_for_display_none);
 }
+
+
+
+// Add touch/mouse handling for bottom sheet drag
+let startY = 0;
+let startHeight = 0;
+
+function initBottomSheetDrag() {
+    const handle = document.getElementById('bottom_drag_sheet_action_handle');
+    const sheet = document.getElementById('bottom_drag_sheet');
+
+    handle.addEventListener('touchstart', startDragging, { passive: true });
+    handle.addEventListener('mousedown', startDragging);
+    document.addEventListener('touchmove', drag);
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('touchend', stopDragging);
+    document.addEventListener('mouseup', stopDragging);
+}
+
+function startDragging(e) {
+    startY = e.type === 'mousedown' ? e.clientY : e.touches[0].clientY;
+    startTop = parseInt(window.getComputedStyle(sheet).top)
+}
+
+function drag(e) {
+    if (startY === 0) return;
+    
+    const currentY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
+    const diff = currentY - startY;
+    const newTop = Math.max(100, Math.min(window.innerHeight - 100, startHeight - diff));
+    
+    sheet.style.top = `${newHeight}px`;
+}
+
+function stopDragging() {startY = 0;}
+
+// Initialize dragging when DOM is loaded
+document.addEventListener('DOMContentLoaded', initBottomSheetDrag);
