@@ -225,7 +225,7 @@ br {height: 20px;}
 
 /* bottom_drag_sheet */
 
-#bottom_drag_sheet_container {
+#bottom_drag_sheet_underlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -253,7 +253,9 @@ br {height: 20px;}
     transition: var(--transition_medium);
     overflow: hidden;
 }
-#bottom_drag_sheet.bottom_drag_sheet_active {top: calc(100% - 70vh);}
+
+.bottom_drag_sheet_active #bottom_drag_sheet_underlay {opacity: 0.75;}
+.bottom_drag_sheet_active #bottom_drag_sheet {top: calc(100% - 70vh);}
 
 #bottom_drag_sheet_handle {
     position: fixed;
