@@ -156,6 +156,10 @@ function drag(e) {
 function stopDragging() {
     sheet.style.transition = '';
     startY = 0;
+
+    if(parseInt(window.getComputedStyle(sheet).height) < 200) {
+        close_bottom_sheet();
+    }
 }
 
 // Initialize dragging when DOM is loaded
