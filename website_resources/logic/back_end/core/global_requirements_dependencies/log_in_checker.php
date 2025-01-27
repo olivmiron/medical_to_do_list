@@ -41,7 +41,7 @@
         $stmt_update->execute();
 
         // and please reset the expiry date of the cookie
-        setcookie("log_in_cookie", ["user_id" => $sql_row["id"], "user_token" => $new_token], time() + (86400 * 14), "/");
+        setcookie("log_in_cookie", serialize(["user_id" => $sql_row["id"], "user_token" => $new_token]), time() + (86400 * 14), "/");
 
         $logged_in = true;
         $_SESSION["logged_in"] = "2";
