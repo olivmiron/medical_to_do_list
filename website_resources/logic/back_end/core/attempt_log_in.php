@@ -98,7 +98,7 @@ $_SESSION["user_token"] = $new_token;
 setcookie("log_in_cookie", serialize(["user_id" => $sql_row["id"], "user_token" => $new_token]), time() + (86400 * 14), "/");
 
 
-throw_message(["status" => "success", "message" => "Successfully logged in", "user_name" => $google_client_user["user_name"]], false);
+throw_message(["status" => "success", "message" => "Successfully logged in", "user_name" => $google_client_user["user_name"], "picture" => $google_client_user["picture_url"]], false);
 
 
 ?>
