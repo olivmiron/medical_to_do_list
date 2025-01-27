@@ -246,7 +246,8 @@ br {height: 20px;}
 .bottom_drag_sheet_active #bottom_drag_sheet_underlay {opacity: 0.8;}
 .bottom_drag_sheet_active #bottom_drag_sheet {top: calc(100% - 70vh);}
 
-#bottom_drag_sheet_handle {
+#bottom_drag_sheet_action_handle{position: absolute; top: -5px; bottom: 18px;left: var(--spacing_medium);right: var(--spacing_medium);} /* used for moving the bottom_sheet */
+#bottom_drag_sheet_styling_handle { /* just a styling element */
     position: absolute;
     top: var(--spacing_large);
     left: 50%;
@@ -256,6 +257,7 @@ br {height: 20px;}
     transform: translate(-50%, 0);
     z-index: 1;
     background-color: var(--color_light_gray);
+    box-shadow: 0px 0px 10px -8px var(--color_gray) inset;
 }
 #bottom_drag_sheet_content {
     position: absolute;
