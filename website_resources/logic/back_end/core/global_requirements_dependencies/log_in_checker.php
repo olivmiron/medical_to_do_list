@@ -12,7 +12,7 @@
         $user_id = $log_in_cookie["user_id"];
         $user_token = $log_in_cookie["user_token"];
 
-        $stmt_verify = $conn->prepare("SELECT * FROM accounts WHERE id = ? AND FIND_IN_SET(?, user_tokens)");
+        $stmt_verify = $conn->prepare("SELECT * FROM accounts WHERE id = ?");
         $stmt_verify->bind_param("is", $user_id, $user_token);
         $stmt_verify->execute();
         $result = $stmt_verify->get_result();
