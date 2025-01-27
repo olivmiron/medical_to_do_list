@@ -14,11 +14,16 @@
         // echo "user_id: " . $user_id;
         $user_token = $log_in_cookie["user_token"];
 
+        try{
         $stmt_verify = $conn->prepare("SELECT * FROM accounts WHERE id = ? AND FIND_IN_SET(?, user_tokens)");
         $stmt_verify->bind_param("is", $user_id, $user_token);
         $stmt_verify->execute();
         $result = $stmt_verify->get_result();
         $sql_row = $result->fetch_assoc();
+        }
+        catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+        }
 
         if ($sql_row) {
             $_SESSION["logged_in"] = true;
