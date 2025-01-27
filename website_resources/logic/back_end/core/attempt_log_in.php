@@ -92,7 +92,7 @@ $_SESSION["user_token"] = $new_token;
 
 // set persistence cookie
 
-set_cookie("log_in_cookie", ["user_id" => $sql_row["id"], "user_token" => $new_token], time() + (86400 * 14), "/");
+setcookie("log_in_cookie", ["user_id" => $sql_row["id"], "user_token" => $new_token], time() + (86400 * 14), "/");
 
 
 throw_message(["status" => "success", "message" => "Successfully logged in"], false);
