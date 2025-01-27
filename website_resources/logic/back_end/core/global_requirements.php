@@ -20,18 +20,20 @@ if($initial_load) {
 }
 
 // initial page view
+if($initial_load) {$get_initial_page = true;}
+else {$get_initial_page = false;}
 
-if(isset($initial_load)){
-    if($initial_load == true) {
-        $get_initial_page = true;
-    }
-    else {
-        $get_initial_page = false;
-    }
-}
-else {
-    $get_initial_page = false;
-}
+// if(isset($initial_load)){
+//     if($initial_load == true) {
+//         $get_initial_page = true;
+//     }
+//     else {
+//         $get_initial_page = false;
+//     }
+// }
+// else {
+//     $get_initial_page = false;
+// }
 
 if($get_initial_page) {
 
