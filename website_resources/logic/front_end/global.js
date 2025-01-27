@@ -121,7 +121,7 @@ function close_bottom_sheet() {
 
 // Add touch/mouse handling for bottom sheet drag
 let startY = 0;
-let startTop = 0;
+let startHeight = 0;
 
 var handle, sheet;
 
@@ -140,7 +140,7 @@ function initBottomSheetDrag() {
 function startDragging(e) {
     sheet.style.transition = 'none';
     startY = e.type === 'mousedown' ? e.clientY : e.touches[0].clientY;
-    startTop = parseInt(window.getComputedStyle(sheet).top)
+    startHeight = parseInt(window.getComputedStyle(sheet).height)
 }
 
 function drag(e) {
@@ -148,7 +148,7 @@ function drag(e) {
     
     const currentY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
     const diff = currentY - startY;
-    const newTop = startTop + diff;
+    const newTop = startTop - diff;
     
     sheet.style.top = `${newTop}px`;
 }
