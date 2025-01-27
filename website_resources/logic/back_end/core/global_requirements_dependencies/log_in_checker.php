@@ -11,7 +11,6 @@
         $log_in_cookie = unserialize($_COOKIE["log_in_cookie"]);
         $user_id = $log_in_cookie["user_id"];
         $user_token = $log_in_cookie["user_token"];
-        echo "user_id: " . $user_id . " user_token: " . $user_token;
 
         $stmt_verify = $conn->prepare("SELECT * FROM accounts WHERE id = ? AND FIND_IN_SET(?, user_tokens)");
         $stmt_verify->bind_param("is", $user_id, $user_token);
@@ -57,5 +56,5 @@
     else {$_SESSION["logged_in"] = false;
         $logged_in = "0";}
 
-    echo "logged in or not: " . var_dump($_SESSION["logged_in"]) . " " . $logged_in;
+    // echo "logged in or not: " . var_dump($_SESSION["logged_in"]) . " " . $logged_in;
 ?>
