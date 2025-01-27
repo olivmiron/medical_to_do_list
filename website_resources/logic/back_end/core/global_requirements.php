@@ -12,8 +12,6 @@ $pages_uris = [
     "settings" => "website_resources/logic/back_end/website_pages/pages/settings.php"
 ];
 
-$pages_array_for_js = json_encode($pages_array);
-
 
 // log in checker
 
@@ -57,9 +55,6 @@ if($get_initial_page) {
                 $pages_arrangement[$pages_array[$i]] = [-1, "app_view_screen_page_left"]; // Pages before current are left (-1)
             } elseif ($i == $current_page_index) {
                 $pages_arrangement[$pages_array[$i]] = [0, "app_view_screen_page_center"]; // Current page is center (0)
-            }
-            else {
-                $pages_arrangement[$pages_array[$i]] = [1, "app_view_screen_page_right"]; // Pages after current are right (1)
             }
         }
     }

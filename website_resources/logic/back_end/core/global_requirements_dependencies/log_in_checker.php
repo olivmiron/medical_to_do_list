@@ -43,13 +43,16 @@
         // and please reset the expiry date of the cookie
         setcookie("log_in_cookie", ["user_id" => $sql_row["id"], "user_token" => $new_token], time() + (86400 * 14), "/");
 
+        $logged_in = true;
         $_SESSION["logged_in"] = true;
 
         } else {
             $_SESSION["logged_in"] = false;
+            $logged_in = false;
         }
     }
-    else {$_SESSION["logged_in"] = false;}
+    else {$_SESSION["logged_in"] = false;
+        $logged_in = false;}
 
-    echo "logged in or not: " . $_SESSION["logged_in"];
+    echo "logged in or not: " . var_dump($_SESSION["logged_in"]);
 ?>
