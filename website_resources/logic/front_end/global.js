@@ -97,14 +97,21 @@ function change_page(page_name) {
 function open_bottom_sheet() {
     var bottom_sheet = document.getElementById("bottom_drag_sheet_container");
     bottom_sheet.classList.add("bottom_drag_sheet_active");
+    bottom_sheet.style.display = "block";
 
-    console.log(
-        parseFloat(
-            window.getComputedStyle(
-                bottom_sheet.querySelector("#bottom_drag_sheet_underlay")
-            ).getPropertyValue('transition-duration').replace('s','')
-        )
-        * 1000
-        * 1.1
-    );
+}
+
+function close_bottom_sheet() {
+    var bottom_sheet = document.getElementById("bottom_drag_sheet_container");
+    bottom_sheet.classList.remove("bottom_drag_sheet_active");
+
+    var timeout_for_display_none = parseFloat(
+        window.getComputedStyle(
+            bottom_sheet.querySelector("#bottom_drag_sheet_underlay")
+        ).getPropertyValue('transition-duration').replace('s','')
+    )
+    * 1000
+    * 1.1;
+
+    setTimeout(() => {bottom_sheet.style.display = "none";}, timeout_for_display_none);
 }
