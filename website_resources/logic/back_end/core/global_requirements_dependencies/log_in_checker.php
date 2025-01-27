@@ -8,7 +8,7 @@
 
 
     if (isset($_COOKIE["log_in_cookie"])) {
-        $log_in_cookie = json_decode(unserialize($_COOKIE["log_in_cookie"]));
+        $log_in_cookie = unserialize($_COOKIE["log_in_cookie"]);
         $user_id = $log_in_cookie["user_id"];
         $user_token = $log_in_cookie["user_token"];
 
