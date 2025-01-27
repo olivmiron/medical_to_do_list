@@ -71,11 +71,22 @@
 
 /* custom UI elements */
 
-input[type=text], input[type=number] {padding: var(--spacing_small);border-radius: var(--border_radius_small);border: 1px solid var(--color_primary);font-family: var(--nunito_font);font-weight: bold;box-shadow: 0px 0px 5px -3px;background-color: white;transition: var(--transition_fast);margin: calc(var(--widget_spacing) * 3/4);}
+input[type=text], input[type=number], textarea {
+    padding: var(--spacing_medium) var(--spacing_large);
+    border-radius: var(--border_radius_small);
+    border: 1px solid var(--color_light_gray);
+    font-family: var(--nunito_font);
+    font-weight: bold;
+    font-size: 20px;
+    box-shadow: 0px 0px 5px -3px;
+    background-color: white;
+    transition: var(--transition_fast);
+    margin: 0;}
 input[type=number] {width: 46px;text-align: center;}
 
-input[type=text]:focus, input[type=number]:focus {box-shadow: 0px 0px 8px -3px;}
+input[type=text]:focus, input[type=number]:focus, textarea:focus {border: 1px solid var(--color_primary);box-shadow: 0px 0px 8px -3px;outline: none;}
 
+textarea {height: 150px;resize: none;}
 
 
 /* general rules */
@@ -285,5 +296,12 @@ br {height: 20px;}
 
 
 
-.bottom_sheet_title {font-size: 20px;font-weight: bold;margin: var(--spacing_large);text-align: center;}
-.bottom_sheet_sub_title {font-size: 20px;font-weight: bold;margin: var(--spacing_medium) var(--spacing_medium) var(--spacing_small);}
+/* bottom sheet components styling */
+
+.bottom_sheet_component {}
+
+
+.bottom_sheet_title {font-size: 24px;font-weight: bold;margin: var(--spacing_large);text-align: center;}
+.bottom_sheet_sub_title {font-size: 20px;font-weight: bold;margin: var(--spacing_medium) var(--spacing_medium) var(--spacing_small);color: var(--color_gray);}
+
+.bottom_sheet_component input, .bottom_sheet_component textarea {display: block;width: 100%;}
