@@ -1,4 +1,4 @@
-<div id="bottom_drag_sheet_container"><!-- bottom_drag_sheet_active class--> 
+<div id="bottom_drag_sheet_container" style="display: none;"><!-- bottom_drag_sheet_active class--> 
     <div id="bottom_drag_sheet_underlay"></div> 
 
     <div id="bottom_drag_sheet">
