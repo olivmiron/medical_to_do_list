@@ -17,6 +17,7 @@
         <script src="/website_resources/logic/front_end/index.js"></script>
         <script>
             const pages_array = <?php echo json_encode($pages_array); ?>;
+            const pages_top_bar_action_buttons = <?php echo json_encode($pages_top_bar_action_buttons); ?>;
         </script>
     </head>
     <body>        

@@ -12,6 +12,13 @@ $pages_uris = [
     "settings" => "website_resources/logic/back_end/website_pages/pages/settings.php"
 ];
 
+$pages_top_bar_action_buttons = [
+    "patients" => ["add_patient", "/website_resources/design/media/icons/top_bar/plus.png"],
+    "group_to_dos" => ["add_group_to_do", "/website_resources/design/media/icons/top_bar/plus.png"],
+    "personal_to_dos" => ["add_personal_to_do", "/website_resources/design/media/icons/top_bar/plus.png"],
+    "settings" => []
+];
+
 
 // log in checker
 

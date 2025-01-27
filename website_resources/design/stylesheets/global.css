@@ -145,10 +145,11 @@ br {height: 20px;}
 
 #top_bar_title {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);font-size: 16px;font-weight: bold;max-width: calc(100% - var(--spacing_medium) * 4 - var(--top_bottom_bar_size) * 2);text-align: center;}
 
-#top_bar_left {flex: 0 0 auto;}
+#top_bar_left {flex: 0 0 auto;display: flex;align-items: center;}
+#top_bar_action_button {height: 100%;border-radius: var(--border_infinite_radius);cursor: pointer;}
 #top_bar_middle {flex: 1 1 auto;}
 #top_bar_right {flex: 0 0 auto;display: flex;align-items: center;}
-#top_bar_user_picture {height: 100%;border-radius: var(--border_infinite_radius);}
+#top_bar_user_picture {height: 100%;border-radius: var(--border_infinite_radius);cursor: pointer;}
 
 
 /* bottom bar specifics */
