@@ -112,7 +112,7 @@ function close_bottom_sheet() {
         ).getPropertyValue('transition-duration').replace('s','')
     )
     * 1000
-    * 1.1;
+    + 10;
 
     setTimeout(() => {bottom_sheet.style.display = "none";}, timeout_for_display_none);
 }
