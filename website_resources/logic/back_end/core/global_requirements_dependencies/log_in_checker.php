@@ -13,8 +13,8 @@
         $user_token = $log_in_cookie["user_token"];
         echo "user_id: " . $user_id . " user_token: " . $user_token;
 
-        $stmt_verify = $conn->prepare("SELECT * FROM accounts WHERE id = ?");
-        $stmt_verify->bind_param("i", $user_id);
+        $stmt_verify = $conn->prepare("SELECT * FROM accounts WHERE id = ? AND FIND_IN_SET(?, user_tokens)");
+        $stmt_verify->bind_param("is", $user_id, $user_token);
         $stmt_verify->execute();
         $result = $stmt_verify->get_result();
         $sql_row = $result->fetch_assoc();
