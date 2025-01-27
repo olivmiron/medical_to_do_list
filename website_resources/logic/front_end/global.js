@@ -149,7 +149,7 @@ function drag(e) {
     const diff = currentY - startY;
     const newTop = Math.max(100, Math.min(window.innerHeight - 100, startHeight - diff));
     
-    sheet.style.top = `${newHeight}px`;
+    sheet.style.top = `${newTop}px`;
 }
 
 function stopDragging() {startY = 0;}
