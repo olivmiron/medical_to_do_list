@@ -262,7 +262,7 @@ br {height: 20px;}
     overflow: hidden;
 }
 
-.bottom_drag_sheet_active {
+#bottom_drag_sheet.bottom_drag_sheet_active {
     top: calc(100% - 60vh);
 }
 
