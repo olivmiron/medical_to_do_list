@@ -11,6 +11,7 @@
         $log_in_cookie = unserialize($_COOKIE["log_in_cookie"]);
         var_dump($log_in_cookie);
         $user_id = $log_in_cookie["user_id"];
+        echo "user_id: " . $user_id;
         $user_token = $log_in_cookie["user_token"];
 
         $stmt_verify = $conn->prepare("SELECT * FROM accounts WHERE id = ? AND FIND_IN_SET(?, user_tokens)");
