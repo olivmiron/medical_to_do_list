@@ -123,9 +123,11 @@ function close_bottom_sheet() {
 let startY = 0;
 let startHeight = 0;
 
+var handle, sheet;
+
 function initBottomSheetDrag() {
-    const handle = document.getElementById('bottom_drag_sheet_action_handle');
-    const sheet = document.getElementById('bottom_drag_sheet');
+    handle = document.getElementById('bottom_drag_sheet_action_handle');
+    sheet = document.getElementById('bottom_drag_sheet');
 
     handle.addEventListener('touchstart', startDragging, { passive: true });
     handle.addEventListener('mousedown', startDragging);
