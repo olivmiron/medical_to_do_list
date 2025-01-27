@@ -15,6 +15,7 @@ function update_url_page_param(utl_param, value) {
 
 
 function handleCredentialResponse(response) {
+    var sign_in_square = document.getElementById("sign_in_square");
     const data = { id_token: response.credential };
     fetch('/website_resources/logic/back_end/core/attempt_log_in.php', {
         method: 'POST',
@@ -28,7 +29,9 @@ function handleCredentialResponse(response) {
         if (data.status == "success") {
             // window.location.reload();
 
-            document.getElementById("sign_in_square").innerHTML = "<span>Successfully logged in</span><div class=\"spacer_xl\"></div><span>" + data.user_name + "</span>";
+            sign_in_square.innerHTML = "<span>Successfully logged in</span><div class=\"spacer_xl\"></div><span>" + data.user_name + "</span>";
+            setTimeout(() => {sign_in_square.style.opacity = "0";}, 2000);
+            setTimeout(() => {sign_in_square.outerHTML = "";}, 2500);
         } else {
             console.error('Login failed:', data.message);
         }
