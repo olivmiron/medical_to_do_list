@@ -138,6 +138,7 @@ function initBottomSheetDrag() {
 }
 
 function startDragging(e) {
+    sheet.style.transition = 'none';
     startY = e.type === 'mousedown' ? e.clientY : e.touches[0].clientY;
     startTop = parseInt(window.getComputedStyle(sheet).top)
 }
@@ -152,7 +153,10 @@ function drag(e) {
     sheet.style.top = `${newTop}px`;
 }
 
-function stopDragging() {startY = 0;}
+function stopDragging() {
+    sheet.style.transition = '';
+    startY = 0;
+}
 
 // Initialize dragging when DOM is loaded
 document.addEventListener('DOMContentLoaded', initBottomSheetDrag);
