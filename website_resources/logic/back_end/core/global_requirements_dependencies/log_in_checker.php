@@ -17,12 +17,8 @@
         $stmt_verify->execute();
         $result = $stmt_verify->get_result();
         $sql_row = $result->fetch_assoc();
-        // this stmt doesn't work, please get me the error message
-        echo "error message: " . $conn->error;
-        // this doen't work either
-        echo "error message: " . $stmt_verify->error;
         
-        var_dump($sql_row);
+        echo "users found:". mysqli_num_rows($result);
 
         if ($sql_row) {
             $_SESSION["logged_in"] = true;
