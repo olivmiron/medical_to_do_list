@@ -47,4 +47,6 @@
         }
     }
     else {$_SESSION["logged_in"] = false;}
+
+    echo "logged in or not: " . $_SESSION["logged_in"];
 ?>

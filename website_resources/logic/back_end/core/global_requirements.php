@@ -17,7 +17,9 @@ $pages_array_for_js = json_encode($pages_array);
 
 // log in checker
 
-require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/global_requirements_dependencies/log_in_checker.php";
+if($initial_load) {
+    require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/global_requirements_dependencies/log_in_checker.php";
+}
 
 // initial page view
 
