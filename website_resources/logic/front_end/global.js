@@ -118,7 +118,7 @@ function load_page(page_name) {
     // make an ajax request to get the page content and populate the respective view_screen_page__PAGE_NAME
     var respective_view_screen_page = document.getElementById("view_screen_page__" + page_name);
 
-    fetch('/website_resources/logic/back_end/core/load_page.php?page=' + page_name)
+    fetch('/website_resources/logic/back_end/website_pages/fetch_page.php?page=' + page_name)
     .then(response => response.text())
     .then(data => {
         respective_view_screen_page.innerHTML = data;
