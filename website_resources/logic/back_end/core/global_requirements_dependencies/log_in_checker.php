@@ -11,7 +11,6 @@
         $log_in_cookie = unserialize($_COOKIE["log_in_cookie"]);
         $user_id = $log_in_cookie["user_id"];
         $user_token = $log_in_cookie["user_token"];
-        echo "user_id: " . $user_id . " user_token: " . $user_token;
 
         $stmt_verify = $conn->prepare("SELECT * FROM accounts WHERE id = ? AND FIND_IN_SET(?, user_tokens)");
         $stmt_verify->bind_param("is", $user_id, $user_token);
@@ -19,7 +18,6 @@
         $result = $stmt_verify->get_result();
         $sql_row = $result->fetch_assoc();
         
-        echo "users found:". mysqli_num_rows($result);
 
         if ($sql_row) {
             $_SESSION["logged_in"] = true;
