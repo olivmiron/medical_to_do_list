@@ -63,7 +63,7 @@ if($initial_load) {
             $pages_arrangement[$pages_array[$i]] = [0, "app_view_screen_page_center"]; // Current page is center (0)
             if($_SESSION["logged_in"]) {$_SESSION["loaded_pages"][$pages_array[$i]] = true;} // mark current page as loaded if logged in
 
-            $top_bar_title = $pages_names_array[$i];
+            if($_SESSION["logged_in"]) {$top_bar_title = $pages_names_array[$i];}
         }
         else {
             $pages_arrangement[$pages_array[$i]] = [1, "app_view_screen_page_right"]; // Pages after current are right (1)
