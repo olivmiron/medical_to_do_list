@@ -232,3 +232,43 @@ function stopDragging() {
 
 // Initialize dragging when DOM is loaded
 document.addEventListener('DOMContentLoaded', initBottomSheetDrag);
+
+
+
+
+// pages functions
+
+
+
+    // pages patients functions
+
+
+    // pages global to dos functions
+
+    function toggle_to_do(to_do_id, button) {
+        // navigate up the dom tree to find the to_do element, not by id; use the button element
+        let to_do = button.closest('.to_do');
+        if (!to_do) return;
+        
+        if(to_do.getAttribute("data-to_do_done") == "0") {
+            to_do.setAttribute("data-done", "1");
+            
+            to_do.classList.add("to_do_done");
+            to_do.classList.remove("to_do_not_done");
+        }
+        else {
+            to_do.setAttribute("data-done", "0");
+            
+            to_do.classList.add("to_do_not_done");
+            to_do.classList.remove("to_do_done");
+        }
+        
+}
+
+    // pages group to dos functions
+
+
+    // pages personal to dos functions
+
+
+    // pages settings functions
