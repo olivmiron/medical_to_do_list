@@ -19,7 +19,10 @@ $pages_top_bar_action_buttons = [
     "settings" => []
 ];
 
-
+function throw_error($error_message) {
+    echo "<div id='error_message'>" . $error_message . "</div>";
+    exit();
+}
 
 if($initial_load) {
 
@@ -60,6 +63,11 @@ if($initial_load) {
         }
     }
 
+}
+else{
+    if(!$_SESSION["logged_in"]) {
+        throw_error("You are not logged in.");
+    }
 }
 
 ?>
