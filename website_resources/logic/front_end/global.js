@@ -32,6 +32,8 @@ function handleCredentialResponse(response) {
             sign_in_square.innerHTML = "<span>Successfully logged in</span><div class=\"spacer_xl\"></div><span>" + data.user_name + "</span>";
             setTimeout(() => {sign_in_square.style.opacity = "0";}, 2000);
             setTimeout(() => {sign_in_square.outerHTML = "";}, 2500);
+
+            load_page();
         } else {
             console.error('Login failed:', data.message);
         }
@@ -40,6 +42,7 @@ function handleCredentialResponse(response) {
         console.error('Error:', error);
     });
 }
+
 
 
 
@@ -96,6 +99,41 @@ function change_page(page_name) {
 
     update_url_page_param("page", page_name);
 }
+
+
+
+// page_view functions
+
+function load_page(page_name) {
+    // if page_name is not provided, get it from the url
+    if(page_name == undefined) {
+        var url = new URL(window.location.href);
+        page_name = url.searchParams.get("page");
+    }
+    else{
+        // see if page_name is valid
+        if(!pages_array.includes(page_name)) {return;}
+    }
+
+    // make an ajax request to get the page content and populate the respective view_screen_page__PAGE_NAME
+    var respective_view_screen_page = document.getElementsById("view_screen_page__" + page_name);
+
+    fetch('/website_resources/logic/back_end/core/load_page.php?page=' + page_name)
+    .then(response => response.text())
+    .then(data => {
+        respective_view_screen_page.innerHTML = data;
+        // update loaded_pages
+        loaded_pages[page_name] = true;
+    })
+
+}
+
+
+
+
+
+
+
 
 
 
