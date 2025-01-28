@@ -199,6 +199,9 @@ br {height: 20px;}
 
     z-index: 1;
     transition: var(--transition_medium);
+
+    padding: var(--spacing_large);
+    box-sizing: border-box;
 }
 
 .app_view_screen_page_left {
