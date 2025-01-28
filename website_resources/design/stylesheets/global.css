@@ -355,7 +355,7 @@ br {height: 20px;}
 .to_do_right_top {display: flex;align-items: center;justify-content: stretch;}
 
 
-.to_do_item_date_created .to_do_item_creator {color: var(--color_gray);}
+.to_do_item_date_created .to_do_item_creator {color: var(--color_gray);font-size: 12px;}
 .to_do_item_date_created {}
 
 .to_do_item_creator {}
@@ -364,6 +364,8 @@ br {height: 20px;}
 .to_do_expand_button {}
 .to_do_expand_button img {height: 48px;opacity: 0.75;transition: var(--transition_fast);}
 
+
+.to_do_item_title {font-size: 24px;font-weight: bold;}
 
 
     /* settings */
