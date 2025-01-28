@@ -219,10 +219,6 @@ br {height: 20px;}
     opacity: 0;
 }
 
-/* pages */
-
-
-
 
 
 
@@ -316,3 +312,57 @@ br {height: 20px;}
 .bottom_sheet_sub_title {font-size: 20px;font-weight: bold;margin: var(--spacing_medium) var(--spacing_medium) var(--spacing_small);color: var(--color_gray);}
 
 .bottom_sheet_component input, .bottom_sheet_component textarea {display: block;width: 100%;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* pages */
+
+
+    /* patients */
+
+
+    /* to dos */
+
+
+
+
+        /* to do */
+
+.to_do_item {display: flex;align-items: start;justify-content: stretch;}
+
+.to_do_item_undone {}
+
+
+.to_do_left {flex: 0 0 auto;}
+
+.to_do_button {border: 1px solid var(--color_gray);border-radius: var(--border_infinite_radius);}
+.to_do_button img {height: 64px;margin: var(--spacing_small);}
+
+
+.to_do_right {flex: 1 1 auto;}
+
+
+.to_do_right_top {display: flex;align-items: center;justify-content: stretch;}
+
+
+.to_do_item_date_created .to_do_item_creator {color: var(--color_gray);}
+.to_do_item_date_created {}
+.to_do_item_creator {}
+
+
+.to_do_expand_button {}
+.to_do_expand_button img {height: 48px;opacity: 0.75;transition: var(--transition_fast);}
+
+
+
+    /* settings */
