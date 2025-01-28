@@ -347,7 +347,7 @@ br {height: 20px;}
     padding: var(--spacing_medium) 0;
     margin-bottom: var(--spacing_large);
 
-    transition: var(--transition_fast);
+    transition: var(--transition_medium);
 }
 
 .to_do_item_undone {}
@@ -368,11 +368,11 @@ br {height: 20px;}
     justify-content: center;
     margin: calc(var(--spacing_small)* 0.75);
     padding: calc(var(--spacing_small)* 1.25);
-    transition: var(--transition_fast);
+    transition: var(--transition_medium);
 }
 .to_do_button div img {
     height: 20px;
-    transition: var(--transition_fast);
+    transition: var(--transition_medium);
 }
 
 
