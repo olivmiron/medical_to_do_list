@@ -33,6 +33,9 @@ function handleCredentialResponse(response) {
             setTimeout(() => {sign_in_square.style.opacity = "0";}, 2000);
             setTimeout(() => {sign_in_square.outerHTML = "";}, 2500);
 
+            document.getElementById("top_bar_user_picture").src = data.picture;
+            document.getElementById("top_bar_user_picture").style.display = "block";
+
             load_page();
         } else {
             console.error('Login failed:', data.message);
@@ -134,7 +137,10 @@ function load_page(page_name) {
         loaded_pages[page_name] = true;
 
         change_top_bar_title(pages_names_array[pages_array.indexOf(page_name)]);
-    })
+    });
+
+
+    document.getElementById("top_bar_action_button").style.display = "block";
 
 }
 
