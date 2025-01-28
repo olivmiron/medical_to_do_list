@@ -46,13 +46,15 @@ else {
 
 $pages_arrangement = array_fill_keys($pages_array, [1, "app_view_screen_page_center"]); // Initialize all pages to right (1)
 $current_page_index = array_search($initial_page, $pages_array);
-if ($current_page_index !== false) {
-    for ($i = 0; $i < count($pages_array); $i++) {
-        if ($i < $current_page_index) {
-            $pages_arrangement[$pages_array[$i]] = [-1, "app_view_screen_page_left"]; // Pages before current are left (-1)
-        } elseif ($i == $current_page_index) {
-            $pages_arrangement[$pages_array[$i]] = [0, "app_view_screen_page_center"]; // Current page is center (0)
-        }
+
+for ($i = 0; $i < count($pages_array); $i++) {
+    if ($i < $current_page_index) {
+        $pages_arrangement[$pages_array[$i]] = [-1, "app_view_screen_page_left"]; // Pages before current are left (-1)
+    } elseif ($i == $current_page_index) {
+        $pages_arrangement[$pages_array[$i]] = [0, "app_view_screen_page_center"]; // Current page is center (0)
+    }
+    else {
+        $pages_arrangement[$pages_array[$i]] = [1, "app_view_screen_page_right"]; // Pages after current are right (1)
     }
 }
 
