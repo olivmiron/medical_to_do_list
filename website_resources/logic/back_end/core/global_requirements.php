@@ -19,6 +19,8 @@ $pages_top_bar_action_buttons = [
     "settings" => []
 ];
 
+$_SESSION["loaded_pages"] = array_fill_keys($pages_array, false);
+
 
 // log in checker
 
