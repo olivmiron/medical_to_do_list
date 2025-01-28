@@ -52,6 +52,7 @@ for ($i = 0; $i < count($pages_array); $i++) {
         $pages_arrangement[$pages_array[$i]] = [-1, "app_view_screen_page_left"]; // Pages before current are left (-1)
     } elseif ($i == $current_page_index) {
         $pages_arrangement[$pages_array[$i]] = [0, "app_view_screen_page_center"]; // Current page is center (0)
+        if($_SESSION["logged_in"]) {$_SESSION["loaded_pages"][$pages_array[$i]] = true;} // mark current page as loaded if logged in
     }
     else {
         $pages_arrangement[$pages_array[$i]] = [1, "app_view_screen_page_right"]; // Pages after current are right (1)
