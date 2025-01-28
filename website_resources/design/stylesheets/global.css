@@ -350,16 +350,18 @@ br {height: 20px;}
 
 .to_do_left {flex: 0 0 auto;}
 
-.to_do_button div {
+.to_do_button {
     border: 1px solid var(--color_gray);
     border-radius: var(--border_infinite_radius);
+}
+.to_do_button div {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: var(--spacing_medium);
 }
 .to_do_button div img {
     height: 20px;
-    margin: var(--spacing_medium);
 }
 
 
