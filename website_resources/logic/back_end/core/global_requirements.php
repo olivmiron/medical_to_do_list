@@ -66,7 +66,7 @@ if($initial_load) {
 }
 else{
     if(!$_SESSION["logged_in"]) {
-        throw_error("You are not logged in.");
+        throw_error("You are not logged in." . $_SESSION["user_name"]);
     }
 }
 
