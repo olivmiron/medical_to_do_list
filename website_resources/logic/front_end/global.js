@@ -121,6 +121,8 @@ function load_page(page_name) {
         if(!pages_array.includes(page_name)) {return;}
     }
 
+    if(null == page_name) {page_name = pages_array[0];}
+
     // make an ajax request to get the page content and populate the respective view_screen_page__PAGE_NAME
     var respective_view_screen_page = document.getElementById("view_screen_page__" + page_name);
 
