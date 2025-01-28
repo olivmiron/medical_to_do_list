@@ -88,6 +88,7 @@ else {
 
 // if yess, create $_SESSION
 
+$_SESSION["logged_in"] = true;
 $_SESSION["user_id"] = $sql_row["id"];
 $_SESSION["user_name"] = $google_client_user["user_name"];
 $_SESSION["user_email"] = $google_client_user["user_email"];
