@@ -101,5 +101,7 @@ setcookie("log_in_cookie", serialize(["user_id" => $sql_row["id"], "user_token" 
 
 throw_message(["status" => "success", "message" => "Successfully logged in", "user_name" => $google_client_user["user_name"], "picture" => $google_client_user["picture_url"]], false);
 
+$stmt_verify->close();
+session_write_close();
 
 ?>
