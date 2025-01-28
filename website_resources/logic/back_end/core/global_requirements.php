@@ -14,10 +14,10 @@ $pages_uris = [
 ];
 
 $pages_top_bar_action_buttons = [
-    "patients" => ["add_patient", "/website_resources/design/media/icons/top_bar/plus.png"],
-    "group_to_dos" => ["add_group_to_do", "/website_resources/design/media/icons/top_bar/plus.png"],
-    "personal_to_dos" => ["add_personal_to_do", "/website_resources/design/media/icons/top_bar/plus.png"],
-    "settings" => []
+    "patients" => ["add_patient", "/website_resources/design/media/icons/top_bar/add_patient.png"],
+    "group_to_dos" => ["add_group_to_do", "/website_resources/design/media/icons/top_bar/add_to_do.png"],
+    "personal_to_dos" => ["add_personal_to_do", "/website_resources/design/media/icons/top_bar/add_to_do.png"],
+    "settings" => ["add_group", "/website_resources/design/media/icons/top_bar/add_group.png"]
 ];
 
 function throw_error($error_message) {
