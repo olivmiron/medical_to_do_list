@@ -28,20 +28,22 @@
             $_SESSION["user_email"] = $sql_row["email"];
 
             
-        // create random token for log in persitence
+            if($initial_load) {
+                // create random token for log in persitence
 
-        $new_token = (string) bin2hex(random_bytes(20));
+                $new_token = (string) bin2hex(random_bytes(20));
 
-        $tokens_array = explode(",", $sql_row["user_tokens"]);
-        $tokens_array[array_search($user_token, $tokens_array)] = $new_token;
-        $updated_tokens = implode(",", $tokens_array);
+                $tokens_array = explode(",", $sql_row["user_tokens"]);
+                $tokens_array[array_search($user_token, $tokens_array)] = $new_token;
+                $updated_tokens = implode(",", $tokens_array);
 
-        $stmt_update = $conn->prepare("UPDATE accounts SET user_tokens = ? WHERE id = ?");
-        $stmt_update->bind_param("si", $updated_tokens, $sql_row["id"]);
-        $stmt_update->execute();
+                $stmt_update = $conn->prepare("UPDATE accounts SET user_tokens = ? WHERE id = ?");
+                $stmt_update->bind_param("si", $updated_tokens, $sql_row["id"]);
+                $stmt_update->execute();
 
-        // and please reset the expiry date of the cookie
-        setcookie("log_in_cookie", serialize(["user_id" => $sql_row["id"], "user_token" => $new_token]), time() + (86400 * 14), "/");
+                // and please reset the expiry date of the cookie
+                setcookie("log_in_cookie", serialize(["user_id" => $sql_row["id"], "user_token" => $new_token]), time() + (86400 * 14), "/");
+            }
 
         $_SESSION["logged_in"] = true;
 

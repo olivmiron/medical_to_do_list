@@ -24,9 +24,9 @@ function throw_error($error_message) {
     exit();
 }
 
-if($initial_load) {
 
-    $_SESSION["loaded_pages"] = array_fill_keys($pages_array, false);
+if($initial_load) {$_SESSION["loaded_pages"] = array_fill_keys($pages_array, false);}
+
 
     
 // log in checker
@@ -35,6 +35,7 @@ if($initial_load) {
 // initial page view
 
 
+if($initial_load) {
 
     if(isset($_GET["page"])) {
         if(in_array($_GET["page"], $pages_array)) {
