@@ -370,7 +370,7 @@ br {height: 20px;}
     display: flex;
     align-items: flex-start;
     justify-content: stretch;
-    gap: var(--spacing_small);
+    gap: var(--spacing_medium);
 }
 
 
@@ -380,7 +380,9 @@ br {height: 20px;}
 .to_do_item_creator {}
 
 
-.to_do_expand_button {}
+.to_do_expand_button {
+    display: flex;
+}
 .to_do_expand_button img {
     height: 18px;
     opacity: 0.75;
