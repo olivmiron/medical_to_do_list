@@ -350,7 +350,7 @@ br {height: 20px;}
     transition: var(--transition_medium);
 }
 
-.to_do_item_undone {}
+.to_do_item_not_done {}
 .to_do_item_done {opacity: 0.5;padding: var(--spacing_medium);}
 .to_do_item_done .to_do_button div {background-color: var(--color_primary);}
 .to_do_item_done .to_do_button div img {filter: invert(1);}
