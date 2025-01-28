@@ -246,8 +246,8 @@ document.addEventListener('DOMContentLoaded', initBottomSheetDrag);
     // pages global to dos functions
 
     function toggle_to_do(to_do_id, button) {
-        // navigate up the dom tree to find the to_do element, not by id; use the button element
-        let to_do = button.closest('.to_do');
+
+        let to_do = button.closest('.to_do_item');
         if (!to_do) return;
         
         if(to_do.getAttribute("data-to_do_done") == "0") {
