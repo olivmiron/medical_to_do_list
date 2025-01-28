@@ -366,6 +366,7 @@ br {height: 20px;}
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: var(--border_infinite_radius);
     margin: calc(var(--spacing_small)* 0.75);
     padding: calc(var(--spacing_small)* 1.25);
     transition: var(--transition_medium);
