@@ -251,13 +251,13 @@ document.addEventListener('DOMContentLoaded', initBottomSheetDrag);
         if (!to_do) return;
         
         if(to_do.getAttribute("data-to_do_done") == "0") {
-            to_do.setAttribute("to_do_item_not_done", "1");
+            to_do.setAttribute("data-to_do_done", "1");
             
             to_do.classList.add("to_do_item_done");
             to_do.classList.remove("to_do_item_not_done");
         }
         else {
-            to_do.setAttribute("to_do_item_not_done", "0");
+            to_do.setAttribute("data-to_do_done", "0");
             
             to_do.classList.add("to_do_item_not_done");
             to_do.classList.remove("to_do_item_done");
