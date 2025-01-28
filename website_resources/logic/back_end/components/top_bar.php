@@ -14,7 +14,7 @@
     <div id="top_bar_right">
             <img 
                 id="top_bar_user_picture" 
-                src="<?php if(!$_SESSION["logged_in"]) {echo "/content_resources/user_pictures/" . $_SESSION["user_id"] . ".png";} ?>" 
+                src="<?php if($_SESSION["logged_in"]) {echo "/content_resources/user_pictures/" . $_SESSION["user_id"] . ".png";} ?>" 
                 <?php if(!$_SESSION["logged_in"]) {echo "style='display: none;'";} ?>
             />
     </div>
