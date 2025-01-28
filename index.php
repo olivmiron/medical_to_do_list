@@ -37,3 +37,4 @@
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/components/bottom_drag_sheet.php"; ?>
     </body>
 </html>
+<?php session_write_close(); ?>
