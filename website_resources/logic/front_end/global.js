@@ -48,7 +48,7 @@ function handleCredentialResponse(response) {
 
 // top_bar functions
 
-function change_top_bat_title(title) {
+function change_top_bar_title(title) {
     var top_bar_title = document.getElementById("top_bar_title");
     top_bar_title.querySelector("span").innerHTML = title;
 }
@@ -58,6 +58,9 @@ function change_top_bat_title(title) {
 
 function change_page(page_name) {
     if(!pages_array.includes(page_name)) {return;}
+
+    if(!loaded_pages[page_name]) {load_page(page_name);}
+    else {change_top_bar_title(pages_names_array[pages_array.indexOf(page_name)]);}
 
     var app_view_screen_pages = document.getElementsByClassName("app_view_screen_page");
     var bottom_bar_buttons = document.getElementsByClassName("bottom_bar_button");
@@ -128,7 +131,7 @@ function load_page(page_name) {
         // update loaded_pages
         loaded_pages[page_name] = true;
 
-        change_top_bat_title(pages_names_array[pages_array.indexOf(page_name)]);
+        change_top_bar_title(pages_names_array[pages_array.indexOf(page_name)]);
     })
 
 }
