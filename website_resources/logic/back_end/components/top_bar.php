@@ -1,6 +1,6 @@
 <div id="top_bar" class="top_bottom_bar">
     <div id="top_bar_title">
-        <span>Medical to do list</span>
+        <span><?php echo $top_bar_title; ?></span>
     </div>
     <div id="top_bar_left">
         <?php if($_SESSION["logged_in"]) { ?>

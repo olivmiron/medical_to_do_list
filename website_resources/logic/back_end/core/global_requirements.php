@@ -5,6 +5,7 @@
 if(!isset($_SESSION))  {session_start();}
 
 $pages_array = ["patients", "group_to_dos", "personal_to_dos", "settings"];
+$pages_names_array = ["Patients", "Group to dos", "Personal to dos", "Settings"];
 $pages_uris = [
     "patients" => "website_resources/logic/back_end/website_pages/pages/patients.php", 
     "group_to_dos" => "website_resources/logic/back_end/website_pages/pages/group_to_dos.php", 
@@ -35,7 +36,10 @@ if($initial_load) {$_SESSION["loaded_pages"] = array_fill_keys($pages_array, fal
 // initial page view
 
 
+
 if($initial_load) {
+    
+    $top_bar_title = "Medical to do list";
 
     if(isset($_GET["page"])) {
         if(in_array($_GET["page"], $pages_array)) {
@@ -58,6 +62,8 @@ if($initial_load) {
         } elseif ($i == $current_page_index) {
             $pages_arrangement[$pages_array[$i]] = [0, "app_view_screen_page_center"]; // Current page is center (0)
             if($_SESSION["logged_in"]) {$_SESSION["loaded_pages"][$pages_array[$i]] = true;} // mark current page as loaded if logged in
+
+            $top_bar_title = $pages_names_array[$i];
         }
         else {
             $pages_arrangement[$pages_array[$i]] = [1, "app_view_screen_page_right"]; // Pages after current are right (1)

@@ -48,7 +48,10 @@ function handleCredentialResponse(response) {
 
 // top_bar functions
 
-
+function change_top_bat_title(title) {
+    var top_bar_title = document.getElementById("top_bar_title");
+    top_bar_title.querySelector("span").innerHTML = title;
+}
 
 
 // bottom_bar functions
@@ -124,6 +127,8 @@ function load_page(page_name) {
         respective_view_screen_page.innerHTML = data;
         // update loaded_pages
         loaded_pages[page_name] = true;
+
+        change_top_bat_title(pages_names_array[pages_array.indexOf(page_name)]);
     })
 
 }
