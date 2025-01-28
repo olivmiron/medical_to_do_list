@@ -73,7 +73,7 @@ if($initial_load) {
 }
 else{
     if(!$_SESSION["logged_in"]) {
-        throw_error("You are not logged in." . $_SESSION["user_name"]);
+        include $_SERVER["DOCUMENT_ROOT"] . "/website_resources/logic/back_end/other/not_logged_in.php";
     }
 }
 
