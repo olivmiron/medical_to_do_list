@@ -18,10 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $to_do_id = $conn->insert_id;
 
-        // please fetch the html of the to-do item ('/website_resources/logic/back_end/website_pages/pages/dependencies/to_do.html'), replace the id, title and description with the ones also stored in the database, and return it as a json response as to_do_html
         $to_do_template = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/website_pages/pages/dependencies/to_do.html');
-
-        
 
         $to_do_html = str_replace(
             [
@@ -47,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             "to_do_html" => $to_do_html
         ];
 
-        echo json_encode($response);
+        echo json_encode($response, JSON_UNESCAPED_SLASHES);
 
 
     } else {
