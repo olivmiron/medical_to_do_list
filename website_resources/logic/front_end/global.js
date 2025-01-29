@@ -287,6 +287,7 @@ function stopDragging() {
 
     if(parseInt(window.getComputedStyle(sheet).height) < 200) {
         close_bottom_sheet();
+        sheet.style.height = "";
     }
 }
 
