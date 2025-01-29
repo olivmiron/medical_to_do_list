@@ -22,7 +22,7 @@ while ($row = $result->fetch_assoc()) {
             '{{to_do_creator_name}}',
             '{{to_do_title}}', 
             '{{to_do_description}}',
-            'description_emptyx'
+            'description_empty'
         ],
         [
             $row['id'], 
@@ -30,7 +30,7 @@ while ($row = $result->fetch_assoc()) {
             $_SESSION["user_name"],
             $row['title'], 
             $row['description'],
-            empty($row['description']) or $row['description'] == "" or $row["description"] == NULL ? 'description_empty' : ''
+            empty($row['description']) ? 'description_empty' : ''
         ],
         $to_do_template
     );
