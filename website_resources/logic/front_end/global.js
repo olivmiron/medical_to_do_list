@@ -65,6 +65,11 @@ function toggle_top_bar_floater(floater_name) {
     else {user_options_floater.classList.add('floater_hidden');}
 }
 
+function log_out() {
+    //go to log out page
+    window.location.href = "/website_resources/logic/back_end/core/log_out.php";    
+}
+
 
 // bottom_bar functions
 

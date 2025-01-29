@@ -19,7 +19,7 @@
                 onclick="toggle_top_bar_floater('top_bar_user_options_floater');" 
             />
             <div id="top_bar_user_options_floater" class="top_bar_floater floater_right floater_hidden">
-                <div class="floater_option">
+                <div class="floater_option" onclick="log_out();">
                     <img src="website_resources/design/media/icons/top_bar/log_out.png" /><span>Log out</span>
                 </div>    
             </div>
