@@ -27,9 +27,11 @@ $pages_drag_sheet_templates = [
     "settings" => "website_resources/logic/back_end/components/bottom_drag_sheet_templates/create_group.php"
 ];
 
-function throw_error($error_message) {
-    echo "<div id='error_message'>" . $error_message . "</div>";
-    exit();
+if (!function_exists('throw_error')) {
+    function throw_error($error_message) {
+        echo "<div id='error_message'>" . $error_message . "</div>";
+        exit();
+    }
 }
 
 
