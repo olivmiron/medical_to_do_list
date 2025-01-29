@@ -480,6 +480,8 @@ br {height: 20px;}
 .description_empty {display: none;}
 
 
+.to_do_due_row {display: none;} /* PLEASE REMOVE */
+
 .to_do_due_row {    
     text-align: right;
     margin-top: var(--spacing_large);
