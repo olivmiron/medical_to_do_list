@@ -15,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("isssi", $creator_user_id, $title, $description, $date_created, $personal_or_group_id);
 
     if ($stmt->execute()) {
-        echo json_encode(["status" => "success", "message" => "To-do item added successfully."]);
 
         $to_do_id = $conn->insert_id;
 
