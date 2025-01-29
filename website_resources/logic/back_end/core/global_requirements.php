@@ -43,22 +43,22 @@ if($initial_load) {$_SESSION["loaded_pages"] = array_fill_keys($pages_array, fal
 // initial page view
 
 
+if(isset($_GET["page"])) {
+    if(in_array($_GET["page"], $pages_array)) {
+        $initial_page = $_GET["page"];
+    }
+    else {
+        $initial_page = $pages_array[0];
+    }
+}
+else {
+    $initial_page = $pages_array[0];
+}
 
 if($initial_load) {
     
     $top_bar_title = "Medical to do list";
 
-    if(isset($_GET["page"])) {
-        if(in_array($_GET["page"], $pages_array)) {
-            $initial_page = $_GET["page"];
-        }
-        else {
-            $initial_page = $pages_array[0];
-        }
-    }
-    else {
-        $initial_page = $pages_array[0];
-    }
 
     $pages_arrangement = array_fill_keys($pages_array, [1, "app_view_screen_page_center"]); // Initialize all pages to right (1)
     $current_page_index = array_search($initial_page, $pages_array);

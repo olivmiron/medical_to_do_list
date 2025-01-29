@@ -361,8 +361,8 @@ function add_to_do_to_db() {
     var to_do_description = document.getElementById("add_to_do_description_input").value;
     if(to_do_text == "") {document.getElementById("add_to_do_title_input").classList.add("empty_input");return;}
 
-    var data = {to_do_text: to_do_text};
-    fetch('/website_resources/logic/back_end/website_pages/patients/add_to_do.php', {
+    var data = {to_do_text: to_do_text, to_do_description: to_do_description};
+    fetch('/website_resources/logic/back_end/components/bottom_drag_sheet_templates/dependencies/add_to_do_script.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
