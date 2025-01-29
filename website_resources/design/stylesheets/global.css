@@ -46,7 +46,7 @@
 
     /* element specific */
 
---top_bottom_bar_size: 54px;
+--top_bottom_bar_size: 56px;
 }
 
 @font-face {
@@ -144,7 +144,7 @@ br {height: 20px;}
 /* top bar specifics */
 
 
-#top_bar_title {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);font-size: 16px;font-weight: bold;max-width: calc(100% - var(--spacing_medium) * 4 - var(--top_bottom_bar_size) * 2);text-align: center;}
+#top_bar_title {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);font-size: 20px;font-weight: bold;max-width: calc(100% - var(--spacing_medium) * 4 - var(--top_bottom_bar_size) * 2);text-align: center;}
 
 #top_bar_left {flex: 0 0 auto;display: flex;align-items: center;}
 #top_bar_action_button {height: 100%;cursor: pointer;}
@@ -351,7 +351,7 @@ br {height: 20px;}
 }
 
 .to_do_item_not_done {}
-.to_do_item_done .to_do_right, .to_do_item_done .to_do_bottom {opacity: 0.5;/* padding: var(--spacing_medium);gap: var(--spacing_small); */}
+.to_do_item_done .to_do_right, .to_do_item_done .to_do_bottom {opacity: 0.4;/* padding: var(--spacing_medium);gap: var(--spacing_small); */}
 .to_do_item_done .to_do_button {background-color: var(--color_primary);border-color: white;}
 .to_do_item_done .to_do_button div {}
 .to_do_item_done .to_do_button div img {filter: invert(1);opacity: 1;}
