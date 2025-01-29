@@ -13,7 +13,14 @@ function update_url_page_param(utl_param, value) {
 
 
 function show_pop_up_message(message, error_or_not) {
-    
+    document.getElementById("pop_up_message").innerHTML = message;
+
+    if(error_or_not) {document.getElementById("pop_up_message").classList.add("pop_up_message_error");}
+    else{document.getElementById("pop_up_message").classList.remove("pop_up_message_error");}
+
+
+    document.getElementById("pop_up_message").classList.add("pop_up_message_visible");
+    setTimeout(() => {document.getElementById("pop_up_message").classList.remove("pop_up_message_visible");}, 3000);
 }
 
 function handleCredentialResponse(response) {
@@ -40,11 +47,11 @@ function handleCredentialResponse(response) {
 
             load_page();
         } else {
-            console.error('Login failed:', data.message);
+            show_pop_up_message('Login failed:', data.message, true);
         }
     })
     .catch(error => {
-        console.error('Error:', error);
+        show_pop_up_message('Please try again later', true);
     });
 }
 
@@ -381,11 +388,11 @@ function add_to_do_to_db() {
 
             close_bottom_sheet();
         } else {
-            console.error('Adding to do failed:', data.message);
+            show_pop_up_message('Adding to do failed:', data.message, true);
         }
     })
     .catch(error => {
-        console.error('Error:', error);
+        show_pop_up_message('Please try again later', true);
     });
 }
 
