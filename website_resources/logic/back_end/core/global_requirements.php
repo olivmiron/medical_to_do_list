@@ -20,6 +20,13 @@ $pages_top_bar_action_buttons = [
     "settings" => ["add_group", "/website_resources/design/media/icons/top_bar/add_group.png"]
 ];
 
+$pages_drag_sheet_templates = [ // [uri, if loaded or not]
+    "patients" => ["website_resources/logic/back_end/components/bottom_drag_sheet_templates/add_patient.php", false],
+    "group_to_dos" => ["website_resources/logic/back_end/components/bottom_drag_sheet_templates/add_to_do.php", false],
+    "personal_to_dos" => ["website_resources/logic/back_end/components/bottom_drag_sheet_templates/add_to_do.php", false],
+    "settings" => ["website_resources/logic/back_end/components/bottom_drag_sheet_templates/create_group.php", false]
+];
+
 function throw_error($error_message) {
     echo "<div id='error_message'>" . $error_message . "</div>";
     exit();

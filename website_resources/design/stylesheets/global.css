@@ -439,6 +439,6 @@ br {height: 20px;}
 .not_due  span {color: var(--color_danger);opacity: 0.6;}
 
 .already_due {background: var(--color_danger);}
-.already_due span {color: var(--color_danger);opacity: 0.6;filter: brightness(0.4);}
+.already_due span {color: var(--color_danger);filter: brightness(0.4);}
 
     /* settings */
