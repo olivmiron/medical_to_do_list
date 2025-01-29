@@ -130,10 +130,10 @@ br {height: 20px;}
 
     transition: var(--transition_medium);
 }
-.pop_up_message_visible {
+#pop_up_message.pop_up_message_visible {
     top: var(--spacing_large);}
-    
-.pop_up_message_error {
+
+#pop_up_message.pop_up_message_error {
     color: var(--color_danger);
     border: 1px solid var(--color_danger);
     box-shadow: 0px 2px 15px -5px var(--color_danger);
