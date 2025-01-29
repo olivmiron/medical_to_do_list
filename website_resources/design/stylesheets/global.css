@@ -153,6 +153,16 @@ br {height: 20px;}
 #top_bar_user_picture {height: 100%;border-radius: var(--border_infinite_radius);cursor: pointer;}
 
 
+
+.user_options_floater {position: fixed;top: calc(var(--top_bottom_bar_size) + var(--spacing_medium));background-color: white;border-radius: var(--border_radius_medium);border: 1px solid var(--color_gray);box-shadow: 0px 2px 10px -5px var(--color_gray);}
+.floater_right {right: var(--spacing_medium);}
+.floter_left {left: var(--spacing_medium);}
+.floater_hidden {display: none;}
+.floater_option {padding: var(--spacing_medium);display: flex;align-items: center;gap: var(--spacing_medium);}
+.floater_option img {height: 14px;}
+.floater_option span {font-size: 14px;font-weight: bold;}
+
+
 /* bottom bar specifics */
 
 

@@ -57,6 +57,15 @@ function change_top_bar_title(title) {
 }
 
 
+function toggle_top_bar_floater(floater_name) {
+    var user_options_floater = document.getElementById(floater_name);
+    if(user_options_floater == null) {return;}
+
+    if(user_options_floater.classList.contains('floater_hidden')) {user_options_floater.classList.remove('floater_hidden');}
+    else {user_options_floater.classList.add('floater_hidden');}
+}
+
+
 // bottom_bar functions
 
 function change_page(page_name) {
