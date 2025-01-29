@@ -12,7 +12,9 @@ function update_url_page_param(utl_param, value) {
 }
 
 
-
+function show_pop_up_message(message, error_or_not) {
+    
+}
 
 function handleCredentialResponse(response) {
     var sign_in_square = document.getElementById("sign_in_square");
@@ -374,8 +376,10 @@ function add_to_do_to_db() {
     .then(response => response.json())
     .then(data => {
         if (data.status == "success") {
-            document.getElementById("to_do_text").value = "";
-            load_page("patients");
+            if(current_page == "group_to_dos") {document.getElementById("view_screen_page__group_to_dos__content").innerHTML = data.to_do_html;}
+            else {document.getElementById("view_screen_page__personal_to_dos__content").innerHTML = data.to_do_html;}
+
+            close_bottom_sheet();
         } else {
             console.error('Adding to do failed:', data.message);
         }
