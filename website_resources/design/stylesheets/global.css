@@ -352,7 +352,7 @@ br {height: 20px;}
 
 .to_do_item_not_done {}
 .to_do_item_done .to_do_right, .to_do_item_done .to_do_bottom {opacity: 0.5;/* padding: var(--spacing_medium);gap: var(--spacing_small); */}
-.to_do_item_done .to_do_button {border: 1px solid white;}
+.to_do_item_done .to_do_button {border-color: white;}
 .to_do_item_done .to_do_button div {background-color: var(--color_primary);}
 .to_do_item_done .to_do_button div img {filter: invert(1);opacity: 1;}
 
