@@ -71,6 +71,52 @@ function log_out() {
 }
 
 
+
+
+
+function top_bar_current_view_action(page_name, action_name) {
+    // see if page_name_bottom_sheet is loaded inside bottom_drag_sheet_stored_templates
+    var bottom_sheet_stored_templates = document.getElementById(action_name + "__bottom_sheet_action_template");
+    if(bottom_sheet_stored_templates == null) {
+        load_bottom_sheet_action_template(page_name)
+        .then(() => {
+            insert_bottom_sheet_template_and_open();
+
+        });
+    }
+    else {insert_bottom_sheet_template_and_open();}
+
+    
+    function insert_bottom_sheet_template_and_open() {
+        var respective_template = document.getElementById(action_name + "__bottom_sheet_action_template");
+        document.getElementById("bottom_drag_sheet_content").innerHTML = respective_template.innerHTML;
+        open_bottom_sheet();
+    }
+}
+
+function load_bottom_sheet_action_template(page_name) {
+    // make an ajax request to get the page content and populate the respective view_screen_page__PAGE_NAME
+    var bottom_sheet_stored_templates = document.getElementById("bottom_drag_sheet_stored_templates");
+
+    fetch(pages_drag_sheet_templates[page_name])
+    .then(response => response.text())
+    .then(data => {
+        bottom_sheet_stored_templates.innerHTML += data;
+        return "success";
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
 // bottom_bar functions
 
 function change_page(page_name) {

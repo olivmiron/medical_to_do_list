@@ -14,10 +14,10 @@ $pages_uris = [
 ];
 
 $pages_top_bar_action_buttons = [
-    "patients" => ["top_bar_current_view_action('add_patient')", "/website_resources/design/media/icons/top_bar/add_patient.png"],
-    "group_to_dos" => ["top_bar_current_view_action('add_group_to_do')", "/website_resources/design/media/icons/top_bar/add_to_do.png"],
-    "personal_to_dos" => ["top_bar_current_view_action('add_personal_to_do')", "/website_resources/design/media/icons/top_bar/add_to_do.png"],
-    "settings" => ["top_bar_current_view_action('add_group')", "/website_resources/design/media/icons/top_bar/add_group.png"]
+    "patients" => ["top_bar_current_view_action('patients', 'add_patient')", "/website_resources/design/media/icons/top_bar/add_patient.png"],
+    "group_to_dos" => ["top_bar_current_view_action('group_to_dos', 'add_group_to_do')", "/website_resources/design/media/icons/top_bar/add_to_do.png"],
+    "personal_to_dos" => ["top_bar_current_view_action('personal_to_dos', 'add_personal_to_do')", "/website_resources/design/media/icons/top_bar/add_to_do.png"],
+    "settings" => ["top_bar_current_view_action('settings', 'add_group')", "/website_resources/design/media/icons/top_bar/add_group.png"]
 ];
 
 $pages_drag_sheet_templates = [
