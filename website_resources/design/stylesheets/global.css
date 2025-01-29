@@ -421,4 +421,24 @@ br {height: 20px;}
 .to_do_item_title {font-size: 24px;font-weight: bold;margin-top: var(--spacing_medium);}
 
 
+
+
+.to_do_due_row {    
+    text-align: right;
+    margin-top: var(--spacing_medium);
+}
+
+.due_line_div {
+    display: inline-block;
+    padding: var(--spacing_small) var(--spacing_medium);
+    border-radius: var(--border_radius_small);
+}
+.due_line span {font-weight: bold;}
+
+.not_due {background-color: var(--color_warning);}
+.not_due  span {color: var(--color_danger);opacity: 0.6;}
+
+.already_due {background: var(--color_danger);}
+.already_due span {color: var(--color_danger);opacity: 0.6;filter: brightness(0.4);}
+
     /* settings */
