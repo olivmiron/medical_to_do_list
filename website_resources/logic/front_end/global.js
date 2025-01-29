@@ -393,6 +393,7 @@ function add_to_do_to_db() {
         }
     })
     .catch(error => {
+        console.error('Error:', error);
         show_pop_up_message('Please try again later', true);
         close_bottom_sheet();
     });
