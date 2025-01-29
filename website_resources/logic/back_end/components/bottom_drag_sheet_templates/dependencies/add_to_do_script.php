@@ -3,9 +3,11 @@
 require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/database_connect.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $input = json_decode(file_get_contents('php://input'), true);
+    
     $creator_user_id = $_SESSION['user_id'];
-    $title = $_POST['to_do_text'];
-    $description = $_POST['to_do_description'];
+    $title = $input['to_do_text'];
+    $description = $input['to_do_description'];
     $personal_or_group_id = /* $_POST['personal_or_group_id'] */ 0;
     $date_created = date('Y-m-d H:i:s');
 
