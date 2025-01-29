@@ -22,7 +22,7 @@ while ($row = $result->fetch_assoc()) {
             '{{to_do_creator_name}}',
             '{{to_do_title}}', 
             '{{to_do_description}}',
-            'description_empty'
+            'description_emptyx'
         ],
         [
             $row['id'], 
