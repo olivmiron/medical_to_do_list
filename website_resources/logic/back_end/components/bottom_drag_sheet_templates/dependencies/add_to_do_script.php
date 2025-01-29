@@ -4,7 +4,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/data
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input = json_decode(file_get_contents('php://input'), true);
-    
+
     $creator_user_id = $_SESSION['user_id'];
     $title = $input['to_do_text'];
     $description = $input['to_do_description'];
@@ -60,6 +60,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     echo json_encode(["status" => "error", "message" => "Invalid request method."]);
 }
-
-// ...existing code...
 ?>
