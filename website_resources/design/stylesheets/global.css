@@ -361,9 +361,9 @@ br {height: 20px;}
 
 .to_do_button {
     border: 1px solid;
-    border-color:  var(--color_gray);
+    border-color: var(--color_gray);
     border-radius: var(--border_infinite_radius);
-    transition: var(--spacing_medium);
+    transition: var(--transition_medium);
 }
 .to_do_button div {
     display: flex;
