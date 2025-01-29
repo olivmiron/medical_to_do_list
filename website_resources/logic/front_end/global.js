@@ -86,7 +86,7 @@ function top_bar_current_view_action(page_name, action_name) {
     }
     else {insert_bottom_sheet_template_and_open();}
 
-    
+
     function insert_bottom_sheet_template_and_open() {
         var respective_template = document.getElementById(action_name + "__bottom_sheet_action_template");
         document.getElementById("bottom_drag_sheet_content").innerHTML = respective_template.innerHTML;
@@ -98,7 +98,7 @@ function load_bottom_sheet_action_template(page_name) {
     // make an ajax request to get the page content and populate the respective view_screen_page__PAGE_NAME
     var bottom_sheet_stored_templates = document.getElementById("bottom_drag_sheet_stored_templates");
 
-    fetch(pages_drag_sheet_templates[page_name])
+    return fetch(pages_drag_sheet_templates[page_name])
     .then(response => response.text())
     .then(data => {
         bottom_sheet_stored_templates.innerHTML += data;
