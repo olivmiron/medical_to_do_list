@@ -1,4 +1,4 @@
-<div id="ad_to_do__bottom_sheet_action_template" class="bottom_sheet_component">
+<div id="add_to_do__bottom_sheet_action_template" class="bottom_sheet_component">
     <div class="bottom_sheet_title"><span>Add to do</span></div>
     <div class="spacer_large"></div>
 
