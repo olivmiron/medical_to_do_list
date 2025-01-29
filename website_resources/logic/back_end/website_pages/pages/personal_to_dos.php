@@ -5,9 +5,7 @@ if($_SESSION["logged_in"]) {
 ?>
 <div id="view_screen_page__personal_to_dos__content">
 
-<?php include $_SERVER["DOCUMENT_ROOT"] . "/website_resources/logic/back_end/website_pages/pages/dependencies/to_do.html"; ?>
-<?php include $_SERVER["DOCUMENT_ROOT"] . "/website_resources/logic/back_end/website_pages/pages/dependencies/to_do.html"; ?>
-<?php include $_SERVER["DOCUMENT_ROOT"] . "/website_resources/logic/back_end/website_pages/pages/dependencies/to_do.html"; ?>
+<?php $personal_or_group_id = 0;include $_SERVER["DOCUMENT_ROOT"] . "/website_resources/logic/back_end/website_pages/pages/dependencies/load_to_dos.php"; ?>
     
 </div>
 <?php }; ?>

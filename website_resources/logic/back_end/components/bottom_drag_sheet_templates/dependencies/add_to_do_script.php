@@ -26,14 +26,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 '{{to_do_date_created}}', 
                 '{{to_do_creator_name}}',
                 '{{to_do_title}}', 
-                '{{to_do_description}}'
+                '{{to_do_description}}',
+                'description_empty'
             ],
             [
                 $to_do_id, 
                 date('d M Y H:i', strtotime($date_created)), 
                 $_SESSION["user_name"],
                 $title, 
-                $description
+                $description,
+                empty($description) ? 'description_empty' : ''
             ],
             $to_do_template
         );
