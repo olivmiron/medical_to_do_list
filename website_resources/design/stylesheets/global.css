@@ -279,7 +279,7 @@ br {height: 20px;}
     box-shadow: 0px 0px 10px -5px var(--color_gray);
     transition: var(--transition_medium);
     overflow: hidden;
-    border-radius: var(--border_radius_xxl);
+    border-radius: var(--border_radius_xxl) var(--border_radius_xxl) 0 0;
 }
 
 .bottom_drag_sheet_active #bottom_drag_sheet_underlay {opacity: 0.8;}
