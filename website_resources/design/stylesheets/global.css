@@ -331,7 +331,25 @@ br {height: 20px;}
 
 
 
-
+.big_bottom_sheet_action_button {
+    padding: var(--spacing_large);
+    background-color: var(--color_primary);
+    border-radius: var(--border_radius_medium);
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing_medium);
+    box-shadow: 0px 2px 12px -5px var(--color_gray);
+    cursor: pointer;
+    transition: var(--transition_medium);
+}
+.big_bottom_sheet_action_button:active {box-shadow: 0px 0px 10px -5px var(--color_gray);background-color: var(--color_success);}
+.big_bottom_sheet_action_button span {}
+.big_bottom_sheet_action_button img {height: 24px;}
 
 
 

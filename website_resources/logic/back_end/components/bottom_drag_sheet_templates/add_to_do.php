@@ -10,4 +10,8 @@
     
     <div class="bottom_sheet_sub_title"><span>Description / details</span></div>
     <textarea id="add_to_do_description_input"></textarea>
+    
+    <div class="spacer_xxl"></div>
+
+    <div class="big_bottom_sheet_action_button"><span>Save to do</span></div>
 </div>
