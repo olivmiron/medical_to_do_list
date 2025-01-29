@@ -170,6 +170,8 @@ function change_page(page_name) {
     //update browser url
 
     update_url_page_param("page", page_name);
+
+    current_page = page_name;
 }
 
 
