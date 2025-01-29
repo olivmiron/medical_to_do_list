@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $personal_or_group_id = /* $_POST['personal_or_group_id'] */ 0;
     $date_created = date('Y-m-d H:i:s');
 
-    $stmt = $conn->prepare("INSERT INTO to_dos (creator_user_id, title, description, date_created, personal_or_group_id) VALUES (?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO to_dos (creator_user_id, title, description, date_created, personal_or_group_id, to_do_done, due_or_not, due_date) VALUES (?, ?, ?, ?, ?, 0, 0, NULL)");
     $stmt->bind_param("isssi", $creator_user_id, $title, $description, $date_created, $personal_or_group_id);
 
     if ($stmt->execute()) {
