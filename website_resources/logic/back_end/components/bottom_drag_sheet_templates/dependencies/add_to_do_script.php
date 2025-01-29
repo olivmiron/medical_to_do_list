@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION["user_name"],
                 $title, 
                 $description,
-                empty($description) ? 'description_empty' : ''
+                empty($description) or $description == "" ? 'description_empty' : ''
             ],
             $to_do_template
         );

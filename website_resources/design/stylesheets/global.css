@@ -471,9 +471,14 @@ br {height: 20px;}
 
 .to_do_item_title {font-size: 24px;font-weight: bold;margin-top: var(--spacing_medium);}
 
+
+
 .to_do_item_description {margin-top: var(--spacing_large);font-size: 18px;}
 .to_do_item_description span:nth-of-type(1) {font-weight: bold;}
 .to_do_item_description span:nth-of-type(2) {color: var(--color_gray);}
+
+.description_empty {display: none;}
+
 
 .to_do_due_row {    
     text-align: right;
