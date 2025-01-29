@@ -378,7 +378,7 @@ br {height: 20px;}
 }
 
 
-.to_do_right {flex: 1 1 auto;margin-top: var(--spacing_medium);transition: var(--transition_fast);}
+.to_do_right {flex: 1 1 auto;margin-top: var(--spacing_medium);transition: var(--transition_medium);}
 
 
 .to_do_right_top {
