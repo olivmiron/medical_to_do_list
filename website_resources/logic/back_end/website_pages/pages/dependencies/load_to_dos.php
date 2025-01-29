@@ -30,7 +30,7 @@ while ($row = $result->fetch_assoc()) {
             $_SESSION["user_name"],
             $row['title'], 
             $row['description'],
-            empty($row['description']) or $row['description'] == "" ? 'description_empty' : ''
+            empty($row['description']) or $row['description'] == "" or $row["description"] == NULL ? 'description_empty' : ''
         ],
         $to_do_template
     );
