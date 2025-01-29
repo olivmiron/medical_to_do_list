@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $response = [
             "status" => "success",
             "message" => "To-do item added successfully.",
-            "to_do_html" => utf8_encode($to_do_html)
+            "to_do_html" => base64_encode($to_do_html)
         ];
 
         echo json_encode($response);

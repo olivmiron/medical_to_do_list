@@ -383,8 +383,8 @@ function add_to_do_to_db() {
     .then(response => response.json())
     .then(data => {
         if (data.status == "success") {
-            if(current_page == "group_to_dos") {document.getElementById("view_screen_page__group_to_dos__content").innerHTML = data.to_do_html;}
-            else {document.getElementById("view_screen_page__personal_to_dos__content").innerHTML = data.to_do_html;}
+            if(current_page == "group_to_dos") {document.getElementById("view_screen_page__group_to_dos__content").innerHTML = atob(data.to_do_html);}
+            else {document.getElementById("view_screen_page__personal_to_dos__content").innerHTML = atob(data.to_do_html);}
 
             close_bottom_sheet();
         } else {
