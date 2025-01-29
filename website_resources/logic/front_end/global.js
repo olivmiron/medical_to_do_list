@@ -389,10 +389,12 @@ function add_to_do_to_db() {
             close_bottom_sheet();
         } else {
             show_pop_up_message('Adding to do failed:', data.message, true);
+            close_bottom_sheet();
         }
     })
     .catch(error => {
         show_pop_up_message('Please try again later', true);
+        close_bottom_sheet();
     });
 }
 
