@@ -47,6 +47,9 @@ function handleCredentialResponse(response) {
 }
 
 
+function remove_empty_input_class(input) {
+    input.classList.remove("empty_input");
+}
 
 
 // top_bar functions
@@ -332,4 +335,53 @@ document.addEventListener('DOMContentLoaded', initBottomSheetDrag);
     // pages personal to dos functions
 
 
+
     // pages settings functions
+
+
+
+
+
+
+
+
+
+
+
+// bottom sheet functions
+
+
+// patient sheet functions
+
+
+// global to dos sheet functions
+
+function add_to_do_to_db() {
+    var to_do_text = document.getElementById("add_to_do_title_input").value;
+    var to_do_description = document.getElementById("add_to_do_description_input").value;
+    if(to_do_text == "") {document.getElementById("add_to_do_title_input").classList.add("empty_input");return;}
+
+    var data = {to_do_text: to_do_text};
+    fetch('/website_resources/logic/back_end/website_pages/patients/add_to_do.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status == "success") {
+            document.getElementById("to_do_text").value = "";
+            load_page("patients");
+        } else {
+            console.error('Adding to do failed:', data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+
+// settings sheet functions
