@@ -360,7 +360,8 @@ br {height: 20px;}
 .to_do_left {flex: 0 0 auto;}
 
 .to_do_button {
-    border: 1px solid var(--color_gray);
+    border: 1px solid;
+    border-color:  var(--color_gray);
     border-radius: var(--border_infinite_radius);
     transition: var(--spacing_medium);
 }
