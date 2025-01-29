@@ -1,17 +1,25 @@
-<div id="to_do__##to_do_id##" class="to_do_item to_do_item_not_done" data-to_do_done="0">
+<div id="to_do__{{to_do_id}}" class="to_do_item to_do_item_not_done" data-to_do_done="0">
     <div class="to_do_left">
-        <div class="to_do_button" onclick="toggle_to_do('##to_do_id##', this)"><div><img src="/website_resources/design/media/icons/pages/dependencies/check_mark.png"/></div></div>
+        <div class="to_do_button" onclick="toggle_to_do('{{to_do_id}}', this)"><div><img src="/website_resources/design/media/icons/pages/dependencies/check_mark.png"/></div></div>
     </div>
     <div class="to_do_right">
+
         <div class="to_do_right_top">
-            <div class="to_do_item_date_created">15 jan 2025 13:35</div>
+            <div class="to_do_item_date_created">{{to_do_date_created}}</div>
             <div class="flex_spacer"></div>
-            <div class="to_do_item_creator">by <span>Mironescu Olivier</span></div>
+            <div class="to_do_item_creator">by <span>{{to_do_creator_name}}</span></div>
         </div>
-        <div class="to_do_item_title"><span>Pick up groceries from Carrefour</span></div>
+
+        <div class="to_do_item_title"><span>{{to_do_title}}</span></div>
+
+        <div class="to_do_item_description">
+            <span>Description: </span><span>{{to_do_description}}</span>
+        </div>
+
         <div class="to_do_due_row">
             <div class="due_line_div not_due"><span>Due in 2 days</span></div>
             <div class="due_line_div already_due"><span>Due 2 days ago</span></div>
         </div>
+
     </div>
 </div>
