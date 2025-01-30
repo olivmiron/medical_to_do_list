@@ -84,7 +84,6 @@ if($initial_load) {
 else { 
     if(!$_SESSION["logged_in"]) {
         include $_SERVER["DOCUMENT_ROOT"] . "/website_resources/logic/back_end/other/not_logged_in.html";
-        echo "x";
     }
 }
 
