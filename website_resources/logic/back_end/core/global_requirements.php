@@ -40,7 +40,12 @@ if($initial_load) {$_SESSION["loaded_pages"] = array_fill_keys($pages_array, fal
 
     
 // log in checker
+if((!$initial_load) or (!$already_checked_log_in)) {
     require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/global_requirements_dependencies/log_in_checker.php";
+    $already_checked_log_in = true;
+}    
+
+
 // initial page view
 
 
