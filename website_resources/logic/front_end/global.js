@@ -320,24 +320,39 @@ document.addEventListener('DOMContentLoaded', initBottomSheetDrag);
 
     // pages global to dos functions
 
-    function toggle_to_do(to_do_id, button) {
+function toggle_to_do(to_do_id, button) {
+    let to_do = button.closest('.to_do_item');
+    if (!to_do) return;
 
-        let to_do = button.closest('.to_do_item');
-        if (!to_do) return;
-        
-        if(to_do.getAttribute("data-to_do_done") == "0") {
-            to_do.setAttribute("data-to_do_done", "1");
-            
-            to_do.classList.add("to_do_item_done");
-            to_do.classList.remove("to_do_item_not_done");
+
+    fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/to_dos/toggle_to_do.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ to_do_id: to_do_id })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            if (data.new_status == 1) {
+                to_do.setAttribute("data-to_do_done", "1");
+                to_do.classList.add("to_do_item_done");
+                to_do.classList.remove("to_do_item_not_done");
+            } else {
+                to_do.setAttribute("data-to_do_done", "0");
+                to_do.classList.add("to_do_item_not_done");
+                to_do.classList.remove("to_do_item_done");
+            }
+        } else {
+            show_pop_up_message('Failed to toggle to-do item:', data.message, true);
         }
-        else {
-            to_do.setAttribute("data-to_do_done", "0");
-            
-            to_do.classList.add("to_do_item_not_done");
-            to_do.classList.remove("to_do_item_done");
-        }
-        
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        show_pop_up_message('Please try again later', true);
+    });
+
 }
 
     // pages group to dos functions
