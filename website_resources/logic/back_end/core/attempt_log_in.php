@@ -91,7 +91,7 @@ else {
 $_SESSION["logged_in"] = true;
 $_SESSION["user_id"] = $sql_row["id"];
 $_SESSION["user_name"] = $google_client_user["user_name"];
-$_SESSION["user_email"] = $google_client_user["user_email"];
+$_SESSION["default_group_id"] = $sql_row["default_group_id"];
 $_SESSION["user_token"] = $new_token;
 
 // set persistence cookie
