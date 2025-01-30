@@ -3,7 +3,7 @@
     <div class="spacer_large"></div>
 
     
-    <div class="bottom_sheet_sub_title"><span>Title</span></div>
+    <div class="bottom_sheet_sub_title"><span>Title</span><span class="required_field_star">*</span></div>
     <input id="add_to_do_title_input" type="text" oninput="remove_empty_input_class(this)"></input>
     
     <div class="spacer_xxl"></div>

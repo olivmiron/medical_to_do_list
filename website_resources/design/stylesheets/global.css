@@ -94,6 +94,13 @@ textarea {height: 150px;resize: none;}
 
 input.empty_input, textarea.empty_input {border: 1px solid var(--color_danger);box-shadow: 0px 0px 8px -3px var(--color_danger);}
 
+.required_field_star {
+    color: var(--color_danger);
+    font-weight: bold;
+}
+
+
+
 
 /* general rules */
 
