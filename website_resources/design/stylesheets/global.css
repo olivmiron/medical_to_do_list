@@ -145,7 +145,16 @@ br {height: 20px;}
 /* centered message */
 
 
-.centered_icon_message {display: flex;gap: var(--spacing_xl);flex-direction: column;justify-content: center;align-items: center;}
+.centered_icon_message {
+    display: flex;
+    gap: var(--spacing_xl);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: var(--spacing_xl);
+    box-sizing: border-box;
+    text-align: center;
+}
 .centered_icon_message span {font-weight: bold;}
 .centered_icon_message img {height: 128px;}
 
