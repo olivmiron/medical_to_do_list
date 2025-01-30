@@ -11,7 +11,7 @@ $result = $stmt->get_result();
 
 $to_dos = [];
 while ($row = $result->fetch_assoc()) {
-    $to_do_template = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/website_pages/pages/dependencies/to_do.html');
+    $to_do_template = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/website_pages/pages/dependencies/to_dos/to_do.html');
     
     $description_class = empty($row['description']) ? 'description_empty' : '';
 
