@@ -18,6 +18,8 @@ else {
     $result = $stmt->get_result();
     
     $to_dos = [];
+
+    $loaded_to_dos = 0;
     while ($row = $result->fetch_assoc()) {
         $to_do_template = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/website_pages/pages/dependencies/to_dos/to_do.html');
         
@@ -48,7 +50,11 @@ else {
         );
         
         echo $to_do_html;
+
+        $loaded_to_dos++;
     }
+
+    if($loaded_to_dos < 10) {include $_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/other/query_end.html';}
     
     $stmt->close();
     $conn->close();
