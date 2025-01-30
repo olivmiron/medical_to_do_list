@@ -24,7 +24,7 @@
             $_SESSION["user_id"] = $sql_row["id"];
             $_SESSION["user_name"] = $sql_row["name"];
             $_SESSION["user_email"] = $sql_row["email"];
-            $_SESSION["default_group_id"] = $sql_row["default_group_id"];
+            // $_SESSION["default_group_id"] = $sql_row["default_group_id"];
 
             
             if($initial_load) {
