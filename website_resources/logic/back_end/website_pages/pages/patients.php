@@ -6,4 +6,4 @@ if($_SESSION["logged_in"]) {
 <div id="view_screen_page__patients__content">
     Patients
 </div>
-<?php } ?>
+<?php } else {if($initial_load) {include $_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/other/not_logged_in.html';}} ?>
