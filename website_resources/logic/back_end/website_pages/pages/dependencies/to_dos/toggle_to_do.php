@@ -3,7 +3,7 @@ $initial_load = false; require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/l
 require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/database_connect.php";
 
 $input = json_decode(file_get_contents('php://input'), true);
-$to_do_id = $_POST['to_do_id'];
+$to_do_id = $input['to_do_id'];
 $user_id = $_SESSION['user_id'];
 
 // Check if the to-do item exists and belongs to the user
