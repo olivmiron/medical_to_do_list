@@ -97,6 +97,7 @@ input.empty_input, textarea.empty_input {border: 1px solid var(--color_danger);b
 .required_field_star {
     color: var(--color_danger);
     font-weight: bold;
+    padding: 0 var(--spacing_small);
 }
 
 
