@@ -1,5 +1,5 @@
 <div id="add_group__bottom_sheet_action_template" class="bottom_sheet_component">
-    <div class="bottom_sheet_title"><span>Add group</span></div>
+    <div class="bottom_sheet_title"><span>Create group</span></div>
     <div class="spacer_large"></div>
     
     <div class="bottom_sheet_sub_title"><span>Name</span><span class="required_field_star">*</span></div>
