@@ -376,7 +376,7 @@ function select_group_as_default(group_id) {
     .then(response => response.json())
     .then(data => {
         if (data.status === 'success') {
-            show_pop_up_message('Group set as default:', data.message, false);
+            show_pop_up_message('Group set as default:' + data.group_name, false);
 
             // Remove the default class from all group rows
             document.querySelectorAll('.settings_group_row').forEach(row => {

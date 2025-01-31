@@ -8,17 +8,18 @@ $user_id = $_SESSION['user_id'];
 
 // Check if the user is a member of the group
 $stmt = $conn->prepare("
-    SELECT COUNT(*) 
-    FROM groups_members 
-    WHERE group_id = ? AND member_id = ?
+    SELECT g.group_name
+    FROM groups_members gm
+    INNER JOIN groups g ON gm.group_id = g.id
+    WHERE gm.group_id = ? AND gm.member_id = ?
 ");
 $stmt->bind_param("ii", $group_id, $user_id);
 $stmt->execute();
-$stmt->bind_result($count);
+$stmt->bind_result($group_name);
 $stmt->fetch();
 $stmt->close();
 
-if ($count > 0) {
+if ($group_name) {
     // Update the default group
     $stmt = $conn->prepare("
         UPDATE accounts 
@@ -27,7 +28,7 @@ if ($count > 0) {
     ");
     $stmt->bind_param("ii", $group_id, $user_id);
     if ($stmt->execute()) {
-        echo json_encode(['status' => 'success', 'message' => 'Default group updated successfully.']);
+        echo json_encode(['status' => 'success', 'message' => 'Default group updated successfully.', 'group_name' => $group_name]);
     } else {
         echo json_encode(['status' => 'error', 'message' => 'Failed to update default group.']);
     }
