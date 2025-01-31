@@ -18,6 +18,7 @@ if ($default_group_id) {
 
     if ($group_name) {echo $group_name;} 
     else {echo "group";}
-} else {echo "group";}
+} 
+else {echo "group";}
 
 ?>
