@@ -55,8 +55,5 @@ else {
     }
 
     if($loaded_to_dos < 10) {include $_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/other/query_end.html';}
-    
-    $stmt->close();
-    $conn->close();
 }
 ?>

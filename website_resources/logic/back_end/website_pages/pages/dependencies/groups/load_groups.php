@@ -42,7 +42,4 @@ $user_id = $_SESSION['user_id'];
     }
 
     if($loaded_group_rows < 10) {include $_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/other/query_end.html';}
-    
-    $stmt->close();
-    $conn->close();
 ?>
