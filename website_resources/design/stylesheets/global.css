@@ -157,6 +157,7 @@ br {height: 20px;}
     z-index: var(--z_index_absolute_top);
 
     transition: var(--transition_medium);
+    text-align: center;
 }
 #pop_up_message.pop_up_message_visible {
     top: var(--spacing_large);}
