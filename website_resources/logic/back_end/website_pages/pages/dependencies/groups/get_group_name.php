@@ -1,6 +1,4 @@
 <?php
-if(!$initial_load) {require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/global_requirements.php";}
-// require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/database_connect.php";
 
 $user_id = $_SESSION['user_id'];
 $default_group_id = $_SESSION['default_group_id'];
@@ -18,13 +16,8 @@ if ($default_group_id) {
     $stmt->bind_result($group_name);
     $stmt->fetch();
 
-    if ($group_name) {
-        $get_group_name = json_encode(['status' => 'success', 'group_name' => $group_name]);
-    } else {
-        $get_group_name = json_encode(['status' => 'error', 'message' => 'User is not a member of the default group.']);
-    }
-} else {
-    $get_group_name = json_encode(['status' => 'error', 'message' => 'No default group set for the user.']);
-}
+    if ($group_name) {echo $group_name;} 
+    else {echo "group";}
+} else {echo "group";}
 
 ?>
