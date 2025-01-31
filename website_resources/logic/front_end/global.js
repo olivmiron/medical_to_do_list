@@ -432,3 +432,16 @@ function toggle_password_visibility(input_id, button_element) {
         button_element.querySelector("img").src = "/website_resources/design/media/icons/bottom_sheets/open_eye.png";
     }
 }
+
+
+function generate_password_for_group() {
+    let create_group_password_input = document.getElementById("create_group_password_input");
+
+    let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789&*#$%!@-';
+    let password = '';
+    let length = Math.floor(Math.random() * 3) + 6; // random length 6-8
+    for (let i = 0; i < length; i++) {
+        password += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    create_group_password_input.value = password;
+}

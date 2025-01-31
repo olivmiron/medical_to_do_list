@@ -35,7 +35,7 @@
     <div class="flex_div flex_div_center_center flex_gap_medium">
         <input id="create_group_password_input" type="password" oninput="remove_empty_input_class(this)"></input>
         <div class="image_button" onclick="toggle_password_visibility('create_group_password_input', this)"><img src="/website_resources/design/media/icons/bottom_sheets/open_eye.png"/></div>
-        <div class="image_button"><img src="/website_resources/design/media/icons/bottom_sheets/generate_password.png"/></div>
+        <div class="image_button" onclick="generate_password_for_group()"><img src="/website_resources/design/media/icons/bottom_sheets/generate_password.png"/></div>
     </div>
     
     <div class="spacer_xxl"></div>
