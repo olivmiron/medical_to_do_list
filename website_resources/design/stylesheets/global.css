@@ -72,7 +72,7 @@
 
 /* custom UI elements */
 
-input[type=text], input[type=number], textarea {
+input[type=text], input[type=password], input[type=number], textarea {
     padding: var(--spacing_medium) var(--spacing_large);
     border-radius: var(--border_radius_small);
     border: 1px solid var(--color_light_gray);
@@ -88,7 +88,7 @@ input[type=text], input[type=number], textarea {
 }
 input[type=number] {width: 46px;text-align: center;}
 
-input[type=text]:focus, input[type=number]:focus, textarea:focus {border: 1px solid var(--color_primary);box-shadow: 0px 0px 8px -3px;outline: none;}
+input[type=text]:focus, input[type=number]:focus, input[type=password]:focus, textarea:focus {border: 1px solid var(--color_primary);box-shadow: 0px 0px 8px -3px;outline: none;}
 
 textarea {height: 150px;resize: none;}
 
@@ -100,7 +100,8 @@ input.empty_input, textarea.empty_input {border: 1px solid var(--color_danger);b
     padding: 0 var(--spacing_small);
 }
 
-
+.image_button {flex: 0 0 auto;}
+.image_button img {height: 16px;}
 
 
 /* general rules */
@@ -111,6 +112,20 @@ br {height: 20px;}
 
 
 /* other big rules */
+
+.flex_div {display: flex;align-items: center;} 
+.flex_div_center_center {align-items: center;justify-items: center;}
+
+.flex_div_align_top {align-items: flex-start;}
+.flex_div_align_center {align-items: center;}
+
+.flex_div_justify_center {justify-items: center;}
+.flex_div_justify_spread {justify-items: stretch;}
+
+.flex_gap_small {gap: var(--spacing_small);}
+.flex_gap_medium {gap: var(--spacing_medium);}
+.flex_gap_large {gap: var(--spacing_large);}
+
 
 
 .flex_spacer {flex: 1 1 auto;}

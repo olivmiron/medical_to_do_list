@@ -1,3 +1,22 @@
 <div id="add_group__bottom_sheet_action_template" class="bottom_sheet_component">
-    <?php include $_SERVER["DOCUMENT_ROOT"] . "/website_resources/logic/back_end/other/work_in_progress.html"; ?>
+    <div class="bottom_sheet_title"><span>Add group</span></div>
+    <div class="spacer_large"></div>
+    
+    <div class="bottom_sheet_sub_title"><span>Name</span><span class="required_field_star">*</span></div>
+    <input id="add_to_do_title_input" type="text" oninput="remove_empty_input_class(this)"></input>
+
+    <div class="spacer_xxl"></div>
+    
+    <div class="bottom_sheet_sub_title"><span>Password</span><span class="required_field_star">*</span></div>
+    <div class="flex_div flex_div_center_center flex_gap_medium">
+        <input id="add_to_do_title_input" type="password" oninput="remove_empty_input_class(this)"></input>
+        <div class="image_button"><img src="/website_resources/design/media/icons/bottom_sheets/generate_password.png"/></div>
+        <div class="image_button"><img src="/website_resources/design/media/icons/bottom_sheets/open_eye.png"/></div>
+
+    </div>
+    
+    <div class="spacer_xxl"></div>
+
+    <div class="big_bottom_sheet_action_button" onclick="create_group_in_db()"><span>Create group</span></div>
+    
 </div>
