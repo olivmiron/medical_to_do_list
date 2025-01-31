@@ -562,8 +562,13 @@ br {height: 20px;}
 
 
 .checkbox_box {
+    display: flex;
+    align-items: center;
+    
     border: 1px solid var(--color_primary);
     border-radius: var(--border_radius_small);
-    height: 24px;
+    
     padding: var(--spacing_medium);
+    box-sizing: border-box;
 }
+.checkbox_box img {height: 24px;}
