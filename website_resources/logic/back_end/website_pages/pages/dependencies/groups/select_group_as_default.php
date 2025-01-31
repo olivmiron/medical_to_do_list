@@ -21,7 +21,7 @@ $stmt->close();
 if ($count > 0) {
     // Update the default group
     $stmt = $conn->prepare("
-        UPDATE users 
+        UPDATE accounts 
         SET default_group_id = ? 
         WHERE id = ?
     ");
