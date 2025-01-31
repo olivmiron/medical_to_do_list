@@ -385,6 +385,10 @@ function select_group_as_default(group_id) {
 
             // Add the default class to the selected group row
             document.getElementById('group_row__' + group_id).classList.add('settings_group_row_selected');
+
+            loaded_pages["patients"] = false;
+            loaded_pages["group_to_dos"] = false;
+
         } else {
             show_pop_up_message('Failed to set group as default:', data.message, true);
         }
