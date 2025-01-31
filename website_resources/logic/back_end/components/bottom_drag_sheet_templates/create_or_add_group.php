@@ -16,6 +16,10 @@
 
     <div class="spacer_xxl"></div>
 
+    <div class="bottom_sheet_title"><span>or</span></div>
+
+    <div class="spacer_xxl"></div>
+
     <div class="bottom_sheet_title"><span>Create group</span></div>
     <div class="spacer_large"></div>
     
