@@ -19,7 +19,6 @@ if ($default_group_id) {
     $stmt->execute();
     $stmt->bind_result($group_name);
     $stmt->fetch();
-    $stmt->close();
 
     if ($group_name) {
         echo json_encode(['status' => 'success', 'group_name' => $group_name]);
@@ -30,5 +29,4 @@ if ($default_group_id) {
     echo json_encode(['status' => 'error', 'message' => 'No default group set for the user.']);
 }
 
-$conn->close();
 ?>
