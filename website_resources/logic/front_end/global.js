@@ -365,8 +365,34 @@ function toggle_to_do(to_do_id, button) {
     // pages settings functions
 
 
+function select_group_as_default(group_id) {
+    fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/groups/select_group_as_default.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ group_id: group_id })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            show_pop_up_message('Group set as default:', data.message, false);
 
+            // Remove the default class from all group rows
+            document.querySelectorAll('.settings_group_row').forEach(row => {
+                row.classList.remove('settings_group_row_selected');
+            });
 
+            // Add the default class to the selected group row
+            document.getElementById('group_row__' + group_id).classList.add('settings_group_row_selected');
+        } else {
+            show_pop_up_message('Failed to set group as default:', data.message, true);
+        }
+    })
+    .catch(error => {
+        show_pop_up_message('Please try again later', true);
+    });
+}
 
 
 
