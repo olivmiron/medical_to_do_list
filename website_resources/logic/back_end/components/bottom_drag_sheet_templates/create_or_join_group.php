@@ -1,5 +1,5 @@
 <div id="add_group__bottom_sheet_action_template" class="bottom_sheet_component">
-    <div class="bottom_sheet_title"><span>Add group</span></div>
+    <div class="bottom_sheet_title"><span>Join group</span></div>
     <div class="spacer_large"></div>
     
     <div class="bottom_sheet_sub_title"><span>Name</span><span class="required_field_star">*</span></div>
@@ -15,7 +15,7 @@
     
     <div class="spacer_xxl"></div>
 
-    <div class="big_bottom_sheet_action_button" onclick="add_group()"><span>Add group</span></div>
+    <div class="big_bottom_sheet_action_button" onclick="join_group()"><span>Add group</span></div>
 
     <div class="spacer_xxl"></div>
 

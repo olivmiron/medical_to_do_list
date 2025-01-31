@@ -447,3 +447,13 @@ function generate_password_for_group() {
 
     if(create_group_password_input.getAttribute("type") == "password") {document.getElementById("create_group_toggle_password_visibility_button").click();}
 }
+
+
+function join_group() {
+
+}
+
+
+function create_group_in_db() {
+    
+}
