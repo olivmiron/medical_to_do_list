@@ -15,6 +15,7 @@ if ($default_group_id) {
     $stmt->execute();
     $stmt->bind_result($group_name);
     $stmt->fetch();
+    $stmt->close(); // Close the statement
 
     if ($group_name) {echo $group_name;} 
     else {echo "group";}

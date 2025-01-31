@@ -18,6 +18,7 @@
         $result = $stmt_verify->get_result();
         $sql_row = $result->fetch_assoc();
         
+        $stmt_verify->close(); // Close the statement
 
         if ($sql_row) {
             $_SESSION["logged_in"] = true;
@@ -39,6 +40,8 @@
                 $stmt_update = $conn->prepare("UPDATE accounts SET user_tokens = ? WHERE id = ?");
                 $stmt_update->bind_param("si", $updated_tokens, $sql_row["id"]);
                 $stmt_update->execute();
+                
+                $stmt_update->close(); // Close the statement
 
                 // and please reset the expiry date of the cookie
                 setcookie("log_in_cookie", serialize(["user_id" => $sql_row["id"], "user_token" => $new_token]), time() + (86400 * 14), "/");
