@@ -444,4 +444,6 @@ function generate_password_for_group() {
         password += chars.charAt(Math.floor(Math.random() * chars.length));
     }
     create_group_password_input.value = password;
+
+    if(create_group_password_input.getAttribute("type") == password) {document.getElementById("create_group_toggle_password_visibility_button").click;}
 }
