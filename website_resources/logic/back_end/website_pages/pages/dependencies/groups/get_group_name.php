@@ -9,8 +9,8 @@ if ($default_group_id) {
     // Check if the user is a member of the default group and get the group name
     $stmt = $conn->prepare("
         SELECT g.group_name
-        FROM groups_members gm
-        INNER JOIN groups g ON gm.group_id = g.id
+        FROM groups g
+        INNER JOIN groups_members gm ON gm.group_id = g.id
         WHERE gm.group_id = ? AND gm.member_id = ?
     ");
     $stmt->bind_param("ii", $default_group_id, $user_id);
