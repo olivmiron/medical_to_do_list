@@ -371,9 +371,6 @@ function toggle_to_do(to_do_id, button) {
 
 
 
-
-
-
 // bottom sheet functions
 
 
@@ -420,3 +417,18 @@ function add_to_do_to_db() {
 
 
 // settings sheet functions
+
+
+
+function toggle_password_visibility(input_id, button_element) {
+    let password_input = document.getElementById(input_id);
+
+    if(password_input.getAttribute("type") == "password") {
+        password_input.setAttribute("type", "text");
+        button_element.querySelector("img").src = "/website_resources/design/media/icons/bottom_sheets/closed_eye.png";
+    }
+    else {
+        password_input.setAttribute("type", "password");
+        button_element.querySelector("img").src = "/website_resources/design/media/icons/bottom_sheets/open_eye.png";
+    }
+}
