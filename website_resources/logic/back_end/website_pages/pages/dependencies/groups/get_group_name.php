@@ -21,12 +21,12 @@ if ($default_group_id) {
     $stmt->fetch();
 
     if ($group_name) {
-        echo json_encode(['status' => 'success', 'group_name' => $group_name]);
+        $get_group_name = json_encode(['status' => 'success', 'group_name' => $group_name]);
     } else {
-        echo json_encode(['status' => 'error', 'message' => 'User is not a member of the default group.']);
+        $get_group_name = json_encode(['status' => 'error', 'message' => 'User is not a member of the default group.']);
     }
 } else {
-    echo json_encode(['status' => 'error', 'message' => 'No default group set for the user.']);
+    $get_group_name = json_encode(['status' => 'error', 'message' => 'No default group set for the user.']);
 }
 
 ?>
