@@ -8,7 +8,10 @@
     <div class="spacer_xxl"></div>
     
     <div class="bottom_sheet_sub_title"><span>Password</span><span class="required_field_star">*</span></div>
-    <input id="create_group_password_input" type="text" oninput="remove_empty_input_class(this)"></input>
+    <div class="flex_div flex_div_center_center flex_gap_medium">
+        <input id="create_group_password_input" type="text" oninput="remove_empty_input_class(this)"></input>
+        <div class="image_button"><img src="/website_resources/design/media/icons/bottom_sheets/open_eye.png"/></div>
+    </div>
     
     <div class="spacer_xxl"></div>
 
@@ -18,7 +21,7 @@
 
     <div class="bottom_sheet_title"><span>or</span></div>
 
-    <div class="spacer_xxl"></div>
+    <div class="spacer_xxl"></div><!-- -->
 
     <div class="bottom_sheet_title"><span>Create group</span></div>
     <div class="spacer_large"></div>
@@ -33,7 +36,6 @@
         <input id="create_group_password_input" type="password" oninput="remove_empty_input_class(this)"></input>
         <div class="image_button"><img src="/website_resources/design/media/icons/bottom_sheets/open_eye.png"/></div>
         <div class="image_button"><img src="/website_resources/design/media/icons/bottom_sheets/generate_password.png"/></div>
-
     </div>
     
     <div class="spacer_xxl"></div>
