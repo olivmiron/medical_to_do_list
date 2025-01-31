@@ -308,9 +308,12 @@ br {height: 20px;}
 
 
 
+/* pages styles */
 
 
 
+.page_title {font-size: 24px;font-weight: bold;margin: var(--spacing_large);text-align: center;}
+.page_sub_title {font-size: 20px;font-weight: bold;margin: var(--spacing_medium) var(--spacing_medium) var(--spacing_small);color: var(--color_gray);}
 
 
 

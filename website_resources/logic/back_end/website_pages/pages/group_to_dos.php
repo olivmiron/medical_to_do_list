@@ -3,6 +3,8 @@
 if($_SESSION["logged_in"]) {
     $_SESSION["loaded_pages"]["group_to_dos"] = true; 
 ?>
+<div class="page_title"><span>Some group</span><span>'s To dos</span></div>
+<div class="spacer_large"></div>
 <div id="view_screen_page__group_to_dos__content">
     
     <?php include $_SERVER["DOCUMENT_ROOT"] . "/website_resources/logic/back_end/other/work_in_progress.html"; ?>
