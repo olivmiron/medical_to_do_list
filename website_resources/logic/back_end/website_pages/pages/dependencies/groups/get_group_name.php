@@ -3,8 +3,6 @@ if(!$initial_load) {require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logi
 require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/database_connect.php";
 
 $user_id = $_SESSION['user_id'];
-
-// Get the default group ID for the user
 $default_group_id = $_SESSION['default_group_id'];
 
 if ($default_group_id) {
