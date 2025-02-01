@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $stmt = $conn->prepare("SELECT id, password FROM groups WHERE name = ?");
+    $stmt = $conn->prepare("SELECT id, password FROM groups WHERE group_name = ?");
     $stmt->bind_param("s", $group_name);
     $stmt->execute();
     $result = $stmt->get_result();
