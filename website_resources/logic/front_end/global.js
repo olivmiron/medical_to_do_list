@@ -591,6 +591,11 @@ function join_group() {
     .then(data => {
         if (data.status == "success") {
             
+            // Remove the default class from all group rows
+            document.querySelectorAll('.settings_group_row').forEach(row => {
+                row.classList.remove('settings_group_row_selected');
+            });
+            
                 document.getElementById("view_screen_page__settings__content").innerHTML = atob(data.group_row_html) + document.getElementById("view_screen_page__settings__content").innerHTML;
                 
 
@@ -631,6 +636,11 @@ function create_group_in_db() {
     .then(response => response.json())
     .then(data => {
         if (data.status == "success") {
+            // Remove the default class from all group rows
+            document.querySelectorAll('.settings_group_row').forEach(row => {
+                row.classList.remove('settings_group_row_selected');
+            });
+
             document.getElementById("view_screen_page__settings__content").innerHTML = atob(data.group_row_html) + document.getElementById("view_screen_page__settings__content").innerHTML;
             close_bottom_sheet();
         } else {
