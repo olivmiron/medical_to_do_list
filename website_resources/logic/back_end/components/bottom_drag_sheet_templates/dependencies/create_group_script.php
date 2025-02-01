@@ -7,8 +7,8 @@ $user_id = $_SESSION['user_id'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input = json_decode(file_get_contents('php://input'), true);
-    $group_name = $_POST['group_name'];
-    $group_password = $_POST['group_password'];
+    $group_name = $input['group_name'];
+    $group_password = $input['group_password'];
 
     if (empty($group_name) || empty($group_password) || strlen($group_password) < 6) {
         echo json_encode(['status' => 'error', 'message' => 'All fields are required and password must be at least 6 characters.']);
