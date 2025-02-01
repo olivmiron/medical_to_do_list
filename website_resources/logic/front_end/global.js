@@ -270,12 +270,14 @@ function initBottomSheetDrag() {
     handle = document.getElementById('bottom_drag_sheet_action_handle');
     sheet = document.getElementById('bottom_drag_sheet');
 
-    handle.addEventListener('touchstart', startDragging, { passive: true });
-    handle.addEventListener('mousedown', startDragging);
-    document.addEventListener('touchmove', drag);
-    document.addEventListener('mousemove', drag);
-    document.addEventListener('touchend', stopDragging);
-    document.addEventListener('mouseup', stopDragging);
+    if (handle && sheet) {
+        handle.addEventListener('touchstart', startDragging, { passive: true });
+        handle.addEventListener('mousedown', startDragging);
+        document.addEventListener('touchmove', drag);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('touchend', stopDragging);
+        document.addEventListener('mouseup', stopDragging);
+    }
 }
 
 function startDragging(e) {
