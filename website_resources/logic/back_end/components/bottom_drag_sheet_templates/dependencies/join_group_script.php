@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->execute()) {
 
         // Set the joined group as the default group for the user
-        $stmt = $conn->prepare("UPDATE users SET default_group_id = ? WHERE id = ?");
+        $stmt = $conn->prepare("UPDATE accounts SET default_group_id = ? WHERE id = ?");
         $stmt->bind_param("ii", $group_id, $user_id);
 
         if ($stmt->execute()) {
