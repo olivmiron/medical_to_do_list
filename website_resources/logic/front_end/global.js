@@ -573,7 +573,37 @@ function generate_password_for_group() {
 
 
 function join_group() {
+    var group_name = document.getElementById("add_group_name_input").value;
+    var group_password = document.getElementById("add_group_password_input").value;
 
+    if(group_name == "") {document.getElementById("add_group_name_input").classList.add("empty_input");return;}
+    if(group_password.length < 6) {document.getElementById("add_group_password_input").classList.add("empty_input");return;}
+
+    var data_in = {group_name: group_name, group_password: group_password};
+    fetch('/website_resources/logic/back_end/components/bottom_drag_sheet_templates/dependencies/join_group_script.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data_in)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status == "success") {
+            
+                document.getElementById("view_screen_page__settings__content").innerHTML = atob(data.group_row_html) + document.getElementById("view_screen_page__settings__content").innerHTML;
+                
+
+            close_bottom_sheet();
+        } else {
+            show_pop_up_message('Adding group failed:', data.message, true);
+            close_bottom_sheet();
+        }
+    })
+    .catch(error => {
+        show_pop_up_message('Please try again later', true);
+        close_bottom_sheet();
+    });
 }
 
 
