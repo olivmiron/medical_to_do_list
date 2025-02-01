@@ -310,6 +310,7 @@ function stopDragging() {
 
 document.addEventListener('DOMContentLoaded', () => {
     initBottomSheetDrag();
+    console.log("x")
 });
 
 
