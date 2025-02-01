@@ -355,6 +355,56 @@ function toggle_to_do(to_do_id, button) {
 
 }
 
+
+
+function load_more_to_dos(group_or_personal, button) {
+    if (!["group", "personal"].includes(group_or_personal)) {
+        show_pop_up_message('Please try again later', true);
+        return;
+    }
+    var to_dos_loaded = 0;
+    if(group_or_personal == "personal") {
+        to_dos_loaded = document.getElementById("view_screen_page__personal_to_dos__content").querySelectorAll("to_do_item").length;
+    }
+    else {
+        to_dos_loaded = document.getElementById("view_screen_page__group_to_dos__content").querySelectorAll("to_do_item").length;
+    }
+
+    show_pop_up_message('Loaded to dos: ' + to_dos_loaded, false);
+    return;
+
+    let data = { group_or_personal: group_or_personal, last_to_do_id: last_to_do_id };
+
+    fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/to_dos/load_to_dos.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            let to_dos_container = group_or_personal === 'group' ? 
+                document.getElementById("view_screen_page__group_to_dos__content") : 
+                document.getElementById("view_screen_page__personal_to_dos__content");
+
+            to_dos_container.innerHTML += atob(data.to_dos_html);
+            button.setAttribute('data-last-to-do-id', data.new_last_to_do_id);
+
+            if (!data.has_more_to_dos) {
+                button.style.display = 'none';
+            }
+        } else {
+            show_pop_up_message('Failed to load more to-dos:', data.message, true);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        show_pop_up_message('Please try again later', true);
+    });
+}
+
     // pages group to dos functions
 
 
