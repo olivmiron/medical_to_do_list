@@ -306,7 +306,11 @@ function stopDragging() {
 }
 
 // Initialize dragging when DOM is loaded
-document.addEventListener('DOMContentLoaded', initBottomSheetDrag);
+// document.addEventListener('DOMContentLoaded', initBottomSheetDrag);
+
+document.addEventListener('DOMContentLoaded', () => {
+    initBottomSheetDrag();
+});
 
 
 
