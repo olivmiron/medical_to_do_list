@@ -1,4 +1,5 @@
 <?php
+if(!isset($initial_load)) {$initial_load = false;}
 if(!$initial_load) {require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/global_requirements.php";}
 require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/database_connect.php";
 
