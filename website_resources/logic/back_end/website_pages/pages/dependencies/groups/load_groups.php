@@ -13,7 +13,7 @@ $groups_offset = (int) $_GET["groups_offset"];
         FROM groups g 
         INNER JOIN groups_members gm ON g.id = gm.group_id 
         WHERE gm.member_id = ? 
-        ORDER BY gm.date_joined, g.id DESC 
+        ORDER BY gm.date_joined DESC, g.id DESC 
         LIMIT 10 OFFSET ? 
     ");
     $stmt->bind_param("ii", $user_id, $groups_offset);
