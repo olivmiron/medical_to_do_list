@@ -434,7 +434,22 @@ br {height: 20px;}
 
 
 
-.middle_load_more_button {}
+.middle_load_more_button {    
+    padding: var(--spacing_large);
+    background-color: var(--color_primary);
+    border-radius: var(--border_radius_medium);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing_medium);
+    box-shadow: 0px 2px 12px -5px var(--color_gray);
+    cursor: pointer;
+    transition: var(--transition_medium);
+}
 .middle_load_more_button span {}
 
     /* patients */
