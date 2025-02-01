@@ -43,7 +43,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($stmt->execute()) {
             $_SESSION['default_group_id'] = $group_id;
-            echo json_encode(['status' => 'success', 'message' => 'Successfully joined the group and set as default.']);
+            
+            $group_row_template = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/website_pages/pages/dependencies/groups/group_row.html');
+
+            // Replace the ID and name with the newly created group
+            $group_row_html = str_replace(
+                [
+                    "{{group_id}}", 
+                    "{{default_group_or_not}}", 
+                    "{{group_name}}"
+                ],
+                [
+                    $group_id, 
+                    "settings_group_row_selected",
+                    $group_name
+                ],
+                $group_row_template
+            );
+
+            echo json_encode(['status' => 'success', 'message' => 'Group created and set as default.', 'group_row_html' => base64_encode($group_row_html)]);
         } 
         else {
             echo json_encode(['status' => 'error', 'message' => 'Failed to set the group as default.']);
