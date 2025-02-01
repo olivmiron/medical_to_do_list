@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $group_id = $group["id"];
 
     // Verify that the user is not already a member of the group
-    $stmt = $conn->prepare("SELECT id FROM groups_members WHERE group_id = ? AND user_id = ?");
+    $stmt = $conn->prepare("SELECT id FROM groups_members WHERE group_id = ? AND member_id = ?");
     $stmt->bind_param("ii", $group_id, $user_id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Make user a member of the group
-    $stmt = $conn->prepare("INSERT INTO groups_members (group_id, user_id) VALUES (?, ?)");
+    $stmt = $conn->prepare("INSERT INTO groups_members (group_id, member_id) VALUES (?, ?)");
     $stmt->bind_param("ii", $group_id, $user_id);
     if ($stmt->execute()) {
 

@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $group_id = $stmt->insert_id;
 
         // Make the user a member of the new group
-        $stmt = $conn->prepare("INSERT INTO groups_members (group_id, user_id, date_joined) VALUES (?, ?, NOW())");
+        $stmt = $conn->prepare("INSERT INTO groups_members (group_id, member_id, date_joined) VALUES (?, ?, NOW())");
         $stmt->bind_param("ii", $group_id, $user_id);
         if ($stmt->execute()) {
 
