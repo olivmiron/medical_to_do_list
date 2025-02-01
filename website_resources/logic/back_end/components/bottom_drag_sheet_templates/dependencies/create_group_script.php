@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $stmt = $conn->prepare("SELECT id FROM groups WHERE name = ?");
+    $stmt = $conn->prepare("SELECT id FROM groups WHERE group_name = ?");
     $stmt->bind_param("s", $group_name);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $hashed_password = password_hash($group_password, PASSWORD_DEFAULT);
-    $stmt = $conn->prepare("INSERT INTO groups (name, password, date_created) VALUES (?, ?, NOW())");
+    $stmt = $conn->prepare("INSERT INTO groups (group_name, password, date_created) VALUES (?, ?, NOW())");
     $stmt->bind_param("ss", $group_name, $hashed_password);
 
     if ($stmt->execute()) {
