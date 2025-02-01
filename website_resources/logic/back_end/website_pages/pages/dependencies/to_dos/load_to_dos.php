@@ -4,14 +4,16 @@ require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/data
 
 $creator_user_id = $_SESSION['user_id'];
 
-if($_GET["personal_to_dos"]) {$personal_or_group_id = 0;}
+$personal_to_dos = $_GET["personal_to_dos"];
+$to_dos_offset = (int) $_GET["to_dos_offset"];
+
+if($personal_to_dos) {$personal_or_group_id = 0;}
 else {$personal_or_group_id = $_SESSION["default_group_id"];}
 
 // if need to load grou to dos but no default_group_id, then throw static message to add/create a group
-if(!($_GET["personal_to_dos"] or !empty($personal_or_group_id))) {include $_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/other/add_a_group_first.html';}
+if(!($personal_to_dos or !empty($personal_or_group_id))) {include $_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/other/add_a_group_first.html';}
 else {
 
-    $to_dos_offset = (int) $_GET["to_dos_offset"];
 
     $stmt = $conn->prepare("SELECT * FROM to_dos WHERE creator_user_id = ? AND personal_or_group_id = ? ORDER BY date_created DESC LIMIT 10 OFFSET ?");
     $stmt->bind_param("iii", $creator_user_id, $personal_or_group_id, $to_dos_offset);
@@ -55,6 +57,9 @@ else {
         $loaded_to_dos++;
     }
 
-    if($loaded_to_dos < 10) {include $_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/other/query_end.html';}
+    if($loaded_to_dos == 0 or ($loaded_to_dos < 10 and $to_dos_offset != 0)) {
+        // if first load, only display if the number is 0; otherwise, inly display on further to dos request
+        include $_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/other/query_end.html';
+    }
 }
 ?>
