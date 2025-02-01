@@ -597,6 +597,9 @@ function join_group() {
             });
             
                 document.getElementById("view_screen_page__settings__content").innerHTML = atob(data.group_row_html) + document.getElementById("view_screen_page__settings__content").innerHTML;
+
+            loaded_pages["patients"] = false;
+            loaded_pages["group_to_dos"] = false;
                 
 
             close_bottom_sheet();
@@ -642,6 +645,10 @@ function create_group_in_db() {
             });
 
             document.getElementById("view_screen_page__settings__content").innerHTML = atob(data.group_row_html) + document.getElementById("view_screen_page__settings__content").innerHTML;
+
+            loaded_pages["patients"] = false;
+            loaded_pages["group_to_dos"] = false;
+
             close_bottom_sheet();
         } else {
             show_pop_up_message('Creating group failed:', data.message, true);
