@@ -31,8 +31,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // make user a member of the group
     $group_id = $group["id"];
+
+    // Verify that the user is not already a member of the group
+    $stmt = $conn->prepare("SELECT id FROM group_members WHERE group_id = ? AND user_id = ?");
+    $stmt->bind_param("ii", $group_id, $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        echo json_encode(['status' => 'error', 'message' => 'You are already a member of this group.']);
+        exit;
+    }
+
+    // Make user a member of the group
     $stmt = $conn->prepare("INSERT INTO group_members (group_id, user_id) VALUES (?, ?)");
     $stmt->bind_param("ii", $group_id, $user_id);
     if ($stmt->execute()) {
@@ -61,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $group_row_template
             );
 
-            echo json_encode(['status' => 'success', 'message' => 'Group created and set as default.', 'group_row_html' => base64_encode($group_row_html)]);
+            echo json_encode(['status' => 'success', 'message' => 'Successfully joined the group and set as default.', 'group_row_html' => base64_encode($group_row_html)]);
         } 
         else {
             echo json_encode(['status' => 'error', 'message' => 'Failed to set the group as default.']);
