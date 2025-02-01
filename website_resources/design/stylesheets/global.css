@@ -427,14 +427,15 @@ br {height: 20px;}
     /* global pages styles */
 
 
-
 .page_title {font-size: 24px;font-weight: bold;margin: var(--spacing_large);text-align: center;}
 .page_sub_title {font-size: 20px;font-weight: bold;margin: var(--spacing_medium) var(--spacing_medium) var(--spacing_small);color: var(--color_gray);}
 
 
 
+.load_more_button_container {text-align: center;padding: var(--spacing_xl);}
 
 .middle_load_more_button {    
+    display: inline-block;
     padding: var(--spacing_large);
     background-color: var(--color_primary);
     border-radius: var(--border_radius_medium);
