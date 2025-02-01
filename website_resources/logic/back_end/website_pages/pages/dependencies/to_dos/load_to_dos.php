@@ -8,7 +8,7 @@ if($_GET["personal_to_dos"]) {$personal_or_group_id = 0;}
 else {$personal_or_group_id = $_SESSION["default_group_id"];}
 
 // if need to load grou to dos but no default_group_id, then throw static message to add/create a group
-if(!($personal_to_dos or !empty($personal_or_group_id))) {include $_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/other/add_a_group_first.html';}
+if(!($_GET["personal_to_dos"] or !empty($personal_or_group_id))) {include $_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/other/add_a_group_first.html';}
 else {
 
     $to_dos_offset = (int) $_GET["to_dos_offset"];
