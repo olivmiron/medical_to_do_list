@@ -364,10 +364,10 @@ function load_more_to_dos(group_or_personal, button) {
     }
     var to_dos_loaded = 0;
     if(group_or_personal == "personal") {
-        to_dos_loaded = document.getElementById("view_screen_page__personal_to_dos__content").querySelectorAll("to_do_item").length();
+        to_dos_loaded = document.getElementById("view_screen_page__personal_to_dos__content").querySelectorAll(".to_do_item").length;
     }
     else {
-        to_dos_loaded = document.getElementById("view_screen_page__group_to_dos__content").querySelectorAll("to_do_item").length();
+        to_dos_loaded = document.getElementById("view_screen_page__group_to_dos__content").querySelectorAll(".to_do_item").length;
     }
 
     show_pop_up_message('Loaded to dos: ' + to_dos_loaded, false);
