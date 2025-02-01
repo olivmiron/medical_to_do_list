@@ -266,7 +266,7 @@ let startHeight = 0;
 
 var handle, sheet;
 
-function initBottomSheetDrag() {event.preventDefault();
+function initBottomSheetDrag(e) {e.preventDefault();
     handle = document.getElementById('bottom_drag_sheet_action_handle');
     sheet = document.getElementById('bottom_drag_sheet');
 
