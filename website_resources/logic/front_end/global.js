@@ -270,12 +270,16 @@ function initBottomSheetDrag() {
     handle = document.getElementById('bottom_drag_sheet_action_handle');
     sheet = document.getElementById('bottom_drag_sheet');
 
+    if (handle && sheet) {
         handle.addEventListener('touchstart', startDragging, { passive: true });
         handle.addEventListener('mousedown', startDragging);
         document.addEventListener('touchmove', drag);
         document.addEventListener('mousemove', drag);
         document.addEventListener('touchend', stopDragging);
         document.addEventListener('mouseup', stopDragging);
+    } else {
+        console.error('Bottom sheet handle or sheet not found');
+    }
 }
 
 function startDragging(e) {
@@ -310,7 +314,6 @@ function stopDragging() {
 
 document.addEventListener('DOMContentLoaded', () => {
     initBottomSheetDrag();
-    console.log("x")
 });
 
 
@@ -483,6 +486,7 @@ function load_more_groups(button) {
         show_pop_up_message('Please try again later', true);
     });
 }
+
 
 
 
