@@ -14,8 +14,8 @@
         <meta name="creator" content="Mironescu Olivier"/>
 
         <!-- logic -->
-        <script src="/website_resources/logic/front_end/global.js"></script>
-        <script src="/website_resources/logic/front_end/index.js"></script>
+        <script src="/website_resources/logic/front_end/global.js" async defer></script>
+        <script src="/website_resources/logic/front_end/index.js" async defer></script>
         <script>
             const pages_array = <?php echo json_encode($pages_array); ?>;
             const pages_names_array = <?php echo json_encode($pages_names_array); ?>;
