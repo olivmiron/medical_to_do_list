@@ -16,7 +16,7 @@ $groups_offset = (int) $_GET["groups_offset"];
         ORDER BY g.date_created DESC 
         LIMIT 10 OFFSET ? 
     ");
-    $stmt->bind_param("iI", $user_id, $groups_offset);
+    $stmt->bind_param("ii", $user_id, $groups_offset);
     $stmt->execute();
     $result = $stmt->get_result();
 
