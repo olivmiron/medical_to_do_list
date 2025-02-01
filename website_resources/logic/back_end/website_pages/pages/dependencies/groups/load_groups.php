@@ -1,8 +1,12 @@
 <?php
+if(!isset($initial_load)) {$initial_load = false;}
 if(!$initial_load) {require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/global_requirements.php";}
 require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/database_connect.php";
 
 $user_id = $_SESSION['user_id'];
+
+$groups_offset = (int) $_GET["groups_offset"];
+
 
     $stmt = $conn->prepare("
         SELECT g.id, g.group_name 
@@ -10,9 +14,9 @@ $user_id = $_SESSION['user_id'];
         INNER JOIN groups_members gm ON g.id = gm.group_id 
         WHERE gm.member_id = ? 
         ORDER BY g.date_created DESC 
-        LIMIT 10 OFFSET 0 
+        LIMIT 10 OFFSET ? 
     ");
-    $stmt->bind_param("i", $user_id);
+    $stmt->bind_param("iI", $user_id, $groups_offset);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -41,5 +45,5 @@ $user_id = $_SESSION['user_id'];
         $loaded_group_rows++;
     }
 
-    if($loaded_group_rows < 10) {include $_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/other/query_end.html';}
+    if($loaded_group_rows == 0 or ($loaded_group_rows < 10 & $groups_offset != 0)) {include $_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/other/query_end.html';}
 ?>

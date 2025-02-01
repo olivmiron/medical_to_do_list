@@ -392,7 +392,7 @@ function load_more_to_dos(group_or_personal, button) {
 
         // Check if there are more to-dos to load
         if (to_dos_loaded < 10) {
-            button.style.display = 'none';
+            button.closest('.load_more_button_container').style.display = 'none';
         }
     })
     .catch(error => {
@@ -443,6 +443,47 @@ function select_group_as_default(group_id) {
         show_pop_up_message('Please try again later', true);
     });
 }
+
+
+
+
+function load_more_groups(button) {
+    let groups_initially_loaded = document.getElementById("view_screen_page__settings__content").querySelectorAll(".settings_group_row").length;
+
+    let data = { groups_offset: groups_initially_loaded };
+
+    fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/groups/load_groups.php?' + new URLSearchParams(data), {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.text())
+    .then(html => {
+        let groups_container = document.getElementById("view_screen_page__settings__content");
+
+        groups_container.innerHTML += html;
+
+        let groups_loaded = groups_container.querySelectorAll(".settings_group_row").length - groups_initially_loaded;
+
+        console.log("groups initially loaded: " + groups_initially_loaded + ", groups finally loaded: " + groups_loaded);
+
+        // Check if there are more to-dos to load
+        if (groups_loaded < 10) {
+            button.closest('.load_more_button_container').style.display = 'none';
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        show_pop_up_message('Please try again later', true);
+    });
+}
+
+
+
+
+
+
 
 
 

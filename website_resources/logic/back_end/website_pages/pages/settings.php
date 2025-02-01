@@ -7,7 +7,10 @@ if($_SESSION["logged_in"]) {
 <div class="spacer_large"></div>
 <div id="view_screen_page__settings__content">
 
-    <?php $personal_to_dos = true;include $_SERVER["DOCUMENT_ROOT"] . "/website_resources/logic/back_end/website_pages/pages/dependencies/groups/load_groups.php"; ?>
+    <?php $_GET["groups_offset"] = 0;include $_SERVER["DOCUMENT_ROOT"] . "/website_resources/logic/back_end/website_pages/pages/dependencies/groups/load_groups.php"; ?>
 
+</div>
+<div id="view_screen_page__settings__load_more_button" class="load_more_button_container" <?php if($loaded_group_rows < 10) {echo "style='display:none;'";} ?>>
+    <div class="middle_load_more_button" onclick="load_more_groups(this)"><span>Load more</span></div>
 </div>
 <?php } else {if($initial_load) {include $_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/other/not_logged_in.html';}} ?>
