@@ -13,7 +13,7 @@ function update_url_page_param(utl_param, value) {
 
 
 function show_pop_up_message(message, error_or_not) {
-    document.getElementById("pop_up_message").innerHTML = message;
+    document.getElementById("pop_up_message_text").innerHTML = message;
 
     document.getElementById("pop_up_message_buttons").style.display = "none";
 
@@ -26,7 +26,7 @@ function show_pop_up_message(message, error_or_not) {
 }
 
 function pop_up_message_get_confirmation(message, distructive_or_not, passed_function) {
-    document.getElementById("pop_up_message").innerHTML = message;
+    document.getElementById("pop_up_message_text").innerHTML = message;
 
     document.getElementById("pop_up_message_buttons").style.display = "flex";
 
