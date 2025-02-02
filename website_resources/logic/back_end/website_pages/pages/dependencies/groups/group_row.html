@@ -1,4 +1,14 @@
 <div id="group_row__{{group_id}}" class="settings_group_row {{default_group_or_not}}">
     <div class="checkbox_box" onclick="select_group_as_default('{{group_id}}')"><img src="/website_resources/design/media/icons/global/check_mark.png"></div>
     <span>{{group_name}}</span>
+    <div></div>
+    <div class="settings_menu" onclick="open_settings_menu(this)">
+        <img src="/website_resources/design/media/icons/global/3_dots.png"/>
+        <div class="settings_menu_pop_up">
+            <div class="settings_menu_pop_up_option" onclick="exit_group({{group_id}})">
+                <img src="/website_resources/design/media/icons/pages/settings/exit.png"/>
+                <span>Exit group</span>
+            </div>
+        </div>
+    </div>
 </div>
