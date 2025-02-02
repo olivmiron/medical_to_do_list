@@ -43,7 +43,7 @@ $was_default_group = false;
 // Check if the exited group was the default group
 if ($_SESSION['default_group_id'] == $group_id) {
     // Update the default group to ''
-    $stmt = $conn->prepare("UPDATE accounts SET default_group_id = '' WHERE id = ?");
+    $stmt = $conn->prepare("UPDATE accounts SET default_group_id = NULL WHERE id = ?");
     $stmt->bind_param("i", $user_id);
     if ($stmt->execute()) {
         $_SESSION['default_group_id'] = '';
