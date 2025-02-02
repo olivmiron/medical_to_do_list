@@ -211,6 +211,10 @@ br {height: 20px;}
     box-shadow: 0px 2px 15px -5px var(--color_danger);
 }
 
+.pop_up_message_buttons {display: none;align-items: center;justify-items: center;gap: var(--spacing_xl);margin: var(--spacing_medium);}
+.pop_up_message_buttons_button {border-radius: var(--border_infinite_radius);border: 1px solid var(--color_light_gray);padding: var(--spacing_medium);box-sizing: border-box;}
+
+#pop_up_message.pop_up_message_error #pop_up_message_yes_button {color: var(--color_danger);}
 
 
 /* centered message */

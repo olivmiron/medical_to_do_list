@@ -15,6 +15,8 @@ function update_url_page_param(utl_param, value) {
 function show_pop_up_message(message, error_or_not) {
     document.getElementById("pop_up_message").innerHTML = message;
 
+    document.getElementById("pop_up_message_buttons").style.display = "none";
+
     if(error_or_not) {document.getElementById("pop_up_message").classList.add("pop_up_message_error");}
     else{document.getElementById("pop_up_message").classList.remove("pop_up_message_error");}
 
@@ -22,6 +24,32 @@ function show_pop_up_message(message, error_or_not) {
     document.getElementById("pop_up_message").classList.add("pop_up_message_visible");
     setTimeout(() => {document.getElementById("pop_up_message").classList.remove("pop_up_message_visible");}, 3000);
 }
+
+function pop_up_message_get_confirmation(message, distructive_or_not, passed_function) {
+    document.getElementById("pop_up_message").innerHTML = message;
+
+    document.getElementById("pop_up_message_buttons").style.display = "flex";
+
+    if(distructive_or_not) {document.getElementById("pop_up_message").classList.add("pop_up_message_error");}
+    else{document.getElementById("pop_up_message").classList.remove("pop_up_message_error");}
+
+    document.getElementById("pop_up_message_yes_button").setAttribute("onclick", passed_function);
+
+
+    document.getElementById("pop_up_message").classList.add("pop_up_message_visible");
+    setTimeout(() => {document.getElementById("pop_up_message").classList.remove("pop_up_message_visible");}, 6000);
+
+}
+
+
+
+
+function pop_up_message_get_confirmation_decline() {
+    document.getElementById("pop_up_message").classList.remove("pop_up_message_visible");
+}
+
+
+
 
 function handleCredentialResponse(response) {
     var sign_in_square = document.getElementById("sign_in_square");
@@ -663,5 +691,43 @@ function create_group_in_db() {
     .catch(error => {
         show_pop_up_message('Please try again later', true);
         close_bottom_sheet();
+    });
+}
+
+
+
+function exit_group(group_id, confirmed) {
+    if (!confirmed) {
+        pop_up_message_get_confirmation("Do you really want to leave this group?", true, "exit_group('" + group_id + "', true)");
+        return;
+    }
+
+    var data_in = { group_id: group_id };
+    fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/groups/exit_group.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data_in)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status == "success") {
+            // Remove the group row from the settings page
+            document.getElementById('group_row__' + group_id).remove();
+
+            // If the exited group was the default group, update the default group in the session
+            if (data.was_default_group) {
+                loaded_pages["patients"] = false;
+                loaded_pages["group_to_dos"] = false;
+            }
+
+            show_pop_up_message('Successfully exited the group.', false);
+        } else {
+            show_pop_up_message('Exiting group failed: ', data.message, true);
+        }
+    })
+    .catch(error => {
+        show_pop_up_message('Please try again later', true);
     });
 }
