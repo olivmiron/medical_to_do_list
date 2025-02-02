@@ -139,6 +139,9 @@ br {height: 20px;}
 .options_pop_up_menu_container {position: relative;display: flex;}
 .options_pop_up_menu_container > img {height: 28px;}
 
+.options_pop_up_menu_container.white_dots > img {filter: invert(1);}
+
+
 .options_pop_up_menu {
     position: absolute;
     top: calc(100% + var(--spacing_medium));
@@ -153,8 +156,6 @@ br {height: 20px;}
 
     display: none;
 }
-.options_pop_up_menu.white_dots > img {filter: invert(1);}
-
 .options_pop_up_menu.options_pop_up_menu_visible {display: block;}
 
 .options_pop_up_menu_option {
