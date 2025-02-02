@@ -153,6 +153,7 @@ br {height: 20px;}
 
     display: none;
 }
+.options_pop_up_menu.white_dots > img {filter: invert(1);}
 
 .options_pop_up_menu.options_pop_up_menu_visible {display: block;}
 
