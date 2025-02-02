@@ -61,8 +61,8 @@ function remove_empty_input_class(input) {
 }
 
 
-function toggle_options_pop_up_menu(this) {
-    this.querySelector(".options_pop_up_menu").classList.toggle("options_pop_up_menu_visible");
+function toggle_options_pop_up_menu(respective_options_pop_up_menu_container) {
+    respective_options_pop_up_menu_container.querySelector(".options_pop_up_menu").classList.toggle("options_pop_up_menu_visible");
 }
 
 
