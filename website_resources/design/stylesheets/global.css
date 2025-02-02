@@ -7,6 +7,7 @@
 --color_primary: #3e95d7;
 --color_primary_light: #aed0ea;
 --color_primary_darker: #1c80cb;
+--color_primary_saturated: #3597E0;
 
 --color_success: #33a728;
 --color_info: #17a2b8;
@@ -622,9 +623,9 @@ br {height: 20px;}
     margin-bottom: var(--spacing_large);
 }
 .settings_group_row_selected {
-    background-color: var(--color_primary);
+    background-color: var(--color_primary_saturated);
     color: white;
-    filter: contrast(1.1);
+    /* filter: contrast(1.1); */
 }
 .settings_group_row_selected .checkbox_box {border-color: var(--color_primary_darker);} 
 
