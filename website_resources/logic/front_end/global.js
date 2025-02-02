@@ -61,6 +61,11 @@ function remove_empty_input_class(input) {
 }
 
 
+function toggle_options_pop_up_menu(this) {
+    this.querySelector(".options_pop_up_menu").classList.toggle("options_pop_up_menu_visible");
+}
+
+
 // top_bar functions
 
 function change_top_bar_title(title) {
