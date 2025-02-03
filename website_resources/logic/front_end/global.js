@@ -439,6 +439,18 @@ function load_more_to_dos(group_or_personal, button) {
     });
 }
 
+
+function edit_to_do(to_do_id) {
+
+}
+
+
+function delete_to_do(to_do_id) {
+    
+} 
+
+
+
     // pages group to dos functions
 
 
