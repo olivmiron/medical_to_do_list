@@ -440,13 +440,46 @@ function load_more_to_dos(group_or_personal, button) {
 }
 
 
+
 function edit_to_do(to_do_id) {
+    // adds a class that makes the to do content editable (and will later show delete buttons nar media in order to delete them too).
+    // also shows the done editing button near the 3 dots button
+}
+
+function done_editing_to_do(to_do_id) {
 
 }
 
 
-function delete_to_do(to_do_id) {
-    
+function delete_to_do(to_do_id, confirmed) {
+    if (!confirmed) {
+        pop_up_message_get_confirmation("Do you really want to delete this to do?", true, "delete_to_do('" + to_do_id + "', true)");
+        return;
+    }
+
+    var data_in = { to_do_id: to_do_id, group_or_personal_to_do: (true ? "group" : "personal") };
+    fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/to_dos/delete_to_do.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data_in)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status == "success") {
+            // Remove the group row from the settings page
+            document.getElementById('to_do__' + to_do_id).remove();
+
+
+            show_pop_up_message('Successfully deleted the to do.', false);
+        } else {
+            show_pop_up_message('Deleting to do failed: ', data.message, true);
+        }
+    })
+    .catch(error => {
+        show_pop_up_message('Please try again later', true);
+    });
 } 
 
 
