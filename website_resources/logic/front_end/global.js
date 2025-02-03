@@ -457,7 +457,7 @@ function delete_to_do(to_do_id, confirmed) {
         return;
     }
 
-    var data_in = { to_do_id: to_do_id, group_or_personal_to_do: (true ? "group" : "personal") };
+    var data_in = { to_do_id: to_do_id};
     fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/to_dos/delete_to_do.php', {
         method: 'POST',
         headers: {
