@@ -140,6 +140,9 @@ br {height: 20px;}
 .options_pop_up_menu_container {position: relative;display: flex;}
 .options_pop_up_menu_container > img {height: 28px;}
 
+.options_pop_up_menu_container_small > img {height: 20px;}
+
+
 .options_pop_up_menu_container.white_dots > img {filter: invert(1);}
 
 
