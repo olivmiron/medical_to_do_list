@@ -19,6 +19,7 @@ if (empty($to_do_id)) {
 }
 
 //NEED_TO_DO: need to check: if personal to do - if was written bby user; if group to do - if user is a member of the group
+// check if personal or group to do in the back end
 
 
 $stmt = $conn->prepare("DELETE FROM to_dos WHERE to_do_id = ?");
