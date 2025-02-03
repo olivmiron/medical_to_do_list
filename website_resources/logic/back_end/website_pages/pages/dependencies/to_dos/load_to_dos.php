@@ -16,8 +16,15 @@ if(!($personal_to_dos or !empty($personal_or_group_id))) {include $_SERVER['DOCU
 else {
 
 
-    $stmt = $conn->prepare("SELECT * FROM to_dos WHERE (creator_user_id = ? AND personal_or_group_id = 0) OR (personal_or_group_id = ? AND personal_or_group_id != 0) ORDER BY date_created, id DESC LIMIT 10 OFFSET ?");
-    $stmt->bind_param("iii", $creator_user_id, $personal_or_group_id, $to_dos_offset);
+    if($personal_to_dos) {
+        $stmt = $conn->prepare("SELECT * FROM to_dos WHERE creator_user_id = ? AND personal_or_group_id = 0 ORDER BY date_created, id DESC LIMIT 10 OFFSET ?");
+        $stmt->bind_param("ii", $creator_user_id $to_dos_offset);
+    }
+    else {
+        $stmt = $conn->prepare("SELECT * FROM to_dos WHERE personal_or_group_id = ? AND personal_or_group_id != 0 ORDER BY date_created, id DESC LIMIT 10 OFFSET ?");
+        $stmt->bind_param("ii", $personal_or_group_id, $to_dos_offset);
+    }
+    
     $stmt->execute();
     $result = $stmt->get_result();
     
