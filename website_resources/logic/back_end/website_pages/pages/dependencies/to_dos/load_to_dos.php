@@ -36,6 +36,7 @@ else {
                 "data-to_do_done='0'",
                 '{{to_do_date_created}}', 
                 '{{to_do_creator_name}}',
+                "{{delete_option_available_or_not}}",
                 '{{to_do_title}}', 
                 '{{to_do_description}}',
                 'description_empty'
@@ -46,6 +47,7 @@ else {
                 ($row["to_do_done"] == 0 ? "data-to_do_done='0'" : "data-to_do_done='1'" ),
                 date('d M Y H:i', strtotime($row['date_created'])), 
                 $_SESSION["user_name"],
+                ($row["creator_user_id"] == $_SESSION["user_id"] ? "" : "options_pop_up_menu_option_hidden")
                 $row['title'], 
                 $row['description'],
                 empty($row['description']) ? 'description_empty' : ''

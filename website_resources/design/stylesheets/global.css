@@ -177,6 +177,8 @@ br {height: 20px;}
     padding-right: var(--spacing_small);
 }
 
+.options_pop_up_menu_option_hidden {display: none;}
+
 
         /* special rules */
 .settings_group_row_selected .options_pop_up_menu_container > img {filter: invert(1);}
