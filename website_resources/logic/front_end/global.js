@@ -447,7 +447,7 @@ function edit_to_do(to_do_id) {
     var respective_to_do_element = document.getElementById("to_do__" + to_do_id);
 
     //mark editable elements as contenteditable
-    respective_to_do_element.querySelector(".to_do_item_title").contentEditable = true;
+    respective_to_do_element.querySelector(".to_do_item_title").contentEditable = "true";
     if(respective_to_do_element.querySelector(".to_do_item_description").classList.contains("description_empty")) {
 
         respective_to_do_element.querySelector(".to_do_item_description").classList.remove("description_empty");
@@ -455,7 +455,7 @@ function edit_to_do(to_do_id) {
 
     } 
         // to_do_item_description_span
-        respective_to_do_element.querySelector(".to_do_item_description_span").contentEditable = true;
+        respective_to_do_element.querySelector(".to_do_item_description_span").contentEditable = "true";
 
     // display the edit_done button
     var edit_to_do_done_button = document.getElementById("to_do__" + to_do_id).querySelector(".to_do_edit_done_button");
