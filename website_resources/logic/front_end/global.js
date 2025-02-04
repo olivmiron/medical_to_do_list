@@ -444,7 +444,19 @@ function load_more_to_dos(group_or_personal, button) {
 function edit_to_do(to_do_id) {
     // adds a class that makes the to do content editable (and will later show delete buttons nar media in order to delete them too).
     // also shows the done editing button near the 3 dots button
+    var respective_to_do_element = document.getElementById("to_do__" + to_do_id);
 
+    //mark editable elements as contenteditable
+    respective_to_do_element.querySelector(".to_do_item_title").contentEditable = true;
+    if(respective_to_do_element.querySelector(".to_do_item_description").classList.contains("description_empty")) {
+
+        respective_to_do_element.querySelector(".to_do_item_description").classList.remove("description_empty");
+    }
+
+        // to_do_item_description_span
+        respective_to_do_element.querySelector(".to_do_item_description_span").contentEditable = true;
+
+    // display the edit_done button
     var edit_to_do_done_button = document.getElementById("to_do__" + to_do_id).querySelector(".to_do_edit_done_button");
 
     edit_to_do_done_button.style.width = "22px";
