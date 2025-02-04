@@ -451,8 +451,9 @@ function edit_to_do(to_do_id) {
     if(respective_to_do_element.querySelector(".to_do_item_description").classList.contains("description_empty")) {
 
         respective_to_do_element.querySelector(".to_do_item_description").classList.remove("description_empty");
-    }
+        respective_to_do_element.querySelector(".to_do_item_description_span").innerText = "Some description";
 
+    } 
         // to_do_item_description_span
         respective_to_do_element.querySelector(".to_do_item_description_span").contentEditable = true;
 
