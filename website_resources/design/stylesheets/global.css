@@ -593,6 +593,7 @@ br {height: 20px;}
 
 .to_do_edit_done_button {
     display: flex;
+    overflow: hidden;
 
     width: 0px;
     height: 22px;
