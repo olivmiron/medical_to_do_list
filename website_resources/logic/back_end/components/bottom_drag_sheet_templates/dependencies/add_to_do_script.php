@@ -16,7 +16,7 @@ $description = $input['to_do_description'];
 $personal_or_group_id = ($input["group_or_personal"] == "group" ? $_SESSION["default_group_id"] : 0);
 $date_created = date('Y-m-d H:i:s');
 
-$stmt = $conn->prepare("INSERT INTO to_dos (creator_user_id, title, description, date_created, personal_or_group_id, to_do_done, due_or_not, due_date) VALUES (?, ?, ?, ?, ?, 0, 0, NULL)");
+$stmt = $conn->prepare("INSERT INTO to_dos (creator_user_id, title, description, date_created, personal_or_group_id, to_do_done, due_or_not, due_date, visible) VALUES (?, ?, ?, ?, ?, 0, 0, NULL, 1)");
 $stmt->bind_param("isssi", $creator_user_id, $title, $description, $date_created, $personal_or_group_id);
 
 if ($stmt->execute()) {

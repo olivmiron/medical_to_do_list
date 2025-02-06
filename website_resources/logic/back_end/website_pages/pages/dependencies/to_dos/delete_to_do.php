@@ -34,13 +34,10 @@ if($row["creator_user_id"] != $_SESSION["user_id"]) {
     exit;
 }
 
-
-$stmt = $conn->prepare("DELETE FROM to_dos WHERE to_do_id = ?");
-$stmt->bind_param("ii", $to_do_id);
+// Update the to do to make it invisible instead of deleting it
+$stmt = $conn->prepare("UPDATE to_dos SET visible = 0 WHERE id = ?");
+$stmt->bind_param("i", $to_do_id);
 $stmt->execute();
-$result = $stmt->get_result();
-
- 
 
 echo json_encode(['status' => 'success', 'message' => 'Successfully deleted the to do']);
 

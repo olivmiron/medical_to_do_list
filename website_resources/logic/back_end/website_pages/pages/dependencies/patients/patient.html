@@ -1,0 +1,39 @@
+<div id="patient__{{patient_id}}" class="patient_card">
+    <div class="patient_left">
+        <div class="patient_photo">
+            <img src="path_to_default_profile_photo.jpg" alt="Patient Photo"/>
+        </div>
+    </div>
+    <div class="patient_right">
+        <div class="patient_right_top">
+            <div class="patient_admission_date">Admitted: {{admission_date}}</div>
+            <div class="flex_spacer"></div>
+            <div class="patient_intern">Intern: <span>{{intern_name}}</span></div>
+            
+            <div class="options_pop_up_menu_container options_pop_up_menu_container_small" onclick="toggle_options_pop_up_menu(this)">
+                <img src="/website_resources/design/media/icons/global/3_dots.png"/>
+                <div class="options_pop_up_menu">
+                    <div class="options_pop_up_menu_option" onclick="edit_patient_data('{{patient_id}}')">
+                        <img src="/website_resources/design/media/icons/pages/global/edit.png"/>
+                        <span>Edit</span>
+                    </div>
+                    <div class="options_pop_up_menu_option {{delete_option_available_or_not}}" onclick="delete_patient('{{patient_id}}')">
+                        <img img src="/website_resources/design/media/icons/pages/global/delete.png"/>
+                        <span>Delete</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="patient_identification">
+            <div class="patient_id"><span>{{patient_identification}}</span></div>
+            <div class="patient_id"><span>{{patient_age}}</span> y.o.</div>
+            <div class="patient_location"><span>{{location}}</span></div>
+        </div>
+
+        <div class="patient_description">
+            <span>Description: </span>
+            <span class="patient_description_span">{{patient_description}}</span>
+        </div>
+    </div>
+</div>
