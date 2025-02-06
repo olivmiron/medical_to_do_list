@@ -137,7 +137,7 @@ br {height: 20px;}
 
 
 
-.options_pop_up_menu_container {position: relative;display: flex;}
+.options_pop_up_menu_container {position: relative;display: flex;cursor: pointer;}
 .options_pop_up_menu_container > img {height: 28px;}
 
 .options_pop_up_menu_container_small > img {height: 20px;}
@@ -561,34 +561,37 @@ br {height: 20px;}
         gap: var(--spacing_medium);
     }
     
-    .patient_admission_date, .patient_intern {
+    .patient_admission_date, .patient_caregiver {
         color: var(--color_gray);
         font-size: 14px;
     }
     
-    .patient_intern span {
+    .patient_caregiver span {
         font-weight: bold;
     }
     
-    .patient_identification {
+
+    .patient_right_main_row {
         margin-top: var(--spacing_medium);
         display: flex;
         gap: var(--spacing_large);
     }
-    
-    .patient_id, .patient_location {
+    .patient_right_main_row_identification, .patient_right_main_row_age, .patient_right_main_row_location {
         font-size: 16px;
         color: var(--color_gray);
     }
-    
-    .patient_id span, .patient_location span {
+    .patient_right_main_row_identification span, .patient_right_main_row_age span, .patient_right_main_row_location span {
+        font-size: 18px;
         font-weight: bold;
-        color: var(--color_primary);
+        color: black;
+        /* color: var(--color_primary); */
     }
+
+
     
     .patient_description {
         margin-top: var(--spacing_large);
-        font-size: 16px;
+        font-size: 18px;
     }
     
     .patient_description span:nth-of-type(1) {
@@ -598,10 +601,6 @@ br {height: 20px;}
     .patient_description span:nth-of-type(2) {
         color: var(--color_gray);
     }
-
-
-
-
 
 
 
