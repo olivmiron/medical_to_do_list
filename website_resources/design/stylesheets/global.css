@@ -140,6 +140,9 @@ br {height: 20px;}
 .options_pop_up_menu_container {position: relative;display: flex;}
 .options_pop_up_menu_container > img {height: 28px;}
 
+.options_pop_up_menu_container_small > img {height: 20px;}
+
+
 .options_pop_up_menu_container.white_dots > img {filter: invert(1);}
 
 
@@ -173,6 +176,8 @@ br {height: 20px;}
     font-weight: bold;
     padding-right: var(--spacing_small);
 }
+
+.options_pop_up_menu_option_hidden {display: none;}
 
 
         /* special rules */
@@ -585,6 +590,17 @@ br {height: 20px;}
     opacity: 0.75;
     transition: var(--transition_fast);
 }
+
+.to_do_edit_done_button {
+    display: flex;
+    overflow: hidden;
+
+    width: 0px;
+    height: 22px;
+
+    transition: var(--transition_medium);
+}
+.to_do_edt_done_button img {height: 22px;}
 
 
 .to_do_item_title {font-size: 24px;font-weight: bold;margin-top: var(--spacing_medium);}

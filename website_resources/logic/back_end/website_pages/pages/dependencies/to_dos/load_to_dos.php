@@ -16,8 +16,15 @@ if(!($personal_to_dos or !empty($personal_or_group_id))) {include $_SERVER['DOCU
 else {
 
 
-    $stmt = $conn->prepare("SELECT * FROM to_dos WHERE creator_user_id = ? AND personal_or_group_id = ? ORDER BY date_created DESC, id DESC LIMIT 10 OFFSET ?");
-    $stmt->bind_param("iii", $creator_user_id, $personal_or_group_id, $to_dos_offset);
+    if($personal_to_dos) {
+        $stmt = $conn->prepare("SELECT * FROM to_dos WHERE creator_user_id = ? AND personal_or_group_id = 0 ORDER BY date_created, id DESC LIMIT 10 OFFSET ?");
+        $stmt->bind_param("ii", $creator_user_id, $to_dos_offset);
+    }
+    else {
+        $stmt = $conn->prepare("SELECT * FROM to_dos WHERE personal_or_group_id = ? AND personal_or_group_id != 0 ORDER BY date_created, id DESC LIMIT 10 OFFSET ?");
+        $stmt->bind_param("ii", $personal_or_group_id, $to_dos_offset);
+    }
+    
     $stmt->execute();
     $result = $stmt->get_result();
     
@@ -36,6 +43,7 @@ else {
                 "data-to_do_done='0'",
                 '{{to_do_date_created}}', 
                 '{{to_do_creator_name}}',
+                "{{delete_option_available_or_not}}",
                 '{{to_do_title}}', 
                 '{{to_do_description}}',
                 'description_empty'
@@ -46,6 +54,7 @@ else {
                 ($row["to_do_done"] == 0 ? "data-to_do_done='0'" : "data-to_do_done='1'" ),
                 date('d M Y H:i', strtotime($row['date_created'])), 
                 $_SESSION["user_name"],
+                ($row["creator_user_id"] == $_SESSION["user_id"] ? "" : "options_pop_up_menu_option_hidden"),
                 $row['title'], 
                 $row['description'],
                 empty($row['description']) ? 'description_empty' : ''

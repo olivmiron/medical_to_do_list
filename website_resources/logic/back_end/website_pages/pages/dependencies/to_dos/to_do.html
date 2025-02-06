@@ -5,15 +5,37 @@
     <div class="to_do_right">
 
         <div class="to_do_right_top">
+
             <div class="to_do_item_date_created">{{to_do_date_created}}</div>
+            
             <div class="flex_spacer"></div>
+            
             <div class="to_do_item_creator">by <span>{{to_do_creator_name}}</span></div>
+
+            <div class="options_pop_up_menu_container options_pop_up_menu_container_small" onclick="toggle_options_pop_up_menu(this)">
+                <img src="/website_resources/design/media/icons/global/3_dots.png"/>
+                <div class="options_pop_up_menu">
+                    <div class="options_pop_up_menu_option" onclick="edit_to_do('{{to_do_id}}')">
+                        <img src="/website_resources/design/media/icons/pages/global/edit.png"/>
+                        <span>Edit</span>
+                    </div>
+                    <div class="options_pop_up_menu_option {{delete_option_available_or_not}}" onclick="delete_to_do('{{to_do_id}}')">
+                        <img img src="/website_resources/design/media/icons/pages/global/delete.png"/>
+                        <span>Delete</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="to_do_edit_done_button">
+                <img src="/website_resources/design/media/icons/pages/global/check_mark.png"/>
+            </div>
+
         </div>
 
         <div class="to_do_item_title"><span>{{to_do_title}}</span></div>
 
         <div class="to_do_item_description description_empty">
-            <span>Description: </span><span>{{to_do_description}}</span>
+            <span>Description: </span><span class="to_do_item_description_span">{{to_do_description}}</span>
         </div>
 
         <div class="to_do_due_row">
