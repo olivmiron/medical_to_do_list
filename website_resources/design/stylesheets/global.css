@@ -537,8 +537,8 @@ br {height: 20px;}
     }
     
     .patient_photo {
-        width: 64px;
-        height: 64px;
+        width: 32px;
+        height: 32px;
         display: flex;
     }
     
@@ -546,7 +546,7 @@ br {height: 20px;}
     
     .patient_right {
         flex: 1 1 auto;
-        margin-top: var(--spacing_small);
+        /* margin-top: var(--spacing_small); */
     }
     
     .patient_right_top {
