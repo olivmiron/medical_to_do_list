@@ -38,12 +38,19 @@ if (!function_exists('throw_error')) {
 if($initial_load) {$_SESSION["loaded_pages"] = array_fill_keys($pages_array, false);}
 
 
+require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/database_connect.php";
     
 // log in checker
 // if((!$initial_load) or (!$already_checked_log_in)) {
     require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/global_requirements_dependencies/log_in_checker.php";
     // $already_checked_log_in = true;
 // }    
+
+if($_SESSION["logged_in"]) {
+    if(isset($_GET["join_group_token"])) {
+        include $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/global_requirements_dependencies/join_group_by_token.php";
+    }
+}
 
 
 // initial page view

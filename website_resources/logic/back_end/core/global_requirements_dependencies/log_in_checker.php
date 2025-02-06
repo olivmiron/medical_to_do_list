@@ -1,5 +1,4 @@
 <?php
-    require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/database_connect.php";
 
     // $_SESSION:   logged_in, user_id, user_email, user_name
 
