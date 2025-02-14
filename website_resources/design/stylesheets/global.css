@@ -622,9 +622,13 @@ br {height: 20px;}
     justify-content: stretch;
     gap: var(--spacing_medium);
     padding: var(--spacing_medium) 0;
-    margin-bottom: var(--spacing_large);
+    /* margin-bottom: var(--spacing_large); */
 
     transition: var(--transition_medium);
+
+    /* updates:  */
+    padding: var(--spacing_xl) 0;
+    border-bottom: 1px solid var(--color_light);
 }
 
 .to_do_item_not_done {}
