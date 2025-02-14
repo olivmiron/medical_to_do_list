@@ -551,7 +551,7 @@ br {height: 20px;}
     
     .patient_right_top {
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         justify-content: stretch;
         gap: var(--spacing_medium);
     }
