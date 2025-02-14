@@ -356,6 +356,69 @@ initBottomSheetDrag();
     // pages patients functions
 
 
+
+    function edit_patient(patient_id) {
+        // adds a class that makes the to do content editable (and will later show delete buttons nar media in order to delete them too).
+        // also shows the done editing button near the 3 dots button
+        var respective_patient_element = document.getElementById("patient__" + patient_id);
+    
+        //mark editable elements as contenteditable - UNCOMMENT
+                    // respective_patient_element.querySelector(".to_do_item_title").contentEditable = "true";
+                    // if(respective_patient_element.querySelector(".to_do_item_description").classList.contains("description_empty")) {
+                
+                    //     respective_patient_element.querySelector(".to_do_item_description").classList.remove("description_empty");
+                    //     respective_patient_element.querySelector(".to_do_item_description_span").innerText = "Some description";
+                
+                    // } 
+                    //     // to_do_item_description_span
+                    //     respective_patient_element.querySelector(".to_do_item_description_span").contentEditable = "true";
+    
+        // display the edit_done button
+        var edit_to_do_done_button = document.getElementById("patient__" + patient_id).querySelector(".patient_edit_done_button");
+    
+        edit_to_do_done_button.style.width = "22px";
+    }
+    
+    function done_editing_to_do(patient_id) {
+    
+    }
+    
+    
+    function delete_patient(patient_id, confirmed) {
+        if (!confirmed) {
+            pop_up_message_get_confirmation("Do you really want to delete this patient's data?", true, "delete_patient('" + patient_id + "', true)");
+            return;
+        }
+    
+        var data_in = { patient_id: patient_id};
+        fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/patients/delete_patient.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data_in)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status == "success") {
+                // Remove the group row from the settings page
+                document.getElementById('patient__' + patient_id).remove();
+    
+    
+                show_pop_up_message('Successfully deleted patient data.', false);
+            } else {
+                show_pop_up_message('Deleting patient data failed: ', data.message, true);
+            }
+        })
+        .catch(error => {
+            show_pop_up_message('Please try again later', true);
+        });
+    } 
+
+
+
+
+
     // pages global to dos functions
 
 function toggle_to_do(to_do_id, button) {
