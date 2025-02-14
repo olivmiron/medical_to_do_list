@@ -628,6 +628,8 @@ br {height: 20px;}
 
     /* updates:  */
     padding: var(--spacing_xl) 0;
+}
+.to_do_item:not(:last-of-type) {
     border-bottom: 1px solid var(--color_light);
 }
 
