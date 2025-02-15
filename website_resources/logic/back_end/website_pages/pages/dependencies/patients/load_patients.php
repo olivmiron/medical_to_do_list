@@ -13,7 +13,7 @@ if(!($group_id or !empty($group_id))) {include $_SERVER['DOCUMENT_ROOT'] . '/web
 else {
 
 
-        $stmt = $conn->prepare("SELECT patients.*, accounts.user_name AS caregiver_name FROM patients JOIN accounts ON patients.creator_user_id = accounts.id WHERE patients.group_id = ? AND patients.visible = 1 ORDER BY patients.date_admitted DESC, patients.id DESC LIMIT 10 OFFSET ?");
+        $stmt = $conn->prepare("SELECT patients.*, accounts.name AS caregiver_name FROM patients JOIN accounts ON patients.creator_user_id = accounts.id WHERE patients.group_id = ? AND patients.visible = 1 ORDER BY patients.date_admitted DESC, patients.id DESC LIMIT 10 OFFSET ?");
         $stmt->bind_param("ii", $group_id, $patients_offset);
     
     $stmt->execute();
