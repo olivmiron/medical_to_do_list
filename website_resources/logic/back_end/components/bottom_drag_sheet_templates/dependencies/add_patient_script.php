@@ -18,10 +18,17 @@ $patient_age = $input['patient_age'];
 $patient_location = $input['patient_location'];
 $patient_description = $input['patient_description'];
 
+$patient_admission_day = $input['patient_admission_day'];
+$patient_admission_month = $input['patient_admission_month'];
+$patient_admission_year = $input['patient_admission_year'];
+
+// Transform admission date into datetime format
+$patient_admission_date = date('Y-m-d H:i:s', strtotime("$patient_admission_year-$patient_admission_month-$patient_admission_day"));
+
 $date_created = date('Y-m-d H:i:s');
 
 $stmt = $conn->prepare("INSERT INTO patients (group_id, creator_user_id, patient_identification, age, location, description, date_admitted, date_created, visible) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1)");
-$stmt->bind_param("iisissss", $group_id, $creator_user_id, $patient_name, $patient_age, $patient_location, $patient_description, $date_created, $date_created);
+$stmt->bind_param("iisissss", $group_id, $creator_user_id, $patient_name, $patient_age, $patient_location, $patient_description, $patient_admission_date, $date_created);
 
 if ($stmt->execute()) {
 } else {
@@ -47,7 +54,7 @@ $patient_html = str_replace(
     ],
     [
         $patient_id, 
-        date('d M Y', strtotime($date_created)), 
+        date('d M Y', strtotime("$patient_admission_year-$patient_admission_month-$patient_admission_day")), 
         $_SESSION["user_name"],
         "", 
         $patient_name, 
