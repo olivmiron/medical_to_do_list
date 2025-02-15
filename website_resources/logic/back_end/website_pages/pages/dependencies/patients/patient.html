@@ -17,7 +17,7 @@
                         <img src="/website_resources/design/media/icons/pages/global/edit.png"/>
                         <span>Edit</span>
                     </div>
-                    <div class="options_pop_up_menu_option {{delete_option_available_or_not}}" onclick="delete_patient('{{patient_id}}')">
+                    <div class="options_pop_up_menu_option {{delete_option_available_or_not}}" onclick="delete_patient('{{patient_id}}')"><!-- options_pop_up_menu_option_hidden (class)-->
                         <img img src="/website_resources/design/media/icons/pages/global/delete.png"/>
                         <span>Delete</span>
                     </div>
@@ -40,7 +40,7 @@
             <div class="patient_right_main_row_location"><span>{{patient_location}}</span></div>
         </div>
 
-        <div class="patient_description">
+        <div class="patient_description description_empty">
             <span>Description: </span>
             <span class="patient_description_span">{{patient_description}}</span>
         </div>

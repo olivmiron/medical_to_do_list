@@ -730,6 +730,40 @@ function load_more_groups(button) {
 
 // patient sheet functions
 
+function add_patient_to_db() {
+    var patient_name = document.getElementById("add_patient_name_input").value;
+    var patient_age = document.getElementById("add_patient_age_input").value;
+    var patient_location = document.getElementById("add_patient_location_input").value;
+    var patient_description = document.getElementById("add_patient_description_input").value;
+
+    if(patient_text == "") {document.getElementById("add_patient_name_input").classList.add("empty_input");return;}
+    if(patient_age == "") {document.getElementById("add_patient_age_input").classList.add("empty_input");return;}
+
+    var data_in = {patient_name: patient_name, patient_age: patient_age, patient_location: patient_location, patient_description: patient_description};
+    fetch('/website_resources/logic/back_end/components/bottom_drag_sheet_templates/dependencies/add_patient_script.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data_in)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status == "success") {
+                document.getElementById("view_screen_page__patients__content").innerHTML = atob(data.to_do_html) + document.getElementById("view_screen_page__patients__content").innerHTML;
+
+            close_bottom_sheet();
+        } else {
+            show_pop_up_message('Adding patient failed:', data.message, true);
+            close_bottom_sheet();
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        show_pop_up_message('Please try again later', true);
+        close_bottom_sheet();
+    });
+}
 
 // global to dos sheet functions
 
