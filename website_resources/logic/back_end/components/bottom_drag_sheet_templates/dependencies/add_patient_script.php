@@ -29,11 +29,11 @@ if ($stmt->execute()) {
     exit;
 }
 
-$to_do_id = $conn->insert_id;
+$patient_id = $conn->insert_id;
 
-$to_do_template = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/website_pages/pages/dependencies/patients/patient.html');
+$patient_template = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/website_pages/pages/dependencies/patients/patient.html');
 
-$to_do_html = str_replace(
+$patient_html = str_replace(
     [
         '{{patient_id}}',
         '{{admission_date}}',
@@ -46,7 +46,7 @@ $to_do_html = str_replace(
         '{{patient_description}}'
     ],
     [
-        $to_do_id, 
+        $patient_id, 
         date('d M Y', strtotime($date_created)), 
         $_SESSION["user_name"],
         "", 
@@ -56,13 +56,13 @@ $to_do_html = str_replace(
         empty($description) ? 'description_empty' : '', 
         $patient_description
     ],
-    $to_do_template
+    $patient_template
 );
 
 $response = [
     "status" => "success",
-    "message" => "To-do item added successfully.",
-    "to_do_html" => base64_encode($to_do_html)
+    "message" => "Patient added successfully.",
+    "patient_html" => base64_encode($patient_html)
 ];
 
 echo json_encode($response);

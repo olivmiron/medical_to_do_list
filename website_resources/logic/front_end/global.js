@@ -750,7 +750,7 @@ function add_patient_to_db() {
     .then(response => response.json())
     .then(data => {
         if (data.status == "success") {
-                document.getElementById("view_screen_page__patients__content").innerHTML = atob(data.to_do_html) + document.getElementById("view_screen_page__patients__content").innerHTML;
+                document.getElementById("view_screen_page__patients__content").innerHTML = atob(data.patient_html) + document.getElementById("view_screen_page__patients__content").innerHTML;
 
             close_bottom_sheet();
         } else {
