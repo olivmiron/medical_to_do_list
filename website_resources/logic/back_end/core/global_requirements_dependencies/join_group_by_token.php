@@ -2,7 +2,7 @@
 
 $join_group_by_token_error_pass = true;
 
-$deocded_join_group_data =json_decode(urldecode($_GET["join_group_token"]));  // structure: ["group_id" -> xxx, "token" -> yyy]
+$deocded_join_group_data =json_decode(urldecode($_GET["join_group_token"]), true);  // structure: ["group_id" -> xxx, "token" -> yyy]
 
 if(!isset($deocded_join_group_data["group_id"]) or !isset($deocded_join_group_data["token"])) {$join_group_by_token_error_pass = false;}
 
