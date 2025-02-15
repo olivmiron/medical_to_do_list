@@ -750,7 +750,13 @@ function add_patient_to_db() {
     .then(response => response.json())
     .then(data => {
         if (data.status == "success") {
+
+            if(document.getElementById("view_screen_page__patients__content").querySelectorAll(".patient_card").length > 0) {
                 document.getElementById("view_screen_page__patients__content").innerHTML = atob(data.patient_html) + document.getElementById("view_screen_page__patients__content").innerHTML;
+            }
+            else {
+                document.getElementById("view_screen_page__patients__content").innerHTML = atob(data.patient_html);
+            }
 
             close_bottom_sheet();
         } else {
