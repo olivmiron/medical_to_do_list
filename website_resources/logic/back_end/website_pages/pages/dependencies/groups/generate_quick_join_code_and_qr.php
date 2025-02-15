@@ -43,7 +43,13 @@ $url_parameter = [
 
 $qr_code_content = "https://" . $_SERVER["HTTP_HOST"] . "/index.php?join_group_token=" . urlencode(json_encode($url_parameter));
 $qr_code_path = $_SERVER['DOCUMENT_ROOT'] . '/content_resources/quick_join_qr_codes/' . $token_entry_id . ".png";
+
+// Create empty file
+touch($qr_code_path);
+
 QRcode::png($qr_code_content, $qr_code_path);
+// Create the directory if it doesn't exist
+
 
 
 echo json_encode(
