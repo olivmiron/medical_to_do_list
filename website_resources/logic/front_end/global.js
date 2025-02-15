@@ -777,7 +777,7 @@ function add_patient_to_db() {
     var patient_admission_month = document.getElementById("add_patient_admission_month_input").value;
     var patient_admission_year = document.getElementById("add_patient_admission_year_input").value;
 
-    if(patient_text == "") {document.getElementById("add_patient_name_input").classList.add("empty_input");return;}
+    if(patient_name == "") {document.getElementById("add_patient_name_input").classList.add("empty_input");return;}
     if(patient_age == "") {document.getElementById("add_patient_age_input").classList.add("empty_input");return;}
     
     if(patient_admission_day == "") {document.getElementById("add_patient_admission_day_input").classList.add("empty_input");return;}
