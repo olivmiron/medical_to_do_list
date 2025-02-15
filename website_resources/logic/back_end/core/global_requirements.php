@@ -46,6 +46,11 @@ require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/data
     // $already_checked_log_in = true;
 // }    
 
+$quick_join_group_message = "nothing";
+if(!$_SESSION["logged_in"] and isset($_GET["join_group_token"])) {
+    $quick_join_group_message = "log_in_before_joining";
+}
+
 if($_SESSION["logged_in"]) {
     if(isset($_GET["join_group_token"])) {
         include $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/global_requirements_dependencies/join_group_by_token.php";

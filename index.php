@@ -25,6 +25,8 @@
 
             const loaded_pages = <?php echo json_encode($_SESSION["loaded_pages"]); ?>; // const cannot be changed, but its object properties can, so here, you can modify it later
             let current_page = "<?php echo $initial_page; ?>";
+
+            let quick_join_group_message = "<?php echo $quick_join_group_message; ?>";
         </script>
     </head>
     <body>        

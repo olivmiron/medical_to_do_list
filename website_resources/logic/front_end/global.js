@@ -100,6 +100,30 @@ function close_floating_box(floating_box_close_button) {
 
 
 
+function join_group_show_mwssage() {
+    switch(quick_join_group_message) {
+        case 'nothing':
+            break;
+        case 'log_in_before_joining':
+            show_pop_up_message("Please log in before joining the group", true);
+            break;
+        case 'joined':
+            show_pop_up_message("You have successfully joined the group", true);
+            break;
+        case 'invalid_token':
+            show_pop_up_message("The token for joining group has already expired", true);
+            break;
+        case 'error':
+            show_pop_up_message("There was an error joining the group. Please try again later", true);
+            break;
+    }
+}
+
+join_group_show_mwssage();
+
+
+
+
 // top_bar functions
 
 function change_top_bar_title(title) {

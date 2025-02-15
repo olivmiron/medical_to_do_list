@@ -36,10 +36,18 @@ if($join_group_by_token_error_pass) {
 
     delete_token_from_sql();
 
+    
+    $quick_join_group_message = "joined";
+
     } else {
     delete_token_from_sql();
     // throw_error("Invalid or expired token.");
+    $quick_join_group_message = "invalid_token";
     }
+}
+else {
+    
+    // $quick_join_group_message = "error";
 }
 
 function delete_token_from_sql() {global $conn;global $group_id, $token;
