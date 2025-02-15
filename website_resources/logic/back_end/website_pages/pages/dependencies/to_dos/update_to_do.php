@@ -7,6 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $to_do_id = $_POST['to_do_id'];
     $to_do_title = $_POST["to_do_title"];
     $to_do_description = $_POST["to_do_description"];
+
+    if($to_do_description == "Some description") {$to_do_description = "";}
 } 
 else {
     echo json_encode(["status" => "error", "message" => "Invalid request method."]);

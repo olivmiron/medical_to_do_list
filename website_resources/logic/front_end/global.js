@@ -575,6 +575,10 @@ function update_to_do(to_do_id) {
     var to_do_title = respective_to_do_element.querySelector(".to_do_item_title").innerText;
     var to_do_description = respective_to_do_element.querySelector(".to_do_item_description_span").innerText;
 
+    if(to_do_description == "Some description") {
+        respective_to_do_element.querySelector(".to_do_item_description").classList.add("description_empty");
+    }
+
     // Send the data to the server
     fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/to_dos/update_to_do.php', {
         method: 'POST',
