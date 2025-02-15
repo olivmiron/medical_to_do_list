@@ -562,9 +562,42 @@ function edit_to_do(to_do_id) {
     edit_to_do_done_button.style.width = "22px";
 }
 
-function done_editing_to_do(to_do_id) {
+function update_to_do(to_do_id) {
+    var respective_to_do_element = document.getElementById("to_do__" + to_do_id);
+    respective_to_do_element.querySelector(".to_do_item_title").contentEditable = "false";
+    respective_to_do_element.querySelector(".to_do_item_description_span").contentEditable = "false";
+    
+    edit_to_do_done_button.style.width = "0px";
+    
 
+
+    // Get the title and description values from the to-do
+    var to_do_title = respective_to_do_element.querySelector(".to_do_item_title").innerText;
+    var to_do_description = respective_to_do_element.querySelector(".to_do_item_description_span").innerText;
+
+    // Send the data to the server
+    fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/to_dos/update_to_do.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams({
+            'to_do_id': to_do_id,
+            'to_do_title': to_do_title,
+            'to_do_description': to_do_description
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            alert('To-do updated successfully');
+        } else {
+            alert('Error: ' + data.message);
+        }
+    })
+    .catch(error => console.error('Error:', error));
 }
+
 
 
 function delete_to_do(to_do_id, confirmed) {
