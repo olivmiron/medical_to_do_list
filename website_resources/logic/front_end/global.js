@@ -122,7 +122,7 @@ function join_group_show_mwssage() {
     }
 
     update_url_page_param("join_group_token", '');
-    quick_join_group_message = 'nothing';
+    
 }
 
 join_group_show_mwssage();
