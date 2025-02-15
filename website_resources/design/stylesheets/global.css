@@ -541,7 +541,10 @@ br {height: 20px;}
         margin-bottom: var(--spacing_large);
         background-color: white;
         border-radius: var(--border_radius_small);
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        
+        /*  */
+        border: 1px solid var(--color_light_gray);
+        box-shadow: 0px 2px 10px -2px var(--color_gray);
     }
     
     .patient_left {
