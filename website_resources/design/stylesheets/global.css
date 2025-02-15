@@ -70,6 +70,15 @@
 .floating_box {background-color: white;border: 1px solid var(--color_light_gray);border-radius: var(--border_radius_medium);padding: var(--spacing_xl);box-shadow: 0px 2px 15px -7px var(--color_dark_gray);position: absolute;left: 50%;top: 51%;transform: translate(-50%, -50%);display: inline-block;text-align: center;transition: var(--transition_fast);z-index: var(--z_index_absolute_top);}
 .floating_box:hover {box-shadow: 0px 2px 18px -7px var(--color_dark_gray);}
 
+.floating_box_title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.floating_box_close_button {}
+.floating_box_close_button img {height: 24px;opacity: 0.8;}
+
+.floating_box_hidden {}
 
 /* custom UI elements */
 
@@ -780,3 +789,9 @@ br {height: 20px;}
     background-color: white;
 }
 .checkbox_box img {height: 20px;}
+
+
+#join_group_qr_code {}
+
+#join_group_qr_code_code {}
+#join_group_qr_code_code img {width: 125px;} 

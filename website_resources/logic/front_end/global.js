@@ -94,6 +94,12 @@ function toggle_options_pop_up_menu(respective_options_pop_up_menu_container) {
 }
 
 
+function close_floating_box(floating_box_close_button) {
+    floating_box_close_button.closest(".floating_box").classList.add("floating_box_hidden");
+}
+
+
+
 // top_bar functions
 
 function change_top_bar_title(title) {
@@ -816,6 +822,26 @@ function create_group_in_db() {
     .catch(error => {
         show_pop_up_message('Please try again later', true);
         close_bottom_sheet();
+    });
+}
+
+
+
+function create_qr_code_invite(group_id) {
+    fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/groups/generate_quick_join_code_and_qr.php?group_id=' + group_id)
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            show_pop_up_message('Failed to generate QR code: ' + data.error, true);
+        } else {
+            // Display the QR code
+            document.getElementById("join_group_qr_code_code").querySelector("img").src= "/content_resources/quick_join_qr_codes/" + data.token_entry_id + ".png";
+            document.getElementById("join_group_qr_code").classList.add("join_group_qr_code_visible");
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        show_pop_up_message('Please try again later', true);
     });
 }
 
