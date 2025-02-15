@@ -7,8 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $to_do_id = $_POST['to_do_id'];
     $to_do_title = $_POST["to_do_title"];
     $to_do_description = $_POST["to_do_description"];
-
-    if($to_do_description == "Some description") {$to_do_description = "";}
 } 
 else {
     echo json_encode(["status" => "error", "message" => "Invalid request method."]);
@@ -19,6 +17,9 @@ if (empty($to_do_id) or empty($to_do_title) or empty($to_do_description)) {
     echo json_encode(['status' => 'error', 'message' => 'To do ID is required.']);
     exit;
 }
+
+
+if($to_do_description == "Some description") {$to_do_description = "";}
 
 // Get the group ID for this to-do
 $stmt = $conn->prepare("SELECT personal_or_group_id FROM to_dos WHERE id = ?");

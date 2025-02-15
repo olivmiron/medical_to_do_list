@@ -594,9 +594,9 @@ function update_to_do(to_do_id) {
     .then(response => response.json())
     .then(data => {
         if (data.status === 'success') {
-            alert('To-do updated successfully');
+            show_pop_up_message('To-do updated successfully', false);
         } else {
-            alert('Error: ' + data.message);
+            show_pop_up_message('Error: ' + data.message, true);
         }
     })
     .catch(error => console.error('Error:', error));
