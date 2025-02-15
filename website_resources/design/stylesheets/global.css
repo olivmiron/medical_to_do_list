@@ -67,18 +67,21 @@
 .spacer_xxl {height: var(--spacing_xxl);}
 
 
-.floating_box {background-color: white;border: 1px solid var(--color_light_gray);border-radius: var(--border_radius_medium);padding: var(--spacing_xl);box-shadow: 0px 2px 15px -7px var(--color_dark_gray);position: absolute;left: 50%;top: 51%;transform: translate(-50%, -50%);display: inline-block;text-align: center;transition: var(--transition_fast);z-index: var(--z_index_absolute_top);}
+.floating_box {background-color: white;border: 1px solid var(--color_light_gray);border-radius: var(--border_radius_medium);padding: var(--spacing_xl);box-shadow: 0px 2px 15px -7px var(--color_dark_gray);position: absolute;left: 50%;top: 51%;transform: translate(-50%, -50%);display: inline-block;text-align: center;transition: var(--transition_fast);z-index: var(--z_index_absolute_top);opacity: 1;}
 .floating_box:hover {box-shadow: 0px 2px 18px -7px var(--color_dark_gray);}
+
+
+.floating_box_hidden {top: -50%;opacity: 0;}
+
 
 .floating_box_title {
     font-size: 14px;
     font-weight: bold;
 }
 
-.floating_box_close_button {}
-.floating_box_close_button img {height: 24px;opacity: 0.8;}
 
-.floating_box_hidden {}
+.floating_box_close_button {position: absolute;top: var(--spacing_medium);right: var(--spacing_medium);}
+.floating_box_close_button img {height: 24px;opacity: 0.8;}
 
 /* custom UI elements */
 
