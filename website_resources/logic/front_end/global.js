@@ -571,8 +571,6 @@ function update_to_do(to_do_id) {
     var edit_to_do_done_button = respective_to_do_element.querySelector(".to_do_edit_done_button");
     edit_to_do_done_button.style.width = "0px";
     
-
-
     // Get the title and description values from the to-do
     var to_do_title = respective_to_do_element.querySelector(".to_do_item_title").innerText;
     var to_do_description = respective_to_do_element.querySelector(".to_do_item_description_span").innerText;
