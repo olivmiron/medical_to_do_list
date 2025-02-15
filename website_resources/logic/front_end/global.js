@@ -120,6 +120,8 @@ function join_group_show_mwssage() {
             show_pop_up_message("There was an error joining the group. Please try again later", true);
             break;
     }
+
+    update_url_page_param("join_group_token", '');
 }
 
 join_group_show_mwssage();
