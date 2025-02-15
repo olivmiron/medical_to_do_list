@@ -557,7 +557,7 @@ function edit_to_do(to_do_id) {
         respective_to_do_element.querySelector(".to_do_item_description_span").contentEditable = "true";
 
     // display the edit_done button
-    var edit_to_do_done_button = document.getElementById("to_do__" + to_do_id).querySelector(".to_do_edit_done_button");
+    var edit_to_do_done_button = respective_to_do_element.querySelector(".to_do_edit_done_button");
 
     edit_to_do_done_button.style.width = "22px";
 }
@@ -567,6 +567,8 @@ function update_to_do(to_do_id) {
     respective_to_do_element.querySelector(".to_do_item_title").contentEditable = "false";
     respective_to_do_element.querySelector(".to_do_item_description_span").contentEditable = "false";
     
+    // hide the edit_done button
+    var edit_to_do_done_button = respective_to_do_element.querySelector(".to_do_edit_done_button");
     edit_to_do_done_button.style.width = "0px";
     
 
