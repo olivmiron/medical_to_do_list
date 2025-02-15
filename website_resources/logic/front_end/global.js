@@ -836,7 +836,7 @@ function create_qr_code_invite(group_id) {
         } else {
             // Display the QR code
             document.getElementById("join_group_qr_code_code").querySelector("img").src= "/content_resources/quick_join_qr_codes/" + data.token_entry_id + ".png";
-            document.getElementById("join_group_qr_code").classList.add("join_group_qr_code_visible");
+            document.getElementById("join_group_qr_code").classList.remove("floating_box_hidden");
         }
     })
     .catch(error => {
