@@ -18,26 +18,23 @@ $stmt->bind_param("ii", $group_id, $user_id);
 $stmt->execute();
 $stmt->bind_result($count);
 $stmt->fetch();
+$stmt->close(); // Close the statement to avoid "Commands out of sync" error
 
 if ($count < 1) {
     echo json_encode(["error" => "Group does not exist or user is not a member of the group"]);
     die;
 }
 
-
 // Generate a random quick join code
 $quick_join_code = strtoupper(bin2hex(random_bytes(8))); // 16-character code
-
 
 // Insert the token into the database
 $stmt = $conn->prepare("INSERT INTO groups_entry_tokens (group_id, token, date_created) VALUES (?, ?, NOW())");
 $stmt->bind_param("is", $group_id, $quick_join_code);
 $stmt->execute();
 
-
-$token_entry_id = $conn->insert_id;
-
-
+$token_entry_id = $stmt->insert_id;
+$stmt->close(); // Close the statement after execution
 
 $url_parameter = [
     "id" => $group_id, 
@@ -48,15 +45,6 @@ $qr_code_content = "https://" . $_SERVER["HTTP_HOST"] . "/index.php?join_group_t
 $qr_code_path = $_SERVER['DOCUMENT_ROOT'] . '/content_resources/quick_join_qr_codes/' . $token_entry_id . ".png";
 QRcode::png($qr_code_content, $qr_code_path);
 
-// Store the quick join code in the session
-$_SESSION["quick_join_code"] = $quick_join_code;
-$_SESSION["qr_code_url"] = '/content_resources/quick_join_qr_codes/' . $group_id . ".png";
-
-echo json_encode([
-    "quick_join_code" => $quick_join_code,
-    "qr_code_url" => $_SESSION["qr_code_url"]
-]);
-    
 
 echo json_encode(
     [
