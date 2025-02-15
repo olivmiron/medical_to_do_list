@@ -12,7 +12,7 @@ $user_id = $_SESSION["user_id"];
 
 if($join_group_by_token_error_pass) {
         // Check if the token is valid and not expired
-    $stmt = $conn->prepare("SELECT id, group_id FROM groups_entry_tokens WHERE group_id = ? AND token = ? AND date_created >= NOW() - INTERVAL 3 MINUTE
+    $stmt = $conn->prepare("SELECT id FROM groups_entry_tokens WHERE group_id = ? AND token = ? AND date_created >= NOW() - INTERVAL 3 MINUTE
     ");
     $stmt->bind_param("is", $group_id, $token);
     $stmt->execute();
