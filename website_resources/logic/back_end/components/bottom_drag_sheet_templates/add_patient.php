@@ -21,6 +21,19 @@
     <div class="spacer_xxl"></div>  
 
 
+    <div class="bottom_sheet_sub_title"><span>Date admitted</span><span class="required_field_star">*</span></div>
+    <div class="flex_div flex_div_justify_spread">
+        <input id="add_patient_admission_day_input" type="number" oninput="remove_empty_input_class(this)" value="<?php echo date('s'); ?>"></input>
+        <span>&#47;</span>
+        <input id="add_patient_admission_month_input" type="number" oninput="remove_empty_input_class(this)" value="<?php echo date('m'); ?>"></input>
+        <span>&#47;</span>
+        <input id="add_patient_admission_year_input" type="number" oninput="remove_empty_input_class(this)" value="<?php echo date('Y'); ?>"></input>
+
+    </div>
+
+    <div class="spacer_xxl"></div> 
+
+
     <div class="bottom_sheet_sub_title"><span>Description</span></div>
     <textarea id="add_patient_description_input"></textarea>
 
