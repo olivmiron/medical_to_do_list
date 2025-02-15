@@ -42,7 +42,7 @@ if($join_group_by_token_error_pass) {
 
 function delete_token_from_sql() {global $group_id, $token;
     // Token is used, invalid or expired, delete it if it exists
-    $stmt = $mysqli->prepare("DELETE FROM groups_entry_tokens WHERE id = ? AND token = ?");
+    $stmt = $mysqli->prepare("DELETE FROM groups_entry_tokens WHERE group_id = ? AND token = ?");
     $stmt->bind_param("is", $group_id, $token);
     $stmt->execute();
     $stmt->close();
