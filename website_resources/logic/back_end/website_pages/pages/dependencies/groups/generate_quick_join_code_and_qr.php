@@ -37,7 +37,7 @@ $token_entry_id = $stmt->insert_id;
 $stmt->close(); // Close the statement after execution
 
 $url_parameter = [
-    "id" => $group_id, 
+    "group_id" => $group_id, 
     "token" => $quick_join_code
 ];
 
