@@ -22,7 +22,7 @@ if($join_group_by_token_error_pass) {
 
     if ($id) {
     // Token is valid, add the user to the group
-    $stmt = $conn->prepare("INSERT INTO 'groups_members' ('group_id', 'member_id', 'date_joined') VALUES (?, ?, NOW())");
+    $stmt = $conn->prepare("INSERT INTO groups_members (group_id, member_id, date_joined) VALUES (?, ?, NOW())");
     $stmt->bind_param("ii", $group_id, $user_id);
     $stmt->execute();
     $stmt->close();
