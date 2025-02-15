@@ -794,7 +794,9 @@ br {height: 20px;}
 .checkbox_box img {height: 20px;}
 
 
-#join_group_qr_code {}
+#join_group_qr_code {
+    padding: var(--border_radius_large) var(--border_radius_xxl) var(--border_radius_small);
+}
 
 #join_group_qr_code_code {}
 #join_group_qr_code_code img {width: 125px;} 
