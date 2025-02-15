@@ -39,7 +39,7 @@ else {
             ],
             [
                 $row['id'], 
-                date('d M Y H:i', strtotime($row['date_admitted'])), 
+                date('d M Y', strtotime($row['date_admitted'])), 
                 $row['caregiver_name'],
                 ($row["creator_user_id"] == $_SESSION["user_id"] ? "" : "options_pop_up_menu_option_hidden"),
                 $row['patient_identification'], 
