@@ -834,12 +834,18 @@ function add_to_do_to_db() {
     .then(response => response.json())
     .then(data => {
         if (data.status == "success") {
-            if(current_page == "group_to_dos") {
-                document.getElementById("view_screen_page__group_to_dos__content").innerHTML = atob(data.to_do_html) + document.getElementById("view_screen_page__group_to_dos__content").innerHTML;
+            let to_dos_content_container;
+            if(current_page == "group_to_dos") {to_dos_content_container = document.getElementById("view_screen_page__group_to_dos__content");}
+            else {to_dos_content_container = document.getElementById("view_screen_page__personal_to_dos__content");}
+
+            if(to_dos_content_container.querySelectorAll(".to_do_item").length > 0) {
+                to_dos_content_container.innerHTML = atob(data.to_do_html) + to_dos_content_container.innerHTML;
             }
             else {
-                document.getElementById("view_screen_page__personal_to_dos__content").innerHTML = atob(data.to_do_html) + document.getElementById("view_screen_page__personal_to_dos__content").innerHTML;
+                to_dos_content_container.innerHTML = atob(data.to_do_html);
             }
+
+                
 
             close_bottom_sheet();
         } else {
