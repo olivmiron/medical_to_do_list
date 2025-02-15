@@ -12,7 +12,7 @@
     <div class="bottom_sheet_sub_title"><span>Age</span><span class="required_field_star">*</span></div>
     <div class="flex_div flex_div_justify_spread flex_gap_medium">
         <input id="add_patient_age_input" type="number" oninput="remove_empty_input_class(this)" placeholder="67"></input>
-        <span>years old</span>
+        <span>years</span>
     </div>
 
     <div class="spacer_xxl"></div>
