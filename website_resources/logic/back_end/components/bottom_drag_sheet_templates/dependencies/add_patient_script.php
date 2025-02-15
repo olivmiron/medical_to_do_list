@@ -60,7 +60,7 @@ $patient_html = str_replace(
         $patient_name, 
         $patient_age,
         $patient_location,
-        empty($description) ? 'description_empty' : '', 
+        empty($patient_description) ? 'description_empty' : '', 
         $patient_description
     ],
     $patient_template
