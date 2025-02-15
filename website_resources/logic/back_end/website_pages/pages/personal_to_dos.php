@@ -7,7 +7,7 @@ if($_SESSION["logged_in"]) {
 <div class="spacer_large"></div>
 <div id="view_screen_page__personal_to_dos__content">
 
-    <?php $_GET["personal_to_dos"] = true;$_GET["to_dos_offset"] = 0;include $_SERVER["DOCUMENT_ROOT"] . "/website_resources/logic/back_end/website_pages/pages/dependencies/to_dos/load_to_dos.php"; ?>
+    <?php $_GET["personal_to_dos"] = "true";$_GET["to_dos_offset"] = 0;include $_SERVER["DOCUMENT_ROOT"] . "/website_resources/logic/back_end/website_pages/pages/dependencies/to_dos/load_to_dos.php"; ?>
     
 </div>
 <div id="view_screen_page__personal_to_dos__load_more_button" class="load_more_button_container" <?php if($loaded_to_dos < 10) {echo "style='display:none;'";} ?>>

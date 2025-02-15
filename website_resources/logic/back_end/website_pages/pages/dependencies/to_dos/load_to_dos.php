@@ -16,7 +16,7 @@ if(!($personal_to_dos or !empty($personal_or_group_id))) {include $_SERVER['DOCU
 else {
 
 
-    if($personal_to_dos) {
+    if($personal_to_dos == "true") {
         // $stmt = $conn->prepare("SELECT * FROM to_dos WHERE creator_user_id = ? AND personal_or_group_id = 0 AND visible = 1 ORDER BY date_created DESC, id DESC LIMIT 10 OFFSET ?");
         $stmt = $conn->prepare("SELECT to_dos.*, accounts.name AS creator_name FROM to_dos JOIN accounts ON to_dos.creator_user_id = accounts.id WHERE to_dos.creator_user_id = ? AND to_dos.personal_or_group_id = 0 AND to_dos.visible = 1 ORDER BY to_dos.date_created DESC, to_dos.id DESC LIMIT 10 OFFSET ?");
         $stmt->bind_param("ii", $creator_user_id, $to_dos_offset);
