@@ -9,37 +9,10 @@ if($_SESSION["logged_in"]) {
 <div class="spacer_large"></div>
 <div id="view_screen_page__patients__content">
 
-    <?php include $_SERVER["DOCUMENT_ROOT"] . "/website_resources/logic/back_end/other/work_in_progress.html"; ?>
+    <?php $_GET["patients_offset"] = 0;include $_SERVER["DOCUMENT_ROOT"] . "/website_resources/logic/back_end/website_pages/pages/dependencies/patients/load_patients.php"; ?>
 
-    <br/>
-
-    <?php 
-    $patient_template = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/website_pages/pages/dependencies/patients/patient.html');
-    $patient_template_populated = str_replace(
-        [
-            '{{patient_id}}',
-            '{{admission_date}}',
-            '{{caregiver_name}}',
-            '{{delete_option_available_or_not}}',
-            '{{patient_identification}}',
-            '{{patient_age}}',
-            '{{patient_location}}',
-            '{{patient_description}}'
-        ], 
-        [
-            rand(1, 1000),
-            date('Y-m-d'),
-            'Mironescu Olivier', 
-            '', 
-            'Mary J.', 
-            rand(1, 100), 
-            'P4S2',
-            'A brief description of the patient.'
-        ], 
-        $patient_template
-    );
-    echo $patient_template_populated;
-    ?>
-
+</div>
+<div id="view_screen_page__patients__load_more_button" class="load_more_button_container" <?php if(!isset($loaded_patients) or $loaded_patients < 10) {echo "style='display:none;'";} ?>>
+    <div class="middle_load_more_button" onclick="load_more_patients(this)"><span>Load more</span></div>
 </div>
 <?php } else {if($initial_load) {include $_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/other/not_logged_in.html';}} ?>

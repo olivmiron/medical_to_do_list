@@ -392,6 +392,43 @@ initBottomSheetDrag();
     // pages patients functions
 
 
+    
+
+function load_more_patients(button) {
+    let patients_container = document.getElementById("view_screen_page__patients__content");
+
+    var patients_initially_loaded = 0;
+    patients_initially_loaded = patients_container.querySelectorAll(".patient_card").length;
+
+    let data = { patients_offset: patients_initially_loaded };
+
+    fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/patients/load_patients.php?' + new URLSearchParams(data), {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.text())
+    .then(html => {
+
+        patients_container.innerHTML += html;
+
+        let patients_loaded = patients_container.querySelectorAll(".patient_card").length - patients_initially_loaded;
+
+        console.log("patients initially loaded: " + patients_initially_loaded + ", patients finally loaded: " + patients_loaded);
+
+        // Check if there are more to-dos to load
+        if (patients_loaded < 10) {
+            button.closest('.load_more_button_container').style.display = 'none';
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        show_pop_up_message('Please try again later', true);
+    });
+}
+
+
 
     function edit_patient(patient_id) {
         // adds a class that makes the to do content editable (and will later show delete buttons nar media in order to delete them too).
