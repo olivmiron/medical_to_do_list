@@ -6,11 +6,14 @@ $deocded_join_group_data =json_decode(urldecode($_GET["join_group_token"]), true
 
 if(!isset($deocded_join_group_data["group_id"]) or !isset($deocded_join_group_data["token"])) {$join_group_by_token_error_pass = false;}
 
-$group_id = $deocded_join_group_data["group_id"];
-$token = $deocded_join_group_data["token"];
-$user_id = $_SESSION["user_id"];
 
 if($join_group_by_token_error_pass) {
+
+    $group_id = $deocded_join_group_data["group_id"];
+    $token = $deocded_join_group_data["token"];
+    $user_id = $_SESSION["user_id"];
+
+
         // Check if the token is valid and not expired
     $stmt = $conn->prepare("SELECT id FROM groups_entry_tokens WHERE group_id = ? AND token = ? AND date_created >= NOW() - INTERVAL 3 MINUTE
     ");
