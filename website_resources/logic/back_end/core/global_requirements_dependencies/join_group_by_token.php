@@ -32,6 +32,8 @@ if($join_group_by_token_error_pass) {
     $stmt->execute();
     $stmt->close();
 
+    $_SESSION["default_group_id"] = $group_id;
+
     delete_token_from_sql();
 
     } else {
