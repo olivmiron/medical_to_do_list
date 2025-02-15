@@ -36,7 +36,7 @@ if($join_group_by_token_error_pass) {
 
     } else {
     delete_token_from_sql();
-    throw_error("Invalid or expired token.");
+    // throw_error("Invalid or expired token.");
     }
 }
 
