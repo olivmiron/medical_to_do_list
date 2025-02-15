@@ -22,12 +22,12 @@ if($join_group_by_token_error_pass) {
 
     if ($id) {
     // Token is valid, add the user to the group
-    $stmt = $mysqli->prepare("INSERT INTO 'groups_members' ('group_id', 'member_id', 'date_joined') VALUES (?, ?, NOW())");
+    $stmt = $conn->prepare("INSERT INTO 'groups_members' ('group_id', 'member_id', 'date_joined') VALUES (?, ?, NOW())");
     $stmt->bind_param("ii", $group_id, $user_id);
     $stmt->execute();
     $stmt->close();
 
-    $stmt = $mysqli->prepare("UPDATE accounts SET default_group_id = ? WHERE id = ?");
+    $stmt = $conn->prepare("UPDATE accounts SET default_group_id = ? WHERE id = ?");
     $stmt->bind_param("ii", $group_id, $user_id);
     $stmt->execute();
     $stmt->close();
@@ -42,7 +42,7 @@ if($join_group_by_token_error_pass) {
 
 function delete_token_from_sql() {global $group_id, $token;
     // Token is used, invalid or expired, delete it if it exists
-    $stmt = $mysqli->prepare("DELETE FROM groups_entry_tokens WHERE group_id = ? AND token = ?");
+    $stmt = $conn->prepare("DELETE FROM groups_entry_tokens WHERE group_id = ? AND token = ?");
     $stmt->bind_param("is", $group_id, $token);
     $stmt->execute();
     $stmt->close();
