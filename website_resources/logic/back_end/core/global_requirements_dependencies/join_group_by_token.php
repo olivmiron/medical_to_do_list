@@ -21,23 +21,42 @@ if($join_group_by_token_error_pass) {
     $stmt->close();
 
     if ($id) {
-    // Token is valid, add the user to the group
-    $stmt = $conn->prepare("INSERT INTO groups_members (group_id, member_id, date_joined) VALUES (?, ?, NOW())");
-    $stmt->bind_param("ii", $group_id, $user_id);
-    $stmt->execute();
-    $stmt->close();
 
-    $stmt = $conn->prepare("UPDATE accounts SET default_group_id = ? WHERE id = ?");
-    $stmt->bind_param("ii", $group_id, $user_id);
-    $stmt->execute();
-    $stmt->close();
+        //please check if already memeber of the group
+        $stmt = $conn->prepare("SELECT id FROM groups_members WHERE group_id = ? AND member_id = ?");
+        $stmt->bind_param("ii", $group_id, $user_id);
+        $stmt->execute();
+        $stmt->bind_result($existing_membership);
+        $stmt->fetch();
+        $stmt->close();
 
-    $_SESSION["default_group_id"] = $group_id;
+        if ($existing_membership) {
+            $quick_join_group_message = "already_joined_group";
+        }
+        else {
+            //if not, join group:
 
-    delete_token_from_sql();
+                        
+            // Token is valid, add the user to the group
+            $stmt = $conn->prepare("INSERT INTO groups_members (group_id, member_id, date_joined) VALUES (?, ?, NOW())");
+            $stmt->bind_param("ii", $group_id, $user_id);
+            $stmt->execute();
+            $stmt->close();
 
-    
-    $quick_join_group_message = "joined";
+            $stmt = $conn->prepare("UPDATE accounts SET default_group_id = ? WHERE id = ?");
+            $stmt->bind_param("ii", $group_id, $user_id);
+            $stmt->execute();
+            $stmt->close();
+
+            $_SESSION["default_group_id"] = $group_id;
+
+
+            
+            $quick_join_group_message = "joined";
+
+        }
+                
+                delete_token_from_sql();
 
     } else {
     delete_token_from_sql();

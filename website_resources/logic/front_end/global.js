@@ -108,7 +108,10 @@ function join_group_show_mwssage() {
             show_pop_up_message("Please log in before joining the group", true);
             break;
         case 'joined':
-            show_pop_up_message("You have successfully joined the group", true);
+            show_pop_up_message("You have successfully joined the group", false);
+            break;
+        case 'already_joined_group':
+            show_pop_up_message("You are already a member of the group", true);
             break;
         case 'invalid_token':
             show_pop_up_message("The token for joining group has already expired", true);
