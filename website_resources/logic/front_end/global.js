@@ -545,8 +545,13 @@ function load_more_patients(button) {
         show_pop_up_message('Please try again later', true);
         close_bottom_sheet();
     });
+    
 
 
+    reset_create_or_edit_obj();
+
+
+    
     function update_patient_card() {
         var month_names = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         var respective_patient_element = document.getElementById("patient__" + create_or_edit_patient_obj.edit_id);
