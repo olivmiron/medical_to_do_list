@@ -539,7 +539,7 @@ function load_more_patients(button) {
 
 
     function update_patient_card() {
-        var month_names = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
+        var month_names = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         var respective_patient_element = document.getElementById("patient__" + create_or_edit_patient_obj.edit_id);
 
         respective_patient_element.querySelector(".patient_admission_date").setAttribute("data-admission_date", patient_admission_day + " " + patient_admission_month + " " + patient_admission_year);
