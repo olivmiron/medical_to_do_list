@@ -44,6 +44,7 @@ $patient_html = str_replace(
     [
         '{{patient_id}}',
         '{{admission_date}}',
+        '{{admission_date_spaces}}', 
         '{{caregiver_name}}',
         '{{delete_option_available_or_not}}',
         '{{patient_identification}}',
@@ -55,6 +56,7 @@ $patient_html = str_replace(
     [
         $patient_id, 
         date('d M Y', strtotime("$patient_admission_year-$patient_admission_month-$patient_admission_day")), 
+        date('d m Y', strtotime("$patient_admission_year-$patient_admission_month-$patient_admission_day")), 
         $_SESSION["user_name"],
         "", 
         $patient_name, 

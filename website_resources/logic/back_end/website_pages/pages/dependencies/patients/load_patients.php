@@ -29,6 +29,7 @@ else {
             [
                 '{{patient_id}}',
                 '{{admission_date}}',
+                '{{admission_date_spaces}}', 
                 '{{caregiver_name}}',
                 '{{delete_option_available_or_not}}',
                 '{{patient_identification}}',
@@ -40,6 +41,7 @@ else {
             [
                 $row['id'], 
                 date('d M Y', strtotime($row['date_admitted'])), 
+                date('d m Y', strtotime($row['date_admitted'])), 
                 $row['caregiver_name'],
                 ($row["creator_user_id"] == $_SESSION["user_id"] ? "" : "options_pop_up_menu_option_hidden"),
                 $row['patient_identification'], 
