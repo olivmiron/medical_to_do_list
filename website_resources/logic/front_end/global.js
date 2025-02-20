@@ -776,7 +776,7 @@ function edit_to_do(to_do_id) {
         edit_id: to_do_id
     };
 
-    top_bar_current_view_action(current_page, pages_top_bar_action_buttons.group_to_dos)
+    top_bar_current_view_action(current_page, "create_or_edit_to_do")
     .then(() => {
         popualte_create_or_add_to_do_bottom_sheet();   
     });
