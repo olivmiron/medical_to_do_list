@@ -758,7 +758,7 @@ function reset_create_or_edit_obj() {
     create_or_edit_patient_obj = {
         create_or_edit: "create", 
         edit_id: null
-    }
+    };
 }
 
 
