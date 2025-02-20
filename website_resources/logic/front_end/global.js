@@ -763,7 +763,7 @@ function add_patient_to_db() {
 
 function edit_to_do(to_do_id) {
 
-    create_or_edit_to_do = {
+    create_or_edit_to_do_obj = {
         create_or_edit: "edit", 
         edit_id: to_do_id
     };
@@ -848,13 +848,13 @@ function update_to_do(to_do_id) {
 
 
 
-let create_or_edit_to_do = {
+let create_or_edit_to_do_obj = {
     create_or_edit: "create", 
     edit_id: null
 };
 
 function create_or_edit_to_do() {
-    if(create_or_edit_to_do.create_or_edit == "create") {create_to_do();}
+    if(create_or_edit_to_do_obj.create_or_edit == "create") {create_to_do();}
     else {update_to_do();}
 }
 
