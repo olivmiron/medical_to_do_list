@@ -785,7 +785,7 @@ function edit_to_do(to_do_id) {
         var respective_to_do_element = document.getElementById("to_do__" + to_do_id);
 
         document.getElementById("add_to_do_title_input").value = respective_to_do_element.querySelector(".to_do_item_title").innerText;
-        document.getElementById("add_to_do_description_input").value = respective_to_do_element.querySelector(".to_do_item_description").innerText;
+        document.getElementById("add_to_do_description_input").value = respective_to_do_element.querySelector(".to_do_item_description_span").innerText;
 
     }
 
