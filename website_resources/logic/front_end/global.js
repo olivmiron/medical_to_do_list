@@ -543,7 +543,7 @@ function load_more_patients(button) {
         var respective_patient_element = document.getElementById("patient__" + create_or_edit_patient_obj.edit_id);
 
         respective_patient_element.querySelector(".patient_admission_date").setAttribute("data-admission_date", patient_admission_day + " " + patient_admission_month + " " + patient_admission_year);
-        respective_patient_element.querySelector(".patient_admission_date").querySelector("span").innerText = patient_admission_day + " " + month_names.indexOf(parseInt(patient_admission_month) - 1) + " " + patient_admission_year;
+        respective_patient_element.querySelector(".patient_admission_date").querySelector("span").innerText = patient_admission_day + " " + month_names[(parseInt(patient_admission_month) - 1] + " " + patient_admission_year;
 
         respective_patient_element.querySelector(".patient_right_main_row_identification").querySelector("span").innerText = patient_name;
         respective_patient_element.querySelector(".patient_right_main_row_age").querySelector("span").innerText = patient_age;
