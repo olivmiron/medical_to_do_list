@@ -19,6 +19,20 @@ $patient_admission_day = $input['patient_admission_day'];
 $patient_admission_month = $input['patient_admission_month'];
 $patient_admission_year = $input['patient_admission_year'];
 
+// Validate date components
+if (!checkdate($patient_admission_month, $patient_admission_day, $patient_admission_year)) {
+    echo json_encode(["status" => "error", "message" => "Invalid admission date."]);
+    exit;
+}
+
+// // Check if date is not in future
+// $admission_date = new DateTime("$patient_admission_year-$patient_admission_month-$patient_admission_day");
+// $today = new DateTime();
+// if ($admission_date > $today) {
+//     echo json_encode(["status" => "error", "message" => "Admission date cannot be in the future."]);
+//     exit;
+// }
+
 // Transform admission date into datetime format
 $patient_admission_date = date('Y-m-d H:i:s', strtotime("$patient_admission_year-$patient_admission_month-$patient_admission_day"));
 
