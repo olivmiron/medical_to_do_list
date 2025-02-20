@@ -496,8 +496,63 @@ function load_more_patients(button) {
 
     function update_patient() {
 
-        var respective_patient_element = document.getElementById("patient__" + create_or_edit_to_do_obj.edit_id);
+    var patient_name = document.getElementById("add_patient_name_input").value;
+    var patient_age = document.getElementById("add_patient_age_input").value;
+    var patient_location = document.getElementById("add_patient_location_input").value;
+    var patient_description = document.getElementById("add_patient_description_input").value;
 
+    var patient_admission_day = document.getElementById("add_patient_admission_day_input").value;
+    var patient_admission_month = document.getElementById("add_patient_admission_month_input").value;
+    var patient_admission_year = document.getElementById("add_patient_admission_year_input").value;
+
+    if(patient_name == "") {document.getElementById("add_patient_name_input").classList.add("empty_input");return;}
+    if(patient_age == "") {document.getElementById("add_patient_age_input").classList.add("empty_input");return;}
+    
+    if(patient_admission_day == "") {document.getElementById("add_patient_admission_day_input").classList.add("empty_input");return;}
+    if(patient_admission_month == "") {document.getElementById("add_patient_admission_month_input").classList.add("empty_input");return;}
+    if(patient_admission_year == "") {document.getElementById("add_patient_admission_year_input").classList.add("empty_input");return;}
+
+    var data_in = {patient_id: create_or_edit_patient_obj.edit_id, patient_name: patient_name, patient_age: patient_age, patient_location: patient_location, patient_description: patient_description, patient_admission_day: patient_admission_day, patient_admission_month: patient_admission_month, patient_admission_year: patient_admission_year};
+    fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/patients/update_patient.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data_in)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status == "success") {
+            update_patient_card();
+
+            close_bottom_sheet();
+        } else {
+            show_pop_up_message('Updating patient failed:', data.message, true);
+            close_bottom_sheet();
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        show_pop_up_message('Please try again later', true);
+        close_bottom_sheet();
+    });
+
+
+    function update_patient_card() {
+        var month_names = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
+        var respective_patient_element = document.getElementById("patient__" + create_or_edit_patient_obj.edit_id);
+
+        respective_patient_element.querySelector(".patient_admission_date").setAttribute("data-admission_date", patient_admission_day + " " + patient_admission_month + " " + patient_admission_year);
+        respective_patient_element.querySelector(".patient_admission_date").querySelector("span").innerText = patient_admission_day + " " + month_names.indexOf(parseInt(patient_admission_month) - 1) + " " + patient_admission_year;
+
+        respective_patient_element.querySelector(".patient_right_main_row_identification").querySelector("span").innerText = patient_name;
+        respective_patient_element.querySelector(".patient_right_main_row_age").querySelector("span").innerText = patient_age;
+        respective_patient_element.querySelector(".patient_right_main_row_location").querySelector("span").innerText = patient_location
+        respective_patient_element.querySelector(".patient_description_span").innerText = patient_description;
+
+        if(patient_description.length < 1) {respective_patient_element.querySelector(".patient_description").classList.add("description_empty");}
+        else {respective_patient_element.querySelector(".patient_description").classList.remove("description_empty");}
+    }
         
     }
     

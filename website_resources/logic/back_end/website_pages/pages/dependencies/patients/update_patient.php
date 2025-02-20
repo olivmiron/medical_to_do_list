@@ -1,0 +1,1 @@
+<?php return json_encode(["status" => "success"]); ?>
