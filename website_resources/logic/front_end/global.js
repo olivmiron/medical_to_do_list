@@ -506,11 +506,20 @@ function load_more_patients(button) {
     var patient_admission_year = document.getElementById("add_patient_admission_year_input").value;
 
     if(patient_name == "") {document.getElementById("add_patient_name_input").classList.add("empty_input");return;}
-    if(patient_age == "") {document.getElementById("add_patient_age_input").classList.add("empty_input");return;}
+    if(patient_age == "" || isNaN(patient_age)) {document.getElementById("add_patient_age_input").classList.add("empty_input");return;}
     
-    if(patient_admission_day == "") {document.getElementById("add_patient_admission_day_input").classList.add("empty_input");return;}
-    if(patient_admission_month == "") {document.getElementById("add_patient_admission_month_input").classList.add("empty_input");return;}
-    if(patient_admission_year == "") {document.getElementById("add_patient_admission_year_input").classList.add("empty_input");return;}
+    if(patient_admission_day == "" || isNaN(patient_admission_day)) {document.getElementById("add_patient_admission_day_input").classList.add("empty_input");return;}
+    if(patient_admission_month == "" || isNaN(patient_admission_month)) {document.getElementById("add_patient_admission_month_input").classList.add("empty_input");return;}
+    if(patient_admission_year == "" || isNaN(patient_admission_year)) {document.getElementById("add_patient_admission_year_input").classList.add("empty_input");return;}
+
+    // Validate date
+    let isValidDate = new Date(patient_admission_year, patient_admission_month - 1, patient_admission_day).getDate() == patient_admission_day;
+    if (!isValidDate) {
+        show_pop_up_message('Please enter a valid date', true);
+        return;
+    }
+
+
 
     var data_in = {patient_id: create_or_edit_patient_obj.edit_id, patient_name: patient_name, patient_age: patient_age, patient_location: patient_location, patient_description: patient_description, patient_admission_day: patient_admission_day, patient_admission_month: patient_admission_month, patient_admission_year: patient_admission_year};
     fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/patients/update_patient.php', {
