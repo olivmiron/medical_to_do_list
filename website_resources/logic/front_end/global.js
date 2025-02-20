@@ -762,32 +762,45 @@ function add_patient_to_db() {
 
 
 function edit_to_do(to_do_id) {
-    top_bar_current_view_action(current_page, pages_top_bar_action_buttons.group_dt_dos)
+
+    create_or_edit_to_do = {
+        create_or_edit: "edit", 
+        edit_id: to_do_id
+    };
+
+    top_bar_current_view_action(current_page, pages_top_bar_action_buttons.group_to_dos)
     .then(() => {
         popualte_create_or_add_to_do_bottom_sheet();   
     })
 
-    function popualte_create_or_add_to_do_bottom_sheet() {}
+    function popualte_create_or_add_to_do_bottom_sheet() {
+        var respective_to_do_element = document.getElementById("to_do__" + to_do_id);
 
-    // adds a class that makes the to do content editable (and will later show delete buttons nar media in order to delete them too).
-    // also shows the done editing button near the 3 dots button
-    var respective_to_do_element = document.getElementById("to_do__" + to_do_id);
+        document.getElementById("add_to_do_title_input").value = respective_to_do_element.querySelector(".to_do_item_title").innerText;
+        document.getElementById("add_to_do_description_input").value = respective_to_do_element.querySelector(".to_do_item_description").innerText;
 
-    //mark editable elements as contenteditable
-    respective_to_do_element.querySelector(".to_do_item_title").contentEditable = "true";
-    if(respective_to_do_element.querySelector(".to_do_item_description").classList.contains("description_empty")) {
+    }
 
-        respective_to_do_element.querySelector(".to_do_item_description").classList.remove("description_empty");
-        respective_to_do_element.querySelector(".to_do_item_description_span").innerText = "Some description";
 
-    } 
-        // to_do_item_description_span
-        respective_to_do_element.querySelector(".to_do_item_description_span").contentEditable = "true";
+    //     // adds a class that makes the to do content editable (and will later show delete buttons nar media in order to delete them too).
+    //     // also shows the done editing button near the 3 dots button
+    //     var respective_to_do_element = document.getElementById("to_do__" + to_do_id);
 
-    // display the edit_done button
-    var edit_to_do_done_button = respective_to_do_element.querySelector(".to_do_edit_done_button");
+    // //mark editable elements as contenteditable
+    // respective_to_do_element.querySelector(".to_do_item_title").contentEditable = "true";
+    // if(respective_to_do_element.querySelector(".to_do_item_description").classList.contains("description_empty")) {
 
-    edit_to_do_done_button.style.width = "22px";
+    //     respective_to_do_element.querySelector(".to_do_item_description").classList.remove("description_empty");
+    //     respective_to_do_element.querySelector(".to_do_item_description_span").innerText = "Some description";
+
+    // } 
+    //     // to_do_item_description_span
+    //     respective_to_do_element.querySelector(".to_do_item_description_span").contentEditable = "true";
+
+    // // display the edit_done button
+    // var edit_to_do_done_button = respective_to_do_element.querySelector(".to_do_edit_done_button");
+
+    // edit_to_do_done_button.style.width = "22px";
 }
 
 function update_to_do(to_do_id) {
