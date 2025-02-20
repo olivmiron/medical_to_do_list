@@ -14,7 +14,7 @@ $pages_uris = [
 ];
 
 $pages_top_bar_action_buttons = [
-    "patients" => ["top_bar_current_view_action('patients', 'create_or_edit_patient')", "/website_resources/design/media/icons/top_bar/create_or_edit_patient.png"],
+    "patients" => ["top_bar_current_view_action('patients', 'create_or_edit_patient')", "/website_resources/design/media/icons/top_bar/add_patient.png"],
     "group_to_dos" => ["top_bar_current_view_action('group_to_dos', 'create_or_edit_to_do')", "/website_resources/design/media/icons/top_bar/add_to_do.png"],
     "personal_to_dos" => ["top_bar_current_view_action('personal_to_dos', 'create_or_edit_to_do')", "/website_resources/design/media/icons/top_bar/add_to_do.png"],
     "settings" => ["top_bar_current_view_action('settings', 'add_group')", "/website_resources/design/media/icons/top_bar/add_group.png"]
