@@ -822,6 +822,9 @@ function update_to_do(/* to_do_id */) {
 
     respective_to_do_element.querySelector(".to_do_item_title").innerText = to_do_title;
     respective_to_do_element.querySelector(".to_do_item_description_span").innerText = to_do_description;
+
+    if(to_do_description == "") {respective_to_do_element.querySelector(".to_do_item_description").classList.add("description_empty");}
+    else {respective_to_do_element.querySelector(".to_do_item_description").classList.remove("description_empty");}
     
 
     // Send the data to the server
