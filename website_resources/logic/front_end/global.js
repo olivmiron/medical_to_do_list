@@ -817,6 +817,8 @@ function update_to_do(/* to_do_id */) {
     var to_do_title = document.getElementById("add_to_do_title_input").value;
     var to_do_description = document.getElementById("add_to_do_description_input").value;
 
+    if(to_do_title.length < 1) {document.getElementById("add_to_do_title_input").classList.add("empty_input");return;}
+
 
     var respective_to_do_element = document.getElementById("to_do__" + create_or_edit_to_do_obj.edit_id);
 
