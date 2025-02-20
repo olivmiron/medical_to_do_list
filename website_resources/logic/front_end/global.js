@@ -853,6 +853,11 @@ function update_to_do(/* to_do_id */) {
 
     close_bottom_sheet();
 
+    create_or_edit_to_do_obj = {
+        create_or_edit: "create", 
+        edit_id: null
+    };
+
     // // OLD:
     // var respective_to_do_element = document.getElementById("to_do__" + to_do_id);
     // respective_to_do_element.querySelector(".to_do_item_title").contentEditable = "false";
