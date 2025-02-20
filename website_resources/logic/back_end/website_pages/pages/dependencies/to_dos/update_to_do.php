@@ -13,13 +13,13 @@ else {
     exit;
 }
 
-if (empty($to_do_id) or empty($to_do_title) or empty($to_do_description)) {
-    echo json_encode(['status' => 'error', 'message' => 'To do ID is required.']);
+if (empty($to_do_id) or empty($to_do_title)) {
+    echo json_encode(['status' => 'error', 'message' => 'To do ID and title is required.']);
     exit;
 }
 
 
-if($to_do_description == "Some description") {$to_do_description = "";}
+// if($to_do_description == "Some description") {$to_do_description = "";}
 
 // Get the group ID for this to-do
 $stmt = $conn->prepare("SELECT personal_or_group_id FROM to_dos WHERE id = ?");
