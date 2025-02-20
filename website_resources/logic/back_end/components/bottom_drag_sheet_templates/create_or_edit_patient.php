@@ -41,5 +41,5 @@
 
     <div class="spacer_xxl"></div> 
 
-    <div class="big_bottom_sheet_action_button" onclick="add_patient_to_db()"><span>Save to do</span></div>
+    <div class="big_bottom_sheet_action_button" onclick="create_or_edit_patient()"><span>Save patient data</span></div>
 </div>

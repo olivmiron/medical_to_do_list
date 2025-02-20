@@ -335,6 +335,9 @@ function close_bottom_sheet() {
     + 10;
 
     setTimeout(() => {bottom_sheet.style.display = "none";}, timeout_for_display_none);
+
+
+    reset_create_or_edit_obj();
 }
 
 
@@ -441,30 +444,63 @@ function load_more_patients(button) {
 
 
     function edit_patient(patient_id) {
-        // adds a class that makes the to do content editable (and will later show delete buttons nar media in order to delete them too).
-        // also shows the done editing button near the 3 dots button
-        var respective_patient_element = document.getElementById("patient__" + patient_id);
+
+
+        create_or_edit_patient_obj = {
+            create_or_edit: "edit", 
+            edit_id: patient_id
+        };
     
-        //mark editable elements as contenteditable - UNCOMMENT
-                    respective_patient_element.querySelector(".to_do_item_title").contentEditable = "true";
-                    // if(respective_patient_element.querySelector(".to_do_item_description").classList.contains("description_empty")) {
+        top_bar_current_view_action(current_page, "create_or_edit_patient")
+        .then(() => {
+            popualte_create_or_add_patient_bottom_sheet();   
+        });
+    
+        function popualte_create_or_add_patient_bottom_sheet() {
+            var respective_patient_element = document.getElementById("patient__" + patient_id);
+
+            document.getElementById("add_patient_name_input").value = respective_patient_element.querySelector(".patient_right_main_row_identification").innerText;
+            document.getElementById("add_patient_age_input").value = respective_patient_element.querySelector(".patient_right_main_row_age").querySelector("span").innerText;
+            document.getElementById("add_patient_location_input").value = respective_patient_element.querySelector(".patient_right_main_row_location").innerText;
+            document.getElementById("add_patient_description_input").value = respective_patient_element.querySelector(".patient_description_span").innerText;
+        
+            var update_patient_admission_date = respective_patient_element.querySelector(".patient_admission_date").getAttribute("data-admission_date").split(" ");
+            document.getElementById("add_patient_admission_day_input").value = update_patient_admission_date[0];
+            document.getElementById("add_patient_admission_month_input").value = update_patient_admission_date[1];
+            document.getElementById("add_patient_admission_year_input").value = update_patient_admission_date[2];
+    
+        }
+
+
+
+        // // adds a class that makes the to do content editable (and will later show delete buttons nar media in order to delete them too).
+        // // also shows the done editing button near the 3 dots button
+        // var respective_patient_element = document.getElementById("patient__" + patient_id);
+    
+        // //mark editable elements as contenteditable - UNCOMMENT
+        //             respective_patient_element.querySelector(".to_do_item_title").contentEditable = "true";
+        //             // if(respective_patient_element.querySelector(".to_do_item_description").classList.contains("description_empty")) {
                 
-                    //     respective_patient_element.querySelector(".to_do_item_description").classList.remove("description_empty");
-                    //     respective_patient_element.querySelector(".to_do_item_description_span").innerText = "Some description";
+        //             //     respective_patient_element.querySelector(".to_do_item_description").classList.remove("description_empty");
+        //             //     respective_patient_element.querySelector(".to_do_item_description_span").innerText = "Some description";
                 
-                    // } 
-                    //     // to_do_item_description_span
-                    //     respective_patient_element.querySelector(".to_do_item_description_span").contentEditable = "true";
+        //             // } 
+        //             //     // to_do_item_description_span
+        //             //     respective_patient_element.querySelector(".to_do_item_description_span").contentEditable = "true";
     
-        // display the edit_done button
-        var edit_to_do_done_button = document.getElementById("patient__" + patient_id).querySelector(".patient_edit_done_button");
+        // // display the edit_done button
+        // var edit_to_do_done_button = document.getElementById("patient__" + patient_id).querySelector(".patient_edit_done_button");
     
-        edit_to_do_done_button.style.width = "22px";
+        // edit_to_do_done_button.style.width = "22px";
+    }
+
+    function update_patient() {
+
+        var respective_patient_element = document.getElementById("patient__" + create_or_edit_to_do_obj.edit_id);
+
+        
     }
     
-    function done_editing_to_do(patient_id) {
-    
-    }
     
     
     function delete_patient(patient_id, confirmed) {
@@ -719,7 +755,7 @@ function reset_create_or_edit_obj() {
         edit_id: null
     };
 
-    create_or_edit_patient = {
+    create_or_edit_patient_obj = {
         create_or_edit: "create", 
         edit_id: null
     }
@@ -728,7 +764,18 @@ function reset_create_or_edit_obj() {
 
 // patient sheet functions
 
-function add_patient_to_db() {
+let create_or_edit_patient_obj = {
+    create_or_edit: "create", 
+    edit_id: null
+}
+
+function create_or_edit_patient() {
+    if(create_or_edit_patient_obj.create_or_edit == "create") {create_patient();}
+    else {update_patient();}
+}
+
+
+function create_patient() {
     var patient_name = document.getElementById("add_patient_name_input").value;
     var patient_age = document.getElementById("add_patient_age_input").value;
     var patient_location = document.getElementById("add_patient_location_input").value;
