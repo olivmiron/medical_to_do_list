@@ -1,4 +1,4 @@
-<div id="add_to_do__bottom_sheet_action_template" class="bottom_sheet_component">
+<div id="create_or_edit_to_do__bottom_sheet_action_template" class="bottom_sheet_component">
     <div class="bottom_sheet_title"><span>Add to do</span></div>
     <div class="spacer_large"></div>
 
@@ -13,5 +13,5 @@
     
     <div class="spacer_xxl"></div>
 
-    <div class="big_bottom_sheet_action_button" onclick="add_to_do_to_db()"><span>Save to do</span></div>
+    <div class="big_bottom_sheet_action_button" onclick="create_or_edit_to_do()"><span>Save to do</span></div>
 </div>

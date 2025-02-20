@@ -167,6 +167,8 @@ function top_bar_current_view_action(page_name, action_name) {
     }
     else {insert_bottom_sheet_template_and_open();}
 
+    return "success";
+
 
     function insert_bottom_sheet_template_and_open() {
         var respective_template = document.getElementById(action_name + "__bottom_sheet_action_template");
@@ -436,7 +438,7 @@ function load_more_patients(button) {
         var respective_patient_element = document.getElementById("patient__" + patient_id);
     
         //mark editable elements as contenteditable - UNCOMMENT
-                    // respective_patient_element.querySelector(".to_do_item_title").contentEditable = "true";
+                    respective_patient_element.querySelector(".to_do_item_title").contentEditable = "true";
                     // if(respective_patient_element.querySelector(".to_do_item_description").classList.contains("description_empty")) {
                 
                     //     respective_patient_element.querySelector(".to_do_item_description").classList.remove("description_empty");
@@ -576,68 +578,6 @@ function load_more_to_dos(group_or_personal, button) {
 }
 
 
-
-function edit_to_do(to_do_id) {
-    // adds a class that makes the to do content editable (and will later show delete buttons nar media in order to delete them too).
-    // also shows the done editing button near the 3 dots button
-    var respective_to_do_element = document.getElementById("to_do__" + to_do_id);
-
-    //mark editable elements as contenteditable
-    respective_to_do_element.querySelector(".to_do_item_title").contentEditable = "true";
-    if(respective_to_do_element.querySelector(".to_do_item_description").classList.contains("description_empty")) {
-
-        respective_to_do_element.querySelector(".to_do_item_description").classList.remove("description_empty");
-        respective_to_do_element.querySelector(".to_do_item_description_span").innerText = "Some description";
-
-    } 
-        // to_do_item_description_span
-        respective_to_do_element.querySelector(".to_do_item_description_span").contentEditable = "true";
-
-    // display the edit_done button
-    var edit_to_do_done_button = respective_to_do_element.querySelector(".to_do_edit_done_button");
-
-    edit_to_do_done_button.style.width = "22px";
-}
-
-function update_to_do(to_do_id) {
-    var respective_to_do_element = document.getElementById("to_do__" + to_do_id);
-    respective_to_do_element.querySelector(".to_do_item_title").contentEditable = "false";
-    respective_to_do_element.querySelector(".to_do_item_description_span").contentEditable = "false";
-    
-    // hide the edit_done button
-    var edit_to_do_done_button = respective_to_do_element.querySelector(".to_do_edit_done_button");
-    edit_to_do_done_button.style.width = "0px";
-    
-    // Get the title and description values from the to-do
-    var to_do_title = respective_to_do_element.querySelector(".to_do_item_title").innerText;
-    var to_do_description = respective_to_do_element.querySelector(".to_do_item_description_span").innerText;
-
-    if(to_do_description == "Some description") {
-        respective_to_do_element.querySelector(".to_do_item_description").classList.add("description_empty");
-    }
-
-    // Send the data to the server
-    fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/to_dos/update_to_do.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: new URLSearchParams({
-            'to_do_id': to_do_id,
-            'to_do_title': to_do_title,
-            'to_do_description': to_do_description
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === 'success') {
-            show_pop_up_message('To-do updated successfully', false);
-        } else {
-            show_pop_up_message('Error: ' + data.message, true);
-        }
-    })
-    .catch(error => console.error('Error:', error));
-}
 
 
 
@@ -818,7 +758,96 @@ function add_patient_to_db() {
 
 // global to dos sheet functions
 
-function add_to_do_to_db() {
+
+
+
+function edit_to_do(to_do_id) {
+    top_bar_current_view_action(current_page, pages_top_bar_action_buttons.group_dt_dos)
+    .then(() => {
+        popualte_create_or_add_to_do_bottom_sheet();   
+    })
+
+    function popualte_create_or_add_to_do_bottom_sheet() {}
+
+    // adds a class that makes the to do content editable (and will later show delete buttons nar media in order to delete them too).
+    // also shows the done editing button near the 3 dots button
+    var respective_to_do_element = document.getElementById("to_do__" + to_do_id);
+
+    //mark editable elements as contenteditable
+    respective_to_do_element.querySelector(".to_do_item_title").contentEditable = "true";
+    if(respective_to_do_element.querySelector(".to_do_item_description").classList.contains("description_empty")) {
+
+        respective_to_do_element.querySelector(".to_do_item_description").classList.remove("description_empty");
+        respective_to_do_element.querySelector(".to_do_item_description_span").innerText = "Some description";
+
+    } 
+        // to_do_item_description_span
+        respective_to_do_element.querySelector(".to_do_item_description_span").contentEditable = "true";
+
+    // display the edit_done button
+    var edit_to_do_done_button = respective_to_do_element.querySelector(".to_do_edit_done_button");
+
+    edit_to_do_done_button.style.width = "22px";
+}
+
+function update_to_do(to_do_id) {
+    var respective_to_do_element = document.getElementById("to_do__" + to_do_id);
+    respective_to_do_element.querySelector(".to_do_item_title").contentEditable = "false";
+    respective_to_do_element.querySelector(".to_do_item_description_span").contentEditable = "false";
+    
+    // hide the edit_done button
+    var edit_to_do_done_button = respective_to_do_element.querySelector(".to_do_edit_done_button");
+    edit_to_do_done_button.style.width = "0px";
+    
+    // Get the title and description values from the to-do
+    var to_do_title = respective_to_do_element.querySelector(".to_do_item_title").innerText;
+    var to_do_description = respective_to_do_element.querySelector(".to_do_item_description_span").innerText;
+
+    if(to_do_description == "Some description") {
+        respective_to_do_element.querySelector(".to_do_item_description").classList.add("description_empty");
+    }
+
+    // Send the data to the server
+    fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/to_dos/update_to_do.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams({
+            'to_do_id': to_do_id,
+            'to_do_title': to_do_title,
+            'to_do_description': to_do_description
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            show_pop_up_message('To-do updated successfully', false);
+        } else {
+            show_pop_up_message('Error: ' + data.message, true);
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+
+
+
+
+
+let create_or_edit_to_do = {
+    create_or_edit: "create", 
+    edit_id: null
+};
+
+function create_or_edit_to_do() {
+    if(create_or_edit_to_do.create_or_edit == "create") {create_to_do();}
+    else {update_to_do();}
+}
+
+
+function create_to_do() {
+     
     var to_do_text = document.getElementById("add_to_do_title_input").value;
     var to_do_description = document.getElementById("add_to_do_description_input").value;
     if(to_do_text == "") {document.getElementById("add_to_do_title_input").classList.add("empty_input");return;}
