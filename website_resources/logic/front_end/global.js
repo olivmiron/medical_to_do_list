@@ -771,7 +771,7 @@ function edit_to_do(to_do_id) {
     top_bar_current_view_action(current_page, pages_top_bar_action_buttons.group_to_dos)
     .then(() => {
         popualte_create_or_add_to_do_bottom_sheet();   
-    })
+    });
 
     function popualte_create_or_add_to_do_bottom_sheet() {
         var respective_to_do_element = document.getElementById("to_do__" + to_do_id);
