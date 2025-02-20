@@ -157,17 +157,21 @@ function log_out() {
 
 function top_bar_current_view_action(page_name, action_name) {
     // see if page_name_bottom_sheet is loaded inside bottom_drag_sheet_stored_templates
-    var bottom_sheet_stored_templates = document.getElementById(action_name + "__bottom_sheet_action_template");
-    if(bottom_sheet_stored_templates == null) {
-        load_bottom_sheet_action_template(page_name)
-        .then(() => {
+    return new Promise((resolve, reject) => {
+        var bottom_sheet_stored_templates = document.getElementById(action_name + "__bottom_sheet_action_template");
+        if(bottom_sheet_stored_templates == null) {
+            load_bottom_sheet_action_template(page_name)
+            .then(() => {
+                insert_bottom_sheet_template_and_open();
+                resolve("success");
+            })
+            .catch(reject);
+        }
+        else {
             insert_bottom_sheet_template_and_open();
-
-        });
-    }
-    else {insert_bottom_sheet_template_and_open();}
-
-    return "success";
+            resolve("success");
+        }
+    });
 
 
     function insert_bottom_sheet_template_and_open() {
@@ -175,6 +179,10 @@ function top_bar_current_view_action(page_name, action_name) {
         document.getElementById("bottom_drag_sheet_content").innerHTML = respective_template.innerHTML;
         open_bottom_sheet();
     }
+
+
+    
+    
 }
 
 function load_bottom_sheet_action_template(page_name) {
