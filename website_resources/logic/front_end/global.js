@@ -818,7 +818,7 @@ function update_to_do(/* to_do_id */) {
     var to_do_description = document.getElementById("add_to_do_description_input").value;
 
 
-    var respective_to_do_element = document.getElementById("to_do__" + to_do_id);
+    var respective_to_do_element = document.getElementById("to_do__" + create_or_edit_to_do_obj.edit_id);
 
     respective_to_do_element.querySelector(".to_do_item_title").innerText = to_do_title;
     respective_to_do_element.querySelector(".to_do_item_description_span").innerText = to_do_description;
