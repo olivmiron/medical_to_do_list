@@ -15,22 +15,21 @@
     
     <div class="bottom_sheet_sub_title"><span>Due in</span></div>
 
-    <!-- <div id="create_or_edit_to_do_due_date_picker" data-due_date="0">
+    <div id="create_or_edit_to_do_due_date_picker" data-due_date="0">
         <div class="due_date_picker_container">
             <div class="due_date_picker_bar">
                 <div class="due_date_picker_bar_none"></div>
                 <div class="due_date_picker_bar_rest"></div>
             </div>
-            <div class="due_date_picker_pointer"></div>
+            <div class="due_date_picker_pointer" onmousedown="due_date_picker_startDrag(event)" ontouchstart="due_date_picker_startDrag(event)"></div>
             <div class="due_date_picker_dates">
-                <span>|<br/>none</span>
-                <span>|<br/>1 day</span>
-                <span>|<br/>10 days</span>
+                <span>|<br>none</span>
+                <span>|<br>1d</span>
+                <div class="flex_spacer"></div>
+                <span>|<br>10d</span>
             </div>
         </div>
-    </div> -->
-
-    <?php include $_SERVER["DOCUMENT_ROOT"] . "/developer_resources/website_elements/due_date_picker.html"; ?>
+    </div>
     
     <div class="spacer_xxl"></div>
 
