@@ -912,18 +912,23 @@ let pointerStartX = 0;
 
 function due_date_picker_startDrag(event) {
     isDragging = true;
-    dragStartX = event.clientX;
+    dragStartX = event.type === 'touchstart' ? event.touches[0].clientX : event.clientX;
     const pointer = event.target;
     pointerStartX = parseInt(pointer.style.left, 10);
     document.addEventListener('mousemove', due_date_picker_onDrag);
+    document.addEventListener('touchmove', due_date_picker_onDrag);
     document.addEventListener('mouseup', due_date_picker_stopDrag);
+    document.addEventListener('touchend', due_date_picker_stopDrag);
 }
+
+
 
 function due_date_picker_onDrag(event) {
     if (!isDragging) return;
     const pointer = document.querySelector('.due_date_picker_pointer');
     const container = document.querySelector('.due_date_picker_container');
-    const deltaX = event.clientX - dragStartX;
+    const clientX = event.type === 'touchmove' ? event.touches[0].clientX : event.clientX;
+    const deltaX = clientX - dragStartX;
     let newLeft = pointerStartX + deltaX;
     const containerWidth = container.clientWidth - pointer.clientWidth;
     if (newLeft < 0) newLeft = 0;
@@ -933,10 +938,11 @@ function due_date_picker_onDrag(event) {
 
 function due_date_picker_stopDrag() {
     isDragging = false;
-    document.removeEventListener('mousemove', onDrag);
-    document.removeEventListener('mouseup', stopDrag);
+    document.removeEventListener('mousemove', due_date_picker_onDrag);
+    document.removeEventListener('touchmove', due_date_picker_onDrag);
+    document.removeEventListener('mouseup', due_date_picker_stopDrag);
+    document.removeEventListener('touchend', due_date_picker_stopDrag);
 }
-
 
 
 
