@@ -11,6 +11,11 @@ function update_url_page_param(utl_param, value) {
     window.history.replaceState({}, '', url);
 }
 
+function get_css_value_of_variable(variable_name) {
+    return window.getComputedStyle(document.documentElement).getPropertyValue(variable_name);
+}
+
+
 
 function show_pop_up_message(message, error_or_not) {
     document.getElementById("pop_up_message_text").innerHTML = message;
@@ -930,8 +935,8 @@ function due_date_picker_onDrag(event) {
     const clientX = event.type === 'touchmove' ? event.touches[0].clientX : event.clientX;
     const deltaX = clientX - dragStartX;
     let newLeft = pointerStartX + deltaX;
-    const containerWidth = container.clientWidth - pointer.clientWidth;
-    const max_left = containerWidth - parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--border_radius_small')) * 2;
+    
+    const max_left = container.clientWidth - (pointer.clientWidth + parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--border_radius_small')) * 2);
 
     if (newLeft < 0) newLeft = 0;
     if (newLeft > max_left) newLeft = max_left;
@@ -944,20 +949,27 @@ function due_date_picker_stopDrag() {
     document.removeEventListener('touchmove', due_date_picker_onDrag);
     document.removeEventListener('mouseup', due_date_picker_stopDrag);
     document.removeEventListener('touchend', due_date_picker_stopDrag);
+
+    due_date_snap_position_after_movement();
 }
 
 
 // STEPS: (middle of pointer) // left value of pointer
 // none: var(--due_date_picker_reference_size) / 2     //     0
-// 1d: var(--due_date_picker_reference_size) * (3/2) + var(--border_radius_medium)     //   
-// 10d: document.querySelector('.due_date_picker_container').clientWidth - document.querySelector('.due_date_picker_pointer').clientWidth - var(--due_date_picker_reference_size) / 2
+// 1d: var(--due_date_picker_reference_size) * (3/2) + var(--border_radius_medium)     //   var(--due_date_picker_reference_size) + var(--border_radius_medium)
+// 10d: document.querySelector('.due_date_picker_container').clientWidth - document.querySelector('.due_date_picker_pointer').clientWidth - var(--due_date_picker_reference_size) / 2       //        document.querySelector('.due_date_picker_container').clientWidth - var(--due_date_picker_reference_size)
 
 
 function due_date_snap_position_after_movement() {
-
+    var main_steps = {
+        no_due_date: 0,
+        one_day: parseInt(get_css_value_of_variable("--due_date_picker_reference_size")) + parseInt(get_css_value_of_variable("--border_radius_medium")),
+        ten_days: document.querySelector('.due_date_picker_container').clientWidth - parseInt(get_css_value_of_variable("--due_date_picker_reference_size"))
+    }
+// 
 }
 
-function due_date_snap_position_based_on_selection() {
+function due_date_re_position_based_on_selection() {
 
 }
 
