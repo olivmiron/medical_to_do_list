@@ -21,7 +21,7 @@
                 <div class="due_date_picker_bar_none"></div>
                 <div class="due_date_picker_bar_rest"></div>
             </div>
-            <div class="due_date_picker_pointer" onmousedown="due_date_picker_startDrag(event)" ontouchstart="due_date_picker_startDrag(event)"></div>
+            <div class="due_date_picker_pointer" style="left: 0px;" onmousedown="due_date_picker_startDrag(event)" ontouchstart="due_date_picker_startDrag(event)"></div>
             <div class="due_date_picker_dates">
                 <span>|<br>none</span>
                 <span>|<br>1d</span>
