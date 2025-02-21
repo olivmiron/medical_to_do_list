@@ -906,6 +906,42 @@ function create_patient() {
 
 
 
+let isDragging = false;
+let dragStartX = 0;
+let pointerStartX = 0;
+
+function due_date_picker_startDrag(event) {
+    isDragging = true;
+    dragStartX = event.clientX;
+    const pointer = event.target;
+    pointerStartX = parseInt(pointer.style.left, 10);
+    document.addEventListener('mousemove', due_date_picker_onDrag);
+    document.addEventListener('mouseup', due_date_picker_stopDrag);
+}
+
+function due_date_picker_onDrag(event) {
+    if (!isDragging) return;
+    const pointer = document.querySelector('.due_date_picker_pointer');
+    const container = document.querySelector('.due_date_picker_container');
+    const deltaX = event.clientX - dragStartX;
+    let newLeft = pointerStartX + deltaX;
+    const containerWidth = container.clientWidth - pointer.clientWidth;
+    if (newLeft < 0) newLeft = 0;
+    if (newLeft > containerWidth) newLeft = containerWidth;
+    pointer.style.left = `${newLeft}px`;
+}
+
+function due_date_picker_stopDrag() {
+    isDragging = false;
+    document.removeEventListener('mousemove', onDrag);
+    document.removeEventListener('mouseup', stopDrag);
+}
+
+
+
+
+
+
 
 function edit_to_do(to_do_id) {
 
