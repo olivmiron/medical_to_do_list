@@ -946,10 +946,20 @@ function due_date_picker_stopDrag() {
     document.removeEventListener('touchend', due_date_picker_stopDrag);
 }
 
-// STEPS: (middle of pointer)
-// none: (26px + 2 * var(--border_radius_small)) / 2
-// 1d: (26px + 2 * var(--border_radius_small)) * (3/2) + var(--border_radius_medium)
-// 10d: document.querySelector('.due_date_picker_container').clientWidth - document.querySelector('.due_date_picker_pointer').clientWidth - (26px + 2 * var(--border_radius_small)) / 2
+
+// STEPS: (middle of pointer) // left value of pointer
+// none: var(--due_date_picker_reference_size) / 2     //     0
+// 1d: var(--due_date_picker_reference_size) * (3/2) + var(--border_radius_medium)     //   
+// 10d: document.querySelector('.due_date_picker_container').clientWidth - document.querySelector('.due_date_picker_pointer').clientWidth - var(--due_date_picker_reference_size) / 2
+
+
+function due_date_snap_position_after_movement() {
+
+}
+
+function due_date_snap_position_based_on_selection() {
+
+}
 
 
 
