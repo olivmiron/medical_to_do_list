@@ -935,7 +935,7 @@ function due_date_picker_onDrag(event) {
 
     if (newLeft < 0) newLeft = 0;
     if (newLeft > max_left) newLeft = max_left;
-    pointer.style.left = `${newLeft/max_left*100}%`;
+    pointer.style.left = `${newLeft}px`;
 }
 
 function due_date_picker_stopDrag() {
