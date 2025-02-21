@@ -42,19 +42,17 @@ border-radius: var(--border_infinite_radius);
 box-shadow: 0px 0px 15px -5px var(--color_light);
 z-index: 1;
 "></div>
-        <div class="due_date_picker_dates" style="
-position: absolute;
-top: calc(32px + 2 * var(--border_radius_small));
-left: 0;
-right: 0;
-display: flex;
-text-align: center;
-justify-content: space-between;
-">
-            <span>|<br>none</span>
-            <span>|<br>1 day</span>
+        <div class="due_date_picker_dates" style="position: absolute;top: calc(32px + 2 * var(--border_radius_small));left: 0;right: 0;display: flex;text-align: center;gap: var(--border_radius_medium);justify-content: space-between;color: var(--color_dark_gray);">
+            <span style="
+    flex-basis: calc(26px + 2 * var(--border_radius_small));
+">|<br>none</span>
+            <span style="
+    flex-basis: calc(26px + 2 * var(--border_radius_small));
+">|<br>1d</span>
             <div class="flex_spacer"></div>
-            <span>|<br>10 days</span>
+            <span style="
+    flex-basis: calc(26px + 2 * var(--border_radius_small));
+">|<br>10d</span>
         </div>
     </div>
 </div>
