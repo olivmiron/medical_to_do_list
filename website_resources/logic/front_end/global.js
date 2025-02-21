@@ -931,7 +931,7 @@ function due_date_picker_onDrag(event) {
     const deltaX = clientX - dragStartX;
     let newLeft = pointerStartX + deltaX;
     const containerWidth = container.clientWidth - pointer.clientWidth;
-    const max_left = containerWidth - parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--border_radius_small')) - 1;
+    const max_left = containerWidth - parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--border_radius_small')) * 2 - 1;
 
     if (newLeft < 0) newLeft = 0;
     if (newLeft > max_left) newLeft = max_left;
