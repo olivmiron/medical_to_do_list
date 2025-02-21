@@ -6,40 +6,21 @@ width: 100%;
 height: calc(28px + 2 * var(--border_radius_small));
 padding-bottom: 50px;
 ">
-        <div class="due_date_picker_bar" style="
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-height: calc(26px + 2 * var(--border_radius_small));
-display: flex;
-justify-content: stretch;
-gap: var(--border_radius_medium);
-/* margin-bottom: 130px; */
-">
-            <div class="due_date_picker_bar_none" style="
-height: 100%;
-/* position: absolute; */
-width: calc(26px + 2 * var(--border_radius_small));
-border: 1px solid var(--color_gray);
-border-radius: var(--border_infinite_radius);
-"></div>
-            <div class="due_date_picker_bar_rest" style="height: 100%;border: 1px solid var(--color_gray);border-radius: var(--border_infinite_radius);flex: 1 1 auto;"></div>
+        <div class="due_date_picker_bar" style="position: absolute;top: 0;left: 0;right: 0;height: calc(26px + 2 * var(--border_radius_small));display: flex;justify-content: stretch;gap: var(--border_radius_medium);/* margin-bottom: 130px; */">
+            <div class="due_date_picker_bar_none" style="height: 100%;/* position: absolute; */width: calc(26px + 2 * var(--border_radius_small));border: 1px solid var(--color_gray);border-radius: var(--border_infinite_radius);box-sizing: border-box;"></div>
+            <div class="due_date_picker_bar_rest" style="height: 100%;border: 1px solid var(--color_gray);border-radius: var(--border_infinite_radius);flex: 1 1 auto;box-sizing: border-box;"></div>
         </div>
-        <div class="due_date_picker_pointer" style="position: absolute; top: 0px; left: 0px; margin: calc(var(--border_radius_small) + 1px); height: 26px; width: 26px; background: var(--color_primary); border-radius: var(--border_infinite_radius); box-shadow: 0px 0px 20px -5px var(--color_light); z-index: 1;" onmousedown="due_date_picker_startDrag(event)" ontouchstart="due_date_picker_startDrag(event)"></div>
+        <div class="due_date_picker_pointer" style="position: absolute; top: 0px; left: 0%; margin: var(--border_radius_small); height: 26px; width: 26px; background: var(--color_primary); border-radius: var(--border_infinite_radius); box-shadow: 0px 0px 20px -5px var(--color_light); z-index: 1;" onmousedown="due_date_picker_startDrag(event)" ontouchstart="due_date_picker_startDrag(event)"></div>
         <div class="due_date_picker_dates" style="position: absolute;top: calc(32px + 2 * var(--border_radius_small));left: 0;right: 0;display: flex;text-align: center;gap: var(--border_radius_medium);justify-content: space-between;color: var(--color_dark_gray);">
             <span style="
     width: calc(26px + 2 * var(--border_radius_small));
-    padding: 0 1PX;
 ">|<br>none</span>
             <span style="
     width: calc(26px + 2 * var(--border_radius_small));
-    padding: 0 1PX;
 ">|<br>1d</span>
             <div class="flex_spacer"></div>
             <span style="
     width: calc(26px + 2 * var(--border_radius_small));
-    padding: 0 1PX;
 ">|<br>10d</span>
         </div>
     </div>
