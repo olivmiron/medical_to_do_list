@@ -15,7 +15,7 @@
     
     <div class="bottom_sheet_sub_title"><span>Due in</span></div>
 
-    <div id="create_or_edit_to_do_due_date_picker" data-due_date="0">
+    <!-- <div id="create_or_edit_to_do_due_date_picker" data-due_date="0">
         <div class="due_date_picker_container">
             <div class="due_date_picker_bar">
                 <div class="due_date_picker_bar_none"></div>
@@ -28,7 +28,11 @@
                 <span>|<br/>10 days</span>
             </div>
         </div>
-    </div>
+    </div> -->
+
+    <?php include $_SERVER["DOCUMENT_ROOT"] . "/developer_resources/website_elements/due_date_picker.html"; ?>
+    
+    <div class="spacer_xxl"></div>
 
     <div class="big_bottom_sheet_action_button" onclick="create_or_edit_to_do()"><span>Save to do</span></div>
 </div>
