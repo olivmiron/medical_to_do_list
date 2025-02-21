@@ -1,26 +1,23 @@
 <div id="create_or_edit_to_do_due_date_picker" data-due_date="0">
-    <div class="due_date_picker_container" style="
-position: relative;
-width: 100%;
-/* overflow: auto; */
-height: calc(28px + 2 * var(--border_radius_small));
-padding-bottom: 50px;
-">
-        <div class="due_date_picker_bar" style="position: absolute;top: 0;left: 0;right: 0;height: calc(26px + 2 * var(--border_radius_small));display: flex;justify-content: stretch;gap: var(--border_radius_medium);/* margin-bottom: 130px; */">
-            <div class="due_date_picker_bar_none" style="height: 100%;/* position: absolute; */width: calc(26px + 2 * var(--border_radius_small));border: 1px solid var(--color_gray);border-radius: var(--border_infinite_radius);box-sizing: border-box;"></div>
+    <div class="due_date_picker_container" style="position: relative;width: 100%;height: var(--due_date_picker_reference_size);padding-bottom: calc(var(--due_date_picker_line_height) * 2 + var(--spacing_medium));">
+        <div class="due_date_picker_bar" style="position: absolute;top: 0;left: 0;right: 0;height: var(--due_date_picker_reference_size);display: flex;justify-content: stretch;gap: var(--border_radius_medium);/* margin-bottom: 130px; */">
+            <div class="due_date_picker_bar_none" style="height: 100%;/* position: absolute; */width: var(--due_date_picker_reference_size);border: 1px solid var(--color_gray);border-radius: var(--border_infinite_radius);box-sizing: border-box;"></div>
             <div class="due_date_picker_bar_rest" style="height: 100%;border: 1px solid var(--color_gray);border-radius: var(--border_infinite_radius);flex: 1 1 auto;box-sizing: border-box;"></div>
         </div>
-        <div class="due_date_picker_pointer" style="position: absolute; top: 0px; left: 0%; margin: var(--border_radius_small); height: 26px; width: 26px; background: var(--color_primary); border-radius: var(--border_infinite_radius); box-shadow: 0px 0px 20px -5px var(--color_light); z-index: 1;" onmousedown="due_date_picker_startDrag(event)" ontouchstart="due_date_picker_startDrag(event)"></div>
-        <div class="due_date_picker_dates" style="position: absolute;top: calc(32px + 2 * var(--border_radius_small));left: 0;right: 0;display: flex;text-align: center;gap: var(--border_radius_medium);justify-content: space-between;color: var(--color_dark_gray);">
+        <div class="due_date_picker_pointer" style="position: absolute;top: 0px;left: 0%;margin: var(--border_radius_small);height: var(--due_date_picker_pointer_size);width: var(--due_date_picker_pointer_size);background: var(--color_primary);border-radius: var(--border_infinite_radius);box-shadow: 0px 0px 20px -5px var(--color_light);z-index: 1;" onmousedown="due_date_picker_startDrag(event)" ontouchstart="due_date_picker_startDrag(event)"></div>
+        <div class="due_date_picker_dates" style="position: absolute;bottom: 0;);left: 0;right: 0;display: flex;text-align: center;gap: var(--border_radius_medium);justify-content: space-between;color: var(--color_dark_gray);font-size: 16px;">
             <span style="
     width: calc(26px + 2 * var(--border_radius_small));
+    line-height: var(--due_date_picker_line_height);
 ">|<br>none</span>
             <span style="
     width: calc(26px + 2 * var(--border_radius_small));
+    line-height: var(--due_date_picker_line_height);
 ">|<br>1d</span>
             <div class="flex_spacer"></div>
             <span style="
     width: calc(26px + 2 * var(--border_radius_small));
+    line-height: var(--due_date_picker_line_height);
 ">|<br>10d</span>
         </div>
     </div>
