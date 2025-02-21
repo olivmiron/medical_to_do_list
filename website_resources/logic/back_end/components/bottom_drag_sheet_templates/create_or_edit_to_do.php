@@ -17,6 +17,10 @@
 
     <div id="create_or_edit_to_do_due_date_picker" data-due_date="0">
         <div class="due_date_picker_container">
+            <div class="due_date_picker_bar">
+                <div class="due_date_picker_bar_none"></div>
+                <div class="due_date_picker_bar_rest"></div>
+            </div>
             <div class="due_date_picker_pointer"></div>
             <div class="due_date_picker_dates">
                 <span>|<br/>none</span>
