@@ -946,8 +946,10 @@ function due_date_picker_stopDrag() {
     document.removeEventListener('touchend', due_date_picker_stopDrag);
 }
 
-// STEPS:
-// none: (1px + 
+// STEPS: (middle of pointer)
+// none: (26px + 2 * var(--border_radius_small)) / 2
+// 1d: (26px + 2 * var(--border_radius_small)) * (3/2) + var(--border_radius_medium)
+// 10d: document.querySelector('.due_date_picker_container').clientWidth - document.querySelector('.due_date_picker_pointer').clientWidth - (26px + 2 * var(--border_radius_small)) / 2
 
 
 

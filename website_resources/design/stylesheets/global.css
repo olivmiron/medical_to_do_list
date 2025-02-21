@@ -48,6 +48,9 @@
     /* element specific */
 
 --top_bottom_bar_size: 56px;
+
+
+--due_date_picker_reference_size: calc(26px + 2 * var(--spacing_small));
 }
 
 @font-face {
