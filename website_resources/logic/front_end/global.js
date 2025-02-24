@@ -975,14 +975,29 @@ let main_steps = {
 
 function due_date_calculate() {
     let due_date_picker = document.querySelector('.due_date_picker_pointer');
-    
-    let picker_left = due_date_picker.offsetLeft;
+    let due_date_container = document.getElementById("create_or_edit_to_do_due_date_picker");
 
-    show_pop_up_message(picker_left + " px", false);
+    let picker_left = parseInt(due_date_picker.offsetLeft);
+
+    if(picker_left < (main_steps.no_due_date + main_steps.one_day) / 2) {
+        due_date_container.setAttribute("data-due_date", "0");
+    }
+    else {
+        let due_days = 
+            Math.floor( 
+                (picker_left - (main_steps.no_due_date + main_steps.one_day) / 2) 
+                / (main_steps.ten_days - main_steps.one_day)
+                + 0.5
+                + 1 
+            );
+        due_date_container.setAttribute("data-due_date", due_days);
+    }
+
+    show_pop_up_message(picker_left + " px; container_position: " + due_date_container, false);
  
   
 //
-    document.getElementById("create_or_edit_to_do_due_date_picker").setAttribute("data-due_date", "2");
+    
     due_date_picker_re_position();
 }
 
