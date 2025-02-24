@@ -358,7 +358,7 @@ function initBottomSheetDrag() {window.event.preventDefault();
     sheet = document.getElementById('bottom_drag_sheet');
 
     if (handle && sheet) {
-        handle.addEventListener('touchstart', startDragging, { passive: true });
+        handle.addEventListener('touchstart', startDragging, { passive: false });
         handle.addEventListener('mousedown', startDragging);
         document.addEventListener('touchmove', drag);
         document.addEventListener('mousemove', drag);
@@ -369,7 +369,7 @@ function initBottomSheetDrag() {window.event.preventDefault();
     }
 }
 
-function startDragging(e) {
+function startDragging(e) {e.preventDefault();
     sheet.style.transition = 'none';
     startY = e.type === 'mousedown' ? e.clientY : e.touches[0].clientY;
     startHeight = parseInt(window.getComputedStyle(sheet).height)
