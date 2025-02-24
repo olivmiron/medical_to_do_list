@@ -353,7 +353,7 @@ let startHeight = 0;
 
 var handle, sheet;
 
-function initBottomSheetDrag() {
+function initBottomSheetDrag() {window.event.preventDefault();
     handle = document.getElementById('bottom_drag_sheet_action_handle');
     sheet = document.getElementById('bottom_drag_sheet');
 
@@ -370,7 +370,6 @@ function initBottomSheetDrag() {
 }
 
 function startDragging(e) {
-    e.preventDefault();
     sheet.style.transition = 'none';
     startY = e.type === 'mousedown' ? e.clientY : e.touches[0].clientY;
     startHeight = parseInt(window.getComputedStyle(sheet).height)
