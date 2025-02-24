@@ -989,7 +989,7 @@ function due_date_calculate() {
                 / (main_steps.ten_days - main_steps.one_day)
                 + 0.5
                 + 1 
-            );
+            ); //CHECK
         due_date_container.setAttribute("data-due_date", due_days);
     }
 
