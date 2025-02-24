@@ -978,7 +978,7 @@ function due_date_calculate() {
     
     let picker_left = due_date_picker.offsetLeft;
 
-    show_pop_up_message(" px", false);
+    show_pop_up_message(picker_left + " px", false);
  
   
 //
