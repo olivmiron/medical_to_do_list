@@ -510,7 +510,7 @@ br {height: 20px;}
 .due_date_picker_bar_none {height: 100%;/* position: absolute; */width: var(--due_date_picker_reference_size);border: 1px solid var(--color_gray);border-radius: var(--border_infinite_radius);box-sizing: border-box;}
 .due_date_picker_bar_rest {height: 100%;border: 1px solid var(--color_gray);border-radius: var(--border_infinite_radius);flex: 1 1 auto;box-sizing: border-box;}
 
-.due_date_picker_pointer {position: absolute;top: 0px;left: 0%;margin: var(--border_radius_small);height: var(--due_date_picker_pointer_size);width: var(--due_date_picker_pointer_size);background: var(--color_primary);border-radius: var(--border_infinite_radius);box-shadow: 0px 0px 20px -5px var(--color_light);z-index: 1;}
+.due_date_picker_pointer {position: absolute;top: 0px;left: 0%;margin: var(--spacing_small);height: var(--due_date_picker_pointer_size);width: var(--due_date_picker_pointer_size);background: var(--color_primary);border-radius: var(--border_infinite_radius);box-shadow: 0px 0px 20px -5px var(--color_light);z-index: 1;}
 
 .due_date_picker_dates {    
     position: absolute;
@@ -519,7 +519,7 @@ br {height: 20px;}
     right: 0;
     display: flex;
     text-align: center;
-    gap: var(--border_radius_medium);
+    gap: var(--spacing_mediump);
     justify-content: space-between;
     color: var(--color_dark_gray);
     font-size: 16px;
