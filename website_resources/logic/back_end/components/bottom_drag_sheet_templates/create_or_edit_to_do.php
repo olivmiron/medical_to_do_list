@@ -8,7 +8,7 @@
     
     <div class="spacer_xxl"></div>
     
-    <div class="bottom_sheet_sub_title"><span>Description / detailsx</span></div>
+    <div class="bottom_sheet_sub_title"><span>Description / details</span></div>
     <textarea id="add_to_do_description_input"></textarea>
     
     <div class="spacer_xxl"></div>

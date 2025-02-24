@@ -375,7 +375,7 @@ function startDragging(e) {e.preventDefault();
     startHeight = parseInt(window.getComputedStyle(sheet).height)
 }
 
-function drag(e) {
+function drag(e) {e.preventDefault();
     if (startY === 0) return;
     
     const currentY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
