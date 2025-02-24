@@ -956,7 +956,7 @@ function due_date_picker_stopDrag() {
 
     document.querySelector('.due_date_picker_pointer').style.transition = "";
 
-    due_date_calculate_calculate();
+    due_date_calculate();
 
 }
 
@@ -973,7 +973,7 @@ let main_steps = {
 }
 
 
-function due_date_calculate_calculate() {
+function due_date_calculate() {
     let due_date_picker = document.querySelector('.due_date_picker_pointer');
     
     let picker_left = due_date_picker.offsetLeft;
