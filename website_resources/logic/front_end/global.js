@@ -919,6 +919,9 @@ function due_date_picker_startDrag(event) {
     isDragging = true;
     dragStartX = event.type === 'touchstart' ? event.touches[0].clientX : event.clientX;
     const pointer = event.target;
+
+    pointer.style.transition = "none";
+
     pointerStartX = parseInt(pointer.style.left, 10);
     document.addEventListener('mousemove', due_date_picker_onDrag);
     document.addEventListener('touchmove', due_date_picker_onDrag);
@@ -950,7 +953,11 @@ function due_date_picker_stopDrag() {
     document.removeEventListener('mouseup', due_date_picker_stopDrag);
     document.removeEventListener('touchend', due_date_picker_stopDrag);
 
-    due_date_snap_position_after_movement();
+
+    document.querySelector('.due_date_picker_pointer').style.transition = "";
+
+    due_date_calculate_due_from_picker();
+
 }
 
 
@@ -959,18 +966,38 @@ function due_date_picker_stopDrag() {
 // 1d: var(--due_date_picker_reference_size) * (3/2) + var(--border_radius_medium)     //   var(--due_date_picker_reference_size) + var(--border_radius_medium)
 // 10d: document.querySelector('.due_date_picker_container').clientWidth - document.querySelector('.due_date_picker_pointer').clientWidth - var(--due_date_picker_reference_size) / 2       //        document.querySelector('.due_date_picker_container').clientWidth - var(--due_date_picker_reference_size)
 
+let main_steps = {
+    no_due_date: 0,
+    one_day: parseInt(get_css_value_of_variable("--due_date_picker_reference_size")) + parseInt(get_css_value_of_variable("--border_radius_medium")),
+    ten_days: parseInt(document.querySelector('.due_date_picker_container').clientWidth - parseInt(get_css_value_of_variable("--due_date_picker_reference_size")))
+}
 
-function due_date_snap_position_after_movement() {
-    var main_steps = {
-        no_due_date: 0,
-        one_day: parseInt(get_css_value_of_variable("--due_date_picker_reference_size")) + parseInt(get_css_value_of_variable("--border_radius_medium")),
-        ten_days: document.querySelector('.due_date_picker_container').clientWidth - parseInt(get_css_value_of_variable("--due_date_picker_reference_size"))
-    }
-// 
+
+function due_date_calculate_due_from_picker() {
+    let due_date_picker = document.querySelector('.due_date_picker_pointer');
+    
+    let picker_left = due_date_picker.offsetLeft;
+
+    console.log(picker_left + " px");
+    show_pop_up_message(picker_left + " px", false);
+
+  
+//
+
+    // due_date_re_position_based_on_selection();
 }
 
 function due_date_re_position_based_on_selection() {
+    let snap_position = parseInt(document.getElementById("create_or_edit_to_do_due_date_picker").getAttribute("data-due_date"));
+    let due_date_picker = document.querySelector('.due_date_picker_pointer');
 
+
+    if(snap_position == 0) {
+        due_date_picker.style.left = "0px";
+    }
+    else{
+        due_date_picker.style.left = (snap_position * (main_steps.ten_days - main_steps.one_day)) + "px";
+    } 
 }
 
 
