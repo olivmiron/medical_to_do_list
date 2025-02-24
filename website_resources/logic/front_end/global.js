@@ -980,14 +980,14 @@ function due_date_calculate_due_from_picker() {
 
     console.log(picker_left + " px");
     show_pop_up_message(picker_left + " px", false);
-
+ 
   
 //
 
-    // due_date_re_position_based_on_selection();
+    // due_date_picker_re_position();
 }
 
-function due_date_re_position_based_on_selection() {
+function due_date_picker_re_position() {
     let snap_position = parseInt(document.getElementById("create_or_edit_to_do_due_date_picker").getAttribute("data-due_date"));
     let due_date_picker = document.querySelector('.due_date_picker_pointer');
 
@@ -996,7 +996,7 @@ function due_date_re_position_based_on_selection() {
         due_date_picker.style.left = "0px";
     }
     else{
-        due_date_picker.style.left = (snap_position * (main_steps.ten_days - main_steps.one_day)) + "px";
+        due_date_picker.style.left = (main_steps.one_day + snap_position * (main_steps.ten_days - main_steps.one_day) / 10) + "px";
     } 
 }
 
