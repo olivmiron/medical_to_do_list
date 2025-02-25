@@ -756,7 +756,8 @@ br {height: 20px;}
 .description_empty {display: none;}
 
 
-.to_do_due_row {display: none;} /* PLEASE REMOVE */
+.to_do_due_row {margin-top: var(--spacing_medium);}
+.to_do_due_row_not_due .due_line_div  {display: none;}
 
 .to_do_due_row {    
     text-align: right;
@@ -770,8 +771,11 @@ br {height: 20px;}
 }
 .due_line span {font-weight: bold;}
 
-.not_due {background-color: var(--color_warning);}
-.not_due  span {color: var(--color_danger);opacity: 0.6;}
+.not_due {background-color: var(--color_success);}
+.not_due span {color: white;}
+
+.due_today {background-color: var(--color_warning);}
+.due_today span {color: var(--color_danger);opacity: 0.6;}
 
 .already_due {background: var(--color_danger);}
 .already_due span {color: var(--color_danger);filter: brightness(0.4);}

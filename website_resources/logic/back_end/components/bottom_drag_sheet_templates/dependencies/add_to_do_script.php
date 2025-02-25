@@ -13,10 +13,15 @@ $input = json_decode(file_get_contents('php://input'), true);
 $creator_user_id = $_SESSION['user_id'];
 $title = $input['to_do_text'];
 $description = $input['to_do_description'];
+$due_date_days = $input["due_date"];
+$due_or_not = ($due_date_days == "" ? 0 : 1);
+if($due_or_not == 1) {$due_date = date('Y-m-d H:i:s', strtotime("+$due_date_days days"));}
+else {$due_date = NULL;}
+
 $personal_or_group_id = ($input["group_or_personal"] == "group" ? $_SESSION["default_group_id"] : 0);
 $date_created = date('Y-m-d H:i:s');
 
-$stmt = $conn->prepare("INSERT INTO to_dos (creator_user_id, title, description, date_created, personal_or_group_id, to_do_done, due_or_not, due_date, visible) VALUES (?, ?, ?, ?, ?, 0, 0, NULL, 1)");
+$stmt = $conn->prepare("INSERT INTO to_dos (creator_user_id, title, description, date_created, personal_or_group_id, to_do_done, due_or_not, due_date, visible) VALUES (?, ?, ?, ?, ?, 0, $due_or_not, $due_date, 1)");
 $stmt->bind_param("isssi", $creator_user_id, $title, $description, $date_created, $personal_or_group_id);
 
 if ($stmt->execute()) {
@@ -27,6 +32,28 @@ if ($stmt->execute()) {
 
 $to_do_id = $conn->insert_id;
 
+$days_text = "";
+if($due_or_not == 1) {
+    // due in x days, ,or due x days ago
+    $today = new DateTime();
+    $due = new DateTime($due_date);
+    $interval = $today->diff($due);
+    $days_difference = $interval->days;
+
+    if ($today->format('Y-m-d') === $due->format('Y-m-d')) {
+        $days_text = "Due today";
+    } elseif ($today->modify('+1 day')->format('Y-m-d') === $due->format('Y-m-d')) {
+        $days_text = "Due tomorrow";
+    } elseif ($today->modify('-1 day')->format('Y-m-d') === $due->format('Y-m-d')) {
+        $days_text = "Due yesterday";
+    } else if ($today > $due) {
+        $days_text = "Due " . $days_difference . " day" . ($days_difference != 1 ? "s" : "") . " ago";
+    } else {
+        $days_text = "Due in " . $days_difference . " day" . ($days_difference != 1 ? "s" : "");
+    }
+}
+
+
 $to_do_template = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/website_pages/pages/dependencies/to_dos/to_do.html');
 
 $to_do_html = str_replace(
@@ -36,7 +63,10 @@ $to_do_html = str_replace(
         '{{to_do_creator_name}}',
         '{{to_do_title}}', 
         '{{to_do_description}}',
-        'description_empty'
+        'description_empty', 
+
+        "to_do_due_row_not_due", 
+        "{{due_date}}"
     ],
     [
         $to_do_id, 
@@ -44,7 +74,10 @@ $to_do_html = str_replace(
         $_SESSION["user_name"],
         $title, 
         $description,
-        empty($description) ? 'description_empty' : ''
+        empty($description) ? 'description_empty' : '', 
+
+        $due_or_not == 0 ? "to_do_due_row_not_due" : "", 
+        $days_text
     ],
     $to_do_template
 );
