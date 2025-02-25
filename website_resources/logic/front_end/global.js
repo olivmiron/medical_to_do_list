@@ -1014,20 +1014,20 @@ function due_date_calculate(re_position) {
 
     let due_days = 0;
 
-    if(picker_left < (main_steps.no_due_date + main_steps.one_day) / 2) {
-        due_date_container.setAttribute("data-due_date", "0");
-    }
+    if(picker_left < (main_steps.no_due_date + main_steps.one_day) / 2) {due_days = 0;}
+    else if(picker_left < (main_steps.no_due_date + main_steps.one_day)) {due_days = 1;}
     else {
         due_days = 
             Math.floor( 
-                (picker_left - (main_steps.no_due_date + main_steps.one_day) / 2) 
+                (picker_left - (main_steps.no_due_date + main_steps.one_day)) 
                 / ((main_steps.ten_days - main_steps.one_day) / 9)
                 + 0.5
                 + 1 
             ); //CHECK
             console.log("(" + picker_left + " - " + (main_steps.no_due_date + main_steps.one_day) / 2 + ") / " + (main_steps.ten_days - main_steps.one_day) + " + 0.5 + 1 = " + due_days);
-        due_date_container.setAttribute("data-due_date", due_days);
     }
+    
+    due_date_container.setAttribute("data-due_date", due_days);
 
     show_pop_up_message(picker_left + " px; container_position: " + due_date_container, false);
  
