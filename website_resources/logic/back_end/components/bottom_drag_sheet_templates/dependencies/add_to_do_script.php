@@ -40,16 +40,23 @@ if($due_or_not == 1) {
     $interval = $today->diff($due);
     $days_difference = $interval->days;
 
+    $due_date_class = "not_due due_today already_due";
+
     if ($today->format('Y-m-d') === $due->format('Y-m-d')) {
         $days_text = "Due today";
+        $due_date_class = explode(" ", $due_date_class)[1];
     } elseif ($today->modify('+1 day')->format('Y-m-d') === $due->format('Y-m-d')) {
         $days_text = "Due tomorrow";
+        $due_date_class = explode(" ", $due_date_class)[0];
     } elseif ($today->modify('-1 day')->format('Y-m-d') === $due->format('Y-m-d')) {
         $days_text = "Due yesterday";
+        $due_date_class = explode(" ", $due_date_class)[2];
     } else if ($today > $due) {
         $days_text = "Due " . $days_difference . " day" . ($days_difference != 1 ? "s" : "") . " ago";
+        $due_date_class = explode(" ", $due_date_class)[2];
     } else {
         $days_text = "Due in " . $days_difference . " day" . ($days_difference != 1 ? "s" : "");
+        $due_date_class = explode(" ", $due_date_class)[0];
     }
 }
 
@@ -66,7 +73,8 @@ $to_do_html = str_replace(
         'description_empty', 
 
         "to_do_due_row_not_due", 
-        "{{due_date}}"
+        "{{due_date}}", 
+        "{{not_due due_today already_due}}"
     ],
     [
         $to_do_id, 
@@ -77,7 +85,8 @@ $to_do_html = str_replace(
         empty($description) ? 'description_empty' : '', 
 
         $due_or_not == 0 ? "to_do_due_row_not_due" : "", 
-        $days_text
+        $days_text, 
+        $due_date_class
     ],
     $to_do_template
 );
