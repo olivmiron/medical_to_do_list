@@ -1034,8 +1034,8 @@ function due_date_calculate(re_position) {
   
 //
     if(due_days == 0) {document.querySelector(".create_or_edit_to_do_due_date_span").innerText = "";}
-    else if(due_days == 1) {document.querySelector(".create_or_edit_to_do_due_date_span").innerText = "1 day";}
-    else {document.querySelector(".create_or_edit_to_do_due_date_span").innerText = due_days + " days";}
+    else if(due_days == 1) {document.querySelector(".create_or_edit_to_do_due_date_span").innerText = " - 1 day";}
+    else {document.querySelector(".create_or_edit_to_do_due_date_span").innerText = " - " + due_days + " days";}
  
     
     if(re_position) {due_date_picker_re_position();}
