@@ -359,7 +359,7 @@ function initBottomSheetDrag() {
 
     if (handle && sheet) {
         handle.addEventListener('touchstart', startDragging, { passive: false });
-        handle.addEventListener('mousedown', startDragging);
+        handle.addEventListener('mousedown', startDragging, { passive: false });
         document.addEventListener('touchmove', drag, { passive: false });
         document.addEventListener('mousemove', drag, { passive: false });
         document.addEventListener('touchend', stopDragging);
