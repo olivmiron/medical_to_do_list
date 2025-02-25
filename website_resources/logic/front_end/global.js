@@ -1034,6 +1034,7 @@ function due_date_picker_re_position() {
         due_date_picker.style.left = "0px";
     }
     else{
+        console.log(main_steps.one_day + " " + (snap_position -1) + " " + (main_steps.ten_days - main_steps.one_day) / 10);
         due_date_picker.style.left = (main_steps.one_day + (snap_position - 1) * (main_steps.ten_days - main_steps.one_day) / 10) + "px";
     } 
 }
