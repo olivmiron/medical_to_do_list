@@ -519,7 +519,7 @@ br {height: 20px;}
     right: 0;
     display: flex;
     text-align: center;
-    gap: var(--spacing_mediump);
+    gap: var(--spacing_medium);
     justify-content: space-between;
     color: var(--color_dark_gray);
     font-size: 16px;
