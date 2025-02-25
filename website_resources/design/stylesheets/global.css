@@ -796,6 +796,9 @@ br {height: 20px;}
 
     /* settings */
 
+#view_screen_page__settings__content {min-height: 50vh;}
+
+
 .settings_group_row {
     display: flex;
     align-items: center;
@@ -840,7 +843,6 @@ br {height: 20px;}
 
 
 .settings_misc_info {
-    margin-top: var(--spacing_xll);
+    margin-top: var(--spacing_xxl);
     text-align: center;
-
 }
