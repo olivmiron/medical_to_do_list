@@ -1021,6 +1021,7 @@ function due_date_calculate() {
                 + 0.5
                 + 1 
             ); //CHECK
+            console.log(picker_left + " - " + (main_steps.no_due_date + main_steps.one_day) / 2 + " / " + (main_steps.ten_days - main_steps.one_day) + " + 0.5 + 1 = " + due_days);
         due_date_container.setAttribute("data-due_date", due_days);
     }
 
@@ -1041,7 +1042,6 @@ function due_date_picker_re_position() {
         due_date_picker.style.left = "0px";
     }
     else{
-        console.log(main_steps.one_day + " " + (snap_position -1) + " " + (main_steps.ten_days - main_steps.one_day) / 10);
         due_date_picker.style.left = (main_steps.one_day + (snap_position - 1) * (main_steps.ten_days - main_steps.one_day) / 10) + "px";
     } 
 }
