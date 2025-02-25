@@ -21,7 +21,7 @@ if($_SESSION["logged_in"]) {
     
     <div class="spacer_medium"></div>
 
-    <span>2025 © Mironescu Olivier</span>
+    <span>2025 © olivmiron</span>
     
     <div class="spacer_medium"></div>
     
