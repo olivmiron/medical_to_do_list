@@ -974,6 +974,7 @@ function due_date_picker_onDrag(event) {
 
     if (newLeft < 0) newLeft = 0;
     if (newLeft > main_steps.ten_days) newLeft = main_steps.ten_days;
+    console.log(main_steps.ten_days);
     pointer.style.left = `${newLeft}px`;
 }
 
