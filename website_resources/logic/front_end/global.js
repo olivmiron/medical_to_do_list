@@ -1206,7 +1206,7 @@ function create_to_do() {
     var to_do_description = document.getElementById("add_to_do_description_input").value;
     if(to_do_text == "") {document.getElementById("add_to_do_title_input").classList.add("empty_input");return;}
 
-    var data_in = {to_do_text: to_do_text, to_do_description: to_do_description, due_date: parseInt(due_date_container.getAttribute("data-due_date")), group_or_personal: (current_page == "group_to_dos" ? "group" : "personal")};
+    var data_in = {to_do_text: to_do_text, to_do_description: to_do_description, due_date: parseInt(document.getElementById("create_or_edit_to_do_due_date_picker").getAttribute("data-due_date")), group_or_personal: (current_page == "group_to_dos" ? "group" : "personal")};
     fetch('/website_resources/logic/back_end/components/bottom_drag_sheet_templates/dependencies/add_to_do_script.php', {
         method: 'POST',
         headers: {
