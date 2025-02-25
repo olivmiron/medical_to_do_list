@@ -973,7 +973,7 @@ function due_date_picker_onDrag(event) {
     // const max_left = container.clientWidth - (pointer.clientWidth /* + parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--spacing_small')) * 2 */);
 
     if (newLeft < 0) newLeft = 0;
-    if (newLeft > main_steps.ten_days) newLeft = max_left;
+    if (newLeft > main_steps.ten_days) newLeft = main_steps.ten_days;
     pointer.style.left = `${newLeft}px`;
 }
 
