@@ -1017,7 +1017,7 @@ function due_date_calculate() {
         let due_days = 
             Math.floor( 
                 (picker_left - (main_steps.no_due_date + main_steps.one_day) / 2) 
-                / ((main_steps.ten_days - main_steps.one_day) / 10)
+                / ((main_steps.ten_days - main_steps.one_day) / 9)
                 + 0.5
                 + 1 
             ); //CHECK
