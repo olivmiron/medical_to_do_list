@@ -976,7 +976,7 @@ function due_date_picker_stopDrag() {
 // 1d: var(--due_date_picker_reference_size) * (3/2) + var(--border_radius_medium)     //   var(--due_date_picker_reference_size) + var(--border_radius_medium)
 // 10d: document.querySelector('.due_date_picker_container').clientWidth - document.querySelector('.due_date_picker_pointer').clientWidth - var(--due_date_picker_reference_size) / 2       //        document.querySelector('.due_date_picker_container').clientWidth - var(--due_date_picker_reference_size)
 
-let main_steps = {
+var main_steps = {
     no_due_date: 0,
     one_day: parseInt(get_css_value_of_variable("--due_date_picker_reference_size")) + parseInt(get_css_value_of_variable("--border_radius_medium")),
     ten_days: parseInt(document.querySelector('.due_date_picker_container').clientWidth - parseInt(get_css_value_of_variable("--due_date_picker_reference_size")))
