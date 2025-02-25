@@ -1021,7 +1021,7 @@ function due_date_calculate() {
                 + 0.5
                 + 1 
             ); //CHECK
-            console.log(picker_left + " - " + (main_steps.no_due_date + main_steps.one_day) / 2 + " / " + (main_steps.ten_days - main_steps.one_day) + " + 0.5 + 1 = " + due_days);
+            console.log("(" + picker_left + " - " + (main_steps.no_due_date + main_steps.one_day) / 2 + ") / " + (main_steps.ten_days - main_steps.one_day) + " + 0.5 + 1 = " + due_days);
         due_date_container.setAttribute("data-due_date", due_days);
     }
 
