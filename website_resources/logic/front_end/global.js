@@ -926,9 +926,9 @@ function create_patient() {
 // 1d: var(--due_date_picker_reference_size) * (3/2) + var(--border_radius_medium)     //   var(--due_date_picker_reference_size) + var(--border_radius_medium)
 // 10d: document.querySelector('.due_date_picker_container').clientWidth - document.querySelector('.due_date_picker_pointer').clientWidth - var(--due_date_picker_reference_size) / 2       //        document.querySelector('.due_date_picker_container').clientWidth - var(--due_date_picker_reference_size)
 
-let isDragging = false;
-let dragStartX = 0;
-let pointerStartX = 0;
+var isDragging = false;
+var dragStartX = 0;
+var pointerStartX = 0;
 
 var main_steps = {
     no_due_date: 0,
