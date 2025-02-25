@@ -353,7 +353,7 @@ let startHeight = 0;
 
 var handle, sheet;
 
-function initBottomSheetDrag() {window.event.preventDefault();
+function initBottomSheetDrag() {
     handle = document.getElementById('bottom_drag_sheet_action_handle');
     sheet = document.getElementById('bottom_drag_sheet');
 
@@ -369,13 +369,19 @@ function initBottomSheetDrag() {window.event.preventDefault();
     }
 }
 
-function startDragging(e) {e.preventDefault();
+function startDragging(e) {
+    e.preventDefault();
     sheet.style.transition = 'none';
     startY = e.type === 'mousedown' ? e.clientY : e.touches[0].clientY;
-    startHeight = parseInt(window.getComputedStyle(sheet).height)
+    startHeight = parseInt(window.getComputedStyle(sheet).height);
+    // Prevent default behavior for touch events
+    if (e.type === 'touchstart') {
+        e.preventDefault();
+    }
 }
 
-function drag(e) {e.preventDefault();
+function drag(e) {
+    e.preventDefault();
     if (startY === 0) return;
     
     const currentY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
@@ -384,6 +390,10 @@ function drag(e) {e.preventDefault();
     const newHeight = Math.min(startHeight - diff, window.innerHeight - 100);
     
     sheet.style.height = `${newHeight}px`;
+    // Prevent default behavior for touch events
+    if (e.type === 'touchmove') {
+        e.preventDefault();
+    }
 }
 
 function stopDragging() {
