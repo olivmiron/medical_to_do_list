@@ -33,6 +33,7 @@ if ($stmt->execute()) {
 $to_do_id = $conn->insert_id;
 
 $days_text = "";
+$due_date_class = "";
 if($due_or_not == 1) {
     // due in x days, ,or due x days ago
     $today = new DateTime();

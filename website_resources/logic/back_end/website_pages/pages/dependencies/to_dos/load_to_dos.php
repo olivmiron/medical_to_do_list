@@ -31,9 +31,40 @@ else {
     
     $to_dos = [];
 
+    
+    $to_do_template = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/website_pages/pages/dependencies/to_dos/to_do.html');
+
     $loaded_to_dos = 0;
     while ($row = $result->fetch_assoc()) {
-        $to_do_template = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/website_pages/pages/dependencies/to_dos/to_do.html');
+
+        $days_text = "";
+        $due_date_class = "";
+        if($row["due_or_not"] == 1) {
+            // due in x days, ,or due x days ago
+            $today = new DateTime();
+            $due = new DateTime($row["due_date"]);
+            $interval = $today->diff($due);
+            $days_difference = $interval->days;
+
+            $due_date_class = "not_due due_today already_due";
+
+            if ($today->format('Y-m-d') === $due->format('Y-m-d')) {
+                $days_text = "Due today";
+                $due_date_class = explode(" ", $due_date_class)[1];
+            } elseif ($today->modify('+1 day')->format('Y-m-d') === $due->format('Y-m-d')) {
+                $days_text = "Due tomorrow";
+                $due_date_class = explode(" ", $due_date_class)[0];
+            } elseif ($today->modify('-1 day')->format('Y-m-d') === $due->format('Y-m-d')) {
+                $days_text = "Due yesterday";
+                $due_date_class = explode(" ", $due_date_class)[2];
+            } else if ($today > $due) {
+                $days_text = "Due " . $days_difference . " day" . ($days_difference != 1 ? "s" : "") . " ago";
+                $due_date_class = explode(" ", $due_date_class)[2];
+            } else {
+                $days_text = "Due in " . $days_difference . " day" . ($days_difference != 1 ? "s" : "");
+                $due_date_class = explode(" ", $due_date_class)[0];
+            }
+        }
         
         $description_class = empty($row['description']) ? 'description_empty' : '';
     
@@ -47,7 +78,11 @@ else {
                 "{{delete_option_available_or_not}}",
                 '{{to_do_title}}', 
                 '{{to_do_description}}',
-                'description_empty'
+                'description_empty', 
+
+                "to_do_due_row_not_due", 
+                "{{due_date}}", 
+                "{{not_due due_today already_due}}"
             ],
             [
                 $row['id'], 
@@ -58,7 +93,11 @@ else {
                 ($row["creator_user_id"] == $_SESSION["user_id"] ? "" : "options_pop_up_menu_option_hidden"),
                 $row['title'], 
                 $row['description'],
-                empty($row['description']) ? 'description_empty' : ''
+                empty($row['description']) ? 'description_empty' : '', 
+
+                $row["due_or_not"] == 0 ? "to_do_due_row_not_due" : "", 
+                $days_text, 
+                $due_date_class
             ],
             $to_do_template
         );
