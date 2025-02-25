@@ -757,6 +757,7 @@ br {height: 20px;}
 
 
 .to_do_due_row {margin-top: var(--spacing_medium);}
+
 .to_do_due_row_not_due .due_line_div  {display: none;}
 
 .to_do_due_row {    
