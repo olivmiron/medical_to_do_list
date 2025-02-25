@@ -940,7 +940,7 @@ function initialize_main_steps() {
     if(!main_steps.initialized) {
         main_steps.no_due_date = 0;
         main_steps.one_day = parseInt(get_css_value_of_variable("--due_date_picker_reference_size")) + parseInt(get_css_value_of_variable("--border_radius_medium"));
-        main_steps.ten_days = parseInt(document.querySelector('.due_date_picker_container').clientWidth - parseInt(get_css_value_of_variable("--due_date_picker_reference_size")));
+        main_steps.ten_days = parseInt(document.querySelector('.due_date_picker_container').clientWidth) - parseInt(get_css_value_of_variable("--due_date_picker_reference_size"));
         main_steps.initialized = true;
     }
 }
