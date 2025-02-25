@@ -21,7 +21,7 @@ if($_SESSION["logged_in"]) {
     
     <div class="spacer_medium"></div>
 
-    <span>copyrights, 2025, Mironescu Olivier</span>
+    <span>2025 © Mironescu Olivier</span>
     
     <div class="spacer_medium"></div>
     
