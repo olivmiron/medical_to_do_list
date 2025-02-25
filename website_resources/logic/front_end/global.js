@@ -15,7 +15,14 @@ function get_css_value_of_variable(variable_name) {
     return window.getComputedStyle(document.documentElement).getPropertyValue(variable_name);
 }
 
-
+function get_calc_css_value_of_variable(variable_name) {
+    const tempElement = document.createElement('div');
+    tempElement.style.height = "var(" + variable_name + ")";
+    document.body.appendChild(tempElement);
+    const value = window.getComputedStyle(tempElement).height;
+    tempElement.remove();
+    return value;
+}
 
 function show_pop_up_message(message, error_or_not) {
     document.getElementById("pop_up_message_text").innerHTML = message;
@@ -942,8 +949,8 @@ function initialize_main_steps() {
         main_steps = {
             initialized: true,
             no_due_date: 0,
-            one_day: parseInt(due_date_container.clientHeight) + parseInt(get_css_value_of_variable("--spacing_medium")),
-            ten_days: parseInt(due_date_container.clientWidth) - parseInt(due_date_container.clientHeight)
+            one_day: parseInt(get_calc_css_value_of_variable("--due_date_picker_reference_size")) + parseInt(get_calc_css_value_of_variable("--spacing_medium")),
+            ten_days: parseInt(due_date_container.clientWidth) - parseInt(get_calc_css_value_of_variable("--due_date_picker_reference_size"))
         };
     }
 }
