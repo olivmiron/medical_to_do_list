@@ -1,5 +1,9 @@
 <?php // include in the initial load of the page and in every ajax call !!!
 
+$current_time = time();
+$app_version = "0.8.5";
+
+
 // global variables
 
 if(!isset($_SESSION))  {session_start();}

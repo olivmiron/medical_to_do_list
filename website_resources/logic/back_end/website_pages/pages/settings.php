@@ -14,3 +14,16 @@ if($_SESSION["logged_in"]) {
     <div class="middle_load_more_button" onclick="load_more_groups(this)"><span>Load more</span></div>
 </div>
 <?php } else {if($initial_load) {include $_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/other/not_logged_in.html';}} ?>
+
+<div class="settings_misc_info">
+    <span>App version:</span>
+    <span><b><?php echo $app_version; ?></b></span>
+    
+    <div class="spacer_medium"></div>
+
+    <span>copyrights, 2025, Mironescu Olivier</span>
+    
+    <div class="spacer_medium"></div>
+    
+    <span>support@medkronos.com</span>
+</div>
