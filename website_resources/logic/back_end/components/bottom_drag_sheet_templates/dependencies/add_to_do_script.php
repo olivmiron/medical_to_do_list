@@ -21,8 +21,8 @@ else {$due_date = NULL;}
 $personal_or_group_id = ($input["group_or_personal"] == "group" ? $_SESSION["default_group_id"] : 0);
 $date_created = date('Y-m-d H:i:s');
 
-$stmt = $conn->prepare("INSERT INTO to_dos (creator_user_id, title, description, date_created, personal_or_group_id, to_do_done, due_or_not, due_date, visible) VALUES (?, ?, ?, ?, ?, 0, $due_or_not, $due_date, 1)");
-$stmt->bind_param("isssi", $creator_user_id, $title, $description, $date_created, $personal_or_group_id);
+$stmt = $conn->prepare("INSERT INTO to_dos (creator_user_id, title, description, date_created, personal_or_group_id, to_do_done, due_or_not, due_date, visible) VALUES (?, ?, ?, ?, ?, 0, ?, ?, 1)");
+$stmt->bind_param("isssiis", $creator_user_id, $title, $description, $date_created, $personal_or_group_id, $due_or_not, $due_date);
 
 if ($stmt->execute()) {
 } else {
