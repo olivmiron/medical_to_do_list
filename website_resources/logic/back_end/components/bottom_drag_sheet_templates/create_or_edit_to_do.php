@@ -13,7 +13,7 @@
     
     <div class="spacer_xxl"></div>
     
-    <div class="bottom_sheet_sub_title"><span>Due in</span></div>
+    <div class="bottom_sheet_sub_title"><span>Due in</span><span> - </span><span class="create_or_edit_to_do_due_date_span">no due date</span></div>
 
     <div id="create_or_edit_to_do_due_date_picker" data-due_date="0">
         <div class="due_date_picker_container">

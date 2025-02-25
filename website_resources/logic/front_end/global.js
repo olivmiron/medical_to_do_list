@@ -987,6 +987,8 @@ function due_date_picker_onDrag(event) {
     if (newLeft > main_steps.ten_days) newLeft = main_steps.ten_days;
     console.log(main_steps.ten_days);
     pointer.style.left = `${newLeft}px`;
+
+    due_date_calculate(false);
 }
 
 function due_date_picker_stopDrag() {
@@ -999,22 +1001,24 @@ function due_date_picker_stopDrag() {
 
     document.querySelector('.due_date_picker_pointer').style.transition = "";
 
-    due_date_calculate();
+    due_date_calculate(true);
 
 }
 
 
-function due_date_calculate() {
+function due_date_calculate(re_position) {
     let due_date_picker = document.querySelector('.due_date_picker_pointer');
     let due_date_container = document.getElementById("create_or_edit_to_do_due_date_picker");
 
     let picker_left = parseInt(due_date_picker.offsetLeft);
 
+    let due_days = 0;
+
     if(picker_left < (main_steps.no_due_date + main_steps.one_day) / 2) {
         due_date_container.setAttribute("data-due_date", "0");
     }
     else {
-        let due_days = 
+        due_days = 
             Math.floor( 
                 (picker_left - (main_steps.no_due_date + main_steps.one_day) / 2) 
                 / ((main_steps.ten_days - main_steps.one_day) / 9)
@@ -1029,8 +1033,12 @@ function due_date_calculate() {
  
   
 //
+    if(due_days == 0) {document.querySelector(".create_or_edit_to_do_due_date_span").innerText = "";}
+    else if(due_days == 1) {document.querySelector(".create_or_edit_to_do_due_date_span").innerText = "1 day";}
+    else {document.querySelector(".create_or_edit_to_do_due_date_span").innerText = due_days + " days";}
+ 
     
-    due_date_picker_re_position();
+    if(re_position) {due_date_picker_re_position();}
 }
 
 function due_date_picker_re_position() {
