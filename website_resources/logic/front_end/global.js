@@ -921,6 +921,18 @@ function create_patient() {
 
 
 
+// STEPS: (middle of pointer) // left value of pointer
+// none: var(--due_date_picker_reference_size) / 2     //     0
+// 1d: var(--due_date_picker_reference_size) * (3/2) + var(--border_radius_medium)     //   var(--due_date_picker_reference_size) + var(--border_radius_medium)
+// 10d: document.querySelector('.due_date_picker_container').clientWidth - document.querySelector('.due_date_picker_pointer').clientWidth - var(--due_date_picker_reference_size) / 2       //        document.querySelector('.due_date_picker_container').clientWidth - var(--due_date_picker_reference_size)
+
+var main_steps = {
+    no_due_date: 0,
+    one_day: parseInt(get_css_value_of_variable("--due_date_picker_reference_size")) + parseInt(get_css_value_of_variable("--border_radius_medium")),
+    ten_days: parseInt(document.querySelector('.due_date_picker_container').clientWidth - parseInt(get_css_value_of_variable("--due_date_picker_reference_size")))
+}
+
+
 let isDragging = false;
 let dragStartX = 0;
 let pointerStartX = 0;
@@ -968,18 +980,6 @@ function due_date_picker_stopDrag() {
 
     due_date_calculate();
 
-}
-
-
-// STEPS: (middle of pointer) // left value of pointer
-// none: var(--due_date_picker_reference_size) / 2     //     0
-// 1d: var(--due_date_picker_reference_size) * (3/2) + var(--border_radius_medium)     //   var(--due_date_picker_reference_size) + var(--border_radius_medium)
-// 10d: document.querySelector('.due_date_picker_container').clientWidth - document.querySelector('.due_date_picker_pointer').clientWidth - var(--due_date_picker_reference_size) / 2       //        document.querySelector('.due_date_picker_container').clientWidth - var(--due_date_picker_reference_size)
-
-var main_steps = {
-    no_due_date: 0,
-    one_day: parseInt(get_css_value_of_variable("--due_date_picker_reference_size")) + parseInt(get_css_value_of_variable("--border_radius_medium")),
-    ten_days: parseInt(document.querySelector('.due_date_picker_container').clientWidth - parseInt(get_css_value_of_variable("--due_date_picker_reference_size")))
 }
 
 
