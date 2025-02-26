@@ -84,6 +84,7 @@ else {
                 'description_empty', 
 
                 "to_do_due_row_not_due", 
+                "{{due_or_not}}", 
                 "{{due_date_days}}", 
                 "{{due_date}}", 
                 "{{not_due due_today already_due}}"
@@ -100,6 +101,7 @@ else {
                 empty($row['description']) ? 'description_empty' : '', 
 
                 $row["due_or_not"] == 0 ? "to_do_due_row_not_due" : "", 
+                $row["due_or_not"], 
                 $due_date_days, 
                 $days_text, 
                 $due_date_class
