@@ -1045,6 +1045,7 @@ function due_date_picker_re_position() {
     initialize_main_steps();
     let snap_position = parseInt(document.getElementById("create_or_edit_to_do_due_date_picker").getAttribute("data-due_date"));
     let due_or_not = parseInt(document.getElementById("create_or_edit_to_do_due_date_picker").getAttribute("data-due_or_not"));
+    console.log(snap_position + " " + due_or_not);
     let due_date_picker = document.querySelector('.due_date_picker_pointer');
     due_date_selector_show_due(snap_position, due_or_not);
 
