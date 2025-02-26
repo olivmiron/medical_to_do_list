@@ -41,12 +41,15 @@
         </div>
 
         <div class="to_do_due_row to_do_due_row_not_due" data-due_or_not="{{due_or_not}}" data-due_date="{{due_date_days}}">
+
+
+            <div class="due_line_div {{not_due due_today already_due}}"><span>{{due_date}}</span></div>
+
             <div class="to_do_content_peek"><!--class: to_do_content_peek_active-->
                 <div class="to_do_content_peek_arrow"><img src="/website_resources/design/media/icons/global/drop_down_arrow.png"/></div>
                 <span class="to_do_content_peek_separator">|</span>
                 <div class="to_do_content_peek_content"><div>0</div><img src="/website_resources/design/media/icons/global/content.png"/></div>
             </div>
-            <div class="due_line_div {{not_due due_today already_due}}"><span>{{due_date}}</span></div>
         </div>
 
     </div>
