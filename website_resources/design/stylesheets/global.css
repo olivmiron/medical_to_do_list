@@ -763,6 +763,9 @@ br {height: 20px;}
 .to_do_due_row {    
     text-align: right;
     margin-top: var(--spacing_large);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .due_line_div {
@@ -780,6 +783,22 @@ br {height: 20px;}
 
 .already_due {background: var(--color_danger);}
 .already_due span {color: var(--color_danger);filter: brightness(0.4);}
+
+
+
+.to_do_content_peek {
+    display: flex;
+    align-items: center;
+    background-color: var(--color_light_gray);
+    border-radius: var(--border_infinite_radius);
+    gap: var(--spacing_small);
+}
+.to_do_content_peek img {height: 24px;}
+.to_do_content_peek_separator {color: var(--color_gray);}
+.to_do_content_peek_arrow {}
+.to_do_content_peek_text, .to_do_content_peek_media {}
+.to_do_content_peek_text span, .to_do_content_peek_media span {}
+.to_do_content_peek_text img, .to_do_content_peek_media img {}
 
 
 
