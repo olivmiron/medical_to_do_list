@@ -1087,7 +1087,13 @@ function edit_to_do(to_do_id) {
         document.getElementById("add_to_do_title_input").value = respective_to_do_element.querySelector(".to_do_item_title").innerText;
         document.getElementById("add_to_do_description_input").value = respective_to_do_element.querySelector(".to_do_item_description_span").innerText;
 
-        document.getElementById("create_or_edit_to_do_due_date_picker").setAttribute("data-due_date", parseInt(respective_to_do_element.querySelector(".to_do_due_row").getAttribute("data-due_date")));
+        var due_or_not = parseInt(respective_to_do_element.querySelector(".to_do_due_row").getAttribute("data-due_or_not"));
+        var due_date = parseInt(respective_to_do_element.querySelector(".to_do_due_row").getAttribute("data-due_date"));
+        if(due_date < 0) {due_date = 0;}
+
+        document.getElementById("create_or_edit_to_do_due_date_picker").setAttribute("data-due_or_not", due_or_not);
+        document.getElementById("create_or_edit_to_do_due_date_picker").setAttribute("data-due_date", due_date);
+
         due_date_picker_re_position();
 
     }
@@ -1120,6 +1126,7 @@ function update_to_do(/* to_do_id */) {
     var to_do_title = document.getElementById("add_to_do_title_input").value;
     var to_do_description = document.getElementById("add_to_do_description_input").value;
     var due_date = parseInt(document.getElementById("create_or_edit_to_do_due_date_picker").getAttribute("data-due_date"));
+    var due_or_not = parseInt(document.getElementById("create_or_edit_to_do_due_date_picker").getAttribute("data-due_or_not"));
 
     if(to_do_title.length < 1) {document.getElementById("add_to_do_title_input").classList.add("empty_input");return;}
 
@@ -1134,29 +1141,26 @@ function update_to_do(/* to_do_id */) {
 
     // hide/unhide due_date and display how many days
     respective_to_do_element.querySelector(".to_do_due_row").setAttribute("data-due_date", due_date);
-    if(due_date == 0) {
-        if(parseInt(respective_to_do_element.querySelector(".to_do_due_row").getAttribute("data-due_date")) == 0) {
-            respective_to_do_element.querySelector(".to_do_due_row").classList.add = "to_do_due_row_not_due";
-        }
-        else {
-            respective_to_do_element.querySelector(".due_line_div").classList = "due_line_div due_today";
-            respective_to_do_element.querySelector(".due_line_div").innerText = "Due today";
-        }
-        
-        
+    respective_to_do_element.querySelector(".to_do_due_row").setAttribute("data-due_or_not", due_or_not);
+
+    if(due_or_not == 0) {
+        respective_to_do_element.querySelector(".to_do_due_row").classList.add = "to_do_due_row_not_due";
     }
     else {
         respective_to_do_element.querySelector(".to_do_due_row").classList.remove = "to_do_due_row_not_due";
-        respective_to_do_element.querySelector(".due_line_div").classList = "due_line_div not_due";
-
-        if(due_date == 1) {
+        if(due_date == 0) {
+            respective_to_do_element.querySelector(".due_line_div").classList = "due_line_div due_today";
+            respective_to_do_element.querySelector(".due_line_div").innerText = "Due today";
+        }
+        else if(due_date == 1) {
+            respective_to_do_element.querySelector(".due_line_div").classList = "due_line_div not_due";
             respective_to_do_element.querySelector(".due_line_div").innerText = "Due tomorrow";
         }
         else {
+            respective_to_do_element.querySelector(".due_line_div").classList = "due_line_div not_due";
             respective_to_do_element.querySelector(".due_line_div").innerText = "Due in " + due_date + " days";
         }
     }
-    
 
     // Send the data to the server
     fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/to_dos/update_to_do.php', {
@@ -1165,9 +1169,10 @@ function update_to_do(/* to_do_id */) {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
         body: new URLSearchParams({
-            'to_do_id': create_or_edit_to_do_obj.edit_id,
-            'to_do_title': to_do_title,
-            'to_do_description': to_do_description,
+            'to_do_id': create_or_edit_to_do_obj.edit_id, 
+            'to_do_title': to_do_title, 
+            'to_do_description': to_do_description, 
+            'due_or_not': due_or_not, 
             'due_date': due_date
         })
     })
@@ -1245,9 +1250,12 @@ function create_to_do() {
      
     var to_do_text = document.getElementById("add_to_do_title_input").value;
     var to_do_description = document.getElementById("add_to_do_description_input").value;
+    var to_do_due_or_not = parseInt(document.getElementById("create_or_edit_to_do_due_date_picker").getAttribute("data-due_or_not"));
+    var to_do_due_date = parseInt(document.getElementById("create_or_edit_to_do_due_date_picker").getAttribute("data-due_date"));
+    var group_or_personal = (current_page == "group_to_dos" ? "group" : "personal");
     if(to_do_text == "") {document.getElementById("add_to_do_title_input").classList.add("empty_input");return;}
 
-    var data_in = {to_do_text: to_do_text, to_do_description: to_do_description, due_date: parseInt(document.getElementById("create_or_edit_to_do_due_date_picker").getAttribute("data-due_date")), group_or_personal: (current_page == "group_to_dos" ? "group" : "personal")};
+    var data_in = {to_do_text: to_do_text, to_do_description: to_do_description, due_or_not: to_do_due_or_not, due_date: to_do_due_date, group_or_personal: group_or_personal};
     fetch('/website_resources/logic/back_end/components/bottom_drag_sheet_templates/dependencies/add_to_do_script.php', {
         method: 'POST',
         headers: {

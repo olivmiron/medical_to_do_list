@@ -14,12 +14,19 @@ $creator_user_id = $_SESSION['user_id'];
 $title = $input['to_do_text'];
 $description = $input['to_do_description'];
 $due_date_days = $input["due_date"];
-$due_or_not = ($due_date_days == "" ? 0 : 1);
+$due_or_not = $input["due_or_not"];
+
+if(!in_array($due_or_not, [0, 1]) || ($due_or_not == 1 && !is_numeric($due_date_days))) {
+    echo json_encode(["status" => "error", "message" => "Invalid due date."]);
+    exit;
+}
+
 if($due_or_not == 1) {$due_date = date('Y-m-d H:i:s', strtotime("+$due_date_days days"));}
 else {$due_date = NULL;}
 
 $personal_or_group_id = ($input["group_or_personal"] == "group" ? $_SESSION["default_group_id"] : 0);
 $date_created = date('Y-m-d H:i:s');
+
 
 $stmt = $conn->prepare("INSERT INTO to_dos (creator_user_id, title, description, date_created, personal_or_group_id, to_do_done, due_or_not, due_date, visible) VALUES (?, ?, ?, ?, ?, 0, ?, ?, 1)");
 $stmt->bind_param("isssiis", $creator_user_id, $title, $description, $date_created, $personal_or_group_id, $due_or_not, $due_date);

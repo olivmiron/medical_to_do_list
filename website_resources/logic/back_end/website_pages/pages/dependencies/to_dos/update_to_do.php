@@ -7,6 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $to_do_id = $_POST['to_do_id'];
     $to_do_title = $_POST["to_do_title"];
     $to_do_description = $_POST["to_do_description"];
+    $to_do_due_or_not = $_POST["due_or_not"];
+    $to_do_due_days = $_POST["due_date"];
 } 
 else {
     echo json_encode(["status" => "error", "message" => "Invalid request method."]);
@@ -17,6 +19,15 @@ if (empty($to_do_id) or empty($to_do_title)) {
     echo json_encode(['status' => 'error', 'message' => 'To do ID and title is required.']);
     exit;
 }
+
+
+if(!in_array($due_or_not, [0, 1]) || ($to_do_due_or_not == 1 && !is_numeric($to_do_due_days))) {
+    echo json_encode(["status" => "error", "message" => "Invalid due date."]);
+    exit;
+}
+
+if($due_or_not == 1) {$due_date = date('Y-m-d H:i:s', strtotime("+$due_date_days days"));}
+else {$due_date = NULL;}
 
 
 // if($to_do_description == "Some description") {$to_do_description = "";}
@@ -44,8 +55,8 @@ if ($todo['personal_or_group_id'] != "0") {
 }
 
 // Prepare the SQL statement to update the to-do item
-$stmt = $conn->prepare("UPDATE to_dos SET title = ?, description = ? WHERE id = ?");
-$stmt->bind_param("ssi", $to_do_title, $to_do_description, $to_do_id);
+$stmt = $conn->prepare("UPDATE to_dos SET title = ?, description = ?, due_or_not = ?, due_date = ? WHERE id = ?");
+$stmt->bind_param("ssiis", $to_do_title, $to_do_description, $to_do_id, $to_do_due_or_not, $due_date);
 $stmt->execute();
 $stmt->close();
 
