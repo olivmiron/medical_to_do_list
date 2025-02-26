@@ -741,13 +741,13 @@ br {height: 20px;}
 
 
 
-.to_do_item_title {font-size: 24px;font-weight: bold;margin-top: var(--spacing_medium);}
+.to_do_item_title {font-size: 24px;font-weight: bold;margin-top: var(--spacing_large);}
 
 
 
 .to_do_item_description {
     /* margin-top: var(--spacing_large); */
-    margin-top: var(--spacing_medium);
+    margin-top: var(--spacing_xl);
     font-size: 18px;
 }
 .to_do_item_description span:nth-of-type(1) {font-weight: bold;}
