@@ -940,9 +940,11 @@ var pointerStartX = 0;
 var main_steps = {
     initialized: false, 
     // no_due_date: 0,
-    // one_day: parseInt(get_css_value_of_variable("--due_date_picker_reference_size")) + parseInt(get_css_value_of_variable("--spacing_medium")),
-    // ten_days: parseInt(document.querySelector('.due_date_picker_container').clientWidth - parseInt(get_css_value_of_variable("--due_date_picker_reference_size")))
+    // due_date_today: parseInt(get_calc_css_value_of_variable("--due_date_picker_reference_size")) + parseInt(get_calc_css_value_of_variable("--spacing_medium")), /* border sizes */ 
+    // one_day: (parseInt(get_calc_css_value_of_variable("--due_date_picker_reference_size")) + parseInt(get_calc_css_value_of_variable("--spacing_medium"))) * 2, /* border sizes */
+    // ten_days: parseInt(due_date_container.clientWidth) - parseInt(get_calc_css_value_of_variable("--due_date_picker_reference_size"))
 }
+
 function initialize_main_steps() {
     var due_date_container = document.querySelector('.due_date_picker_container');
     if(!main_steps.initialized) {
@@ -981,8 +983,6 @@ function due_date_picker_onDrag(event) {
     const clientX = event.type === 'touchmove' ? event.touches[0].clientX : event.clientX;
     const deltaX = clientX - dragStartX;
     let newLeft = pointerStartX + deltaX;
-    
-    // const max_left = container.clientWidth - (pointer.clientWidth /* + parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--spacing_small')) * 2 */);
 
     if (newLeft < 0) newLeft = 0;
     if (newLeft > main_steps.ten_days) newLeft = main_steps.ten_days;
@@ -1062,8 +1062,8 @@ function due_date_picker_re_position() {
 function due_date_selector_show_due(due_days, due_or_not) {
     if(due_days == 0 && due_or_not == 0) {document.querySelector(".create_or_edit_to_do_due_date_span").innerText = "";}
     else if(due_days == 0 && due_or_not == 1) {document.querySelector(".create_or_edit_to_do_due_date_span").innerText = " - Today";}
-    else if(due_days == 1) {document.querySelector(".create_or_edit_to_do_due_date_span").innerText = " - 1 day";}
-    else {document.querySelector(".create_or_edit_to_do_due_date_span").innerText = " - " + due_days + " days";}
+    else if(due_days == 1 && due_or_not == 1) {document.querySelector(".create_or_edit_to_do_due_date_span").innerText = " - tomorrow";}
+    else if(due_days > 1 && due_or_not == 1) {document.querySelector(".create_or_edit_to_do_due_date_span").innerText = " - " + due_days + " days";}
 
 }
 
