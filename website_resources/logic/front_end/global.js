@@ -1042,6 +1042,7 @@ function due_date_calculate(re_position) {
 }
 
 function due_date_picker_re_position() {
+    initialize_main_steps();
     let snap_position = parseInt(document.getElementById("create_or_edit_to_do_due_date_picker").getAttribute("data-due_date"));
     let due_date_picker = document.querySelector('.due_date_picker_pointer');
 
@@ -1075,6 +1076,9 @@ function edit_to_do(to_do_id) {
 
         document.getElementById("add_to_do_title_input").value = respective_to_do_element.querySelector(".to_do_item_title").innerText;
         document.getElementById("add_to_do_description_input").value = respective_to_do_element.querySelector(".to_do_item_description_span").innerText;
+
+        document.getElementById("create_or_edit_to_do_due_date_picker").setAttribute("data-due_date", parseInt(respective_to_do_element.getAttribute("data-due_date")));
+        due_date_picker_re_position();
 
     }
 

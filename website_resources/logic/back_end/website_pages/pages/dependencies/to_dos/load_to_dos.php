@@ -39,6 +39,7 @@ else {
 
         $days_text = "";
         $due_date_class = "";
+        $due_date_days = 0;
         if($row["due_or_not"] == 1) {
             // due in x days, ,or due x days ago
             $today = new DateTime();
@@ -54,6 +55,7 @@ else {
             } elseif ($today->modify('+1 day')->format('Y-m-d') === $due->format('Y-m-d')) {
                 $days_text = "Due tomorrow";
                 $due_date_class = explode(" ", $due_date_class)[0];
+                $due_date_days = 1;
             } elseif ($today->modify('-1 day')->format('Y-m-d') === $due->format('Y-m-d')) {
                 $days_text = "Due yesterday";
                 $due_date_class = explode(" ", $due_date_class)[2];
@@ -63,6 +65,7 @@ else {
             } else {
                 $days_text = "Due in " . $days_difference . " day" . ($days_difference != 1 ? "s" : "");
                 $due_date_class = explode(" ", $due_date_class)[0];
+                $due_date_days = $days_difference;
             }
         }
         
@@ -81,6 +84,7 @@ else {
                 'description_empty', 
 
                 "to_do_due_row_not_due", 
+                "{{due_date_days}}", 
                 "{{due_date}}", 
                 "{{not_due due_today already_due}}"
             ],
@@ -96,6 +100,7 @@ else {
                 empty($row['description']) ? 'description_empty' : '', 
 
                 $row["due_or_not"] == 0 ? "to_do_due_row_not_due" : "", 
+                $due_date_days, 
                 $days_text, 
                 $due_date_class
             ],
