@@ -1036,7 +1036,7 @@ function due_date_calculate(re_position) {
  
   
 //
-due_date_selector_show_due(due_days);
+due_date_selector_show_due(due_days, due_or_not);
     
     if(re_position) {due_date_picker_re_position();}
 }
@@ -1046,7 +1046,7 @@ function due_date_picker_re_position() {
     let snap_position = parseInt(document.getElementById("create_or_edit_to_do_due_date_picker").getAttribute("data-due_date"));
     let due_or_not = parseInt(document.getElementById("create_or_edit_to_do_due_date_picker").getAttribute("data-due_or_not"));
     let due_date_picker = document.querySelector('.due_date_picker_pointer');
-    due_date_selector_show_due(snap_position);
+    due_date_selector_show_due(snap_position, due_or_not);
 
     if(snap_position == 0 && due_or_not == 0) {
         due_date_picker.style.left = main_steps.no_due_date + "px";
@@ -1059,8 +1059,9 @@ function due_date_picker_re_position() {
     } 
 }
 
-function due_date_selector_show_due(due_days) {
-    if(due_days == 0) {document.querySelector(".create_or_edit_to_do_due_date_span").innerText = "";}
+function due_date_selector_show_due(due_days, due_or_not) {
+    if(due_days == 0 && due_or_not == 0) {document.querySelector(".create_or_edit_to_do_due_date_span").innerText = "";}
+    else if(due_days == 0 && due_or_not == 1) {document.querySelector(".create_or_edit_to_do_due_date_span").innerText = " - Today";}
     else if(due_days == 1) {document.querySelector(".create_or_edit_to_do_due_date_span").innerText = " - 1 day";}
     else {document.querySelector(".create_or_edit_to_do_due_date_span").innerText = " - " + due_days + " days";}
 
