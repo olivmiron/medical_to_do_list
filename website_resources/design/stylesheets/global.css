@@ -789,7 +789,7 @@ br {height: 20px;}
 .to_do_content_peek {
     display: flex;
     align-items: center;
-    background-color: ;
+    background-color: none;
     border-radius: var(--border_infinite_radius);
     gap: var(--spacing_large);
     padding: var(--spacing_small) var(--spacing_xl);
@@ -797,9 +797,9 @@ br {height: 20px;}
 }
 .to_do_content_peek img {height: 20px;}
 .to_do_content_peek_separator {
-    color: var(--color_gray);
-    opacity: 0;
-    transition: var(--transition_fast);
+    color: var(--color_light_gray);
+    /* opacity: 0; */
+    /* transition: var(--transition_fast); */
 }
 .to_do_content_peek_arrow {display: flex;}
 .to_do_content_peek_arrow img {opacity: 0.76;rotate: 0deg;transition: var(--transition_fast);}
@@ -807,31 +807,33 @@ br {height: 20px;}
     display: flex;
     gap: var(--spacing_medium);
     position: relative;
-    opacity: 0;
-    transition: var(--transition_fast);
+    /* opacity: 0; */
+    /* transition: var(--transition_fast); */
 }
 .to_do_content_peek_content div {
     position: absolute;
     top: 0;
     right: 0;
     transform: translate(50%, -50%);
-    background: var(--color_danger);
+    background: var(--color_dark_gray);
     border-radius: var(--border_infinite_radius);
     height: 20px;
-    width: 20px;
+    min-width: 20px;
     text-align: center;
     line-height: 21px;
     color: white;
     font-size: 12px;
+    padding: 0 var(--spacing_small);
+    box-sizing: border-box;
 }
 .to_do_content_peek_content img {}
 
 .to_do_content_peek_active {
-    background-color: var(--color_light_gray);
+    /* background-color: var(--color_light_gray); */
 }
 .to_do_content_peek_active .to_do_content_peek_arrow img {opacity: 0.76;rotate: 180deg;}
-.to_do_content_peek_active .to_do_content_peek_separator {opacity: 1;}
-.to_do_content_peek_active .to_do_content_peek_content {opacity: 1;}
+/* .to_do_content_peek_active .to_do_content_peek_separator {opacity: 1;} */
+/* .to_do_content_peek_active .to_do_content_peek_content {opacity: 1;} */
 
 /* common for to dos and patients */
 
