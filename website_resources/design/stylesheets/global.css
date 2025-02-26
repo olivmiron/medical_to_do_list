@@ -762,7 +762,7 @@ br {height: 20px;}
 
 .to_do_due_row {    
     text-align: right;
-    margin-top: var(--spacing_large);
+    margin-top: var(--spacing_xl);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -792,8 +792,8 @@ br {height: 20px;}
     background-color: none;
     border-radius: var(--border_infinite_radius);
     gap: var(--spacing_large);
-    padding: var(--spacing_small) var(--spacing_xl);
-    transition: var(--transition_fast);
+    /* padding: var(--spacing_small) var(--spacing_xl); */
+    /* transition: var(--transition_fast); */
 }
 .to_do_content_peek img {height: 20px;}
 .to_do_content_peek_separator {
