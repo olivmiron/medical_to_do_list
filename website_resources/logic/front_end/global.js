@@ -949,8 +949,8 @@ function initialize_main_steps() {
         main_steps = {
             initialized: true,
             no_due_date: 0,
-            due_date_today: parseInt(get_calc_css_value_of_variable("--due_date_picker_reference_size")) + parseInt(get_calc_css_value_of_variable("--spacing_medium")) + 2, /* border sizes */ 
-            one_day: (parseInt(get_calc_css_value_of_variable("--due_date_picker_reference_size")) + parseInt(get_calc_css_value_of_variable("--spacing_medium")) + 2) * 2, /* border sizes */
+            due_date_today: parseInt(get_calc_css_value_of_variable("--due_date_picker_reference_size")) + parseInt(get_calc_css_value_of_variable("--spacing_medium")), /* border sizes */ 
+            one_day: (parseInt(get_calc_css_value_of_variable("--due_date_picker_reference_size")) + parseInt(get_calc_css_value_of_variable("--spacing_medium"))) * 2 + 2, /* border sizes */
             ten_days: parseInt(due_date_container.clientWidth) - parseInt(get_calc_css_value_of_variable("--due_date_picker_reference_size"))
         };
     }
