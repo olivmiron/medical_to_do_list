@@ -1015,7 +1015,7 @@ function due_date_calculate(re_position) {
 
     let due_days = 0, due_or_not = 0;
 
-    if(picker_left < (main_steps.no_due_date + main_steps.due_date_today) / 2) {due_days = 0;due_or_not = 1;}
+    if(picker_left < (main_steps.no_due_date + main_steps.due_date_today) / 2) {due_days = 0;due_or_not = 0;}
     else if(picker_left < (main_steps.due_date_today + (main_steps.one_day - main_steps.due_date_today) / 2)) {due_days = 0; due_or_not = 1;}
     else if(picker_left < (main_steps.due_date_today + main_steps.one_day)) {due_days = 1;due_or_not = 1;}
     else {
