@@ -862,6 +862,16 @@ br {height: 20px;}
 /* .to_do_content_peek_active .to_do_content_peek_separator {opacity: 1;} */
 /* .to_do_content_peek_active .to_do_content_peek_content {opacity: 1;} */
 
+
+
+.to_do_content {text-align: center;margin-top: var(--spacing_xl);}
+.to_do_content_no_content_span {text-align: center;margin-top: var(--spacing_xl);}
+.to_do_content_inside {text-align: center;margin-top: var(--spacing_xl);}
+.to_do_content_load_more {text-align: center;margin-top: var(--spacing_xl);}
+
+
+
+
 /* common for to dos and patients */
 
 
