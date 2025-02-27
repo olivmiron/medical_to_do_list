@@ -749,7 +749,7 @@ function delete_to_do(to_do_id, confirmed) {
 
 function toggle_to_do_content(to_do_id) {console.log("x");
     var respective_to_do_element = document.getElementById("to_do__" + to_do_id);
-    if(respective_to_do_element.querySelector(".to_do_content_peek").classList.contains("to_do_content_peek_active")) {
+    if(!respective_to_do_element.querySelector(".to_do_content_peek").classList.contains("to_do_content_peek_active")) {
         respective_to_do_element.querySelector(".to_do_content_peek").classList.add("to_do_content_peek_active");
         if(parseInt(respective_to_do_element.querySelector(".to_do_content").getAttribute("data-content_loaded")) == 0) {
             var to_do_content_response = load_media_content("to_do", to_do_id, respective_to_do_element.querySelector(".to_do_content_inside").querySelectorAll(".media_element").length);
