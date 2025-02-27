@@ -751,6 +751,7 @@ function toggle_to_do_content(to_do_id) {
     var respective_to_do_element = document.getElementById("to_do__" + to_do_id);
     if(!respective_to_do_element.querySelector(".to_do_content_peek").classList.contains("to_do_content_peek_active")) {
         respective_to_do_element.querySelector(".to_do_content_peek").classList.add("to_do_content_peek_active");
+
         if(parseInt(respective_to_do_element.querySelector(".to_do_content").getAttribute("data-content_loaded")) == 0) {
 
             load_media_content("to_do", to_do_id, respective_to_do_element.querySelector(".to_do_content_inside").querySelectorAll(".media_element").length)
@@ -773,6 +774,7 @@ function toggle_to_do_content(to_do_id) {
 
             
             respective_to_do_element.querySelector(".to_do_content").setAttribute("data-content_loaded", 1);
+            respective_to_do_element.querySelector(".to_do_content").classList.add("to_do_content_visible");
 
         }
         else {
