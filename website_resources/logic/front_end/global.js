@@ -747,23 +747,26 @@ function delete_to_do(to_do_id, confirmed) {
     });
 } 
 
-function toggle_to_do_content(to_do_id) {console.log("x");
+function toggle_to_do_content(to_do_id) {
     var respective_to_do_element = document.getElementById("to_do__" + to_do_id);
     if(!respective_to_do_element.querySelector(".to_do_content_peek").classList.contains("to_do_content_peek_active")) {
         respective_to_do_element.querySelector(".to_do_content_peek").classList.add("to_do_content_peek_active");
         if(parseInt(respective_to_do_element.querySelector(".to_do_content").getAttribute("data-content_loaded")) == 0) {
-            var to_do_content_response = load_media_content("to_do", to_do_id, respective_to_do_element.querySelector(".to_do_content_inside").querySelectorAll(".media_element").length);
-            if(to_do_content_response.status == "success") {
-                respective_to_do_element.querySelector(".to_do_content").innerHTML = atob(to_do_content_response.html);
+            
+            load_media_content("to_do", to_do_id, respective_to_do_element.querySelector(".to_do_content_inside").querySelectorAll(".media_element").length)
+            .then(data => {
+                if(data.status == "success") {
+                    respective_to_do_element.querySelector(".to_do_content").innerHTML = atob(data.html);
 
-                if(to_do_content_response.number_of_elements_loaded < 5) {
+                    if(data.number_of_elements_loaded < 5) {
+                        respective_to_do_element.querySelector(".to_do_content_load_more").outerHTML = "";
+                    }
+                }
+                else {
+                    respective_to_do_element.querySelector(".to_do_content_no_content_span").innerText = "Error loading content";
                     respective_to_do_element.querySelector(".to_do_content_load_more").outerHTML = "";
                 }
-            }
-            else {
-                respective_to_do_element.querySelector(".to_do_content_no_content_span").innerText = "Error loading content";
-                respective_to_do_element.querySelector(".to_do_content_load_more").outerHTML = "";
-            }
+            });
             
             respective_to_do_element.querySelector(".to_do_content").setAttribute("data-content_loaded", 1);
 
@@ -794,14 +797,16 @@ function load_media_content(to_do_or_patient, element_id, content_elements_alrea
     .then(response => response.json())
     .then(data => {
         if(data.status == "success") {
-            return data; // statu, html and number of elements loaded
+            return data; // status, html and number of elements loaded
         }
         else {
             show_pop_up_message('Failed to load to do content:', data.message, true);
+            return {status: "error"};
         }
     })
     .catch(error => {
         show_pop_up_message('Please try again later', true);
+        return {status: "error"};
     });
 }
 
