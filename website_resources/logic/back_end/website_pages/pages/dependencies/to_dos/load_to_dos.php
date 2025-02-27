@@ -115,7 +115,7 @@ else {
                 $due_date_days, 
                 $days_text, 
                 $due_date_class,
-                $content_count . "x"
+                $content_count
             ],
             $to_do_template
         );
