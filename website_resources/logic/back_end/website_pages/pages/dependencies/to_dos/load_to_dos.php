@@ -70,6 +70,15 @@ else {
         }
         
         $description_class = empty($row['description']) ? 'description_empty' : '';
+
+        // Count the number of added_content rows for this to-do
+        $stmt_content = $conn->prepare("SELECT COUNT(*) AS content_count FROM added_content WHERE patient_or_to_do = 0 AND patient_or_to_do_id = ?");
+        $stmt_content->bind_param("i", $row['id']);
+        $stmt_content->execute();
+        $content_result = $stmt_content->get_result();
+        $content_row = $content_result->fetch_assoc();
+        $content_count = $content_row['content_count'];
+        $stmt_content->close();
     
         $to_do_html = str_replace(
             [
@@ -87,7 +96,8 @@ else {
                 "{{due_or_not}}", 
                 "{{due_date_days}}", 
                 "{{due_date}}", 
-                "{{not_due due_today already_due}}"
+                "{{not_due due_today already_due}}",
+                '{{peek_content_number}}'
             ],
             [
                 $row['id'], 
@@ -104,7 +114,8 @@ else {
                 $row["due_or_not"], 
                 $due_date_days, 
                 $days_text, 
-                $due_date_class
+                $due_date_class,
+                $content_count
             ],
             $to_do_template
         );

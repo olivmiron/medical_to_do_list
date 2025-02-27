@@ -84,7 +84,9 @@ $to_do_html = str_replace(
         "{{due_or_not}}", 
         "{{due_date_days}}", 
         "{{due_date}}", 
-        "{{not_due due_today already_due}}"
+        "{{not_due due_today already_due}}",
+
+        "{{peek_content_number}}"
     ],
     [
         $to_do_id, 
@@ -98,7 +100,9 @@ $to_do_html = str_replace(
         $due_or_not,
         $due_date_days, 
         $days_text, 
-        $due_date_class
+        $due_date_class,
+
+        0
     ],
     $to_do_template
 );
