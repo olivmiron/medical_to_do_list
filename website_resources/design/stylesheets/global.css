@@ -834,7 +834,7 @@ br {height: 20px;}
     /* background-color: var(--color_light_gray); */
 }
 .to_do_content_peek_active .to_do_content_peek_arrow img {opacity: 0.76;rotate: 180deg;}
-.to_do_content_peek_active .to_do_content_peek_plus {opacity: 1;}
+.to_do_content_peek_active .to_do_content_peek_plus {opacity: 0.76;}
 .to_do_content_peek_active .to_do_content_peek_separator:nth-of-type(2) {opacity: 1;}
 /* .to_do_content_peek_active .to_do_content_peek_separator {opacity: 1;} */
 /* .to_do_content_peek_active .to_do_content_peek_content {opacity: 1;} */

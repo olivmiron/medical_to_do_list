@@ -747,6 +747,10 @@ function delete_to_do(to_do_id, confirmed) {
     });
 } 
 
+function toggle_to_do_content(to_do_id) {
+    
+}
+
 
 
     // pages group to dos functions
