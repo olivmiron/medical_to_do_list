@@ -747,7 +747,7 @@ function delete_to_do(to_do_id, confirmed) {
     });
 } 
 
-function toggle_to_do_content(to_do_id) {
+function toggle_to_do_content(to_do_id) {console.log("x");
     var respective_to_do_element = document.getElementById("to_do__" + to_do_id);
     if(respective_to_do_element.querySelector(".to_do_content_peek").classList.contains("to_do_content_peek_active")) {
         respective_to_do_element.querySelector(".to_do_content_peek").classList.add("to_do_content_peek_active");
@@ -766,7 +766,7 @@ function toggle_to_do_content(to_do_id) {
             }
             
             respective_to_do_element.querySelector(".to_do_content").setAttribute("data-content_loaded", 1);
-            
+
         }
         else {
             respective_to_do_element.querySelector(".to_do_content").classList.add("to_do_content_visible");
