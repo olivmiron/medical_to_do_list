@@ -8,15 +8,17 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$to_do_or_patient = $_POST['to_do_or_patient'];
+$input = json_decode(file_get_contents('php://input'), true);
+
+$to_do_or_patient = $input['to_do_or_patient'];
 
 if(!in_array($to_do_or_patient, ['to_do', 'patient'])) {
     echo json_encode(["status" => "error", "message" => "Invalid request."]);
     exit;
 }
 $to_do_or_patient = $to_do_or_patient === 'to_do' ? 0 : 1;
-$element_id = $_POST['to_do_or_patient'];
-$content_elements_already_loaded = $_POST['to_do_or_patient'];
+$element_id = $input['to_do_or_patient'];
+$content_elements_already_loaded = $input['to_do_or_patient'];
 
 $stmt = $conn->prepare("SELECT * FROM added_content WHERE patient_or_to_do = ? AND patient_or_to_do_id = ? ORDER BY date_added DESC LIMIT 5 OFFSET ?");
 $stmt->bind_param("iii", $to_do_or_patient, $to_do_id, $content_elements_already_loaded);
