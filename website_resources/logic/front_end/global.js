@@ -767,7 +767,7 @@ function toggle_to_do_content(to_do_id) {
                     }
                 }
                 else {
-                    respective_to_do_element.querySelector(".to_do_content_no_content_span").innerText = "Error loading content";
+                    respective_to_do_element.querySelector(".to_do_content_no_content").querySelector("span").innerText = "Error loading content";
                     respective_to_do_element.querySelector(".to_do_content_load_more").outerHTML = "";
                 }
             });
