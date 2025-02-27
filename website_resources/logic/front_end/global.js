@@ -752,7 +752,7 @@ function toggle_to_do_content(to_do_id) {
     if(!respective_to_do_element.querySelector(".to_do_content_peek").classList.contains("to_do_content_peek_active")) {
         respective_to_do_element.querySelector(".to_do_content_peek").classList.add("to_do_content_peek_active");
         if(parseInt(respective_to_do_element.querySelector(".to_do_content").getAttribute("data-content_loaded")) == 0) {
-            
+
             load_media_content("to_do", to_do_id, respective_to_do_element.querySelector(".to_do_content_inside").querySelectorAll(".media_element").length)
             .then(data => {
                 if(data.status == "success") {
@@ -767,6 +767,7 @@ function toggle_to_do_content(to_do_id) {
                     respective_to_do_element.querySelector(".to_do_content_load_more").outerHTML = "";
                 }
             });
+
             
             respective_to_do_element.querySelector(".to_do_content").setAttribute("data-content_loaded", 1);
 
@@ -787,7 +788,7 @@ function load_media_content(to_do_or_patient, element_id, content_elements_alrea
         element_id: element_id, 
         content_elements_already_loaded: content_elements_already_loaded
     };
-    fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/global/load_content.php', {
+    return fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/global/load_content.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
