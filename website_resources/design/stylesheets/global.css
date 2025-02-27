@@ -130,6 +130,28 @@ input.empty_input, textarea.empty_input {border: 1px solid var(--color_danger);b
 .image_button img {height: 32px;}
 
 
+
+.button {
+    padding: var(--spacing_medium) var(--spacing_large);
+    background-color: var(--color_primary);
+    border-radius: var(--border_radius_medium);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing_medium);
+    box-shadow: 0px 2px 10px -5px var(--color_gray);
+    cursor: pointer;
+    transition: var(--transition_medium);
+}
+.button:active {box-shadow: 0px 0px 10px -5px var(--color_gray);background-color: var(--color_success);}
+.button span {}
+.button img {height: 24px;}
+
+
 /* general rules */
 
 body {margin: 0;font-family: var(--nunito_font);margin: var(--top_bottom_bar_size) 0;}
