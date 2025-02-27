@@ -147,7 +147,7 @@ input.empty_input, textarea.empty_input {border: 1px solid var(--color_danger);b
     cursor: pointer;
     transition: var(--transition_medium);
 }
-.button:active {box-shadow: 0px 0px 10px -5px var(--color_gray);background-color: var(--color_success);}
+.button:active {box-shadow: 0px 0px 8px -5px var(--color_gray);background-color: var(--color_success);}
 .button span {}
 .button img {height: 24px;}
 
