@@ -864,12 +864,12 @@ br {height: 20px;}
 
 
 
-.to_do_content {text-align: center;margin-top: var(--spacing_xl);}
+.to_do_content {display: none;margin-top: var(--spacing_xl);}
 .to_do_content_no_content_span {text-align: center;margin-top: var(--spacing_xl);}
 .to_do_content_inside {}
 .to_do_content_load_more {text-align: center;margin-top: var(--spacing_xl);}
 
-
+.to_do_content_visible {display: block;}
 
 
 /* common for to dos and patients */
