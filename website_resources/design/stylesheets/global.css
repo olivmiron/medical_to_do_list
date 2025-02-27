@@ -132,7 +132,8 @@ input.empty_input, textarea.empty_input {border: 1px solid var(--color_danger);b
 
 
 .button {
-    padding: var(--spacing_medium) var(--spacing_large);
+    display: inline-block;
+    padding: var(--spacing_medium) var(--spacing_xl);
     background-color: var(--color_primary);
     border-radius: var(--border_radius_medium);
     color: white;
