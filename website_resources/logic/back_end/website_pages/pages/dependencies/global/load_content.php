@@ -3,20 +3,20 @@ $initial_load = false;
 require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/global_requirements.php";
 require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/database_connect.php";
 
-if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(["status" => "error", "message" => "Invalid request method."]);
     exit;
 }
 
-$to_do_or_patient = $_GET['to_do_or_patient'];
+$to_do_or_patient = $_POST['to_do_or_patient'];
 
 if(!in_array($to_do_or_patient, ['to_do', 'patient'])) {
     echo json_encode(["status" => "error", "message" => "Invalid request."]);
     exit;
 }
 $to_do_or_patient = $to_do_or_patient === 'to_do' ? 0 : 1;
-$element_id = $_GET['to_do_or_patient'];
-$content_elements_already_loaded = $_GET['to_do_or_patient'];
+$element_id = $_POST['to_do_or_patient'];
+$content_elements_already_loaded = $_POST['to_do_or_patient'];
 
 $stmt = $conn->prepare("SELECT * FROM added_content WHERE patient_or_to_do = ? AND patient_or_to_do_id = ? ORDER BY date_added DESC LIMIT 5 OFFSET ?");
 $stmt->bind_param("iii", $to_do_or_patient, $to_do_id, $content_elements_already_loaded);
