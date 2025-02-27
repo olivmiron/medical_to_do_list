@@ -756,7 +756,10 @@ function toggle_to_do_content(to_do_id) {
             load_media_content("to_do", to_do_id, respective_to_do_element.querySelector(".to_do_content_inside").querySelectorAll(".media_element").length)
             .then(data => {
                 if(data.status == "success") {
+                    
+                    if(data.number_of_elements_loaded > 0) {
                     respective_to_do_element.querySelector(".to_do_content").innerHTML = atob(data.html);
+                    }
 
                     if(data.number_of_elements_loaded < 5) {
                         respective_to_do_element.querySelector(".to_do_content_load_more").outerHTML = "";
