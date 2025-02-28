@@ -3,7 +3,16 @@
     <div class="media_element_title_and_date">
         <div>
             <span class="media_element_date">{{media_element_date}}</span>
-            <img src="" onclick="delete_media_element('{{media_element_id}}')"/>
+            
+            <div class="options_pop_up_menu_container" data-optional_classes="options_pop_up_menu_container_small white_dots" onclick="toggle_options_pop_up_menu(this)">
+                <img src="/website_resources/design/media/icons/global/3_dots.png"/>
+                <div class="options_pop_up_menu">
+                    <div class="options_pop_up_menu_option" onclick="delete_media_element('{{media_element_id}}')">
+                        <img src="/website_resources/design/media/icons/pages/settings/exit.png"/>
+                        <span>Delete Element</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <br/>
         <span class="media_element_title">{{media_element_title}}</span>
