@@ -867,7 +867,10 @@ function delete_media_element(media_id, confirmed) {
     .then(data => {
         if (data.status == "success") {
             // Remove the group row from the settings page
+            let peek_content_numbering = document.getElementById('media_element__' + media_id).closest(".to_do_item").querySelector(".to_do_content_peek_content").querySelector("div");
+            peek_content_numbering.innerText = parseInt(peek_content_numbering.innerText) - 1;
             document.getElementById('media_element__' + media_id).remove();
+
 }
     })   
     .catch(error => {
