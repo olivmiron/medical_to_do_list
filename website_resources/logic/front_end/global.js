@@ -848,6 +848,28 @@ function add_content(to_do_or_paient, to_do_or_patient_id) {
 }
 
 
+
+function delete_media_element(media_id, confirmed) {
+    if (confirmed !== true) {
+        pop_up_message_get_confirmation("Do you really want to delete this media element?", true, "delete_media_element('" + media_id + "', true)");
+        return;
+    }
+
+    var data_in = { media_element_id: media_element_id};
+    fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/global/delete_media_element.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data_in)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status == "success") {
+            // Remove the group row from the settings page
+            document.getElementById('media_element__' + media_id).remove();
+}
+
     // pages group to dos functions
 
 
