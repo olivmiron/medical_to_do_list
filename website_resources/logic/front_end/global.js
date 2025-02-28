@@ -754,25 +754,8 @@ function toggle_to_do_content(to_do_id) {
 
         if(parseInt(respective_to_do_element.querySelector(".to_do_content").getAttribute("data-content_loaded")) == 0) {
 
-            load_media_content("to_do", to_do_id, respective_to_do_element.querySelector(".to_do_content_inside").querySelectorAll(".media_element").length)
-            .then(data => {
-                if(data.status == "success") {
-                    
-                    if(data.number_of_elements_loaded > 0) {
-                    respective_to_do_element.querySelector(".to_do_content").innerHTML = atob(data.html);
-                    }
+            load_more_content(to_do_id);
 
-                    if(data.number_of_elements_loaded < 5) {
-                        respective_to_do_element.querySelector(".to_do_content_load_more").outerHTML = "";
-                    }
-                }
-                else {
-                    respective_to_do_element.querySelector(".to_do_content_no_content").querySelector("span").innerText = "Error loading content";
-                    respective_to_do_element.querySelector(".to_do_content_load_more").outerHTML = "";
-                }
-            });
-
-            
             respective_to_do_element.querySelector(".to_do_content").setAttribute("data-content_loaded", 1);
             respective_to_do_element.querySelector(".to_do_content").classList.add("to_do_content_visible");
 
@@ -785,6 +768,27 @@ function toggle_to_do_content(to_do_id) {
         respective_to_do_element.querySelector(".to_do_content_peek").classList.remove("to_do_content_peek_active");
         respective_to_do_element.querySelector(".to_do_content").classList.remove("to_do_content_visible");
     }
+}
+
+function load_more_content(to_do_id) {
+    var respective_to_do_element = document.getElementById("to_do__" + to_do_id);
+    load_media_content("to_do", to_do_id, respective_to_do_element.querySelector(".to_do_content_inside").querySelectorAll(".media_element").length)
+            .then(data => {
+                if(data.status == "success") {
+                    
+                    if(data.number_of_elements_loaded > 0) {
+                    respective_to_do_element.querySelector(".to_do_content").innerHTML += atob(data.html);
+                    }
+
+                    if(data.number_of_elements_loaded < 5) {
+                        respective_to_do_element.querySelector(".to_do_content_load_more").outerHTML = "";
+                    }
+                }
+                else {
+                    respective_to_do_element.querySelector(".to_do_content_no_content").querySelector("span").innerText = "Error loading content";
+                    respective_to_do_element.querySelector(".to_do_content_load_more").outerHTML = "";
+                }
+            });
 }
 
 function load_media_content(to_do_or_patient, element_id, content_elements_already_loaded) {//load 5 elements at a time
@@ -814,6 +818,32 @@ function load_media_content(to_do_or_patient, element_id, content_elements_alrea
         show_pop_up_message('Please try again later', true);
         return {status: "error"};
     });
+}
+
+
+let add_content_obj = {
+    // to_do_or_patient: null,
+    // to_do_or_patient_id: null,
+    // title: "",
+    // description: "",
+    // media: []
+}
+
+function re_initialize_add_content_obj(to_do_or_paient, to_do_or_patient_id) {
+    add_content_obj = {
+        to_do_or_patient: to_do_or_paient,
+        to_do_or_patient_id: to_do_or_patient_id,
+        title: "",
+        description: "",
+        media: []
+    }
+}
+
+
+function add_content(to_do_or_paient, to_do_or_patient_id) {
+    re_initialize_add_content_obj(to_do_or_paient, to_do_or_patient_id);
+    // load/open add_conmtent bottom_sheet
+    
 }
 
 

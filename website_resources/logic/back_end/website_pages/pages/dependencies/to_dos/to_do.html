@@ -47,7 +47,7 @@
                 <span class="to_do_content_peek_separator">|</span>
                 <div class="to_do_content_peek_content"><div>{{peek_content_number}}</div><img src="/website_resources/design/media/icons/global/content.png"/></div>
                 <span class="to_do_content_peek_separator">|</span>
-                <div class="to_do_content_peek_plus"><img src="/website_resources/design/media/icons/global/add.png"/></div>
+                <div class="to_do_content_peek_plus" onclick="add_content('to_do', '{{to_do_id}}')"><img src="/website_resources/design/media/icons/global/add.png"/></div>
             </div>
             
             <div class="due_line_div {{not_due due_today already_due}}"><span>{{due_date}}</span></div>
@@ -61,7 +61,7 @@
             <div class="to_do_content_inside"></div>
             
             <div class="flex_div_center_center">
-                <div class="to_do_content_load_more button">Load more</div>
+                <div class="to_do_content_load_more button" onclick="load_more_content('{{to_do_id}}')">Load more</div>
             </div>
 
         </div>
