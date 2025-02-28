@@ -19,6 +19,9 @@ $to_do_or_patient = $input['to_do_or_patient'] === 'to_do' ? 0 : 1;
 $element_id = (int)$input['element_id'];
 $content_elements_already_loaded = (int)$input['content_elements_already_loaded'];
 
+// CHECK IF USER IS ALLOWED TO SEE THIS CONTENT
+// ...
+
 $stmt = $conn->prepare("SELECT * FROM added_content WHERE patient_or_to_do = ? AND patient_or_to_do_id = ? AND visible = 1 ORDER BY date_added DESC LIMIT 5 OFFSET ?");
 $stmt->bind_param("iii", $to_do_or_patient, $element_id, $content_elements_already_loaded);
 $stmt->execute();
