@@ -17,9 +17,8 @@ if(!in_array($to_do_or_patient, ['to_do', 'patient'])) {
     exit;
 }
 $to_do_or_patient = $to_do_or_patient === 'to_do' ? 0 : 1;
-echo $to_do_or_patient;
 $element_id = $input['to_do_or_patient'];
-$content_elements_already_loaded = $input['to_do_or_patient'];
+$content_elements_already_loaded = (int)$input['to_do_or_patient'];
 
 $stmt = $conn->prepare("SELECT * FROM added_content WHERE patient_or_to_do = ? AND patient_or_to_do_id = ? ORDER BY date_added DESC LIMIT 5 OFFSET ?");
 $stmt->bind_param("iii", $to_do_or_patient, $to_do_id, $content_elements_already_loaded);
