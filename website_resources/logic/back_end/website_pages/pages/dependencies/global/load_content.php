@@ -17,6 +17,7 @@ if(!in_array($to_do_or_patient, ['to_do', 'patient'])) {
     exit;
 }
 $to_do_or_patient = $to_do_or_patient === 'to_do' ? 0 : 1;
+echo $to_do_or_patient;
 $element_id = $input['to_do_or_patient'];
 $content_elements_already_loaded = $input['to_do_or_patient'];
 
