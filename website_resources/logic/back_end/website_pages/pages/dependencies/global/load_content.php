@@ -19,7 +19,7 @@ $to_do_or_patient = $input['to_do_or_patient'] === 'to_do' ? 0 : 1;
 $element_id = (int)$input['element_id'];
 $content_elements_already_loaded = (int)$input['content_elements_already_loaded'];
 
-$stmt = $conn->prepare("SELECT * FROM added_content WHERE patient_or_to_do = ? AND patient_or_to_do_id = ? ORDER BY date_added DESC LIMIT 5 OFFSET ?");
+$stmt = $conn->prepare("SELECT * FROM added_content WHERE patient_or_to_do = ? AND patient_or_to_do_id = ? AND visible = 1 ORDER BY date_added DESC LIMIT 5 OFFSET ?");
 $stmt->bind_param("iii", $to_do_or_patient, $element_id, $content_elements_already_loaded);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -34,12 +34,15 @@ while ($row = $result->fetch_assoc()) {$number_of_elements_loaded++;
             '{{media_element_date}}',
             '{{media_element_title}}',
             '{{media_element_media}}',
-            '{{media_element_description}}'
+            "media_element_media_hidden", 
+            '{{media_element_description}}', 
+            ""
         ],
         [
             date('d M Y H:i', strtotime($row['date_added'])),
             $row['title'],
             $row["contains_media"] == "1" ? '<img src="/content_resources/media_content/images/' . $row['id'] . '.' . $row["media_extension"] . '"/>' : '',
+            $row["contains_media"] == "1" ? "" : "media_element_media_hidden",
             $row['description']
         ],
         $content_template

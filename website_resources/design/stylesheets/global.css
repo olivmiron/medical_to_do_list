@@ -887,6 +887,49 @@ br {height: 20px;}
 .to_do_edt_done_button img, .patient_edit_done_button img {height: 22px;}
 
 
+
+.media_element {
+    position: relative;
+    margin-bottom: var(--spacing_medium);
+}
+.media_element_lateral_delimiter {
+    position: absolute;
+    right: calc(100% + var(--spacing_xl));
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--color_light_gray);
+    border-radius: var(--border_infinite_radius);
+}
+
+.media_element_title_and_date {
+
+}
+.media_element_date {
+    font-size: 14px;
+    color: var(--color_gray);
+}
+.media_element_title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.media_element_media {
+    display: flex;
+}
+.media_element_media img, .media_element_media video {
+    max-width: 100%;
+    padding: var(--spacing_medium) var(--spacing_small);
+    box-sizing: border-box;
+}
+.media_element_media_hidden {display: none;}
+
+.media_element_description {
+
+}
+.media_element_description_hidden {display: none;}
+
+
     /* settings */
 
 #view_screen_page__settings__content {min-height: 50vh;}
