@@ -10,13 +10,12 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 $input = json_decode(file_get_contents('php://input'), true);
 
-$to_do_or_patient = $input['to_do_or_patient'];
-
-if(!in_array($to_do_or_patient, ['to_do', 'patient'])) {
+if(!in_array($input['to_do_or_patient'], ['to_do', 'patient'])) {
     echo json_encode(["status" => "error", "message" => "Invalid request."]);
     exit;
 }
-$to_do_or_patient = $to_do_or_patient === 'to_do' ? 0 : 1;
+
+$to_do_or_patient = $input['to_do_or_patient'] === 'to_do' ? 0 : 1;
 $element_id = (int)$input['element_id'];
 $content_elements_already_loaded = (int)$input['content_elements_already_loaded'];
 
