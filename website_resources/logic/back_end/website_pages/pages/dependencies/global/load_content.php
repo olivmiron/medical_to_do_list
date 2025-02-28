@@ -36,14 +36,15 @@ while ($row = $result->fetch_assoc()) {$number_of_elements_loaded++;
             '{{media_element_media}}',
             "media_element_media_hidden", 
             '{{media_element_description}}', 
-            ""
+            "media_element_description_hidden"
         ],
         [
             date('d M Y H:i', strtotime($row['date_added'])),
             $row['title'],
             $row["contains_media"] == "1" ? '<img src="/content_resources/media_content/images/' . $row['id'] . '.' . $row["media_extension"] . '"/>' : '',
             $row["contains_media"] == "1" ? "" : "media_element_media_hidden",
-            $row['description']
+            $row['description'], 
+            $row['description'] == "" or empty($row["description"]) ? "media_element_description_hidden" : ""
         ],
         $content_template
     );
