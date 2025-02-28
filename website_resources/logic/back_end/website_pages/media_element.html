@@ -1,7 +1,10 @@
-<div class="media_element">
+<div id="media_element__{{media_element_id}}" class="media_element">
     <div class="media_element_lateral_delimiter"></div>
     <div class="media_element_title_and_date">
-        <span class="media_element_date">{{media_element_date}}</span>
+        <div>
+            <span class="media_element_date">{{media_element_date}}</span>
+            <img src="" onclick="delete_media_element('{{media_element_id}}')"/>
+        </div>
         <br/>
         <span class="media_element_title">{{media_element_title}}</span>
     </div>

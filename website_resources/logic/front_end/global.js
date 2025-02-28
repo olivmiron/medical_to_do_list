@@ -798,7 +798,7 @@ function load_media_content(to_do_or_patient, element_id, content_elements_alrea
         element_id: element_id, 
         content_elements_already_loaded: content_elements_already_loaded
     };
-    return fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/global/load_content.php', {
+    return fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/global/load_media.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
