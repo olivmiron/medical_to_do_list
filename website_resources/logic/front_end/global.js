@@ -870,7 +870,7 @@ function delete_media_element(media_id, confirmed) {
             document.getElementById('media_element__' + media_id).remove();
 }
     })   
-    .catch(error => {}) {
+    .catch(error => {
         show_pop_up_message('Please try again later', true);
     });
 }
