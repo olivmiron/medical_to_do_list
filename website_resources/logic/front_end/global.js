@@ -849,7 +849,7 @@ function add_content(to_do_or_paient, to_do_or_patient_id) {
 
 
 
-function delete_media_element(media_id, confirmed) {
+function delete_media_element(media_element_id, confirmed) {
     if (confirmed !== true) {
         pop_up_message_get_confirmation("Do you really want to delete this media element?", true, "delete_media_element('" + media_id + "', true)");
         return;
