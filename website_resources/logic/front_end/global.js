@@ -777,6 +777,7 @@ function load_more_content(to_do_id) {
                 if(data.status == "success") {
                     
                     if(data.number_of_elements_loaded > 0) {
+                    respective_to_do_element.querySelector(".to_do_content_no_content").querySelector("span").innerText = "";
                     respective_to_do_element.querySelector(".to_do_content").innerHTML += atob(data.html);
                     }
 
