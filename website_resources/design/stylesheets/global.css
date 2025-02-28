@@ -170,6 +170,7 @@ br {height: 20px;}
 
 .flex_div_justify_center {justify-items: center;}
 .flex_div_justify_spread {justify-items: stretch;}
+.flex_div_justify_space_between {justify-items: space-between;}
 
 .flex_gap_small {gap: var(--spacing_small);}
 .flex_gap_medium {gap: var(--spacing_medium);}
