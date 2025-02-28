@@ -20,7 +20,7 @@ $element_id = (int)$input['element_id'];
 $content_elements_already_loaded = (int)$input['content_elements_already_loaded'];
 
 $stmt = $conn->prepare("SELECT * FROM added_content WHERE patient_or_to_do = ? AND patient_or_to_do_id = ? ORDER BY date_added DESC LIMIT 5 OFFSET ?");
-$stmt->bind_param("iii", $to_do_or_patient, $to_do_id, $content_elements_already_loaded);
+$stmt->bind_param("iii", $to_do_or_patient, $element_id, $content_elements_already_loaded);
 $stmt->execute();
 $result = $stmt->get_result();
 
