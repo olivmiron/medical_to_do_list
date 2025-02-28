@@ -869,6 +869,11 @@ function delete_media_element(media_id, confirmed) {
             // Remove the group row from the settings page
             document.getElementById('media_element__' + media_id).remove();
 }
+    })   
+    .catch(error => {}) {
+        show_pop_up_message('Please try again later', true);
+    });
+}
 
     // pages group to dos functions
 
