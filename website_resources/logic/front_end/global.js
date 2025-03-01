@@ -927,12 +927,20 @@ function displaySelectedMedia(file) {
         title.innerText = file.name;
     }
 
+    mediaElement.setAttribute('data-added_media_element_id', add_content_obj.media.length - 1);
     mediaContainer.appendChild(mediaElement);
+
 }
 
 
 
+function add_media_bottom_sheet_added_media_element_remove(button) {
+    const mediaElement = button.closest('.add_media_bottom_sheet_added_media_element');
+    const mediaElementId = mediaElement.getAttribute('data-added_media_element_id');
 
+    add_content_obj.media.splice(mediaElementId, 1);
+    mediaElement.remove();
+}
 
 
 

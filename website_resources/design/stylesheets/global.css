@@ -553,10 +553,14 @@ br {height: 20px;}
 
 
 /* bottom_sheet add content media_element */
+.add_media_bottom_sheet_added_media_container {column-count: 1;}
+
+
+
 
 .add_media_bottom_sheet_added_media_element {
     padding: var(--spacing_large);
-    width: 50%;
+    width: /* 50% */ 100%;
     box-sizing: border-box;
     display: inline-block;
 }
