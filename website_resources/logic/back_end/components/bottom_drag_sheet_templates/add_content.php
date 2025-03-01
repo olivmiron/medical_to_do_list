@@ -28,7 +28,7 @@
 </div>
 
 <template id="add_content_media_element_template">
-    <div class="add_media_bottom_sheet_added_media_element" data-added_media_element_id="1" >
+    <div class="add_media_bottom_sheet_added_media_element" data-added_media_element_id="0" >
         <img class="add_media_bottom_sheet_added_media_element_image_video" src="/content_resources/media_content/images/1.jpg" />
         <div class="flex_div flex_div_justify_space_between">
             <span class="add_media_bottom_sheet_added_media_element_title">Image_01......jpg</span>
