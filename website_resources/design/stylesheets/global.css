@@ -958,6 +958,7 @@ br {height: 20px;}
     max-width: 100%;
     padding: var(--spacing_medium) var(--spacing_small);
     box-sizing: border-box;
+    object-fit: contain;
 }
 .media_element_media_hidden {display: none;}
 
