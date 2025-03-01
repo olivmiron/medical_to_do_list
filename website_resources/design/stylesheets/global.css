@@ -550,6 +550,33 @@ br {height: 20px;}
 }
 .due_date_picker_dates span {width: calc(26px + 2 * var(--border_radius_small));line-height: var(--due_date_picker_line_height);}
 
+
+
+/* bottom_sheet add content media_element */
+
+.add_media_bottom_sheet_added_media_element {
+    padding: var(--spacing_large);
+    width: 50%;
+    box-sizing: border-box;
+    display: inline-block;
+}
+.add_media_bottom_sheet_added_media_element_image_video {
+    max-width: 100%;
+    border-radius: var(--border_radius_small);
+}
+.add_media_bottom_sheet_added_media_element div {}
+
+.add_media_bottom_sheet_added_media_element_title {
+    font-size: 18px;
+    font-weight: bold;
+}
+.add_media_bottom_sheet_added_media_element div img {
+    height: 20px;
+}
+
+
+
+
 /* pages */
 
     /* global pages styles */

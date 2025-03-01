@@ -884,6 +884,68 @@ function add_content_to_patient_or_to_do() { // based on add_content_obj.to_do_o
 
 
 
+
+// add content bottom sheet function
+
+function add_media_bottom_sheet_add_media_button() {
+        // this function opens the device's media picker and when media is picked, it is added to the add_content_obj.media array
+    
+
+
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*,video/*';
+    input.multiple = true;
+
+    input.onchange = (event) => {
+        const files = event.target.files;
+        for (let i = 0; i < files.length; i++) {
+            add_content_obj.media.push(files[i]);
+            displaySelectedMedia(files[i]);
+        }
+    };
+
+    input.click();
+}
+
+function displaySelectedMedia(file) {
+    const mediaContainer = document.querySelector('.add_media_bottom_sheet_added_media_container');
+    const template = document.getElementById('add_content_media_element_template').content.cloneNode(true);
+    const mediaElement = template.querySelector('.add_media_bottom_sheet_added_media_element');
+
+    const imgOrVideo = mediaElement.querySelector('.add_media_bottom_sheet_added_media_element_image_video');
+    const title = mediaElement.querySelector('.add_media_bottom_sheet_added_media_element_title');
+
+    if (file.type.startsWith('image/')) {
+        imgOrVideo.src = URL.createObjectURL(file);
+        title.innerText = file.name;
+    } else if (file.type.startsWith('video/')) {
+        const video = document.createElement('video');
+        video.src = URL.createObjectURL(file);
+        video.controls = true;
+        imgOrVideo.replaceWith(video);
+        title.innerText = file.name;
+    }
+
+    mediaContainer.appendChild(mediaElement);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function delete_media_element(media_element_id, confirmed) {
     if (confirmed !== true) {
         pop_up_message_get_confirmation("Do you really want to delete this media element?", true, "delete_media_element('" + media_element_id + "', true)");
@@ -1456,7 +1518,6 @@ function create_to_do() {
         close_bottom_sheet();
     });
 }
-
 
 // settings sheet functions
 

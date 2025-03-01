@@ -14,8 +14,8 @@
         <div class="add_media_bottom_sheet_added_media_container">
             
             <div class="add_media_bottom_sheet_added_media_element" data-added_media_element_id="1" >
-                <img src="/content_resources/media_content/images/1.jpg" />
-                <div>
+                <img class="add_media_bottom_sheet_added_media_element_image_video" src="/content_resources/media_content/images/1.jpg" />
+                <div class="flex_div flex_div_justify_space_between">
                     <span class="add_media_bottom_sheet_added_media_element_title">Image_01......jpg</span>
                     <img src="/website_resources/design/media/icons/global/close.png" alt="Delete" onclick="add_media_bottom_sheet_added_media_element_remove(this)"/>
                 </div>
@@ -37,8 +37,8 @@
 
 <template id="add_content_media_element_template">
     <div class="add_media_bottom_sheet_added_media_element" data-added_media_element_id="1" >
-        <img src="/content_resources/media_content/images/1.jpg" />
-        <div>
+        <img class="add_media_bottom_sheet_added_media_element_image_video" src="/content_resources/media_content/images/1.jpg" />
+        <div class="flex_div flex_div_justify_space_between">
             <span class="add_media_bottom_sheet_added_media_element_title">Image_01......jpg</span>
             <img src="/website_resources/design/media/icons/global/close.png" alt="Delete" onclick="add_media_bottom_sheet_added_media_element_remove(this)"/>
         </div>
