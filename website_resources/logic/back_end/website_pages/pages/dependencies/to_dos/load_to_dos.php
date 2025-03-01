@@ -72,7 +72,7 @@ else {
         $description_class = empty($row['description']) ? 'description_empty' : '';
 
         // Count the number of added_content rows for this to-do
-        $stmt_content = $conn->prepare("SELECT COUNT(*) AS content_count FROM added_content WHERE patient_or_to_do = 0 AND patient_or_to_do_id = ?");
+        $stmt_content = $conn->prepare("SELECT COUNT(*) AS content_count FROM added_content WHERE patient_or_to_do = 0 AND patient_or_to_do_id = ? AND visible = 1");
         $stmt_content->bind_param("i", $row['id']);
         $stmt_content->execute();
         $content_result = $stmt_content->get_result();
