@@ -852,7 +852,7 @@ function add_content_to_db() {
     add_content_obj.title = document.getElementById("add_content_title_input").value;
     add_content_obj.description = document.getElementById("add_content_description_input").value;
 
-    if(title == "") {document.getElementById("add_content_title_input").classList.add("empty_input");return;}
+    if(add_content_obj.title == "") {document.getElementById("add_content_title_input").classList.add("empty_input");return;}
 
 
     fetch('/website_resources/logic/back_end/components/bottom_drag_sheet_templates/dependencies/add_content_script.php', {
