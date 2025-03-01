@@ -17,7 +17,7 @@ if (empty($title) or empty($to_do_or_patient) or empty($to_do_or_patient_id)) {
 }
 // Set date and initial values
 $date_added = date('Y-m-d H:i:s');
-$contains_media = !empty($media) ? 1 : 0;
+$contains_media = !empty($media) ? count($media) : 0;
 $visible = 1;
 
 // Collect media extensions if files exist

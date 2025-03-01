@@ -949,8 +949,12 @@ br {height: 20px;}
 
 .media_element_media {
     display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
 }
 .media_element_media img, .media_element_media video {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
     max-width: 100%;
     padding: var(--spacing_medium) var(--spacing_small);
     box-sizing: border-box;
