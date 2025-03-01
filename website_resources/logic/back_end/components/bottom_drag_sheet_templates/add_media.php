@@ -15,7 +15,9 @@
     
     <div class="bottom_sheet_sub_title"><span>Add media</span><span class="add_media_due_date_span"></span></div>
 
-    <div></div>
+    <div>
+        <div class="button">Add media</div>
+    </div>
     
     <div class="spacer_xxl"></div>
 
