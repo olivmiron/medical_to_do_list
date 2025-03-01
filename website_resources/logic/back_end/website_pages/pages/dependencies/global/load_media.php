@@ -46,8 +46,8 @@ while ($row = $result->fetch_assoc()) {$number_of_elements_loaded++;
             $row['id'], 
             date('d M Y H:i', strtotime($row['date_added'])),
             $row['title'],
-            $row["contains_media"] == "1" ? '<img src="/content_resources/media_content/images/' . $row['id'] . '.' . $row["media_extension"] . '"/>' : '',
-            $row["contains_media"] == "1" ? "" : "media_element_media_hidden",
+            $row["contains_media"] != "0" ? '<img src="/content_resources/media_content/images/' . $row['id'] . '.' . $row["media_extension"] . '"/>' : '', // need to make it work for multiple media elements (and multiple media types)
+            $row["contains_media"] == "0" ? "media_element_media_hidden" : "",
             $row['description'], 
             $row['description'] == "" or empty($row["description"]) ? "media_element_description_hidden" : ""
         ],

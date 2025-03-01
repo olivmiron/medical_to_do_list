@@ -29,6 +29,7 @@ $pages_drag_sheet_templates = [
     "group_to_dos" => "website_resources/logic/back_end/components/bottom_drag_sheet_templates/create_or_edit_to_do.php",
     "personal_to_dos" => "website_resources/logic/back_end/components/bottom_drag_sheet_templates/create_or_edit_to_do.php",
     "settings" => "website_resources/logic/back_end/components/bottom_drag_sheet_templates/create_or_join_group.php",
+    
     "add_content" => "website_resources/logic/back_end/components/bottom_drag_sheet_templates/add_content.php"
 ];
 

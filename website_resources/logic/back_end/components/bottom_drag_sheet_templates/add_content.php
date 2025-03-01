@@ -4,7 +4,7 @@
 
     
     <div class="bottom_sheet_sub_title"><span>Title</span></div>
-    <input id="add_to_do_title_input" type="text" oninput="remove_empty_input_class(this)"></input>
+    <input id="add_content_title_input" type="text" oninput="remove_empty_input_class(this)"></input>
     
     <div class="spacer_xxl"></div>
     
@@ -12,7 +12,15 @@
 
     <div>
         <div class="add_media_bottom_sheet_added_media_container">
-            <span>Image_01......jpg</span>
+            
+            <div class="add_media_bottom_sheet_added_media_element" data-added_media_element_id="1" >
+                <img src="/content_resources/media_content/images/1.jpg" />
+                <div>
+                    <span class="add_media_bottom_sheet_added_media_element_title">Image_01......jpg</span>
+                    <img src="/website_resources/design/media/icons/global/close.png" alt="Delete" onclick="add_media_bottom_sheet_added_media_element_remove(this)"/>
+                </div>
+            </div>
+
         </div>
         <div class="button">Add media</div>
     </div>
@@ -20,9 +28,9 @@
     <div class="spacer_xxl"></div>
     
     <div class="bottom_sheet_sub_title"><span>Description / details</span></div>
-    <textarea id="add_to_do_description_input"></textarea>
+    <textarea id="add_content_description_input"></textarea>
     
     <div class="spacer_xxl"></div>
 
-    <div class="big_bottom_sheet_action_button" onclick="add_media()"><span>Add media</span></div>
+    <div class="big_bottom_sheet_action_button" onclick="add_content_to_db()"><span>Add media</span></div>
 </div>

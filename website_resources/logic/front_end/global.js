@@ -848,6 +848,41 @@ function add_content(to_do_or_paient, to_do_or_patient_id) {
 }
 
 
+function add_content_to_db() {
+    add_content_obj.title = document.getElementById("add_content_title_input").value;
+    add_content_obj.description = document.getElementById("add_content_description_input").value;
+
+    if(title == "") {document.getElementById("add_content_title_input").classList.add("empty_input");return;}
+
+
+    fetch('/website_resources/logic/back_end/components/bottom_drag_sheet_templates/dependencies/add_content_script.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(add_content_obj)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.status == "success") {
+            add_content_to_patient_or_to_do(data.media_element_id, title, description, media);
+            close_bottom_sheet();
+        }
+        else {
+            show_pop_up_message('Failed to add content:', data.message, true);
+        }
+    })
+    .catch(error => {
+        show_pop_up_message('Please try again later', true);
+    });
+}
+
+function add_content_to_patient_or_to_do() { // based on add_content_obj.to_do_or_patient
+    // fetch website_resources/logic/back_end/website_pages/pages/dependencies/global/load_media.php iwth the mention to only fetch the last
+}
+
+
+
 
 function delete_media_element(media_element_id, confirmed) {
     if (confirmed !== true) {
