@@ -938,7 +938,7 @@ br {height: 20px;}
 .media_element_title_and_date {
 
 }
-.media_element_date {
+.media_element_date, .media_element_file_number {
     font-size: 14px;
     color: var(--color_gray);
 }

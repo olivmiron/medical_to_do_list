@@ -41,7 +41,8 @@ while ($row = $result->fetch_assoc()) {
     $media_result = $media_stmt->get_result();
     
     $media_html = '';
-    while ($media_row = $media_result->fetch_assoc()) {
+    $media_element_file_number = 0;
+    while ($media_row = $media_result->fetch_assoc()) {$media_element_file_number++;
         $media_type = strpos($media_row['file_type'], 'image') !== false ? 'image' : 'video';
         $media_html .= $media_type === 'image' ? 
             '<img src="/content_resources/media_content/images/' . $media_row['file_path'] . '"/>' : 
@@ -52,6 +53,7 @@ while ($row = $result->fetch_assoc()) {
         [
             '{{media_element_id}}', 
             '{{media_element_date}}',
+            "{{media_element_file_number}}", 
             '{{media_element_title}}',
             '{{media_element_media}}',
             "media_element_media_hidden", 
@@ -61,6 +63,7 @@ while ($row = $result->fetch_assoc()) {
         [
             $row['id'], 
             date('d M Y H:i', strtotime($row['date_added'])),
+            ' - ' . $media_element_file_number . ' file' . ($media_element_file_number != 1 ? 's' : ''),
             $row['title'],
             $media_html,
             $row["contains_media"] == "0" ? "media_element_media_hidden" : "",
