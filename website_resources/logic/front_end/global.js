@@ -167,7 +167,7 @@ function log_out() {
 
 
 
-function top_bar_current_view_action(page_name, action_name) {
+function load_or_open_bottom_sheet(page_name, action_name) {
     // see if page_name_bottom_sheet is loaded inside bottom_drag_sheet_stored_templates
     return new Promise((resolve, reject) => {
         var bottom_sheet_stored_templates = document.getElementById(action_name + "__bottom_sheet_action_template");
@@ -473,7 +473,7 @@ function load_more_patients(button) {
             edit_id: patient_id
         };
     
-        top_bar_current_view_action(current_page, "create_or_edit_patient")
+        load_or_open_bottom_sheet(current_page, "create_or_edit_patient")
         .then(() => {
             popualte_create_or_add_patient_bottom_sheet();   
         });
@@ -844,7 +844,7 @@ function re_initialize_add_content_obj(to_do_or_paient, to_do_or_patient_id) {
 function add_content(to_do_or_paient, to_do_or_patient_id) {
     re_initialize_add_content_obj(to_do_or_paient, to_do_or_patient_id);
     // load/open add_conmtent bottom_sheet
-    show_pop_up_message(to_do_or_paient + " " + to_do_or_patient_id, false);
+    load_or_open_bottom_sheet("add_content", "add_content");
 }
 
 
@@ -1206,7 +1206,7 @@ function edit_to_do(to_do_id) {
         edit_id: to_do_id
     };
 
-    top_bar_current_view_action(current_page, "create_or_edit_to_do")
+    load_or_open_bottom_sheet(current_page, "create_or_edit_to_do")
     .then(() => {
         popualte_create_or_add_to_do_bottom_sheet();   
     });

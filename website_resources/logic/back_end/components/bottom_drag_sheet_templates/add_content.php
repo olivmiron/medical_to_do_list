@@ -1,4 +1,4 @@
-<div id="add_media__bottom_sheet_action_template" class="bottom_sheet_component">
+<div id="add_content__bottom_sheet_action_template" class="bottom_sheet_component">
     <div class="bottom_sheet_title"><span>Add content</span></div>
     <div class="spacer_large"></div>
 
