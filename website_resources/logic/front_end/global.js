@@ -844,7 +844,7 @@ function re_initialize_add_content_obj(to_do_or_paient, to_do_or_patient_id) {
 function add_content(to_do_or_paient, to_do_or_patient_id) {
     re_initialize_add_content_obj(to_do_or_paient, to_do_or_patient_id);
     // load/open add_conmtent bottom_sheet
-    
+    show_pop_up_message(to_do_or_paient + " " + to_do_or_patient_id, false);
 }
 
 
