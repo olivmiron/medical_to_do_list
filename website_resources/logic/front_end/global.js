@@ -913,19 +913,27 @@ function displaySelectedMedia(file) {
     const template = document.getElementById('add_content_media_element_template').content.cloneNode(true);
     const mediaElement = template.querySelector('.add_media_bottom_sheet_added_media_element');
 
+    //image or video
     const imgOrVideo = mediaElement.querySelector('.add_media_bottom_sheet_added_media_element_image_video');
-    const title = mediaElement.querySelector('.add_media_bottom_sheet_added_media_element_title');
 
     if (file.type.startsWith('image/')) {
         imgOrVideo.src = URL.createObjectURL(file);
-        title.innerText = file.name;
     } else if (file.type.startsWith('video/')) {
         const video = document.createElement('video');
         video.src = URL.createObjectURL(file);
         video.controls = true;
         imgOrVideo.replaceWith(video);
-        title.innerText = file.name;
     }
+
+    //title
+    const title = mediaElement.querySelector('.add_media_bottom_sheet_added_media_element_title');
+
+    const filename = file.name;
+    const truncatedName = filename.length > 25 ? 
+        filename.substr(0, 22) + '...' : 
+        filename;
+    const fileFormat = filename.split('.').pop();
+    title.innerText = (add_content_obj.media.length) + '. ' + truncatedName + ' .' + fileFormat;
 
 
     // if <2 elements remaining in the media array, change column count to 1
@@ -933,6 +941,7 @@ function displaySelectedMedia(file) {
         document.querySelector('.add_media_bottom_sheet_added_media_container').style.columnCount = '2';
     }
 
+    // add it to the DOM
     mediaElement.setAttribute('data-added_media_element_id', add_content_obj.media.length - 1);
     mediaContainer.appendChild(mediaElement);
 
