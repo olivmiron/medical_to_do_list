@@ -11,6 +11,9 @@
     <div class="bottom_sheet_sub_title"><span>Add media</span><span class="add_media_due_date_span"></span></div>
 
     <div>
+        <div class="add_media_bottom_sheet_added_media_container">
+            <span>Image_01......jpg</span>
+        </div>
         <div class="button">Add media</div>
     </div>
     
