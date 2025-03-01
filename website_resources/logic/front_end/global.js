@@ -854,19 +854,19 @@ function add_content_to_db() {
 
     if(add_content_obj.title == "") {document.getElementById("add_content_title_input").classList.add("empty_input");return;}
 
+    const formData = new FormData();
+    formData.append('title', add_content_obj.title);
+    formData.append('description', add_content_obj.description);
+    formData.append('to_do_or_patient', add_content_obj.to_do_or_patient);
+    formData.append('to_do_or_patient_id', add_content_obj.to_do_or_patient_id);
+
+    add_content_obj.media.forEach((file, index) => {
+        formData.append(`media[${index}]`, file);
+    });
 
     fetch('/website_resources/logic/back_end/components/bottom_drag_sheet_templates/dependencies/add_content_script.php', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            title: add_content_obj.title, 
-            description: add_content_obj.description, 
-            media: add_content_obj.media, 
-            to_do_or_patient: add_content_obj.to_do_or_patient, 
-            to_do_or_patient_id: add_content_obj.to_do_or_patient_id
-        })
+        body: formData
     })
     .then(response => response.json())
     .then(data => {

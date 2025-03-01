@@ -3,32 +3,31 @@ $initial_load = false;
 require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/global_requirements.php";
 require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/database_connect.php";
 
-$data = json_decode(file_get_contents('php://input'), true);
+$data = $_POST;
 
 $title = $data['title'];
 $description = $data['description'];
 $to_do_or_patient = $data['to_do_or_patient'];
 $to_do_or_patient_id = $data['to_do_or_patient_id'];
-$media = $data['media'];
+$media = $_FILES['media'];
 
 if (empty($title) or empty($to_do_or_patient) or empty($to_do_or_patient_id)) {
     echo json_encode(['status' => 'error', 'message' => 'Title is required']);
     exit();
 }
 
-
 $to_do_or_patient = $to_do_or_patient === 'to_do' ? 0 : 1;
 
 // Set date and initial values
 $date_added = date('Y-m-d H:i:s');
-$contains_media = !empty($media) ? count($media) : 0;
+$contains_media = !empty($media) ? count($media['name']) : 0;
 $visible = 1;
 
 // Collect media extensions if files exist
 $media_extensions = [];
 if ($contains_media) {
-    foreach ($media as $file) {
-        $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+    foreach ($media['name'] as $file_name) {
+        $ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
         $media_extensions[] = $ext;
     }
 }
@@ -42,10 +41,9 @@ if ($stmt->execute()) {
     $content_id = $stmt->insert_id;
 
     // Handle media files
-    foreach ($media as $index => $file) {
-        $file_name = $file['name'];
-        $file_tmp = $file['tmp_name'];
-        $file_type = $file['type'];
+    foreach ($media['name'] as $index => $file_name) {
+        $file_tmp = $media['tmp_name'][$index];
+        $file_type = $media['type'][$index];
         $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
         $file_new_name = $content_id . '_' . ($index + 1) . '.' . $file_ext;
 
