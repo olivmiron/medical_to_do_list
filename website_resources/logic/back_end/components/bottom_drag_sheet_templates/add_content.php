@@ -22,7 +22,7 @@
             </div>
 
         </div>
-        <div class="button">Add media</div>
+        <div class="button" onclick="add_media_bottom_sheet_add_media_button()">Add media</div>
     </div>
     
     <div class="spacer_xxl"></div>
@@ -34,3 +34,13 @@
 
     <div class="big_bottom_sheet_action_button" onclick="add_content_to_db()"><span>Add media</span></div>
 </div>
+
+<template id="add_content_media_element_template">
+    <div class="add_media_bottom_sheet_added_media_element" data-added_media_element_id="1" >
+        <img src="/content_resources/media_content/images/1.jpg" />
+        <div>
+            <span class="add_media_bottom_sheet_added_media_element_title">Image_01......jpg</span>
+            <img src="/website_resources/design/media/icons/global/close.png" alt="Delete" onclick="add_media_bottom_sheet_added_media_element_remove(this)"/>
+        </div>
+    </div>
+</template>
