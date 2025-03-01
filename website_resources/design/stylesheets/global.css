@@ -573,6 +573,7 @@ br {height: 20px;}
 .add_media_bottom_sheet_added_media_element_title {
     font-size: 18px;
     font-weight: bold;
+    word-break: break-all;
 }
 .add_media_bottom_sheet_added_media_element div img {
     height: 20px;
