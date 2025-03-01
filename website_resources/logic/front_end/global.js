@@ -860,7 +860,13 @@ function add_content_to_db() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({title: add_content_obj.title, description: add_content_obj.description, media: add_content_obj.media, to_do_or_paient: add_content_obj.to_do_or_patient, to_do_or_paient_id: add_content_obj.to_do_or_patient_id})
+        body: JSON.stringify({
+            title: add_content_obj.title, 
+            description: add_content_obj.description, 
+            media: add_content_obj.media, 
+            to_do_or_paient: add_content_obj.to_do_or_patient, 
+            to_do_or_paient_id: add_content_obj.to_do_or_patient_id
+        })
     })
     .then(response => response.json())
     .then(data => {
