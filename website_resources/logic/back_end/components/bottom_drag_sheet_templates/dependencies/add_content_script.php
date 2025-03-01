@@ -8,7 +8,6 @@ $data = json_decode(file_get_contents('php://input'), true);
 $title = $data['title'];
 $description = $data['description'];
 $to_do_or_patient = $data['to_do_or_patient'];
-$to_do_or_patient = $to_do_or_patient === 'to_do' ? 0 : 1;
 $to_do_or_patient_id = $data['to_do_or_patient_id'];
 $media = $data['media'];
 
@@ -16,6 +15,10 @@ if (empty($title) or empty($to_do_or_patient) or empty($to_do_or_patient_id)) {
     echo json_encode(['status' => 'error', 'message' => 'Title is required']);
     exit();
 }
+
+
+$to_do_or_patient = $to_do_or_patient === 'to_do' ? 0 : 1;
+
 // Set date and initial values
 $date_added = date('Y-m-d H:i:s');
 $contains_media = !empty($media) ? count($media) : 0;
