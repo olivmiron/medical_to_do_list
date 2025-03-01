@@ -8,16 +8,16 @@
     
     <div class="spacer_xxl"></div>
     
-    <div class="bottom_sheet_sub_title"><span>Description / details</span></div>
-    <textarea id="add_to_do_description_input"></textarea>
-    
-    <div class="spacer_xxl"></div>
-    
     <div class="bottom_sheet_sub_title"><span>Add media</span><span class="add_media_due_date_span"></span></div>
 
     <div>
         <div class="button">Add media</div>
     </div>
+    
+    <div class="spacer_xxl"></div>
+    
+    <div class="bottom_sheet_sub_title"><span>Description / details</span></div>
+    <textarea id="add_to_do_description_input"></textarea>
     
     <div class="spacer_xxl"></div>
 
