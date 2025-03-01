@@ -929,8 +929,8 @@ function displaySelectedMedia(file) {
     const title = mediaElement.querySelector('.add_media_bottom_sheet_added_media_element_title');
 
     const filename = file.name;
-    const truncatedName = filename.length > 25 ? 
-        filename.substr(0, 22) + '...' : 
+    const truncatedName = filename.length > 15 ? 
+        filename.substr(0, 12) + '...' : 
         filename;
     const fileFormat = filename.split('.').pop();
     title.innerText = (add_content_obj.media.length) + '. ' + truncatedName + ' .' + fileFormat;
