@@ -43,20 +43,24 @@ $add_content_stmt->bind_param("iississi", $to_do_or_patient, $to_do_or_patient_i
 
 function resize_image($file, $max_width, $quality) {
     list($width, $height) = getimagesize($file);
+    // Always compress, resize if width exceeds max_width
     if ($width > $max_width) {
         $ratio = $max_width / $width;
         $new_width = $max_width;
         $new_height = $height * $ratio;
-
-        $src = imagecreatefromstring(file_get_contents($file));
-        $dst = imagecreatetruecolor($new_width, $new_height);
-
-        imagecopyresampled($dst, $src, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
-        imagejpeg($dst, $file, $quality);
-
-        imagedestroy($src);
-        imagedestroy($dst);
+    } else {
+        $new_width = $width;
+        $new_height = $height;
     }
+
+    $src = imagecreatefromstring(file_get_contents($file));
+    $dst = imagecreatetruecolor($new_width, $new_height);
+
+    imagecopyresampled($dst, $src, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+    imagejpeg($dst, $file, $quality);
+
+    imagedestroy($src);
+    imagedestroy($dst);
 }
 
 if ($add_content_stmt->execute()) {
@@ -77,7 +81,7 @@ if ($add_content_stmt->execute()) {
             if (move_uploaded_file($file_tmp, $file_path)) {
                 // Resize and compress image if it's an image file
                 if (strpos($file_type, 'image') !== false) {
-                    resize_image($file_path, 720, 85);
+                    resize_image($file_path, 1080, 85);
                 }
 
                 $query = "INSERT INTO media (content_id, file_name, file_type, file_path, date_added) VALUES (?, ?, ?, ?, NOW())";
