@@ -70,7 +70,7 @@ if ($stmt->execute()) {
         'elements_to_load' => 1
     ];
     $content_html = "";
-    ob_encode();
+    ob_start();
     require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/global_requirements.php";
     $content_html = json_decode(ob_get_clean(), true)['content_html'];
     
