@@ -1024,6 +1024,9 @@ function delete_media_element(media_element_id, patient_or_to_do, confirmed) {
             peek_content_numbering.innerText = parseInt(peek_content_numbering.innerText) - 1;
             document.getElementById('media_element__' + media_element_id).remove();
 
+            
+            show_pop_up_message('Successfully deleted media element.', false);
+
 }
     })   
     .catch(error => {
