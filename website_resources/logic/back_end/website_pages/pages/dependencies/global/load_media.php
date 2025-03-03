@@ -52,6 +52,7 @@ while ($row = $result->fetch_assoc()) {
     $content_html .= str_replace(
         [
             '{{media_element_id}}', 
+            '{{patient_or_to_do}}', 
             '{{media_element_date}}',
             "{{media_element_file_number}}", 
             '{{media_element_title}}',
@@ -62,6 +63,7 @@ while ($row = $result->fetch_assoc()) {
         ],
         [
             $row['id'], 
+            $row["patient_or_to_do"] == 0 ? "to_do" : "patient",
             date('d M Y H:i', strtotime($row['date_added'])),
             ' - ' . $media_element_file_number . ' file' . ($media_element_file_number != 1 ? 's' : ''),
             $row['title'],

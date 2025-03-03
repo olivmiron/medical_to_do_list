@@ -989,9 +989,9 @@ function add_media_bottom_sheet_added_media_element_remove(button) {
 
 
 
-function delete_media_element(media_element_id, confirmed) {
+function delete_media_element(media_element_id, patient_or_to_do, confirmed) {
     if (confirmed !== true) {
-        pop_up_message_get_confirmation("Do you really want to delete this media element?", true, "delete_media_element('" + media_element_id + "', true)");
+        pop_up_message_get_confirmation("Do you really want to delete this media element?", true, "delete_media_element('" + media_element_id + "', '" + patient_or_to_do + "', true)");
         return;
     }
 
@@ -1007,7 +1007,12 @@ function delete_media_element(media_element_id, confirmed) {
     .then(data => {
         if (data.status == "success") {
             // Remove the group row from the settings page
-            let peek_content_numbering = document.getElementById('media_element__' + media_element_id).closest(".to_do_item").querySelector(".content_peek_content").querySelector("div");
+            if(patient_or_to_do == "to_do") {
+                let peek_content_numbering = document.getElementById('media_element__' + media_element_id).closest(".to_do_item").querySelector(".content_peek_content").querySelector("div");
+            }
+            else {
+                let peek_content_numbering = document.getElementById('media_element__' + media_element_id).closest(".patient_card").querySelector(".content_peek_content").querySelector("div");
+            }
             peek_content_numbering.innerText = parseInt(peek_content_numbering.innerText) - 1;
             document.getElementById('media_element__' + media_element_id).remove();
 
