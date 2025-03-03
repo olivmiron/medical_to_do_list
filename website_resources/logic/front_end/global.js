@@ -771,7 +771,7 @@ function toggle_content(to_do_or_patient, to_do_or_patient_id) {
 }
 
 function load_more_content(to_do_or_patient, to_do_or_patient_id) {
-    var respective_patient_or_to_do_element = document.getElementById(to_do_or_patient + "__" + to_do_id);
+    var respective_patient_or_to_do_element = document.getElementById(to_do_or_patient + "__" + to_do_or_patient_id);
     load_media_content(to_do_or_patient, to_do_or_patient_id, respective_patient_or_to_do_element.querySelector(".patient_or_to_do_content_inside").querySelectorAll(".media_element").length)
             .then(data => {
                 if(data.status == "success") {
