@@ -9,9 +9,9 @@ $title = $data['title'];
 $description = $data['description'];
 $to_do_or_patient = $data['to_do_or_patient'];
 $to_do_or_patient_id = $data['to_do_or_patient_id'];
-// if(!empty($data['media'])) {
+if(!empty($data['media'])) {
     $media = $data['media'];
-// }
+}
 
 if (empty($title) or empty($to_do_or_patient) or empty($to_do_or_patient_id)) {
     echo json_encode(['status' => 'error', 'message' => 'Title is required']);
