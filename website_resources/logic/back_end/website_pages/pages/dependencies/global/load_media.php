@@ -3,27 +3,39 @@ $initial_load = false;
 require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/global_requirements.php";
 require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/database_connect.php";
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    echo json_encode(["status" => "error", "message" => "Invalid request method."]);
-    exit;
+if(empty($load_one_media_element)) {
+
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        echo json_encode(["status" => "error", "message" => "Invalid request method."]);
+        exit;
+    }
+    
+    $input = json_decode(file_get_contents('php://input'), true);
+    
+    if(!in_array($input['to_do_or_patient'], ['to_do', 'patient'])) {
+        echo json_encode(["status" => "error", "message" => "Invalid request."]);
+        exit;
+    }
+    
+    $to_do_or_patient = $input['to_do_or_patient'] === 'to_do' ? 0 : 1;
+    $element_id = (int)$input['element_id'];
+    $content_elements_already_loaded = (int)$input['content_elements_already_loaded'];
+    $elements_to_load = 5;
+}
+else {
+    
+    $to_do_or_patient = $load_one_media_element['to_do_or_patient'] === 'to_do' ? 0 : 1;
+    $element_id = (int)$load_one_media_element['element_id'];
+    $content_elements_already_loaded = (int)$load_one_media_element['content_elements_already_loaded'];
+    $elements_to_load = $load_one_media_element['elements_to_load'];
 }
 
-$input = json_decode(file_get_contents('php://input'), true);
-
-if(!in_array($input['to_do_or_patient'], ['to_do', 'patient'])) {
-    echo json_encode(["status" => "error", "message" => "Invalid request."]);
-    exit;
-}
-
-$to_do_or_patient = $input['to_do_or_patient'] === 'to_do' ? 0 : 1;
-$element_id = (int)$input['element_id'];
-$content_elements_already_loaded = (int)$input['content_elements_already_loaded'];
 
 // CHECK IF USER IS ALLOWED TO SEE THIS CONTENT
 // ...
 
-$stmt = $conn->prepare("SELECT * FROM added_content WHERE patient_or_to_do = ? AND patient_or_to_do_id = ? AND visible = 1 ORDER BY date_added DESC LIMIT 5 OFFSET ?");
-$stmt->bind_param("iii", $to_do_or_patient, $element_id, $content_elements_already_loaded);
+$stmt = $conn->prepare("SELECT * FROM added_content WHERE patient_or_to_do = ? AND patient_or_to_do_id = ? AND visible = 1 ORDER BY date_added DESC LIMIT ? OFFSET ?");
+$stmt->bind_param("iiii", $to_do_or_patient, $element_id, $elements_to_load, $content_elements_already_loaded);
 $stmt->execute();
 $result = $stmt->get_result();
 
