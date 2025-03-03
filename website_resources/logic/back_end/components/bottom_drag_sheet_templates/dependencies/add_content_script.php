@@ -43,21 +43,23 @@ if ($stmt->execute()) {
     $content_id = $stmt->insert_id;
 
     // Handle media files
-    foreach ($media['name'] as $index => $file_name) {
-        $file_tmp = $media['tmp_name'][$index];
-        $file_type = $media['type'][$index];
-        $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
-        $file_new_name = $content_id . '_' . ($index + 1) . '.' . $file_ext;
-
-        // Determine the folder based on file type
-        $folder = (strpos($file_type, 'image') !== false) ? 'images' : 'videos';
-        $file_path = $_SERVER['DOCUMENT_ROOT'] . "/content_resources/media_content/" . $folder . "/" . $file_new_name;
-
-        if (move_uploaded_file($file_tmp, $file_path)) {
-            $query = "INSERT INTO media (content_id, file_name, file_type, file_path, date_added) VALUES (?, ?, ?, ?, NOW())";
-            $stmt = $conn->prepare($query);
-            $stmt->bind_param("isss", $content_id, $file_name, $file_type, $file_new_name);
-            $stmt->execute();
+    if(!empty($media)) {
+        foreach ($media['name'] as $index => $file_name) {
+            $file_tmp = $media['tmp_name'][$index];
+            $file_type = $media['type'][$index];
+            $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+            $file_new_name = $content_id . '_' . ($index + 1) . '.' . $file_ext;
+    
+            // Determine the folder based on file type
+            $folder = (strpos($file_type, 'image') !== false) ? 'images' : 'videos';
+            $file_path = $_SERVER['DOCUMENT_ROOT'] . "/content_resources/media_content/" . $folder . "/" . $file_new_name;
+    
+            if (move_uploaded_file($file_tmp, $file_path)) {
+                $query = "INSERT INTO media (content_id, file_name, file_type, file_path, date_added) VALUES (?, ?, ?, ?, NOW())";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param("isss", $content_id, $file_name, $file_type, $file_new_name);
+                $stmt->execute();
+            }
         }
     }
 
