@@ -9,8 +9,8 @@ $title = $data['title'];
 $description = $data['description'];
 $to_do_or_patient = $data['to_do_or_patient'];
 $to_do_or_patient_id = $data['to_do_or_patient_id'];
-if(!empty($data['media'])) {
-    $media = $data['media'];
+if(!empty($_FILES['media'])) {
+    $media = $_FILES['media'];
 } else {
     $media = [];
 }
