@@ -928,8 +928,17 @@ function add_media_bottom_sheet_add_media_button() {
     input.onchange = (event) => {
         const files = event.target.files;
         for (let i = 0; i < files.length; i++) {
-            add_content_obj.media.push(files[i]);
-            displaySelectedMedia(files[i]);
+            const file = files[i];
+            if (file.type.startsWith('image/') && file.size > 8 * 1024 * 1024) {
+                show_pop_up_message('Image file size should not exceed 8MB', true);
+                continue;
+            }
+            if (file.type.startsWith('video/') && file.size > 25 * 1024 * 1024) {
+                show_pop_up_message('Video file size should not exceed 25MB', true);
+                continue;
+            }
+            add_content_obj.media.push(file);
+            displaySelectedMedia(file);
         }
     };
 
