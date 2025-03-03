@@ -48,6 +48,23 @@ if (empty($title) or empty($to_do_or_patient) or empty($to_do_or_patient_id)) {
     exit();
 }
 
+
+// Validate media file sizes
+foreach ($media['name'] as $index => $file_name) {
+    $file_size = $media['size'][$index];
+    $file_type = $media['type'][$index];
+    
+    if (strpos($file_type, 'image') !== false && $file_size > 8 * 1024 * 1024) {
+        echo json_encode(['status' => 'error', 'message' => 'Image file size should not exceed 8MB']);
+        exit();
+    }
+    if (strpos($file_type, 'video') !== false && $file_size > 25 * 1024 * 1024) {
+        echo json_encode(['status' => 'error', 'message' => 'Video file size should not exceed 25MB']);
+        exit();
+    }
+}
+
+
 $to_do_or_patient = $to_do_or_patient === 'to_do' ? 0 : 1;
 
 // Set date and initial values
