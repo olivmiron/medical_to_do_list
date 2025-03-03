@@ -81,10 +81,11 @@ if ($stmt->execute()) {
     echo json_encode(['status' => 'error', 'message' => 'Failed to add content']);
 }
 
-if($stmt) {
+
+if(isset($stmt)) {
     $stmt->close();
 }
-if($conn) {
+if(isset($conn)) {
     $conn->close();
 }
 ?>
