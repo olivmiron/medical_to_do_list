@@ -25,8 +25,8 @@ if(empty($load_one_media_element)) {
 else {
     
     $to_do_or_patient = $load_one_media_element['to_do_or_patient'] === 'to_do' ? 0 : 1;
-    $element_id = (int)$load_one_media_element['element_id'];
-    $content_elements_already_loaded = (int)$load_one_media_element['content_elements_already_loaded'];
+    $element_id = (int)$load_one_media_element['to_do_or_patient_id'];
+    $content_elements_already_loaded = 0;
     $elements_to_load = $load_one_media_element['elements_to_load'];
 }
 
