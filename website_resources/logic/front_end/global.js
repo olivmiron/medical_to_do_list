@@ -745,28 +745,28 @@ function delete_to_do(to_do_id, confirmed) {
     .catch(error => {
         show_pop_up_message('Please try again later', true);
     });
-} 
+}
 
 function toggle_content(to_do_or_patient, to_do_or_patient_id) {
     var respective_patient_or_to_do_element = document.getElementById(to_do_or_patient + "__" + to_do_or_patient_id);
-    if(!respective_patient_or_to_do_element.querySelector(".content_peek").classList.contains(to_do_or_patient + "_content_peek_active")) {
-        respective_patient_or_to_do_element.querySelector(".content_peek").classList.add(to_do_or_patient + "_content_peek_active");
+    if(!respective_patient_or_to_do_element.querySelector(".content_peek").classList.contains("content_peek_active")) {
+        respective_patient_or_to_do_element.querySelector(".content_peek").classList.add("content_peek_active");
 
         if(parseInt(respective_patient_or_to_do_element.querySelector(".patient_or_to_do_content").getAttribute("data-content_loaded")) == 0) {
 
             load_more_content(to_do_or_patient, to_do_or_patient_id);
 
             respective_patient_or_to_do_element.querySelector(".patient_or_to_do_content").setAttribute("data-content_loaded", 1);
-            respective_patient_or_to_do_element.querySelector(".patient_or_to_do_content").classList.add(to_do_or_patient + "_content_visible");
+            respective_patient_or_to_do_element.querySelector(".patient_or_to_do_content").classList.add("patient_or_to_do_content_visible");
 
         }
         else {
-            respective_patient_or_to_do_element.querySelector(".patient_or_to_do_content").classList.add(to_do_or_patient + "_content_visible");
+            respective_patient_or_to_do_element.querySelector(".patient_or_to_do_content").classList.add("patient_or_to_do_content_visible");
         }
     }
     else {
-        respective_patient_or_to_do_element.querySelector(".content_peek").classList.remove(to_do_or_patient + "_content_peek_active");
-        respective_patient_or_to_do_element.querySelector(".patient_or_to_do_content").classList.remove(to_do_or_patient + "_content_visible");
+        respective_patient_or_to_do_element.querySelector(".content_peek").classList.remove("content_peek_active");
+        respective_patient_or_to_do_element.querySelector(".patient_or_to_do_content").classList.remove("patient_or_to_do_content_visible");
     }
 }
 
