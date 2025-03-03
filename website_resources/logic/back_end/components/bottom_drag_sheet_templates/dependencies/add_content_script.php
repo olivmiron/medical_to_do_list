@@ -73,10 +73,10 @@ if ($stmt->execute()) {
     ob_start();
     include $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/global_requirements.php";
     $xx = ob_get_clean();
-    $content_html = json_decode(ob_get_clean(), true)['content_html'];
+    $content_html = json_decode($xx, true)['content_html'];
     
 
-    echo json_encode(['status' => 'success', 'message' => 'Content added successfully', 'content_id' => $content_id, 'content_html' => base64_encode($content_html)]);
+    echo json_encode(['status' => 'success', 'message' => 'Content added successfully', 'content_id' => $content_id, 'content_html' => base64_encode($content_html), 'test' => $xx]);
 } else {
     echo json_encode(['status' => 'error', 'message' => 'Failed to add content']);
 }
