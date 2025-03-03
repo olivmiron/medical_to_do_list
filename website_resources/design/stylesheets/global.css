@@ -702,7 +702,9 @@ br {height: 20px;}
     }
 
 
-
+    .patient_right_down {
+        margin-top: var(--spacing_medium);
+    }
 
 
 
@@ -842,7 +844,13 @@ br {height: 20px;}
 
 
 
-.to_do_content_peek {
+
+/* common for to dos and patients */
+
+
+
+
+.content_peek {
     display: flex;
     align-items: center;
     background-color: none;
@@ -851,24 +859,24 @@ br {height: 20px;}
     /* padding: var(--spacing_small) var(--spacing_xl); */
     /* transition: var(--transition_fast); */
 }
-.to_do_content_peek img {height: 20px;}
-.to_do_content_peek_separator {
+.content_peek img {height: 20px;}
+.content_peek_separator {
     color: var(--color_light_gray);
     
     transition: var(--transition_fast);
 }
-.to_do_content_peek_separator:nth-of-type(2) {opacity: 0;}
-.to_do_content_peek_arrow {display: flex;}
-.to_do_content_peek_arrow img {opacity: 0.76;rotate: 0deg;transition: var(--transition_fast);}
-.to_do_content_peek_content, .to_do_content_peek_plus {
+.content_peek_separator:nth-of-type(2) {opacity: 0;}
+.content_peek_arrow {display: flex;}
+.content_peek_arrow img {opacity: 0.76;rotate: 0deg;transition: var(--transition_fast);}
+.content_peek_content, .content_peek_plus {
     display: flex;
     gap: var(--spacing_medium);
     position: relative;
     /* opacity: 0; */
     transition: var(--transition_fast);
 }
-.to_do_content_peek_plus {opacity: 0;}
-.to_do_content_peek_content div {
+.content_peek_plus {opacity: 0;}
+.content_peek_content div {
     position: absolute;
     top: 0;
     right: 0;
@@ -884,28 +892,27 @@ br {height: 20px;}
     padding: 0 var(--spacing_small);
     box-sizing: border-box;
 }
-.to_do_content_peek_content img, .to_do_content_peek_plus img {}
+.content_peek_content img, .content_peek_plus img {}
 
-.to_do_content_peek_active {
+.content_peek_active {
     /* background-color: var(--color_light_gray); */
 }
-.to_do_content_peek_active .to_do_content_peek_arrow img {opacity: 0.76;rotate: 180deg;}
-.to_do_content_peek_active .to_do_content_peek_plus {opacity: 0.76;}
-.to_do_content_peek_active .to_do_content_peek_separator:nth-of-type(2) {opacity: 1;}
-/* .to_do_content_peek_active .to_do_content_peek_separator {opacity: 1;} */
-/* .to_do_content_peek_active .to_do_content_peek_content {opacity: 1;} */
+.content_peek_active .content_peek_arrow img {opacity: 0.76;rotate: 180deg;}
+.content_peek_active .content_peek_plus {opacity: 0.76;}
+.content_peek_active .content_peek_separator:nth-of-type(2) {opacity: 1;}
+/* .content_peek_active .content_peek_separator {opacity: 1;} */
+/* .content_peek_active .content_peek_content {opacity: 1;} */
 
 
 
-.to_do_content {display: none;margin-top: var(--spacing_xl);}
-.to_do_content_no_content {text-align: center;margin-top: var(--spacing_xl);}
-.to_do_content_inside {}
-.to_do_content_load_more {text-align: center;margin-top: var(--spacing_xl);}
+.patient_or_to_do_content {display: none;margin-top: var(--spacing_xl);}
+.patient_or_to_do_content_no_content {text-align: center;margin-top: var(--spacing_xl);}
+.patient_or_to_do_content_inside {}
+.patient_or_to_do_content_load_more {text-align: center;margin-top: var(--spacing_xl);}
 
-.to_do_content_visible {display: block;}
+.patient_or_to_do_content_visible {display: block;}
 
 
-/* common for to dos and patients */
 
 
 .to_do_edit_done_button, .patient_edit_done_button {

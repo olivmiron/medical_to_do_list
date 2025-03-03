@@ -45,5 +45,29 @@
             <span>Description: </span>
             <span class="patient_description_span">{{patient_description}}</span>
         </div>
+
+        <div class="patient_right_down">
+
+            <div class="content_peek"><!--class: content_peek_active-->
+                <div class="content_peek_arrow" onclick="toggle_content('patient', '{{patient_id}}')"><img src="/website_resources/design/media/icons/global/drop_down_arrow.png"/></div>
+                <span class="content_peek_separator">|</span>
+                <div class="content_peek_content"><div>{{peek_content_number}}</div><img src="/website_resources/design/media/icons/global/content.png"/></div>
+                <span class="content_peek_separator">|</span>
+                <div class="content_peek_plus" onclick="add_content('patient', '{{patient_id}}')"><img src="/website_resources/design/media/icons/global/add.png"/></div>
+            </div>
+
+        </div>
+
+        <div class="patient_or_to_do_content" data-content_loaded="0"><!-- class: patient_or_to_do_content_visible -->
+            
+            <div class="patient_or_to_do_content_no_content"><span>No content yet</span></div>
+            
+            <div class="patient_or_to_do_content_inside"></div>
+            
+            <div class="flex_div_center_center">
+                <div class="patient_or_to_do_content_load_more button" onclick="load_more_content('{{to_do_id}}')">Load more</div>
+            </div>
+
+        </div>
     </div>
 </div>
