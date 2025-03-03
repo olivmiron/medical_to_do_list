@@ -34,10 +34,10 @@ else {
 // CHECK IF USER IS ALLOWED TO SEE THIS CONTENT
 // ...
 
-$stmt = $conn->prepare("SELECT * FROM added_content WHERE patient_or_to_do = ? AND patient_or_to_do_id = ? AND visible = 1 ORDER BY date_added DESC LIMIT ? OFFSET ?");
-$stmt->bind_param("iiii", $to_do_or_patient, $to_do_or_patient_id, $elements_to_load, $content_elements_already_loaded);
-$stmt->execute();
-$result = $stmt->get_result();
+$content_stmt = $conn->prepare("SELECT * FROM added_content WHERE patient_or_to_do = ? AND patient_or_to_do_id = ? AND visible = 1 ORDER BY date_added DESC LIMIT ? OFFSET ?");
+$content_stmt->bind_param("iiii", $to_do_or_patient, $to_do_or_patient_id, $elements_to_load, $content_elements_already_loaded);
+$content_stmt->execute();
+$result = $content_stmt->get_result();
 
 $content_template = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/website_pages/media_element.html');
 
@@ -98,10 +98,5 @@ $response = [
 
 echo json_encode($response);
 
-if($stmt) {
-    $stmt->close();
-}
-if($conn) {
-    $conn->close();
-}
+    $content_stmt->close();
 ?>
