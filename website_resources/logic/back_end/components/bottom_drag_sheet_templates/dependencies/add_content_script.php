@@ -36,11 +36,11 @@ if ($contains_media) {
 $media_extensions_str = implode(',', $media_extensions);
 
 $query = "INSERT INTO added_content (patient_or_to_do, patient_or_to_do_id, title, description, contains_media, media_extensions, date_added, visible) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-$stmt = $conn->prepare($query);
-$stmt->bind_param("iississi", $to_do_or_patient, $to_do_or_patient_id, $title, $description, $contains_media, $media_extensions_str, $date_added, $visible);
+$add_content_stmt = $conn->prepare($query);
+$add_content_stmt->bind_param("iississi", $to_do_or_patient, $to_do_or_patient_id, $title, $description, $contains_media, $media_extensions_str, $date_added, $visible);
 
-if ($stmt->execute()) {
-    $content_id = $stmt->insert_id;
+if ($add_content_stmt->execute()) {
+    $content_id = $add_content_stmt->insert_id;
 
     // Handle media files
     if(!empty($media)) {
@@ -56,9 +56,10 @@ if ($stmt->execute()) {
     
             if (move_uploaded_file($file_tmp, $file_path)) {
                 $query = "INSERT INTO media (content_id, file_name, file_type, file_path, date_added) VALUES (?, ?, ?, ?, NOW())";
-                $stmt = $conn->prepare($query);
-                $stmt->bind_param("isss", $content_id, $file_name, $file_type, $file_new_name);
-                $stmt->execute();
+                $add_media_stmt = $conn->prepare($query);
+                $add_media_stmt->bind_param("isss", $content_id, $file_name, $file_type, $file_new_name);
+                $add_media_stmt->execute();
+                $add_media_stmt->close();
             }
         }
     }
@@ -81,10 +82,9 @@ if ($stmt->execute()) {
     echo json_encode(['status' => 'error', 'message' => 'Failed to add content']);
 }
 
+$add_content_stmt->close();
 
-// if(isset($stmt)) {
-//     $stmt->close();
-// }
+
 // if(isset($conn)) {
 //     $conn->close();
 // }
