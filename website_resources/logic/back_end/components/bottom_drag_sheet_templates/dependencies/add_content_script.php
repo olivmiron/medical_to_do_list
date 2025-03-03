@@ -43,7 +43,7 @@ if ($add_content_stmt->execute()) {
     $content_id = $add_content_stmt->insert_id;
 
     // Handle media files
-    if(!empty($media)) {
+    // if(!empty($media)) {
         foreach ($media['name'] as $index => $file_name) {
             $file_tmp = $media['tmp_name'][$index];
             $file_type = $media['type'][$index];
@@ -62,7 +62,7 @@ if ($add_content_stmt->execute()) {
                 $add_media_stmt->close();
             }
         }
-    }
+    // }
 
     //construct content_html
     $load_one_media_element = [
