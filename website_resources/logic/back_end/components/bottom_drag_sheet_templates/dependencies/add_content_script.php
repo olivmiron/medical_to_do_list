@@ -9,9 +9,9 @@ $title = $data['title'];
 $description = $data['description'];
 $to_do_or_patient = $data['to_do_or_patient'];
 $to_do_or_patient_id = $data['to_do_or_patient_id'];
-if(!empty($data['media'])) {
+// if(!empty($data['media'])) {
     $media = $data['media'];
-}
+// }
 
 if (empty($title) or empty($to_do_or_patient) or empty($to_do_or_patient_id)) {
     echo json_encode(['status' => 'error', 'message' => 'Title is required']);
@@ -43,7 +43,7 @@ if ($add_content_stmt->execute()) {
     $content_id = $add_content_stmt->insert_id;
 
     // Handle media files
-    // if(!empty($media)) {
+    if(!empty($media)) {
         foreach ($media['name'] as $index => $file_name) {
             $file_tmp = $media['tmp_name'][$index];
             $file_type = $media['type'][$index];
@@ -62,7 +62,7 @@ if ($add_content_stmt->execute()) {
                 $add_media_stmt->close();
             }
         }
-    // }
+    }
 
     //construct content_html
     $load_one_media_element = [
