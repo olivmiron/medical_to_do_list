@@ -53,6 +53,10 @@ function pop_up_message_get_confirmation(message, distructive_or_not, passed_fun
 
 }
 
+function hide_pop_up_message() {
+    document.getElementById("pop_up_message").classList.remove("pop_up_message_visible");
+}
+
 
 
 
@@ -599,6 +603,7 @@ function load_more_patients(button) {
             pop_up_message_get_confirmation("Do you really want to delete this patient's data?", true, "delete_patient('" + patient_id + "', true)");
             return;
         }
+        else {hide_pop_up_message();}
     
         var data_in = { patient_id: patient_id};
         fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/patients/delete_patient.php', {
@@ -721,6 +726,7 @@ function delete_to_do(to_do_id, confirmed) {
         pop_up_message_get_confirmation("Do you really want to delete this to do?", true, "delete_to_do('" + to_do_id + "', true)");
         return;
     }
+    else {hide_pop_up_message();}
 
     var data_in = { to_do_id: to_do_id};
     fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/to_dos/delete_to_do.php', {
@@ -994,6 +1000,7 @@ function delete_media_element(media_element_id, patient_or_to_do, confirmed) {
         pop_up_message_get_confirmation("Do you really want to delete this media element?", true, "delete_media_element('" + media_element_id + "', '" + patient_or_to_do + "', true)");
         return;
     }
+    else {hide_pop_up_message();}
 
     var data_in = { media_element_id: media_element_id};
     fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/global/delete_media_element.php', {
@@ -1717,6 +1724,7 @@ function exit_group(group_id, confirmed) {
         pop_up_message_get_confirmation("Do you really want to leave this group?", true, "exit_group('" + group_id + "', true)");
         return;
     }
+    else {hide_pop_up_message();}
 
     var data_in = { group_id: group_id };
     fetch('/website_resources/logic/back_end/website_pages/pages/dependencies/groups/exit_group.php', {
