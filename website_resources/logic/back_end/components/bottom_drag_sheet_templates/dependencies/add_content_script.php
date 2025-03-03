@@ -82,10 +82,10 @@ if ($stmt->execute()) {
 }
 
 
-if(isset($stmt)) {
-    $stmt->close();
-}
-if(isset($conn)) {
-    $conn->close();
-}
+// if(isset($stmt)) {
+//     $stmt->close();
+// }
+// if(isset($conn)) {
+//     $conn->close();
+// }
 ?>
