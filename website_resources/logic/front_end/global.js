@@ -876,10 +876,12 @@ function add_content_to_db() {
         }
         else {
             show_pop_up_message('Failed to add content:', data.message, true);
+            close_bottom_sheet();
         }
     })
     .catch(error => {
         show_pop_up_message('Please try again later', true);
+        close_bottom_sheet();
     });
 }
 
