@@ -24,6 +24,17 @@ else {
         $patient_template = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/website_resources/logic/back_end/website_pages/pages/dependencies/patients/patient.html');
         
         $description_class = empty($row['description']) ? 'description_empty' : '';
+
+        
+
+        // Count the number of added_content rows for this to-do
+        $stmt_content = $conn->prepare("SELECT COUNT(*) AS content_count FROM added_content WHERE patient_or_to_do = 1 AND patient_or_to_do_id = ? AND visible = 1");
+        $stmt_content->bind_param("i", $row['id']);
+        $stmt_content->execute();
+        $content_result = $stmt_content->get_result();
+        $content_row = $content_result->fetch_assoc();
+        $content_count = $content_row['content_count'];
+        $stmt_content->close();
     
         $patient_html = str_replace(
             [
@@ -36,7 +47,9 @@ else {
                 '{{patient_age}}',
                 '{{patient_location}}',
                 'description_empty', 
-                '{{patient_description}}'
+                '{{patient_description}}', 
+
+                '{{peek_content_number}}'
             ],
             [
                 $row['id'], 
@@ -48,7 +61,9 @@ else {
                 $row['age'],
                 $row['location'],
                 empty($row['description']) ? 'description_empty' : '', 
-                $row['description']
+                $row['description'],
+
+                $content_count
             ],
             $patient_template
         );
