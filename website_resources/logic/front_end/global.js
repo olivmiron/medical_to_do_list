@@ -901,7 +901,6 @@ function add_content_to_db() {
 
     function add_content_to_patient_or_to_do(content_html) { // based on add_content_obj.to_do_or_patient
         // fetch website_resources/logic/back_end/website_pages/pages/dependencies/global/load_media.php iwth the mention to only fetch the last
-        // XXX
         let respective_patient_or_to_do_element = document.getElementById(add_content_obj.to_do_or_patient + "__" + add_content_obj.to_do_or_patient_id);
         respective_patient_or_to_do_element.querySelector(".patient_or_to_do_content_no_content").querySelector("span").innerText = "";
         respective_patient_or_to_do_element.querySelector(".patient_or_to_do_content_inside").innerHTML = atob(content_html) + respective_patient_or_to_do_element.querySelector(".patient_or_to_do_content_inside").innerHTML;
