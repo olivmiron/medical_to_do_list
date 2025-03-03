@@ -67,7 +67,9 @@ $patient_html = str_replace(
         '{{patient_age}}',
         '{{patient_location}}',
         'description_empty', 
-        '{{patient_description}}'
+        '{{patient_description}}', 
+
+        '{{peek_content_number}}'
     ],
     [
         $patient_id, 
@@ -79,7 +81,9 @@ $patient_html = str_replace(
         $patient_age,
         $patient_location,
         empty($patient_description) ? 'description_empty' : '', 
-        $patient_description
+        $patient_description,
+
+        0
     ],
     $patient_template
 );
