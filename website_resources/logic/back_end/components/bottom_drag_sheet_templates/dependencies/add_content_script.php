@@ -108,9 +108,9 @@ if ($add_content_stmt->execute()) {
                 }
                 elseif (strpos($file_type, 'video') !== false) {
                     $compressed_file_path = $_SERVER['DOCUMENT_ROOT'] . "/content_resources/media_content/" . $folder . "/compressed_" . $file_new_name;
-                    compress_video($file_path, $compressed_file_path, 720);
+                    compress_video($file_path, $file_path, 720);
                     // Replace original file with compressed file asynchronously
-                    rename($compressed_file_path, $file_path);
+                    // rename($compressed_file_path, $file_path);
                 }
 
                 $query = "INSERT INTO media (content_id, file_name, file_type, file_path, date_added) VALUES (?, ?, ?, ?, NOW())";
