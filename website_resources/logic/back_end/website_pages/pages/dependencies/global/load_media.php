@@ -98,6 +98,10 @@ $response = [
 
 echo json_encode($response);
 
-$stmt->close();
-$conn->close();
+if($stmt) {
+    $stmt->close();
+}
+if($conn) {
+    $conn->close();
+}
 ?>
