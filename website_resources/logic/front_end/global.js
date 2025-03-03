@@ -894,7 +894,7 @@ function add_content_to_db() {
         }
     })
     .catch(error => {
-        show_pop_up_message('Please try again later', true);
+        show_pop_up_message('Please try again later' + error, true);
         close_bottom_sheet();
     });
 
