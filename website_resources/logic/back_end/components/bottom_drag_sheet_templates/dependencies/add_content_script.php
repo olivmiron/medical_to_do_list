@@ -77,7 +77,7 @@ if ($add_content_stmt->execute()) {
             if (move_uploaded_file($file_tmp, $file_path)) {
                 // Resize and compress image if it's an image file
                 if (strpos($file_type, 'image') !== false) {
-                    resize_image($file_path, 720, 78);
+                    resize_image($file_path, 720, 85);
                 }
 
                 $query = "INSERT INTO media (content_id, file_name, file_type, file_path, date_added) VALUES (?, ?, ?, ?, NOW())";
