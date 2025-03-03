@@ -63,7 +63,14 @@ if ($stmt->execute()) {
         }
     }
 
-    echo json_encode(['status' => 'success', 'message' => 'Content added successfully', 'content_id' => $content_id]);
+    //construct content_html
+    $content_html = "";
+    ob_encode();
+    require $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/global_requirements.php";
+    $content_html = ob_get_clean();
+    
+
+    echo json_encode(['status' => 'success', 'message' => 'Content added successfully', 'content_id' => $content_id, 'content_html' => base64_encode($content_html)]);
 } else {
     echo json_encode(['status' => 'error', 'message' => 'Failed to add content']);
 }

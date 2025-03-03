@@ -871,7 +871,13 @@ function add_content_to_db() {
     .then(response => response.json())
     .then(data => {
         if(data.status == "success") {
-            add_content_to_patient_or_to_do(data.media_element_id, title, description, media);
+            add_content_to_patient_or_to_do(data.content_id, data.content_html);
+
+            
+            let peek_content_numbering = document.getElementById(add_content_obj.to_do_or_patient + "__" + add_content_obj.to_do_or_patient_id).querySelector(".peek_content_number");
+            peek_content_numbering.innerText = parseInt(peek_content_numbering.innerText) - 1;
+
+
             close_bottom_sheet();
         }
         else {
