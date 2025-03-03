@@ -882,7 +882,7 @@ function add_content_to_db() {
 
             
             let peek_content_numbering = document.getElementById(add_content_obj.to_do_or_patient + "__" + add_content_obj.to_do_or_patient_id).querySelector(".peek_content_number");
-            peek_content_numbering.innerText = parseInt(peek_content_numbering.innerText) - 1;
+            peek_content_numbering.innerText = parseInt(peek_content_numbering.innerText) + 1;
 
 
             show_pop_up_message('Successfully added content', false);
