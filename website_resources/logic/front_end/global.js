@@ -885,6 +885,7 @@ function add_content_to_db() {
             peek_content_numbering.innerText = parseInt(peek_content_numbering.innerText) - 1;
 
 
+            show_pop_up_message('Successfully added content', false);
             close_bottom_sheet();
         }
         else {
