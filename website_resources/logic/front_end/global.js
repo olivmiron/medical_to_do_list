@@ -877,7 +877,7 @@ function add_content_to_db() {
     .then(response => response.json())
     .then(data => {
         if(data.status == "success") {
-            add_content_to_patient_or_to_do(data.content_id, data.content_html);
+            add_content_to_patient_or_to_do(data.content_html);
 
             
             let peek_content_numbering = document.getElementById(add_content_obj.to_do_or_patient + "__" + add_content_obj.to_do_or_patient_id).querySelector(".peek_content_number");
