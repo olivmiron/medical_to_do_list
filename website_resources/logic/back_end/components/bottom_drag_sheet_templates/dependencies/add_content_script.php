@@ -11,6 +11,8 @@ $to_do_or_patient = $data['to_do_or_patient'];
 $to_do_or_patient_id = $data['to_do_or_patient_id'];
 if(!empty($data['media'])) {
     $media = $data['media'];
+} else {
+    $media = [];
 }
 
 if (empty($title) or empty($to_do_or_patient) or empty($to_do_or_patient_id)) {
@@ -27,7 +29,7 @@ $visible = 1;
 
 // Collect media extensions if files exist
 $media_extensions = [];
-if ($contains_media) {
+if (!empty($media['name'])) {
     foreach ($media['name'] as $file_name) {
         $ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
         $media_extensions[] = $ext;
@@ -43,7 +45,7 @@ if ($add_content_stmt->execute()) {
     $content_id = $add_content_stmt->insert_id;
 
     // Handle media files
-    if(!empty($media)) {
+    if(!empty($media['name'])) {
         foreach ($media['name'] as $index => $file_name) {
             $file_tmp = $media['tmp_name'][$index];
             $file_type = $media['type'][$index];
