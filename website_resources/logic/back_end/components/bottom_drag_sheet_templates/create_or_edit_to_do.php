@@ -15,7 +15,7 @@
     
     <div class="bottom_sheet_sub_title"><span>Due in</span><span class="create_or_edit_to_do_due_date_span"></span></div>
 
-    <div id="create_or_edit_to_do_due_date_picker" data-due_date="0">
+    <div id="create_or_edit_to_do_due_date_picker" data-due_date="0" data-due_or_not="0">
         <div class="due_date_picker_container">
             <div class="due_date_picker_bar">
                 <div class="due_date_picker_bar_none"></div>

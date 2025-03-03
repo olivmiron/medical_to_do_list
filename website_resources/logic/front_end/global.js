@@ -747,26 +747,26 @@ function delete_to_do(to_do_id, confirmed) {
     });
 } 
 
-function toggle_to_do_content(to_do_id) {
-    var respective_to_do_element = document.getElementById("to_do__" + to_do_id);
-    if(!respective_to_do_element.querySelector(".to_do_content_peek").classList.contains("to_do_content_peek_active")) {
-        respective_to_do_element.querySelector(".to_do_content_peek").classList.add("to_do_content_peek_active");
+function toggle_content(to_do_or_patient, to_do_id) {
+    var respective_to_do_element = document.getElementById(to_do_or_patient + "__" + to_do_id);
+    if(!respective_to_do_element.querySelector(".to_do_content_peek").classList.contains(to_do_or_patient + "_content_peek_active")) {
+        respective_to_do_element.querySelector(".to_do_content_peek").classList.add(to_do_or_patient + "_content_peek_active");
 
         if(parseInt(respective_to_do_element.querySelector(".to_do_content").getAttribute("data-content_loaded")) == 0) {
 
             load_more_content(to_do_id);
 
             respective_to_do_element.querySelector(".to_do_content").setAttribute("data-content_loaded", 1);
-            respective_to_do_element.querySelector(".to_do_content").classList.add("to_do_content_visible");
+            respective_to_do_element.querySelector(".to_do_content").classList.add(to_do_or_patient + "_content_visible");
 
         }
         else {
-            respective_to_do_element.querySelector(".to_do_content").classList.add("to_do_content_visible");
+            respective_to_do_element.querySelector(".to_do_content").classList.add(to_do_or_patient + "_content_visible");
         }
     }
     else {
-        respective_to_do_element.querySelector(".to_do_content_peek").classList.remove("to_do_content_peek_active");
-        respective_to_do_element.querySelector(".to_do_content").classList.remove("to_do_content_visible");
+        respective_to_do_element.querySelector(".to_do_content_peek").classList.remove(to_do_or_patient + "_content_peek_active");
+        respective_to_do_element.querySelector(".to_do_content").classList.remove(to_do_or_patient + "_content_visible");
     }
 }
 
