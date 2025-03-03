@@ -392,7 +392,7 @@ function startDragging(e) {
 }
 
 function drag(e) {
-    e.preventDefault();
+    // e.preventDefault();
     if (startY === 0) return;
     
     const currentY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
