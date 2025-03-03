@@ -77,7 +77,7 @@ if ($add_content_stmt->execute()) {
     $content_html = json_decode($xx, true)['content_html'];
     
 
-    echo json_encode(['status' => 'success', 'message' => 'Content added successfully', 'content_id' => $content_id, 'content_html' => base64_encode($content_html), 'test' => $xx]);
+    echo json_encode(['status' => 'success', 'message' => 'Content added successfully', 'content_id' => $content_id, 'content_html' => $content_html /* already base64_encoded */, 'test' => $xx]);
 } else {
     echo json_encode(['status' => 'error', 'message' => 'Failed to add content']);
 }
