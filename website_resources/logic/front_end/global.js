@@ -904,7 +904,7 @@ function add_content_to_db() {
         // XXX
         let respective_patient_or_to_do_element = document.getElementById(add_content_obj.to_do_or_patient + "__" + add_content_obj.to_do_or_patient_id);
         respective_patient_or_to_do_element.querySelector(".patient_or_to_do_content_no_content").querySelector("span").innerText = "";
-        respective_patient_or_to_do_element.querySelector(".patient_or_to_do_content_inside").innerHTML += atob(content_html);
+        respective_patient_or_to_do_element.querySelector(".patient_or_to_do_content_inside").innerHTML = atob(content_html) + respective_patient_or_to_do_element.querySelector(".patient_or_to_do_content_inside").innerHTML;
     }
     
 
