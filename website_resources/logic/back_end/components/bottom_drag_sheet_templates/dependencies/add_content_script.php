@@ -41,6 +41,24 @@ $query = "INSERT INTO added_content (patient_or_to_do, patient_or_to_do_id, titl
 $add_content_stmt = $conn->prepare($query);
 $add_content_stmt->bind_param("iississi", $to_do_or_patient, $to_do_or_patient_id, $title, $description, $contains_media, $media_extensions_str, $date_added, $visible);
 
+function resize_image($file, $max_width, $quality) {
+    list($width, $height) = getimagesize($file);
+    if ($width > $max_width) {
+        $ratio = $max_width / $width;
+        $new_width = $max_width;
+        $new_height = $height * $ratio;
+
+        $src = imagecreatefromstring(file_get_contents($file));
+        $dst = imagecreatetruecolor($new_width, $new_height);
+
+        imagecopyresampled($dst, $src, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+        imagejpeg($dst, $file, $quality);
+
+        imagedestroy($src);
+        imagedestroy($dst);
+    }
+}
+
 if ($add_content_stmt->execute()) {
     $content_id = $add_content_stmt->insert_id;
 
@@ -57,6 +75,11 @@ if ($add_content_stmt->execute()) {
             $file_path = $_SERVER['DOCUMENT_ROOT'] . "/content_resources/media_content/" . $folder . "/" . $file_new_name;
     
             if (move_uploaded_file($file_tmp, $file_path)) {
+                // Resize and compress image if it's an image file
+                if (strpos($file_type, 'image') !== false) {
+                    resize_image($file_path, 720, 78);
+                }
+
                 $query = "INSERT INTO media (content_id, file_name, file_type, file_path, date_added) VALUES (?, ?, ?, ?, NOW())";
                 $add_media_stmt = $conn->prepare($query);
                 $add_media_stmt->bind_param("isss", $content_id, $file_name, $file_type, $file_new_name);
