@@ -1007,11 +1007,12 @@ function delete_media_element(media_element_id, patient_or_to_do, confirmed) {
     .then(data => {
         if (data.status == "success") {
             // Remove the group row from the settings page
+            let peek_content_numbering;
             if(patient_or_to_do == "to_do") {
-                let peek_content_numbering = document.getElementById('media_element__' + media_element_id).closest(".to_do_item").querySelector(".content_peek_content").querySelector("div");
+                peek_content_numbering = document.getElementById('media_element__' + media_element_id).closest(".to_do_item").querySelector(".content_peek_content").querySelector("div");
             }
             else {
-                let peek_content_numbering = document.getElementById('media_element__' + media_element_id).closest(".patient_card").querySelector(".content_peek_content").querySelector("div");
+                peek_content_numbering = document.getElementById('media_element__' + media_element_id).closest(".patient_card").querySelector(".content_peek_content").querySelector("div");
             }
             peek_content_numbering.innerText = parseInt(peek_content_numbering.innerText) - 1;
             document.getElementById('media_element__' + media_element_id).remove();
