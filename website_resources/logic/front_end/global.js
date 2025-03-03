@@ -895,10 +895,17 @@ function add_content_to_db() {
         show_pop_up_message('Please try again later', true);
         close_bottom_sheet();
     });
-}
 
-function add_content_to_patient_or_to_do() { // based on add_content_obj.to_do_or_patient
-    // fetch website_resources/logic/back_end/website_pages/pages/dependencies/global/load_media.php iwth the mention to only fetch the last
+
+    function add_content_to_patient_or_to_do(content_html) { // based on add_content_obj.to_do_or_patient
+        // fetch website_resources/logic/back_end/website_pages/pages/dependencies/global/load_media.php iwth the mention to only fetch the last
+        // XXX
+        let respective_patient_or_to_do_element = document.getElementById(add_content_obj.to_do_or_patient + "__" + add_content_obj.to_do_or_patient_id);
+        respective_patient_or_to_do_element.querySelector(".patient_or_to_do_content_no_content").querySelector("span").innerText = "";
+        respective_patient_or_to_do_element.querySelector(".patient_or_to_do_content").innerHTML += atob(content_html);
+    }
+    
+
 }
 
 
