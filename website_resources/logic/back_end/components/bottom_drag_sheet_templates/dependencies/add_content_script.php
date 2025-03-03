@@ -72,6 +72,7 @@ if ($stmt->execute()) {
     $content_html = "";
     ob_start();
     include $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/core/global_requirements.php";
+    $xx = ob_get_clean();
     $content_html = json_decode(ob_get_clean(), true)['content_html'];
     
 
