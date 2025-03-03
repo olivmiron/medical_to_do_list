@@ -24,7 +24,7 @@
     
     <div class="spacer_xxl"></div>
 
-    <div class="big_bottom_sheet_action_button" onclick="add_content_to_db()"><span>Add media</span></div>
+    <div class="big_bottom_sheet_action_button" onclick="add_content_to_db()"><span>Add Content</span></div>
 </div>
 
 <template id="add_content_media_element_template">
