@@ -80,8 +80,8 @@ else {
 
     // update random token
 
-    $stmt_verify = $conn->prepare("UPDATE accounts SET user_tokens = CONCAT(user_tokens, ',', ?) " . ($update_last_updated ? ", date_updated = NOW()" : "") . " WHERE email = ?");
-    $stmt_verify->bind_param("ss", $new_token, $google_client_user["user_email"]);
+    $stmt_verify = $conn->prepare("UPDATE accounts SET user_tokens = IF(user_tokens IS NULL OR user_tokens = '', ?, CONCAT(user_tokens, ',', ?)) " . ($update_last_updated ? ", date_updated = NOW()" : "") . " WHERE email = ?");
+    $stmt_verify->bind_param("sss", $new_token, $new_token, $google_client_user["user_email"]);
     $stmt_verify->execute();
 
 }
