@@ -3,13 +3,13 @@
 
 // top_bar functions
 
-function change_top_bar_title(title) {
+export function change_top_bar_title(title) {
     var top_bar_title = document.getElementById("top_bar_title");
     top_bar_title.querySelector("span").innerHTML = title;
 }
 
 
-function toggle_top_bar_floater(floater_name) {
+export function toggle_top_bar_floater(floater_name) {
     var user_options_floater = document.getElementById(floater_name);
     if(user_options_floater == null) {return;}
 
@@ -17,7 +17,7 @@ function toggle_top_bar_floater(floater_name) {
     else {user_options_floater.classList.add('floater_hidden');}
 }
 
-function log_out() {
+export function log_out() {
     //go to log out page
     window.location.href = "/website_resources/logic/back_end/core/log_out.php";    
 }
@@ -26,7 +26,7 @@ function log_out() {
 
 
 
-function load_or_open_bottom_sheet(page_name, action_name) {
+export function load_or_open_bottom_sheet(page_name, action_name) {
     // see if page_name_bottom_sheet is loaded inside bottom_drag_sheet_stored_templates
     return new Promise((resolve, reject) => {
         var bottom_sheet_stored_templates = document.getElementById(action_name + "__bottom_sheet_action_template");
@@ -56,7 +56,7 @@ function load_or_open_bottom_sheet(page_name, action_name) {
     
 }
 
-function load_bottom_sheet_action_template(page_name) {
+export function load_bottom_sheet_action_template(page_name) {
     // make an ajax request to get the page content and populate the respective view_screen_page__PAGE_NAME
     var bottom_sheet_stored_templates = document.getElementById("bottom_drag_sheet_stored_templates");
 
@@ -81,7 +81,7 @@ function load_bottom_sheet_action_template(page_name) {
 
 // bottom_bar functions
 
-function change_page(page_name) {
+export function change_page(page_name) {
     if(!pages_array.includes(page_name)) {return;}
 
     if(!loaded_pages[page_name]) {load_page(page_name);}
