@@ -13,7 +13,7 @@
         <meta name="creator" content="Mironescu Olivier"/>
 
         <!-- logic -->
-        <script type="module" src="/website_resources/logic/front_end/global.js?v=<?php echo $current_time; ?>" async defer></script>
+        <script type="module" src="/website_resources/logic/front_end/global.js?v=<?php echo $current_time; ?>"></script>
         <script>
             const pages_array = <?php echo json_encode($pages_array); ?>;
             const pages_names_array = <?php echo json_encode($pages_names_array); ?>;
