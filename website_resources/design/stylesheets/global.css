@@ -1,4 +1,4 @@
-/* @import url('/website_resources/design/stylesheets/core.css'); */
+@import url('/website_resources/design/stylesheets/core.css');
 /* general rules */
 
 body {margin: 0;font-family: var(--nunito_font);margin: var(--top_bottom_bar_size) 0;}
