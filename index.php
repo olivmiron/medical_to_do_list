@@ -5,7 +5,6 @@
 
         <!-- design -->
         <link rel="stylesheet" href="/website_resources/design/stylesheets/global.css?v=<?php echo $current_time; ?>"></link>
-        <link rel="stylesheet" href="/website_resources/design/stylesheets/index.css?v=<?php echo $current_time; ?>"></link>
 
         <!-- favicon -->
         <link rel="icon" href="website_resources/design/media/favicon.ico">

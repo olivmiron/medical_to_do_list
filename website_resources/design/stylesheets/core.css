@@ -1,0 +1,155 @@
+@import url('/website_resources/design/stylesheets/core.css');
+
+/* root */
+
+:root {
+
+    /* general */
+
+--color_primary: #3e95d7;
+--color_primary_light: #aed0ea;
+--color_primary_darker: #1c80cb;
+--color_primary_saturated: #3597E0;
+
+--color_success: #33a728;
+--color_info: #17a2b8;
+--color_warning: #ffc107;
+--color_danger: #dc3545;
+
+--color_light: #d4d4d4;
+--color_light_gray: #c1c1c1;
+--color_gray: #6c757d;
+--color_dark_gray: #4a4c4f;
+--color_dark: #343a40;
+
+--nunito_font: 'Nunito', Arial, "Noto Sans";
+
+--spacing_small: 4px;
+--spacing_medium: 8px;
+--spacing_large: 12px;
+--spacing_xl: 16px;
+--spacing_xxl: 20px;
+
+--border_radius_small: 4px;
+--border_radius_medium: 8px;
+--border_radius_large: 12px;
+--border_radius_xl: 16px;
+--border_radius_xxl: 20px;
+
+--border_infinite_radius: 1000px;
+
+--transition_fast: 0.2s;
+--transition_medium: 0.4s;
+--transition_slow: 0.6s;
+
+--z_index_absolute_top: 1000;
+--z_index_overlay_screens: 500; /* draggable screens that come from the top or bottom of the screen */
+--z_index_top: 100;
+
+
+    /* element specific */
+
+--top_bottom_bar_size: 56px;
+
+--due_date_picker_pointer_size: 26px;
+--due_date_picker_reference_size: calc(var(--due_date_picker_pointer_size) + 2 * var(--spacing_small));
+
+--due_date_picker_line_height: 22px;
+
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url("/website_resources/design/media/fonts/Nunito_variable.ttf");
+}
+
+/* design elements */
+
+
+
+
+.spacer_small {height: var(--spacing_small);}
+.spacer_medium {height: var(--spacing_medium);}
+.spacer_large {height: var(--spacing_large);}
+.spacer_xl {height: var(--spacing_xl);}
+.spacer_xxl {height: var(--spacing_xxl);}
+
+
+.floating_box {background-color: white;border: 1px solid var(--color_light_gray);border-radius: var(--border_radius_medium);padding: var(--spacing_xl);box-shadow: 0px 2px 15px -7px var(--color_dark_gray);position: absolute;left: 50%;top: 51%;transform: translate(-50%, -50%);display: inline-block;text-align: center;transition: var(--transition_medium);z-index: var(--z_index_absolute_top);opacity: 1;}
+.floating_box:hover {box-shadow: 0px 2px 18px -7px var(--color_dark_gray);}
+
+
+.floating_box_hidden {top: -50%;opacity: 0;}
+
+
+.floating_box_title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.floating_box_close_button {position: absolute;top: var(--spacing_medium);right: var(--spacing_medium);}
+.floating_box_close_button img {height: 14px;opacity: 0.8;}
+
+/* custom UI elements */
+
+input[type=text], input[type=password], input[type=number], textarea {
+    padding: var(--spacing_medium) var(--spacing_large);
+    border-radius: var(--border_radius_small);
+    border: 1px solid var(--color_light_gray);
+    font-family: var(--nunito_font);
+    font-weight: bold;
+    font-size: 20px;
+    box-shadow: 0px 0px 5px -3px;
+    background-color: white;
+    transition: var(--transition_fast);
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+input[type=number] {
+    /* width: 46px; */
+    text-align: center;
+}
+
+input[type=text]:focus, input[type=number]:focus, input[type=password]:focus, textarea:focus {border: 1px solid var(--color_primary);box-shadow: 0px 0px 8px -3px;outline: none;}
+
+textarea {height: 150px;resize: none;}
+
+input.empty_input, textarea.empty_input {border: 1px solid var(--color_danger);box-shadow: 0px 0px 8px -3px var(--color_danger);}
+
+.required_field_star {
+    color: var(--color_danger);
+    font-weight: bold;
+    padding: 0 var(--spacing_small);
+}
+
+.image_button {    
+    flex: 0 0 auto;
+    display: flex;
+    opacity: 0.76;
+}
+.image_button img {height: 32px;}
+
+
+
+.button {
+    display: inline-block;
+    padding: var(--spacing_medium) var(--spacing_xl);
+    background-color: var(--color_primary);
+    border-radius: var(--border_radius_medium);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing_medium);
+    box-shadow: 0px 2px 10px -5px var(--color_gray);
+    cursor: pointer;
+    transition: var(--transition_medium);
+}
+.button:active {box-shadow: 0px 0px 8px -5px var(--color_gray);background-color: var(--color_success);}
+.button span {}
+.button img {height: 24px;}
