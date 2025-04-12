@@ -4,7 +4,7 @@
 
 
 /* website parts */
-@import url('/website_resources/design/stylesheets/website_parts/top_bottom_bar.css');
+@import url('/website_resources/design/stylesheets/website_parts/top_bottom_bars.css');
 @import url('/website_resources/design/stylesheets/website_parts/app_view_screen.css');
 
 @import url('/website_resources/design/stylesheets/website_parts/pages.css');
@@ -12,9 +12,3 @@
 
 /* components */
 @import url('/website_resources/design/stylesheets/components/bottom_drag_sheet.css');
-
-
-
-
-
-
