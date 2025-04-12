@@ -10,3 +10,5 @@ import "/website_resources/logic/front_end/website_parts/pages.js";
 
 // components
 import "/website_resources/logic/front_end/components/bottom_drag_sheet.js";
+
+TopBottomBars.change_page("settings");
