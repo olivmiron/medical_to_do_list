@@ -1,0 +1,72 @@
+
+
+/* top and bottom bars */
+
+
+.top_bottom_bar {
+    background-color: white;
+    box-shadow: 0px 0px 10px 0px var(--color_light_gray);
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: var(--z_index_top);
+    display: flex;
+    height: var(--top_bottom_bar_size);
+    box-sizing: border-box;
+    padding: var(--spacing_medium);
+}
+
+
+#top_bar {  
+    top: 0;  
+    border-bottom: 1px solid var(--color_light_gray);
+    padding: var(--spacing_medium);
+}
+
+#bottom_bar {
+    bottom: 0;
+    border-top: 1px solid var(--color_light_gray);
+}
+
+
+/* top bar specifics */
+
+
+#top_bar_title {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);font-size: 20px;font-weight: bold;max-width: calc(100% - var(--spacing_medium) * 4 - var(--top_bottom_bar_size) * 2);text-align: center;}
+
+#top_bar_left {flex: 0 0 auto;display: flex;align-items: center;}
+#top_bar_action_button {height: 100%;cursor: pointer;}
+#top_bar_middle {flex: 1 1 auto;}
+#top_bar_right {flex: 0 0 auto;display: flex;align-items: center;}
+#top_bar_user_picture {height: 100%;border-radius: var(--border_infinite_radius);cursor: pointer;}
+
+
+
+.top_bar_floater {position: fixed;top: calc(var(--top_bottom_bar_size) + var(--spacing_medium));background-color: white;border-radius: var(--border_radius_medium);border: 1px solid var(--color_light_gray);box-shadow: 0px 2px 11px -5px var(--color_gray);}
+.floater_right {right: var(--spacing_medium);}
+.floter_left {left: var(--spacing_medium);}
+.floater_hidden {display: none;}
+.floater_option {padding: var(--spacing_large) var(--spacing_xl);display: flex;align-items: center;gap: var(--spacing_medium);}
+.floater_option img {height: 22px;}
+.floater_option span {font-size: 14px;font-weight: bold;padding-right: var(--spacing_small);}
+
+
+/* bottom bar specifics */
+
+
+#bottom_bar {
+    justify-content: stretch;
+    align-items: stretch;
+    gap: var(--spacing_medium);
+}
+
+.bottom_bar_button {background-color: white;border-radius: var(--border_infinite_radius);display: flex;align-items: center;justify-content: center;padding: var(--spacing_small);flex: 1 1 0;transition: var(--transition_fast);cursor: pointer;}
+.bottom_bar_button:hover:not(.bottom_bar_button_active) {background-color: var(--color_light);}
+.bottom_bar_button_active {background-color: var(--color_primary);}
+.bottom_bar_button_active img {filter: invert(1);}
+
+.bottom_bar_button img {
+    height: 100%;
+    flex: 0 0 0%;
+}

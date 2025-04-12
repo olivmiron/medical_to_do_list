@@ -14,7 +14,6 @@
 
         <!-- logic -->
         <script src="/website_resources/logic/front_end/global.js?v=<?php echo $current_time; ?>" async defer></script>
-        <script src="/website_resources/logic/front_end/index.js?v=<?php echo $current_time; ?>" async defer></script>
         <script>
             const pages_array = <?php echo json_encode($pages_array); ?>;
             const pages_names_array = <?php echo json_encode($pages_names_array); ?>;

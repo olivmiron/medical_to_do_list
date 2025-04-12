@@ -1,0 +1,47 @@
+/* app view screen */
+
+#app_view_screen {
+    position: fixed;
+    top: var(--top_bottom_bar_size);
+    left: 0;
+    /* right: 0; */
+    width: 100%;
+    bottom: var(--top_bottom_bar_size);
+    background-color: white;
+    z-index: 0;
+    overflow-y: auto;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.app_view_screen_page {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+
+    overflow-y: auto;
+
+    z-index: 1;
+    transition: var(--transition_medium);
+
+    padding: var(--spacing_large);
+    box-sizing: border-box;
+}
+
+.app_view_screen_page_left {
+    left: -100%;
+    opacity: 0;
+}
+
+.app_view_screen_page_center {
+    left: 0%;
+    opacity: 1;
+}
+
+.app_view_screen_page_right {
+    left: 100%;
+    opacity: 0;
+}
+
