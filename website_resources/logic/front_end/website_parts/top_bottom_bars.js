@@ -1,6 +1,3 @@
-
-
-
 // top_bar functions
 
 export function change_top_bar_title(title) {
