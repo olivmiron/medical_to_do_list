@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-
         <!-- design -->
         <link rel="stylesheet" href="/website_resources/design/stylesheets/global.css?v=<?php echo $current_time; ?>"></link>
 
