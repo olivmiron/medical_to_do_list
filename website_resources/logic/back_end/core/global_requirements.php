@@ -16,12 +16,12 @@ $pages_uris = [
     "settings" => "website_resources/logic/back_end/website_pages/pages/settings.php"
 ];
 
-$pages_top_bar_action_buttons = [
-    "patients" => ["load_or_open_bottom_sheet('patients', 'create_or_edit_patient')", "/website_resources/design/media/icons/top_bar/add_patient.png"],
-    "group_to_dos" => ["load_or_open_bottom_sheet('group_to_dos', 'create_or_edit_to_do')", "/website_resources/design/media/icons/top_bar/add_to_do.png"],
-    "personal_to_dos" => ["load_or_open_bottom_sheet('personal_to_dos', 'create_or_edit_to_do')", "/website_resources/design/media/icons/top_bar/add_to_do.png"],
-    "settings" => ["load_or_open_bottom_sheet('settings', 'add_group')", "/website_resources/design/media/icons/top_bar/add_group.png"]
-];
+// $pages_top_bar_action_buttons = [
+//     "patients" => ["load_or_open_bottom_sheet('patients', 'create_or_edit_patient')", "/website_resources/design/media/icons/top_bar/add_patient.png"],
+//     "group_to_dos" => ["load_or_open_bottom_sheet('group_to_dos', 'create_or_edit_to_do')", "/website_resources/design/media/icons/top_bar/add_to_do.png"],
+//     "personal_to_dos" => ["load_or_open_bottom_sheet('personal_to_dos', 'create_or_edit_to_do')", "/website_resources/design/media/icons/top_bar/add_to_do.png"],
+//     "settings" => ["load_or_open_bottom_sheet('settings', 'add_group')", "/website_resources/design/media/icons/top_bar/add_group.png"]
+// ];
 
 $pages_drag_sheet_templates = [
     "patients" => "website_resources/logic/back_end/components/bottom_drag_sheet_templates/create_or_edit_patient.php",
