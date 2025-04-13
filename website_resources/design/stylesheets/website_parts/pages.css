@@ -43,14 +43,14 @@
             align-items: start;
             justify-content: stretch;
             gap: var(--spacing_medium);
-            padding: var(--spacing_medium);
+            padding: var(--spacing_large);
             margin-bottom: var(--spacing_large);
             background-color: white;
             border-radius: var(--border_radius_large);
             
             /*  */
             border: 1px solid var(--color_light_gray);
-            box-shadow: 0px 2px 10px -2px var(--color_gray);
+            box-shadow: 0px 2px 19px -8px var(--color_gray);
         }
         
         .patient_left {
