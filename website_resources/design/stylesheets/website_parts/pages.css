@@ -16,12 +16,13 @@
         cursor: pointer;
     }
     .page_title_button img {
-        height: 16px;
+        height: 18px;
         opacity: 0.5;
     }
     .page_title_button span {
         font-size: 14px;
         font-weight: bold;
+        opacity: 0.5;
     }
     .page_sub_title {font-size: 20px;font-weight: bold;margin: var(--spacing_medium) var(--spacing_medium) var(--spacing_small);color: var(--color_gray);}
     
