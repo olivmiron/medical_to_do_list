@@ -1,12 +1,11 @@
 <?php // include in the initial load of the page and in every ajax call !!!
 
+if(!isset($_SESSION))  {session_start();}
 $current_time = time();
-$app_version = "0.8.5";
+$app_version = "0.9.0";
 
 
 // global variables
-
-if(!isset($_SESSION))  {session_start();}
 
 $pages_array = ["patients", "group_to_dos", "personal_to_dos", "settings"];
 $pages_names_array = ["Patients", "Group to dos", "Personal to dos", "Settings"];
