@@ -3,7 +3,17 @@
 if($_SESSION["logged_in"]) {
     $_SESSION["loaded_pages"]["personal_to_dos"] = true; 
 ?>
-<div class="page_title"><span>Your To Dos</span></div>
+<div class="page_title">
+    <span>Your To Dos</span>
+
+    <div class="flex_spacer"></div>
+
+    <div class="page_title_button" onclick="load_or_open_bottom_sheet('personal_to_dos', 'create_or_edit_to_do')">
+        <img src="/website_resources/design/media/icons/top_bar/add_to_do.png"/>
+        <span>Add to do</span>
+    </div>
+
+</div>
 <div class="spacer_large"></div>
 <div id="view_screen_page__personal_to_dos__content">
 

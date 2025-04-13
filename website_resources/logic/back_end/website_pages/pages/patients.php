@@ -4,7 +4,15 @@ if($_SESSION["logged_in"]) {
     $_SESSION["loaded_pages"]["patients"] = true; 
 ?>
 <div class="page_title">
-    <span><?php include $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/website_pages/pages/dependencies/groups/get_group_name.php"; ?></span><span>'s Patients</span>
+    <span><?php include $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/website_pages/pages/dependencies/groups/get_group_name.php"; ?></span>
+    <span style="display: none;">'s Patients</span>
+
+<div class="flex_spacer"></div>
+
+<div class="page_title_button" onclick="load_or_open_bottom_sheet('patients', 'create_or_edit_patient')">
+    <img src="/website_resources/design/media/icons/top_bar/add_patient.png"/>
+    <span>Add patient</span>
+</div>
 </div>
 <div class="spacer_large"></div>
 <div id="view_screen_page__patients__content">

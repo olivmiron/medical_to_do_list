@@ -3,7 +3,17 @@
 if($_SESSION["logged_in"]) {
     $_SESSION["loaded_pages"]["settings"] = true; 
 ?>
-<div class="page_title"><span>Your groups</span></div>
+<div class="page_title">
+    <span>Your groups</span>
+
+    <div class="flex_spacer"></div>
+
+    <div class="page_title_button" onclick="load_or_open_bottom_sheet('settings', 'add_group')">
+        <img src="/website_resources/design/media/icons/top_bar/add_group.png"/>
+        <span>Add to do</span>
+    </div>
+
+</div>
 <div class="spacer_large"></div>
 <div id="view_screen_page__settings__content">
 

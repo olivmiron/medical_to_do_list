@@ -9,7 +9,7 @@ if($_SESSION["logged_in"]) {
 
     <div class="flex_spacer"></div>
 
-    <div class="page_title_button">
+    <div class="page_title_button" onclick="load_or_open_bottom_sheet('group_to_dos', 'create_or_edit_to_do')">
         <img src="/website_resources/design/media/icons/top_bar/add_to_do.png"/>
         <span>Add to do</span>
     </div>
