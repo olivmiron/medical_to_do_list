@@ -4,7 +4,11 @@ if($_SESSION["logged_in"]) {
     $_SESSION["loaded_pages"]["group_to_dos"] = true; 
 ?>
 <div class="page_title">
-    <span><?php include $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/website_pages/pages/dependencies/groups/get_group_name.php"; ?></span><span>'s To dos</span>
+    <span><?php include $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/website_pages/pages/dependencies/groups/get_group_name.php"; ?></span>
+    <span>'s To dos</span>
+
+    <div class="flex_spacer"></div>
+
     <div class="page_title_button">
         <img src="/website_resources/design/media/icons/top_bar/add_to_do.png"/>
         <span>Add to do</span>
