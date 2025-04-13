@@ -12,7 +12,7 @@
         gap: var(--spacing_small);
         padding: var(--spacing_medium);
         background-color: var(--color_light_gray);
-        border-radius: var(--border_radius_large);
+        border-radius: var(--border_infinite_radius);
         cursor: pointer;
     }
     .page_title_button img {
