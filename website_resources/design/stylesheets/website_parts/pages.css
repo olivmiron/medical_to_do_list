@@ -46,7 +46,7 @@
             padding: var(--spacing_medium);
             margin-bottom: var(--spacing_large);
             background-color: white;
-            border-radius: var(--border_radius_small);
+            border-radius: var(--border_radius_large);
             
             /*  */
             border: 1px solid var(--color_light_gray);

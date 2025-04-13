@@ -47,7 +47,7 @@
 .floater_right {right: var(--spacing_medium);}
 .floter_left {left: var(--spacing_medium);}
 .floater_hidden {display: none;}
-.floater_option {padding: var(--spacing_large) var(--spacing_xl);display: flex;align-items: center;gap: var(--spacing_medium);}
+.floater_option {padding: var(--spacing_large) var(--spacing_xl);display: flex;align-items: center;gap: var(--spacing_medium);cursor: pointer;}
 .floater_option img {height: 22px;}
 .floater_option span {font-size: 14px;font-weight: bold;padding-right: var(--spacing_small);}
 
