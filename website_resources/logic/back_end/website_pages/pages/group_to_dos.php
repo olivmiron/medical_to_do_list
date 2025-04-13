@@ -5,7 +5,7 @@ if($_SESSION["logged_in"]) {
 ?>
 <div class="page_title">
     <span><?php include $_SERVER['DOCUMENT_ROOT'] . "/website_resources/logic/back_end/website_pages/pages/dependencies/groups/get_group_name.php"; ?></span>
-    <span>'s To dos</span>
+    <span style="display: none;">'s To dos</span>
 
     <div class="flex_spacer"></div>
 
