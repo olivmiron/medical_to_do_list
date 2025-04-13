@@ -118,9 +118,9 @@ function change_page(page_name) {
     }
 
     //update top_nar action button
-    var top_bar_action_button = document.getElementById("top_bar_action_button");
-    top_bar_action_button.src = pages_top_bar_action_buttons[page_name][1];
-    top_bar_action_button.setAttribute("onclick", pages_top_bar_action_buttons[page_name][0]);
+    // var top_bar_action_button = document.getElementById("top_bar_action_button");
+    // top_bar_action_button.src = pages_top_bar_action_buttons[page_name][1];
+    // top_bar_action_button.setAttribute("onclick", pages_top_bar_action_buttons[page_name][0]);
 
 
     //update browser url

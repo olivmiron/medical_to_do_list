@@ -28,11 +28,11 @@ function load_page(page_name) {
     });
 
 
-    var top_bar_action_button = document.getElementById("top_bar_action_button")
+    // var top_bar_action_button = document.getElementById("top_bar_action_button");
 
-    top_bar_action_button.style.display = "block";
-    top_bar_action_button.onclick = pages_top_bar_action_buttons[page_name][0];
-    top_bar_action_button.src = pages_top_bar_action_buttons[page_name][1];
+    // top_bar_action_button.style.display = "block";
+    // top_bar_action_button.onclick = pages_top_bar_action_buttons[page_name][0];
+    // top_bar_action_button.src = pages_top_bar_action_buttons[page_name][1];
 
 
 }
