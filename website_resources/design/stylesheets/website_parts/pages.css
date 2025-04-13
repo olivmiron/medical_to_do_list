@@ -27,7 +27,6 @@
     .page_sub_title {font-size: 20px;font-weight: bold;margin: var(--spacing_medium) var(--spacing_medium) var(--spacing_small);color: var(--color_gray);}
     
     
-    
     .load_more_button_container {text-align: center;padding: var(--spacing_xl);}
     
     .middle_load_more_button {    
@@ -462,4 +461,11 @@
     .settings_misc_info {
         margin-top: var(--spacing_xxl);
         text-align: center;
+    }
+
+
+    
+    @media (max-width: 450px) {
+        .page_title {font-size: 20px;}
+        .page_title_button span {display: none;}
     }
