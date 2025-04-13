@@ -10,7 +10,7 @@ if($_SESSION["logged_in"]) {
 
     <div class="page_title_button" onclick="load_or_open_bottom_sheet('settings', 'add_group')">
         <img src="/website_resources/design/media/icons/top_bar/add_group.png"/>
-        <span>Add to do</span>
+        <span>Add group</span>
     </div>
 
 </div>
